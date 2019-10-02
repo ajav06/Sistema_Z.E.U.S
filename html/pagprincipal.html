@@ -15,14 +15,30 @@
         #item:hover {
          background-color: #DC143C;
         }
-        
+        #itemlistre:hover{background-color: #DC143C;}
         </style>
         <h1>
                 <div class="ui large segment" style="background-color:  #c6c4c4  ;height: 60px; padding-top: 0px;border-block-end:4px solid #DC143C;">    
                   <div class="ui right aligned fluid container" >
-                    <img class="ui avatar image" src="image/consideraciones-mejorar-primera-experiencia-de-usuario-aplicaciones-web-perfil-usuario.jpg" style="margin-block-start: 10px;"> 
+                          <div class="ui simple dropdown item" style=" margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  #c6c4c4;border: 0px #c6c4c4;"><i class="dropdown icon"></i>Armando Paredes<img class="ui avatar image" src="image/consideraciones-mejorar-primera-experiencia-de-usuario-aplicaciones-web-perfil-usuario.jpg" >
+                            <div class="menu">
+                              <div class="item">Mi informacion</div>
+                              <div class="item">Notificaciones</div>
+                              <div class="item">
+                                  <i class="left dropdown icon"></i>
+                                  <span class="text">Menú</span>
+                                  <div class="left menu">
+                                <div class="item">Seguridad</div>
+                                <div class="item">otras cosas que se me ocurriran despues</div>
+                              </div>
+                              </div>
+                              <div class="item">Cerrar Sesion</div>
+                            </div>
+                          </div>
+                        </div>
+                    
                 </div> 
-                </div>
+                
         </h1>
     <body>
             <div class="ui grid">
@@ -39,37 +55,26 @@
                       <div class="ui segment" style="width: 90%; border: 1px solid #DC143C">
                         <div class="ui segment" style="background-color: #c6c4c4; width: 30%;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 0px solid #c6c4c4;height: 400px;">
                         <p style="font-family: Georgia, 'Times New Roman', Times, serif;font-size: 7 px; text-align: center;">Ultimos Reportes</p>
-                        <div class="ui middle aligned divided list">
-                          <div class="item">
-                            <div class="right floated content">
-                              <div class="ui button">Ver</div>
+                        <div class="ui relaxed divided list">
+                            <div class="item" id="itemlistre">
+                              <div class="content">
+                                <a class="header" style="color: #ffff">Reporte 1</a>
+                                <div class="description">Realizado 2 dias</div>
+                              </div>
                             </div>
-                            <div class="column">
-                            
-                          </div>
-                          </div>
-                          <div class="item">
-                            <div class="right floated content">
-                              <div class="ui button">Ver</div>
+                            <div class="item"  id="itemlistre">
+                              <div class="content">
+                                <a class="header" style="color: #ffff" >Reporte 2</a>
+                                <div class="description" style="font-size: 15px;">Realizado hace 22 mins</div>
+                              </div>
                             </div>
-                            <img class="ui avatar image" src="">
-                            <div class="content">Lindsay </div>
-                          </div>
-                          <div class="item">
-                            <div class="right floated content">
-                              <div class="ui button">Ver</div>
+                            <div class="item" id="itemlistre">
+                              <div class="content">
+                                <a class="header" style="color: #ffff">Reporte 3</a>
+                                <div class="description">Realizado hace 5 minutos</div>
+                              </div>
                             </div>
-                            <img class="ui avatar image" src="">
-                            <div class="content">Mark </div>
                           </div>
-                          <div class="item">
-                            <div class="right floated content">
-                              <div class="ui button">Ver</div>
-                            </div>
-                            <img class="ui avatar image" src="">
-                            <div class="content">Molly </div>
-                          </div>
-                        </div>
                      </div>
                       </div> 
                     </div>
