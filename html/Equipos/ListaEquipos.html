@@ -10,9 +10,11 @@
         <title>Mi página en proceso</title>
         </head>
         <style type="text/css">
+            #item { color:black}
             #item:hover {
-              background-color: #DC143C
+              background-color: #DC143C;color: #ffff;
               }
+            #encabezadotabla{background-color: #c6c4c4}
         </style>
         <h1>
                 <div class="ui large segment" style="background-color:  #c6c4c4  ;height: 60px; padding-top: 0px;border-block-end:4px solid #DC143C;">    
@@ -38,16 +40,16 @@
     <body>
             <div class="ui grid">
                     <div class="four wide column">
-                        <div class="ui inverted vertical menu" style=" width: 100%; background-color: #c6c4c4;height: 120%;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 0px ; font-size: 18px;">
+                        <div class="ui inverted vertical menu" style="height: 100%; width: 100%; background-color: #c6c4c4;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 0px ; font-size: 18px;">
                             <a class="item" id="item" >Reportes</a>
                             <a class="item" id="item"  >Gestionar Cuentas</a>
-                             <a class="item" id="item" >Gestionar Decanatos</a>
-                             <a class="active item" style="background-color: #DC143C" href="pagprincipalEquipo.html">Gestionar Equipos</a>
+                             <a class="item" id="item" href="../Decanatos/ListaDecanatos.html">Gestionar Decanatos</a>
+                             <a class="active item" style="background-color: #DC143C" href="ListaEquipos.html">Gestionar Equipos</a>
                             <a class="item" id="item" >Estadisticas</a>
                         </div>
                     </div>
-                    <div class="twelve wide stretched column" style="border-block-color:  #9e9d9d ;height: 700px;">
-                      <div class="ui segment" style=" width: 98% ;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border-bottom-right-radius: solid #c6c4c4">
+                    <div class="twelve wide stretched column" style="border-block-color:  #9e9d9d ;height: 600px;">
+                      <div class="ui segment" style="height: 85%;  width: 98% ;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 1px solid #DC143C">
                         <div class="ui category search">
                          
                           <div class="ui icon input" style="margin-left: 150px">
@@ -72,13 +74,13 @@
                               </div>
                             </div>
                           
-                          <table class="ui compact celled definition table" >
-                            <thead class="full-width">
-                              <tr>
-                                <th >Nombre Unidad</th>
-                                <th>Modelo</th>
-                                <th>Marca</th>
-                                <th>Opción</th>
+                          <table class="ui compact celled definition table">
+                            <thead class="full-width" >
+                              <tr >
+                                <th id="encabezadotabla">Nombre Unidad</th>
+                                <th id="encabezadotabla">Modelo</th>
+                                <th id="encabezadotabla">Marca</th>
+                                <th id="encabezadotabla">Opción</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -88,15 +90,15 @@
                                 <td>Apple</td>
                                 <td><div class="item">
                                   <div class="right floated content">
-                                    <div class="ui circular button" style="width: 130px"><A HREF= "pagmodificar.html" style="color: #DC143C; ">Modificar</A></div>
-                                    <div class="ui circular button"style="width: 130px"> <A HREF= "pagconsultar.html" style="color: #DC143C; "> Consultar </A> </div>
+                                    <div class="ui circular button" style="width: 130px"><A HREF= "modicarEquipo.html" style="color: #DC143C; ">Modificar</A></div>
+                                    <div class="ui circular button"style="width: 130px"> <A HREF= "consultarEquipo.html" style="color: #DC143C; "> Consultar </A> </div>
                                     <div class="ui animated circular button" tabindex="0" style="width: 130px">
-                                        <div class="visible content" style="color: #DC143C">Reparar</div>
-                                        <div class="hidden content" > <A HREF= "solirepa.html" style="color: #DC143C">Solicitar</A> </div>
+                                    <div class="visible content" style="color: #DC143C">Reparar</div>
+                                    <div class="hidden content" > <A HREF= "solirepaEquipo.html" style="color: #DC143C">Solicitar</A> </div>
                                       </div>
                                       <div class="ui animated circular button" tabindex="0" style="width: 130px">
                                           <div class="visible content" style="color: #DC143C"> Desincorporar </div>
-                                          <div class="hidden content"><A HREF= "solidesin.html" style="color: #DC143C">Solicitar</A></div>
+                                          <div class="hidden content"><A HREF= "solidesinEquipo.html" style="color: #DC143C">Solicitar</A></div>
                                         </div>
                                   </div></td>
                               </tr>
@@ -107,15 +109,15 @@
                                 <td>
                                   <div class="item">
                                     <div class="right floated content">
-                                      <div class="ui circular button" style="width: 130px"><A HREF= "pagmodificar.html" style="color: #DC143C; ">Modificar</A></div>
-                                      <div class="ui circular button"style="width: 130px"> <A HREF= "pagconsultar.html" style="color: #DC143C; "> Consultar </A> </div>
+                                      <div class="ui circular button" style="width: 130px"><A HREF= "modicarEquipo.html" style="color: #DC143C; ">Modificar</A></div>
+                                      <div class="ui circular button"style="width: 130px"> <A HREF= "consultarEquipo.html" style="color: #DC143C; "> Consultar </A> </div>
                                       <div class="ui animated circular button" tabindex="0" style="width: 130px">
                                           <div class="visible content" style="color: #DC143C">Reparar</div>
-                                          <div class="hidden content" > <A HREF= "solirepa.html" style="color: #DC143C">Solicitar</A> </div>
+                                          <div class="hidden content" > <A HREF= "solirepaEquipo.html" style="color: #DC143C">Solicitar</A> </div>
                                         </div>
                                         <div class="ui animated circular button" tabindex="0" style="width: 130px">
                                             <div class="visible content" style="color: #DC143C"> Desincorporar </div>
-                                            <div class="hidden content"><A HREF= "solidesin.html" style="color: #DC143C">Solicitar</A></div>
+                                            <div class="hidden content"><A HREF= "solidesinEquipo.html" style="color: #DC143C">Solicitar</A></div>
                                           </div>
                                     </div>
                               <tr>
@@ -124,43 +126,19 @@
                                 <td>HP</td>
                                 <td><div class="item">
                                   <div class="right floated content">
-                                    <div class="ui circular button" style="width: 130px"><A HREF= "pagmodificar.html" style="color: #DC143C; ">Modificar</A></div>
-                                    <div class="ui circular button"style="width: 130px"> <A HREF= "pagconsultar.html" style="color: #DC143C; "> Consultar </A> </div>
+                                    <div class="ui circular button" style="width: 130px"><A HREF= "modicarEquipo.html" style="color: #DC143C; ">Modificar</A></div>
+                                    <div class="ui circular button"style="width: 130px"> <A HREF= "consultarEquipo.html" style="color: #DC143C; "> Consultar </A> </div>
                                     <div class="ui animated circular button" tabindex="0" style="width: 130px">
                                         <div class="visible content" style="color: #DC143C">Reparar</div>
-                                        <div class="hidden content" > <A HREF= "solirepa.html" style="color: #DC143C">Solicitar</A> </div>
+                                        <div class="hidden content" > <A HREF= "solirepaEquipo.html" style="color: #DC143C">Solicitar</A> </div>
                                       </div>
                                       <div class="ui animated circular button" tabindex="0" style="width: 130px">
                                           <div class="visible content" style="color: #DC143C"> Desincorporar </div>
-                                          <div class="hidden content"><A HREF= "solidesin.html" style="color: #DC143C">Solicitar</A></div>
+                                          <div class="hidden content"><A HREF= "solidesinEquipo.html" style="color: #DC143C">Solicitar</A></div>
                                         </div>
                                   </div></td>
                               </tr>
                             </tbody>
-                            <tfoot class="full-width">
-                              <!--
-                              <tr>
-                                <th></th>
-                                <th colspan="4">
-                                  <div class="ui right floated small primary labeled icon button"><i class="user icon"></i> Añadir usuario </div>
-                                  <div class="ui small  button">Approve </div>
-                                  <div class="ui small  disabled button">Approve All </div>
-                                </th>
-                              </tr>
-                              -->
-                            </tfoot>
-                          </table>
-                          <div class="ui modal" id="pag">
-                            <div class="header">Header</div>
-                            <div class="content">
-                              <p></p>
-                            </div>
-                            <div class="actions">
-                              <div class="ui approve button">Approve</div>
-                              <div class="ui button">Neutral</div>
-                              <div class="ui cancel button">Cancel</div>
-                            </div>
-                          </div
 
                         
 
