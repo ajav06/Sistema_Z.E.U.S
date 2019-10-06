@@ -7,15 +7,7 @@
       <property name="eclipselink.logging.level.sql" value="FINE"/>
       <property name="eclipselink.logging.parameters" value="true"/>
       <property name="eclipselink.canonicalmodel.subpackage" value="prod"/>
-      
-      <property name="javax.persistence.schema-generation.database.action" value="create-or-extend-tables"/>
-      
-      <property name="current_session_context_class" value="jta"/>
-      <property name="hibernate.transaction.factory_class" value="org.hibernate.transaction.JTATransactionFactory"/>
-      <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.SunOneJtaPlatform" />
-      <property name="hibernate.connection.release_mode" value="auto"/>
-      <property name="hibernate.hbm2ddl.auto" value = "create"/>
-      <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/> 
+      <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
     </properties>
   </persistence-unit>
 </persistence>
