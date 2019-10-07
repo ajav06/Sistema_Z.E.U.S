@@ -10,6 +10,8 @@
         <ui:insert name="head" >
             <title>Facelets Template</title>
         </ui:insert>
+        
+        <link rel="stylesheet" type="text/css" href="./resources/semantic/semantic.min.css" />
     </h:head>
 
     <h:body>
@@ -44,6 +46,10 @@
             </ui:insert>
         </div>
         
+        <ui:insert name="login">
+        
+        </ui:insert>
+        
         <div class="ui grid">
             <ui:insert name="left">
                 <div class="four wide column" >
@@ -58,12 +64,12 @@
             </ui:insert>
             
             
-            <ui:insert name="content">Content</ui:insert>
+            <ui:insert name="content">
+                
+            </ui:insert>
         </div>
     </h:body>
     
-    <link rel="stylesheet" href="../resources/semantic/semantic.min.css" />
-    <h:outputStylesheet library="semantic" name="semantic.min.css" />
     <h:outputScript library="js" name="jquery-3.1.1.min.js" />
     <h:outputScript library="semantic" name="semantic.min.js" />
 </html>
