@@ -5,7 +5,12 @@
  */
 package domain;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,17 +34,13 @@ public class Usuario implements Serializable {
     
     @Id
     @Column(name = "nombre_usuario")
-    private Integer nombreUsuario;
+    private String nombreUsuario;
     
     @NotNull
     @Size(min = 1)
-    @Column(name = "contraseña")
+    @Column(name = "contrasenna")
     private String password;
-    
-    @JoinColumn(name = "codigo_tipo_usuario", referencedColumnName = "codigo")
-    @ManyToOne(cascade = CascadeType.ALL)
-    private TipoUsuario tipoUsuario;
-    
+     
     @JoinColumn(name = "codigo_departamento", referencedColumnName = "codigo")
     @ManyToOne(cascade = CascadeType.ALL)
     private Departamento departamento;
@@ -76,10 +77,9 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(Integer nombreUsuario, String password, TipoUsuario tipoUsuario, Departamento departamento, String cedula, String nombre, String apellido, String direccion, Integer telefono, String correo) {
+    public Usuario(String nombreUsuario, String password,Departamento departamento, String cedula, String nombre, String apellido, String direccion, Integer telefono, String correo) {
         this.nombreUsuario = nombreUsuario;
         this.password = password;
-        this.tipoUsuario = tipoUsuario;
         this.departamento = departamento;
         this.cedula = cedula;
         this.nombre = nombre;
@@ -89,10 +89,9 @@ public class Usuario implements Serializable {
         this.correo = correo;
     }
 
-    public Usuario(Integer nombreUsuario, String password, TipoUsuario tipoUsuario, Departamento departamento, String cedula, String nombre, String apellido, String direccion, Integer telefono, String correo, Character estatus) {
+    public Usuario(String nombreUsuario, String password, Departamento departamento, String cedula, String nombre, String apellido, String direccion, Integer telefono, String correo, Character estatus) {
         this.nombreUsuario = nombreUsuario;
         this.password = password;
-        this.tipoUsuario = tipoUsuario;
         this.departamento = departamento;
         this.cedula = cedula;
         this.nombre = nombre;
@@ -103,21 +102,20 @@ public class Usuario implements Serializable {
         this.estatus = estatus;
     }
 
-    public Usuario(Integer nombreUsuario, String password, TipoUsuario tipoUsuario, Departamento departamento, String cedula, String nombre, String apellido) {
+    public Usuario(String nombreUsuario, String password, Departamento departamento, String cedula, String nombre, String apellido) {
         this.nombreUsuario = nombreUsuario;
         this.password = password;
-        this.tipoUsuario = tipoUsuario;
         this.departamento = departamento;
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
     }
 
-    public Integer getNombreUsuario() {
+    public String getNombreUsuario() {
         return nombreUsuario;
     }
 
-    public void setNombreUsuario(Integer nombreUsuario) {
+    public void setNombreUsuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
     }
 
@@ -127,14 +125,6 @@ public class Usuario implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public TipoUsuario getTipoUsuario() {
-        return tipoUsuario;
-    }
-
-    public void setTipoUsuario(TipoUsuario tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
     }
 
     public Departamento getDepartamento() {
@@ -203,6 +193,19 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "Usuario{" + "nombreUsuario=" + nombreUsuario + ", password=" + password + ", tipoUsuario=" + tipoUsuario + ", departamento=" + departamento + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion + ", telefono=" + telefono + ", correo=" + correo + ", estatus=" + estatus + '}';
+        return "Usuario{" + "nombreUsuario=" + nombreUsuario + ", password=" + password + ", departamento=" + departamento + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion + ", telefono=" + telefono + ", correo=" + correo + ", estatus=" + estatus + '}';
     }
+    
+    /**
+    * Invalida la Sesión y redigiré a la página de inicio
+    */
+   public void logout() {
+     ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+     ec.invalidateSession();
+     try {
+       ec.redirect(ec.getRequestContextPath());
+     } catch (IOException ex) {
+       Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+     }
+   }
 }
