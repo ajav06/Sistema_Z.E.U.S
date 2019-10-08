@@ -6,6 +6,9 @@
 package domain;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,102 +16,79 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
  *
- * @author AJAV06
+ * @author Scorpion
  */
-
 @Entity
 @Table(name = "decanato")
 @NamedQueries({
     @NamedQuery(name = "Decanato.findAll", query = "SELECT d FROM Decanato d"),
-    @NamedQuery(name = "Decanato.findAllActive", query = "SELECT d FROM Decanato d WHERE d.estatus = 'a'"),
-    @NamedQuery(name = "Decanato.findById", query = "SELECT d FROM Decanato d WHERE d.estatus = 'a' and d.idDecanato = :idDecanato"),
-    @NamedQuery(name = "Decanato.findByName", query = "SELECT d FROM Decanato d WHERE d.estatus = 'a' and d.nombre = :nombre"),
-})
+    @NamedQuery(name = "Decanato.findByCodigo", query = "SELECT d FROM Decanato d WHERE d.codigo = :codigo"),
+    @NamedQuery(name = "Decanato.findByNombre", query = "SELECT d FROM Decanato d WHERE d.nombre = :nombre"),
+    @NamedQuery(name = "Decanato.findBySiglas", query = "SELECT d FROM Decanato d WHERE d.siglas = :siglas"),
+    @NamedQuery(name = "Decanato.findByDireccion", query = "SELECT d FROM Decanato d WHERE d.direccion = :direccion"),
+    @NamedQuery(name = "Decanato.findByCorreo", query = "SELECT d FROM Decanato d WHERE d.correo = :correo"),
+    @NamedQuery(name = "Decanato.findByTelefono", query = "SELECT d FROM Decanato d WHERE d.telefono = :telefono"),
+    @NamedQuery(name = "Decanato.findByEstatus", query = "SELECT d FROM Decanato d WHERE d.estatus = :estatus")})
 public class Decanato implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
-    
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
     @Column(name = "codigo")
-    private Integer idDecanato;
-    
+    private Integer codigo;
+    @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "nombre", unique = true, nullable = true)
+    @Size(min = 1, max = 20)
+    @Column(name = "nombre")
     private String nombre;
-    
-    @NotNull
-    @Column(name = "siglas", unique = true)
-    private String siglas;
-    
-    @Size(max = 100)
-    @Column(name = "direccion")
-    private String direccion;
-    
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "correo")
-    private String correo;
-    
+    @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
+    @Column(name = "siglas")
+    private String siglas;
+    @Size(max = 2147483647)
+    @Column(name = "direccion")
+    private String direccion;
+    @Size(max = 50)
+    @Column(name = "correo")
+    private String correo;
     @Column(name = "telefono")
     private Integer telefono;
-    
+    @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 1)
-    @Column(name = "estatus", columnDefinition = "character default 'a'")
+    @Column(name = "estatus")
     private Character estatus;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoDecanato")
+    private List<Departamento> departamentoList;
 
     public Decanato() {
     }
-    
-    public Decanato(Integer idDecanato, String nombre, String siglas, String direccion, String correo, Integer telefono, Character estatus) {
-        this.idDecanato = idDecanato;
+
+    public Decanato(Integer codigo) {
+        this.codigo = codigo;
+    }
+
+    public Decanato(Integer codigo, String nombre, String siglas, Character estatus) {
+        this.codigo = codigo;
         this.nombre = nombre;
         this.siglas = siglas;
-        this.direccion = direccion;
-        this.correo = correo;
-        this.telefono = telefono;
         this.estatus = estatus;
     }
 
-    public Decanato(String nombre, String siglas, String direccion, String correo, Integer telefono) {
-        this.nombre = nombre;
-        this.siglas = siglas;
-        this.direccion = direccion;
-        this.correo = correo;
-        this.telefono = telefono;
+    public Integer getCodigo() {
+        return codigo;
     }
 
-    public Decanato(Integer idDecanato, String nombre, String siglas, String correo, Integer telefono) {
-        this.idDecanato = idDecanato;
-        this.nombre = nombre;
-        this.siglas = siglas;
-        this.correo = correo;
-        this.telefono = telefono;
-    }
-
-    public Decanato(String nombre, String siglas, String correo, Integer telefono) {
-        this.nombre = nombre;
-        this.siglas = siglas;
-        this.correo = correo;
-        this.telefono = telefono;
-    }
-    
-    public Integer getIdDecanato() {
-        return idDecanato;
-    }
-
-    public void setIdDecanato(Integer idDecanato) {
-        this.idDecanato = idDecanato;
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombre() {
@@ -158,9 +138,38 @@ public class Decanato implements Serializable {
     public void setEstatus(Character estatus) {
         this.estatus = estatus;
     }
-  
+
+    public List<Departamento> getDepartamentoList() {
+        return departamentoList;
+    }
+
+    public void setDepartamentoList(List<Departamento> departamentoList) {
+        this.departamentoList = departamentoList;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (codigo != null ? codigo.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Decanato)) {
+            return false;
+        }
+        Decanato other = (Decanato) object;
+        if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))) {
+            return false;
+        }
+        return true;
+    }
+
     @Override
     public String toString() {
-        return "Decanato{" + "idDecanato=" + idDecanato + ", nombre=" + nombre + ", siglas=" + siglas + ", direccion=" + direccion + ", correo=" + correo + ", telefono=" + telefono + ", estatus=" + estatus + '}';
+        return "domain.Decanato[ codigo=" + codigo + " ]";
     }
+    
 }

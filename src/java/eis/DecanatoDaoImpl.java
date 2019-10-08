@@ -37,7 +37,7 @@ public class DecanatoDaoImpl implements DecanatoDao{
     @Override
     public Decanato findDecanatoById(Decanato decanato) {
         Query query = em.createNamedQuery("Decanato.findById");
-        query.setParameter("idDecanato", decanato.getIdDecanato());
+        query.setParameter("idDecanato", decanato.getCodigo());
         return (Decanato) query.getSingleResult();
     }
 
