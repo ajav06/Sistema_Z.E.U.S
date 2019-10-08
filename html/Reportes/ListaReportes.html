@@ -7,7 +7,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Lista de Decanatos</title>
+        <title>Reportes</title>
         </head>
         <style type="text/css">
              #item { color:black}
@@ -41,69 +41,52 @@
             <div class="ui grid">
                     <div class="four wide column">
                         <div class="ui inverted vertical menu" style=" width: 100%; background-color: #c6c4c4;height: 100%;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 0px ; font-size: 18px;">
-                            <a class="item" id="item" href="../Reportes/ListaReportes.html" >Reportes</a>
+                            <a class="active item" id="item" style="background-color:  #1a237e" >Reportes</a>
                             <a class="item" id="item" href="../Usuarios/ListaUsuarios.html" >Gestionar Usuarios</a>
-                             <a class="active item" id="item" style="background-color:  #1a237e" >Gestionar Decanatos</a>
-                             <a class="item" id="item" href="../Equipos/ListaEquipos.html">Gestionar Equipos</a>
+                            <a class="item" id="item" href="../Decanatos/ListaDecanatos.html" >Gestionar Decanatos</a>
+                            <a class="item" id="item" href="../Equipos/ListaEquipos.html">Gestionar Equipos</a>
                             <a class="item" id="item" >Estadisticas</a>
                         </div>
                     </div>
                     <div class="twelve wide stretched column" style="border-block-color:  #9e9d9d ;height: 600px;">
                       <div class="ui segment" style="height: 50%; width: 98% ;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 1px solid  #1a237e">
                         <div class="ui category search">
-                         
-                          <div class="ui icon input" >
-                            <input class="prompt" type="text" placeholder="Ingrese el Nombre de la Unidad" style="width: 500px; ">
-                            <i class="search icon"></i>
-                          </div>
+                        
                           <div class="results"></div>
-                          
-                          <div class="ui animated circular button" tabindex="0" aria-label="Equipos" style=" margin-left: 34%;">
-                            <div class="visible content" style="color:  #1a237e">
-                              <i class="ui plus icon" ></i> Decanatos</div>
-                            <div class="hidden content" style="color:  #1a237e">
-                              <i class="ui plus icon"></i>Incluir
-                            </div>
-                          </div>
+                         
                          
                           <table class="ui compact celled definition table" >
                             <thead class="full-width">
                               <tr>
-                                <th id="encabezadotabla">Departamento</th>
-                                <th id="encabezadotabla">Decanato</th>
-                                <th id="encabezadotabla">Opción</th>
+                                <th id="encabezadotabla">Nombre del reporte</th>
+                                <th id="encabezadotabla">Opciones</th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
-                                <td>Decanato de Ciencias y Tecnologia</td>
-                                <td>Departamento de Sistemas</td>
+                                <td>Generar totales de equipo</td>
                                 <td><div class="item">
-                                  <div class="right floated content">
-                                    <div class="ui circular button" style="width: 130px"><A HREF= "pagmodificar.html" style="color:  #1a237e; ">Modificar</A></div>
-                                    <div class="ui circular button"style="width: 130px"> <A HREF= "pagconsultar.html" style="color:  #1a237e; "> Consultar </A> </div>
-                                    <div class="ui circular button"style="width: 130px"> <A HREF= "pagconsultar.html" style="color:  #1a237e; "> Eliminar </A> </div>
+                                  <div class="right floated content" >
+                                    <A HREF= "totalesEquipoUniv.html" class="ui circular button" style="color:  #1a237e;"> Por Universidad </A></div>
+                                    
+                                    <A HREF= "totalesEquipoDeca.html" class="ui circular button" style="color:  #1a237e;"> Por Decanato </A> </div>
+                                    
+                                    <A HREF= "totalesEquipoDpto.html" class="ui circular button" style="color:  #1a237e;"> Por Departamento </A> </div>
                                   </div></td>
                               </tr>
                               <tr>
-                                <td>Decanato de Ingenieria Civil</td>
-                                <td>Departamento de Estadistica</td>
+                                <td>Generar dptos. con mayor y menor cantidad de equipos</td>
                                 <td>
                                   <div class="item">
                                     <div class="right floated content">
-                                      <div class="ui circular button" style="width: 130px"><A HREF= "pagmodificar.html" style="color:  #1a237e; ">Modificar</A></div>
-                                      <div class="ui circular button"style="width: 130px"> <A HREF= "pagconsultar.html" style="color:  #1a237e; "> Consultar </A> </div>
-                                      <div class="ui circular button"style="width: 130px"> <A HREF= "pagconsultar.html" style="color:  #1a237e; "> Eliminar </A> </div>
+                                            <A HREF= "mayorMenorUniv.html" class="ui circular button"   style="color:  #1a237e; "> Por Universidad </A></div>
+                                            <A HREF= "mayorMenorDeca.html" class="ui circular button"  style="color:  #1a237e; "> Por Decanato </A> </div>
                                     </div>
                               <tr>
-                                <td>Decanato de Humanidades y Artes</td>
-                                <td>Departamento de Estudios basicos</td>
+                                <td>Generar reporte de solicitudes</td>
                                 <td><div class="item">
                                   <div class="right floated content">
-                                    <div class="ui circular button" style="width: 130px"><A HREF= "pagmodificar.html" style="color:  #1a237e; ">Modificar</A></div>
-                                    <div class="ui circular button"style="width: 130px"> <A HREF= "pagconsultar.html" style="color:  #1a237e; "> Consultar </A> </div>
-                                    <div class="ui circular button"style="width: 130px"> <A HREF= "pagconsultar.html" style="color:  #1a237e; "> Eliminar </A> </div>
-                                        </div>
+                                        <A HREF= "reporteSolicitudes.html" class="ui circular button" style="color:  #1a237e; "> Ver listado </A></div>
                                   </div></td>
                               </tr>
                             </tbody>

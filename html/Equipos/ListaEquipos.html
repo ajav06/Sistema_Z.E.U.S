@@ -7,7 +7,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Mi página en proceso</title>
+        <title>Lista de equipos</title>
         </head>
         <style type="text/css">
             #item { color:black}
@@ -19,7 +19,7 @@
         <h1>
                 <div class="ui large segment" style="background-color:  #c6c4c4  ;height: 60px; padding-top: 0px;border-block-end:4px solid #1a237e;">    
                     <div class="ui right aligned fluid container"  >
-                  <div class="ui simple dropdown item" style=" margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  #c6c4c4;border: 0px #c6c4c4;"><i class="dropdown icon"></i>Armando Paredes<img class="ui avatar image" src="image/consideraciones-mejorar-primera-experiencia-de-usuario-aplicaciones-web-perfil-usuario.jpg" >
+                  <div class="ui simple dropdown item" style=" margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  #c6c4c4;border: 0px #c6c4c4;"><i class="dropdown icon"></i>Armando Paredes
                       <div class="menu">
                         <div class="item">Mi informacion</div>
                         <div class="item">Notificaciones</div>
@@ -41,7 +41,7 @@
             <div class="ui grid">
                     <div class="four wide column">
                         <div class="ui inverted vertical menu" style="height: 100%; width: 100%; background-color: #c6c4c4;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 0px ; font-size: 18px;">
-                            <a class="item" id="item" >Reportes</a>
+                            <a class="item" id="item" href="../Reportes/ListaReportes.html" >Reportes</a>
                             <a class="item" id="item"  href="../Usuarios/ListaUsuarios.html">Gestionar Usuarios</a>
                              <a class="item" id="item" href="../Decanatos/ListaDecanatos.html">Gestionar Decanatos</a>
                              <a class="active item" style="background-color: #1a237e" href="ListaEquipos.html">Gestionar Equipos</a>
@@ -53,7 +53,7 @@
                         <div class="ui category search">
                          
                           <div class="ui icon input" >
-                            <input class="prompt" type="text" placeholder="Ingrese el Nombre de la Unidad" style="width: 500px; ">
+                            <input class="prompt" type="text" placeholder="Ingrese el nombre del equipo" style="width: 500px; ">
                             <i class="search icon"></i>
                           </div>
                           <div class="results"></div>
@@ -77,10 +77,10 @@
                           <table class="ui compact celled definition table">
                             <thead class="full-width" >
                               <tr >
-                                <th id="encabezadotabla">Nombre Unidad</th>
+                                <th id="encabezadotabla">Nombre del equipo</th>
                                 <th id="encabezadotabla">Modelo</th>
                                 <th id="encabezadotabla">Marca</th>
-                                <th id="encabezadotabla">Opción</th>
+                                <th id="encabezadotabla">Opciones</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -96,9 +96,85 @@
                                     <div class="visible content" style="color: #1a237e">Reparar</div>
                                     <div class="hidden content" > <A  style="color: #1a237e">Solicitar</A> </div>
                                       </div>
-                                      <div class="ui animated circular button" tabindex="0" style="width: 130px" HREF= "solidesinEquipo.html" >
+
+
+                                      <!-- <div id="freezerLayer" class="freezer-layer" style="display:none;" ></div>
+                                      <button onclick="validateName(prompt('Escribe el motivo'));"> Prueba </button> 
+                                      <button onclick="CustomPrompt.show('Escribe el motivo de la desincorporación');"> -->
+                                      
+                                        <div class="ui animated circular button" tabindex="0" style="width: 130px">
                                           <div class="visible content" style="color: #1a237e"> Desincorporar </div>
-                                          <div class="hidden content"><A  style="color: #1a237e">Solicitar</A></div>
+                                          <div class="hidden content"><A  style="color: #1a237e"> Solicitar </A></div>  </button>
+                                          
+                                         <!-- <div id="result"></div>
+                                          <div id="dialogCont" class="dialog">
+                                              <div class="dlg-header">
+                                                  <span id="dlgHeader"> Está seguro de que desea desincorporar el equipo? </span>
+                                              </div>
+                                              <div class="dlg-body">
+                                                  <div id="dlgMessage">  </div>
+                                                  <input id="dialogInputEl" type="text" class="dlg-input-el" />
+                                              </div>
+                                              <div class="dlg-footer">
+                                                  <a onclick="">Si</a>
+                                                  <a onclick="">No</a>
+                                              </div>
+                                            </div>
+                                          </div> ''<> -->
+                                           <div class="ui basic modal">
+                                              <div class="ui icon header">
+                                                <i class="exclamation triangle icon"></i>
+                                                Confirmar desincorporación
+                                              </div>
+                                              <div class="content">
+                                                <p>Está seguro de que desea desincorporar el equipo?</p>
+                                              </div>
+                                              <div class="actions">
+                                                <div class="ui red basic cancel inverted button">
+                                                  <i class="remove icon"></i>
+                                                  No
+                                                </div>
+                                                <div class="ui green ok inverted button">
+                                                  <i class="checkmark icon"></i>
+                                                  Si
+
+                                                <!--  <script type="text/javascript">
+
+                                                   function SolicitarDesincorporar(){
+                                                     if(confirm('Está seguro de que desea desincorporar el equipo?')){
+                                                       window.location = file:///C:/Users/Fernando%20Sanchez/Pictures/Dani/sistema_zeus/html/Equipos/ListaEquipos.html;
+                                                     }
+                                                    var confirm = new function(){
+                                                      this.show = function(msg, callback){
+                                                      var dlg = document.getElementByName('dialogCont');
+                                                      var dlgBody = dlg.querySelector('#dlgBody');
+                                                      dlg.style.top = '30%';
+                                                      dlg.style.opacity = 1;
+                                                      dlgBody.textContent = msg;
+                                                      this.callback = callback;
+                                                      document.getElementByName('freezeLayer').style.display = '';
+                                                    };
+                                                    
+                                                    this.si = function (){
+                                                      this.callback();
+                                                      this.close();
+                                                    }
+
+                                                    this.no = function (){
+                                                      var dlg = document.getElementByName('dialogCont');
+                                                      dlg.style.top = '-30%';
+                                                      dlg.style.opacity = 0;
+                                                      document.getElementByName('freezeLayer').style.display = 'none';
+                                                    }
+
+                                                  }
+                                                  
+                                                  </script> ''<> -->
+
+
+                                                </div>
+                                              </div>
+                                            </div>
                                         </div>
                                   </div></td>
                               </tr>
@@ -116,8 +192,8 @@
                                           <div class="hidden content" > <A  style="color: #1a237e">Solicitar</A> </div>
                                         </div>
                                         <div class="ui animated circular button" tabindex="0" style="width: 130px" HREF= "solidesinEquipo.html">
-                                            <div class="visible content" style="color: #1a237e"> Solicitar </div>
-                                            <div class="hidden content"><A style="color: #1a237e;border-collapse: unset;">Reparacion o Desincorporacion</A></div>
+                                            <div class="hidden content" style="color: #1a237e"> Solicitar </div>
+                                            <div class="visible content"><A style="color: #1a237e;border-collapse: unset;">Desincorporar</A></div>
                                           </div>
                                     </div>
                               <tr>
@@ -147,6 +223,5 @@
                     </div>
             </div>
     </body>
-  
-    
+
 </html>
