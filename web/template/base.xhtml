@@ -23,8 +23,9 @@
                 <h1>
                     <div class="ui segment" id="top-bar">    
                         <div class="ui right aligned fluid container">
+                            <h:form>
                             <div class="ui simple dropdown item" id="top-bar-dropdown">
-                                <i class="dropdown icon"></i>Armando Paredes
+                                <i class="dropdown icon"></i>#{usuarioBean.nombre}
                                 <h:graphicImage class="ui avatar image" library="images" 
                                                 name="consideraciones-mejorar-primera-experiencia-de-usuario-aplicaciones-web-perfil-usuario.jpg" />
                                 <div class="left menu" style="width: 180px;">
@@ -39,9 +40,10 @@
                                             <div class="item">3</div>
                                         </div>
                                     </div>
-                                    <div class="item" id="item">Cerrar Sesion</div>
+                                    <h:commandLink value="Cerrar Sesion" actionListener="#{usuarioBean.logout()}" action="index" class="item" id="item"/>
                                 </div>
                             </div>
+                            </h:form>
                         </div>             
                     </div>
                 </h1>

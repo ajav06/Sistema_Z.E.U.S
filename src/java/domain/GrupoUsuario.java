@@ -41,14 +41,17 @@ public class GrupoUsuario implements Serializable {
     @Size(min = 1, max = 10)
     @Column(name = "nombre_usuario")
     private String nombreUsuario;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "fecha_modificacion")
     @Temporal(TemporalType.DATE)
     private Date fechaModificacion;
+    
     @JoinColumn(name = "codigo_tipo_usuario", referencedColumnName = "codigo")
     @ManyToOne(optional = false)
     private TipoUsuario codigoTipoUsuario;
+    
     @JoinColumn(name = "nombre_usuario", referencedColumnName = "nombre_usuario", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private Usuario usuario;
