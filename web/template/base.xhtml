@@ -12,6 +12,7 @@
         </ui:insert>
         
         <link rel="stylesheet" type="text/css" href="./resources/semantic/semantic.min.css" />
+        <h:outputStylesheet library="css" name="default.css" />
     </h:head>
 
     <h:body>
@@ -20,11 +21,12 @@
         <div id="top" class="top">
             <ui:insert name="top">
                 <h1>
-                    <div class="ui segment" style="background-color:  #c6c4c4  ;height: 60px; padding-top: 0px;border-block-end:4px solid #1a237e;">    
+                    <div class="ui segment" id="top-bar">    
                         <div class="ui right aligned fluid container">
-                            <div class="ui simple dropdown item" style=" margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  #c6c4c4;border: 0px #c6c4c4;">
+                            <div class="ui simple dropdown item" id="top-bar-dropdown">
                                 <i class="dropdown icon"></i>Armando Paredes
-                                <h:graphicImage class="ui avatar image" library="images" name="consideraciones-mejorar-primera-experiencia-de-usuario-aplicaciones-web-perfil-usuario.jpg" />
+                                <h:graphicImage class="ui avatar image" library="images" 
+                                                name="consideraciones-mejorar-primera-experiencia-de-usuario-aplicaciones-web-perfil-usuario.jpg" />
                                 <div class="left menu" style="width: 180px;">
                                     <div class="item" id="item">Mi informacion</div>
                                     <div class="item" id="item">Notificaciones</div>
@@ -53,7 +55,7 @@
         <div class="ui grid">
             <ui:insert name="left">
                 <div class="four wide column" >
-                    <div class="ui inverted vertical menu" id="menu" style=" width: 100%; padding-top: 0 rem !important; margin-top: 0 rem !important; background-color: #c6c4c4;height: 100%;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 0px ; font-size: 18px;">
+                    <div class="ui inverted vertical menu" id="left-menu">
                         <a class="item" id="item"  >Reportes</a>
                         <a class="item" id="item" href="Usuarios/ListaUsuarios.html" >Gestionar Usuarios</a>
                         <a class="item" id="item" href="Decanatos/ListaDecanatos.html">Gestionar Decanatos</a>
