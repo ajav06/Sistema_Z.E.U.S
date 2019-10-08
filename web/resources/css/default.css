@@ -33,3 +33,30 @@
     border: 0px ; 
     font-size: 18px;   
 }
+
+#item {
+    color: black
+}
+
+#item:hover {
+    background-color: #1a237e;
+    color: #ffffff;
+}
+
+#itemlistre:hover {
+    background-color: #1a237e;
+}
+
+#encabezado:hover {
+    color: #ffffff
+}
+
+#encabezado {
+    color: #1a237e;
+    color: black
+}
+
+#menu {
+    margin-top: 0px !important;
+    padding-top: 0px !important
+}

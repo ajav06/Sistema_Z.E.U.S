@@ -9,7 +9,7 @@
         <param-value>0</param-value>
     </context-param>
     <welcome-file-list>
-        <welcome-file>protected/index.xhtml</welcome-file>
+        <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
     <error-page>
         <exception-type>javax.faces.application.ViewExpiredException</exception-type>
@@ -31,7 +31,8 @@
         <web-resource-collection>
             <web-resource-name>admin</web-resource-name>
             <description/>
-            <url-pattern>/protected/*</url-pattern>
+            <url-pattern>/index.xhtml</url-pattern>
+            <url-pattern>/equipos/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description/>

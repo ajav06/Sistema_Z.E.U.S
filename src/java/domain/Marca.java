@@ -29,9 +29,10 @@ import javax.validation.constraints.Size;
 @Table(name = "marca")
 @NamedQueries({
     @NamedQuery(name = "Marca.findAll", query = "SELECT m FROM Marca m"),
-    @NamedQuery(name = "Marca.findByCodigo", query = "SELECT m FROM Marca m WHERE m.codigo = :codigo"),
-    @NamedQuery(name = "Marca.findByNombre", query = "SELECT m FROM Marca m WHERE m.nombre = :nombre"),
-    @NamedQuery(name = "Marca.findByEstatus", query = "SELECT m FROM Marca m WHERE m.estatus = :estatus")})
+    @NamedQuery(name = "Marca.findAllActive", query = "SELECT m FROM Marca m WHERE m.estatus = 'a'"),
+    @NamedQuery(name = "Marca.findByCodigo", query = "SELECT m FROM Marca m WHERE m.codigo = :codigo AND m.estatus = 'a'"),
+    @NamedQuery(name = "Marca.findByNombre", query = "SELECT m FROM Marca m WHERE m.nombre = :nombre AND m.estatus = 'a'"),
+    @NamedQuery(name = "Marca.findByEstatus", query = "SELECT m FROM Marca m WHERE m.estatus = :estatus AND m.estatus = 'a'")})
 public class Marca implements Serializable {
 
     private static final long serialVersionUID = 1L;

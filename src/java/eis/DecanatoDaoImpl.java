@@ -36,15 +36,15 @@ public class DecanatoDaoImpl implements DecanatoDao{
 
     @Override
     public Decanato findDecanatoById(Decanato decanato) {
-        Query query = em.createNamedQuery("Decanato.findById");
-        query.setParameter("idDecanato", decanato.getCodigo());
+        Query query = em.createNamedQuery("Decanato.findByCodigo");
+        query.setParameter("codigo", decanato.getCodigo());
         return (Decanato) query.getSingleResult();
     }
 
     @Override
     public Decanato findDecanatoByName(Decanato decanato) {
-        Query query = em.createNamedQuery("Decanato.findById");
-        query.setParameter("idDecanato", decanato.getNombre());
+        Query query = em.createNamedQuery("Decanato.findByNombre");
+        query.setParameter("nombre", decanato.getNombre());
         return (Decanato) query.getSingleResult();
     }
 

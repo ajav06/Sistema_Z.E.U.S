@@ -29,13 +29,14 @@ import javax.validation.constraints.Size;
 @Table(name = "decanato")
 @NamedQueries({
     @NamedQuery(name = "Decanato.findAll", query = "SELECT d FROM Decanato d"),
-    @NamedQuery(name = "Decanato.findByCodigo", query = "SELECT d FROM Decanato d WHERE d.codigo = :codigo"),
-    @NamedQuery(name = "Decanato.findByNombre", query = "SELECT d FROM Decanato d WHERE d.nombre = :nombre"),
-    @NamedQuery(name = "Decanato.findBySiglas", query = "SELECT d FROM Decanato d WHERE d.siglas = :siglas"),
-    @NamedQuery(name = "Decanato.findByDireccion", query = "SELECT d FROM Decanato d WHERE d.direccion = :direccion"),
-    @NamedQuery(name = "Decanato.findByCorreo", query = "SELECT d FROM Decanato d WHERE d.correo = :correo"),
-    @NamedQuery(name = "Decanato.findByTelefono", query = "SELECT d FROM Decanato d WHERE d.telefono = :telefono"),
-    @NamedQuery(name = "Decanato.findByEstatus", query = "SELECT d FROM Decanato d WHERE d.estatus = :estatus")})
+    @NamedQuery(name = "Decanato.findAllActive", query = "SELECT d FROM Decanato d WHERE d.estatus = 'a'"),
+    @NamedQuery(name = "Decanato.findByCodigo", query = "SELECT d FROM Decanato d WHERE d.codigo = :codigo AND d.estatus = 'a'"),
+    @NamedQuery(name = "Decanato.findByNombre", query = "SELECT d FROM Decanato d WHERE d.nombre = :nombre AND d.estatus = 'a'"),
+    @NamedQuery(name = "Decanato.findBySiglas", query = "SELECT d FROM Decanato d WHERE d.siglas = :siglas AND d.estatus = 'a'"),
+    @NamedQuery(name = "Decanato.findByDireccion", query = "SELECT d FROM Decanato d WHERE d.direccion = :direccion AND d.estatus = 'a'"),
+    @NamedQuery(name = "Decanato.findByCorreo", query = "SELECT d FROM Decanato d WHERE d.correo = :correo AND d.estatus = 'a'"),
+    @NamedQuery(name = "Decanato.findByTelefono", query = "SELECT d FROM Decanato d WHERE d.telefono = :telefono AND d.estatus = 'a'"),
+    @NamedQuery(name = "Decanato.findByEstatus", query = "SELECT d FROM Decanato d WHERE d.estatus = :estatus AND d.estatus = 'a'")})
 public class Decanato implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -169,7 +170,7 @@ public class Decanato implements Serializable {
 
     @Override
     public String toString() {
-        return "domain.Decanato[ codigo=" + codigo + " ]";
+        return nombre;
     }
     
 }
