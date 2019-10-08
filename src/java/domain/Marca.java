@@ -120,7 +120,7 @@ public class Marca implements Serializable {
 
     @Override
     public String toString() {
-        return "domain.Marca[ codigo=" + codigo + " ]";
+        return nombre;
     }
     
 }

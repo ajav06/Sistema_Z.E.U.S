@@ -30,7 +30,10 @@
                                     </div>
                                     <div class="field">
                                         <label>Marca</label>
-                                        <input type="text" placeholder="Marca" />
+                                        <h:selectOneMenu value="" class="ui fluid dropdown">
+                                            <f:selectItem itemValue="-1" itemLabel="Marca de la unidad" />
+                                            <f:selectItems value="#{marcaBean.marcas}" />
+                                        </h:selectOneMenu>
                                     </div>
                                     <div class="field">
                                         <label>Modelo</label>

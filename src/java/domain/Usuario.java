@@ -216,7 +216,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "domain.Usuario[ nombreUsuario=" + nombreUsuario + " ]";
+        return nombreUsuario;
     }
     
 }

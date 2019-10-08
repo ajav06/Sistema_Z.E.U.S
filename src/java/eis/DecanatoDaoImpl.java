@@ -22,7 +22,7 @@ import javax.persistence.Query;
 public class DecanatoDaoImpl implements DecanatoDao{
     
     @PersistenceContext(unitName = "ZeusPU")
-    EntityManager em;
+    private EntityManager em;
 
     @Override
     public List<Decanato> findAllDecanatos() {
