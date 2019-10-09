@@ -11,6 +11,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import org.omnifaces.util.Faces;
 import services.EquipoService;
 
 /**
@@ -62,6 +63,7 @@ public class EquipoBean {
         this.equipoSeleccionado.setEstatus('a');
         equipoService.registrarEquipo(equipoSeleccionado);
         this.equipoSeleccionado = null;
+        Faces.redirect("?faces-redirect=true/index.xhtml");
     }
     
     public void modificarEquipo() {

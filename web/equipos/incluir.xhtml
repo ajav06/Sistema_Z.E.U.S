@@ -35,9 +35,12 @@
                                     <div class="field">
                                         <label>Marca</label>
                                         <h:selectOneMenu value="#{equipoBean.equipoSeleccionado.codigoMarca}" 
-                                                         class="ui fluid dropdown">
-                                            <f:selectItem  itemLabel="Seleccione..." itemValue="Hola" noSelectionOption="true" />
-                                            <f:selectItems value="#{marcaBean.marcas}" var="marca" itemLabel="#{marca.codigo}" itemValue="#{marca}" />
+                                                         class="ui fluid dropdown"
+                                                         converter="omnifaces.SelectItemsIndexConverter"
+                                                         required="true"
+                                                         requiredMessage="Selecciona una Marca">
+                                            <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
+                                            <f:selectItems value="#{marcaBean.marcas}" var="marca" itemValue="#{marca}" itemLabel="#{marca.nombre}" />
                                         </h:selectOneMenu>
                                     </div>
                                     <div class="field">
@@ -52,11 +55,16 @@
                                 <div class="two fields">
                                     <div class="ui center aligned fluid container">
                                         <div class="ui buttons">
-                                            <button class="ui labeled icon button"><i class="left chevron icon"></i><a
-                                                    href="index" style="color: #c6c4c4;"/> Atr&aacute;s </button>
-                                            <h:commandButton class="ui button" 
-                                                             actionListener="#{equipoBean.agregarEquipo()}" 
-                                                             value="Guardar"><i class='save icon'></i></h:commandButton>
+                                            
+                                            <button class="ui labeled icon button" >
+                                                <i class="left chevron icon"></i>
+                                                <a href="" style="color: #c6c4c4;"/> Atr&aacute;s
+                                            </button>
+                                            
+                                            <h:commandLink class="ui button" 
+                                                             actionListener="#{equipoBean.agregarEquipo()}">
+                                                <i class='save icon'></i> Guardar
+                                            </h:commandLink>
                                         </div>
 
                                     </div>

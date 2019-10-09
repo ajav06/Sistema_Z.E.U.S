@@ -62,7 +62,7 @@ public class Equipo implements Serializable {
     private Character estatus;
     
     @JoinColumn(name = "codigo_marca", referencedColumnName = "codigo")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
     private Marca codigoMarca;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoEquipo")

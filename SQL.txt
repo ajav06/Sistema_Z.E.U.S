@@ -17,3 +17,7 @@ INSERT INTO public.usuario(
 INSERT INTO public.grupo_usuario(
 	nombre_usuario, codigo_tipo_usuario, fecha_modificacion)
 	VALUES ('ajav06',1, '08/10/2019');
+
+INSERT INTO public.marca(
+	nombre, estatus)
+	VALUES ('SANSUNG', 'a');
