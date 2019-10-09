@@ -36,23 +36,28 @@ import javax.validation.constraints.Size;
 public class EstadoEquipo implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "codigo")
     private Integer codigo;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "nombre")
     private String nombre;
+    
     @Size(max = 2147483647)
     @Column(name = "descripcion")
     private String descripcion;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "estatus")
     private Character estatus;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoEstadoEquipo")
     private List<EquipoDepartamento> equipoDepartamentoList;
 

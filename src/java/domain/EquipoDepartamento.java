@@ -33,20 +33,25 @@ import javax.persistence.Table;
 public class EquipoDepartamento implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "codigo")
     private Integer codigo;
+    
     @JoinColumn(name = "codigo_departamento", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private Departamento codigoDepartamento;
+    
     @JoinColumn(name = "codigo_equipo", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private Equipo codigoEquipo;
+    
     @JoinColumn(name = "codigo_estado_equipo", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private EstadoEquipo codigoEstadoEquipo;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoEquipoDepartamento")
     private List<Solicitudes> solicitudesList;
 

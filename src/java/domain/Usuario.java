@@ -48,39 +48,50 @@ public class Usuario implements Serializable {
     @Size(min = 1, max = 10)
     @Column(name = "nombre_usuario")
     private String nombreUsuario;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "contrasenna")
     private String contrasenna;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
     @Column(name = "cedula")
     private String cedula;
+    
     @Size(max = 50)
     @Column(name = "nombre")
     private String nombre;
+    
     @Size(max = 50)
     @Column(name = "apellido")
     private String apellido;
+    
     @Size(max = 2147483647)
     @Column(name = "direccion")
     private String direccion;
+    
     @Column(name = "telefono")
     private Integer telefono;
+    
     @Size(max = 50)
     @Column(name = "correo")
     private String correo;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "estatus")
     private Character estatus;
+    
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "usuario")
     private GrupoUsuario grupoUsuario;
+    
     @JoinColumn(name = "codigo_departamento", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private Departamento codigoDepartamento;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "nombreUsuario")
     private List<Solicitudes> solicitudesList;
 

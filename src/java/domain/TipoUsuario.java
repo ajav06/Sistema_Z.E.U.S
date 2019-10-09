@@ -35,20 +35,24 @@ import javax.validation.constraints.Size;
 public class TipoUsuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "codigo")
     private Integer codigo;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
     @Column(name = "nombre")
     private String nombre;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "estatus")
     private Character estatus;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoTipoUsuario")
     private List<GrupoUsuario> grupoUsuarioList;
 

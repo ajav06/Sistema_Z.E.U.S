@@ -36,37 +36,45 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Decanato.findByDireccion", query = "SELECT d FROM Decanato d WHERE d.direccion = :direccion AND d.estatus = 'a'"),
     @NamedQuery(name = "Decanato.findByCorreo", query = "SELECT d FROM Decanato d WHERE d.correo = :correo AND d.estatus = 'a'"),
     @NamedQuery(name = "Decanato.findByTelefono", query = "SELECT d FROM Decanato d WHERE d.telefono = :telefono AND d.estatus = 'a'"),
-    @NamedQuery(name = "Decanato.findByEstatus", query = "SELECT d FROM Decanato d WHERE d.estatus = :estatus AND d.estatus = 'a'")})
+    @NamedQuery(name = "Decanato.findByEstatus", query = "SELECT d FROM Decanato d WHERE d.estatus = :estatus")})
 public class Decanato implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "codigo")
     private Integer codigo;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "nombre")
     private String nombre;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
     @Column(name = "siglas")
     private String siglas;
+    
     @Size(max = 2147483647)
     @Column(name = "direccion")
     private String direccion;
+    
     @Size(max = 50)
     @Column(name = "correo")
     private String correo;
+    
     @Column(name = "telefono")
     private Integer telefono;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "estatus")
     private Character estatus;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoDecanato")
     private List<Departamento> departamentoList;
 

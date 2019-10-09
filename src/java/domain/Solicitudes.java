@@ -8,6 +8,7 @@ package domain;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,32 +40,39 @@ import javax.validation.constraints.Size;
 public class Solicitudes implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "codigo")
     private Integer codigo;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2147483647)
     @Column(name = "tipo_solicitud")
     private String tipoSolicitud;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "fecha_inicio")
     @Temporal(TemporalType.DATE)
     private Date fechaInicio;
+    
     @Column(name = "fecha_atencion")
     private Integer fechaAtencion;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "estatus")
     private Character estatus;
+    
     @JoinColumn(name = "codigo_equipo_departamento", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private EquipoDepartamento codigoEquipoDepartamento;
+    
     @JoinColumn(name = "nombre_usuario", referencedColumnName = "nombre_usuario")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private Usuario nombreUsuario;
 
     public Solicitudes() {

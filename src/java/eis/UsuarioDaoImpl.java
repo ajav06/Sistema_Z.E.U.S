@@ -44,7 +44,7 @@ public class UsuarioDaoImpl implements UsuarioDao{
 
     @Override
     public Usuario findUsuarioByCedula(Usuario usuario) {
-        Query query = em.createNamedQuery("Usuario.findByNombreUsuario");
+        Query query = em.createNamedQuery("Usuario.findByCedula");
         query.setParameter("cedula", usuario.getCedula());
         return (Usuario) query.getSingleResult();
     }

@@ -31,33 +31,40 @@ import javax.validation.constraints.Size;
 @Table(name = "equipo")
 @NamedQueries({
     @NamedQuery(name = "Equipo.findAll", query = "SELECT e FROM Equipo e"),
-    @NamedQuery(name = "Equipo.findByCodigo", query = "SELECT e FROM Equipo e WHERE e.codigo = :codigo"),
-    @NamedQuery(name = "Equipo.findByNombre", query = "SELECT e FROM Equipo e WHERE e.nombre = :nombre"),
-    @NamedQuery(name = "Equipo.findByDescripcion", query = "SELECT e FROM Equipo e WHERE e.descripcion = :descripcion"),
+    @NamedQuery(name = "Equipo.findAllActive", query = "SELECT e FROM Equipo e WHERE e.estatus = 'a'"),
+    @NamedQuery(name = "Equipo.findByCodigo", query = "SELECT e FROM Equipo e WHERE e.codigo = :codigo AND e.estatus = 'a'"),
+    @NamedQuery(name = "Equipo.findByNombre", query = "SELECT e FROM Equipo e WHERE e.nombre = :nombre AND e.estatus = 'a'"),
+    @NamedQuery(name = "Equipo.findByDescripcion", query = "SELECT e FROM Equipo e WHERE e.descripcion = :descripcion AND e.estatus = 'a'"),
     @NamedQuery(name = "Equipo.findByEstatus", query = "SELECT e FROM Equipo e WHERE e.estatus = :estatus")})
 public class Equipo implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "codigo")
     private Integer codigo;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "nombre")
     private String nombre;
+    
     @Size(max = 2147483647)
     @Column(name = "descripcion")
     private String descripcion;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "estatus")
     private Character estatus;
+    
     @JoinColumn(name = "codigo_marca", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private Marca codigoMarca;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoEquipo")
     private List<EquipoDepartamento> equipoDepartamentoList;
 

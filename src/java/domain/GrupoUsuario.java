@@ -8,6 +8,7 @@ package domain;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -35,6 +36,7 @@ import javax.validation.constraints.Size;
 public class GrupoUsuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @Basic(optional = false)
     @NotNull
@@ -49,11 +51,11 @@ public class GrupoUsuario implements Serializable {
     private Date fechaModificacion;
     
     @JoinColumn(name = "codigo_tipo_usuario", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private TipoUsuario codigoTipoUsuario;
     
     @JoinColumn(name = "nombre_usuario", referencedColumnName = "nombre_usuario", insertable = false, updatable = false)
-    @OneToOne(optional = false)
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
     private Usuario usuario;
 
     public GrupoUsuario() {

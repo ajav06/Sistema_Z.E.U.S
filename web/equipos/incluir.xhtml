@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f = "http://java.sun.com/jsf/core" 
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 
     <ui:composition template="./../template/base.xhtml">
@@ -26,48 +27,36 @@
                                 <div class="fields">
                                     <div class="field">
                                         <label>Nombre</label>
-                                        <input type="text" placeholder="Nombre de la Unidad" />
+                                        <h:inputText value="#{equipoBean.equipoSeleccionado.nombre}" 
+                                                     pt:placeholder="Nombre de la Unidad" 
+                                                     required="true"
+                                                     requiredMessage="Ingrese el Nombre"/>
                                     </div>
                                     <div class="field">
                                         <label>Marca</label>
-                                        <h:selectOneMenu value="" class="ui fluid dropdown">
-                                            <f:selectItem itemValue="-1" itemLabel="Marca de la unidad" />
-                                            <f:selectItems value="#{marcaBean.marcas}" />
+                                        <h:selectOneMenu value="#{equipoBean.equipoSeleccionado.codigoMarca}" 
+                                                         class="ui fluid dropdown">
+                                            <f:selectItem  itemLabel="Seleccione..." itemValue="Hola" noSelectionOption="true" />
+                                            <f:selectItems value="#{marcaBean.marcas}" var="marca" itemLabel="#{marca.codigo}" itemValue="#{marca}" />
                                         </h:selectOneMenu>
                                     </div>
                                     <div class="field">
-                                        <label>Modelo</label>
-                                        <input type="text" placeholder="Modelo" />
-                                    </div>
-                                    <div class="field">
-                                        <label>Año</label>
-                                        <input type="text" placeholder="Año"/>
+                                        <label>Descripci&oacute;n</label>
+                                        <h:inputText value = "#{equipoBean.equipoSeleccionado.descripcion}"
+                                                     pt:placeholder="Descripci&oacute;n de la unidad" 
+                                                     required="true"
+                                                     requiredMessage="Ingrese la Descripci&oacute;n"/>
                                     </div>
                                 </div>
 
                                 <div class="two fields">
-                                    <div class="field">
-                                        <label>Decanato</label>
-                                        <h:selectOneMenu value="" class="ui fluid dropdown">
-                                            <f:selectItem itemValue="-1" itemLabel="Decanato que posee la unidad" />
-                                            <f:selectItems value="#{decanatoBean.decanatos}" />
-                                        </h:selectOneMenu>
-                                    </div>
-                                    <div class="field">
-                                        <label>Estado</label>
-                                        <select class="ui fluid dropdown">
-                                            <option value="">Estado que presenta la unidad</option>
-                                            <option value="Bu">Buen estado</option>
-                                            <option value="Ma">Mal estado</option>
-                                            <option value="En">En reparación</option>
-                                        </select>
-                                    </div>
-
                                     <div class="ui center aligned fluid container">
                                         <div class="ui buttons">
                                             <button class="ui labeled icon button"><i class="left chevron icon"></i><a
-                                                    HREF="pagprincipalEquipo.html" style="color: #DC143C;"/> Atrás </button>
-                                            <button class="ui button"><i class="save icon"></i> Guardar </button>
+                                                    href="index" style="color: #c6c4c4;"/> Atr&aacute;s </button>
+                                            <h:commandButton class="ui button" 
+                                                             actionListener="#{equipoBean.agregarEquipo()}" 
+                                                             value="Guardar"><i class='save icon'></i></h:commandButton>
                                         </div>
 
                                     </div>

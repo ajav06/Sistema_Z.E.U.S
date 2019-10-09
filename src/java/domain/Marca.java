@@ -32,24 +32,28 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Marca.findAllActive", query = "SELECT m FROM Marca m WHERE m.estatus = 'a'"),
     @NamedQuery(name = "Marca.findByCodigo", query = "SELECT m FROM Marca m WHERE m.codigo = :codigo AND m.estatus = 'a'"),
     @NamedQuery(name = "Marca.findByNombre", query = "SELECT m FROM Marca m WHERE m.nombre = :nombre AND m.estatus = 'a'"),
-    @NamedQuery(name = "Marca.findByEstatus", query = "SELECT m FROM Marca m WHERE m.estatus = :estatus AND m.estatus = 'a'")})
+    @NamedQuery(name = "Marca.findByEstatus", query = "SELECT m FROM Marca m WHERE m.estatus = :estatus")})
 public class Marca implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "codigo")
     private Integer codigo;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "nombre")
     private String nombre;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "estatus")
     private Character estatus;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoMarca")
     private List<Equipo> equipoList;
 
