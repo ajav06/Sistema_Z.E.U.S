@@ -8,9 +8,9 @@ package beans;
 import domain.Decanato;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import services.DecanatoService;
 
 /**
@@ -21,7 +21,7 @@ import services.DecanatoService;
 @RequestScoped
 public class DecanatoBean {
     
-    @EJB
+    @Inject
     private DecanatoService decanatoService;
     
     private Decanato decanatoSeleccionado;

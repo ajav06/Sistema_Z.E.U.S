@@ -10,6 +10,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import services.MarcaService;
 
@@ -22,7 +23,7 @@ import services.MarcaService;
 @RequestScoped
 public class MarcaBean {
     
-    @EJB
+    @Inject
     private MarcaService marcaService;
     
     private Marca marcaSeleccionada;
