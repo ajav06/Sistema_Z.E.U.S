@@ -15,6 +15,8 @@
               background-color: #1a237e;color: #ffff;
               }
             #encabezadotabla{background-color: #c6c4c4}
+            #letra:hover{color: #ffffff}
+            
         </style>
         <h1>
                 <div class="ui large segment" style="background-color:  #c6c4c4  ;height: 60px; padding-top: 0px;border-block-end:4px solid #1a237e;">    
@@ -126,24 +128,59 @@
                                 <td>HP</td>
                                 <td><div class="item">
                                   <div class="right floated content">
-                                    <div class="ui circular button" style="width: 130px" HREF= "modicarEquipo.html"><A  style="color: #1a237e; ">Modificar</A></div>
-                                    <div class="ui circular button"style="width: 130px" HREF= "consultarEquipo.html"> <A  style="color: #1a237e; "> Consultar </A> </div>
-                                    <div class="ui animated circular button" tabindex="0" style="width: 130px"HREF= "solirepaEquipo.html">
-                                        <div class="visible content" style="color: #1a237e">Reparar</div>
-                                        <div class="hidden content" > <A  style="color: #1a237e">Solicitar</A> </div>
-                                      </div>
-                                      <div class="ui animated circular button" tabindex="0" style="width: 130px" HREF= "solidesinEquipo.html" >
-                                          <div class="visible content" style="color: #1a237e"> Desincorporar </div>
-                                          <div class="hidden content"><A style="color: #1a237e">Solicitar</A></div>
-                                        </div>
-                                  </div></td>
+                                    <div class="ui circular button" id="consultar" style="width: 130px" HREF= "modicarEquipo.html"><A  style="color: #1a237e; ">Ver Detalles</A></div>
+                                   </div>
+                                   </div>
+                                  </td>
                               </tr>
                             </tbody>
 
                         
-
+                            
                          </div>
-  
+                         <script>
+                           $(document).ready(function(){
+                          $('#consultar').click(function(){
+                            $('.ui.basic.modal').modal('show');
+                          });
+                          });
+                          $(document).ready(function(){
+                          $('#atras').click(function(){
+                            $('.ui.basic.modal').modal('closeOnDimmerClick');
+                          });
+                          });
+                         </script>
+                        <div class="ui basic modal">
+                            <div class="content" style="background-color:  #ffffff; height: 100%;width: 98% ;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 1px solid #1a237e">
+                                <div class="ui aligned center dividing header" style="background-color: #9e9d9d; border-block-end: 1px solid #1a237e; font-size: 30px;color: #1a237e; margin: 20px ;">Consultar Equipo</div>
+                                <div class="ui form" style="width: 80%; margin-left: 10%">
+                                    <div class="two fields">
+                                    <div class="field">
+                                    <label>Nombre</label>
+                                    <input type="text" placeholder="Nombre de la Unidad" style="border-block-color: #1a237e;">
+                                    </div>
+                                    <div class="field">
+                                    <label>Marca</label>
+                                    <input type="text" placeholder="Marca" style="border-block-color: #1a237e;">
+                                    </div>
+                                    </div>
+                                    <div class="field">
+                                    <label>Descripcion</label>
+                                    <input type="text" placeholder="Descripcion" style="height: 200px; border-block-color: #1a237e;">
+                                    </div>
+                                <div class="actions" style="margin-block-end: 30px">
+                                    <div class="ui center aligned fluid container">
+                                        <div class="ui cancel  circular button" style="width: 130px ; color: #1a237e" id="item"  ><i class="left chevron icon"></i>Atras</div>
+                                        <div class="ui circular button"style="width: 130px; color: #1a237e" HREF= "consultarEquipo.html" id="item">  Modificar</div>
+                                        <div class="ui circular button"style="width: 130px; color: #1a237e" HREF= "consultarEquipo.html" id="item"> Eliminar </div>
+                                       
+                                  </div> 
+                                </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          </div>
                     </div>
             </div>
     </body>
