@@ -5,110 +5,108 @@
  */
 package domain;
 
-import java.io.IOException;
 import java.io.Serializable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
+import java.util.List;
+import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
  *
- * @author AJAV06
+ * @author Scorpion
  */
-
 @Entity
 @Table(name = "usuario")
+@NamedQueries({
+    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u"),
+    @NamedQuery(name = "Usuario.findByNombreUsuario", query = "SELECT u FROM Usuario u WHERE u.nombreUsuario = :nombreUsuario"),
+    @NamedQuery(name = "Usuario.findByContrasenna", query = "SELECT u FROM Usuario u WHERE u.contrasenna = :contrasenna"),
+    @NamedQuery(name = "Usuario.findByCedula", query = "SELECT u FROM Usuario u WHERE u.cedula = :cedula"),
+    @NamedQuery(name = "Usuario.findByNombre", query = "SELECT u FROM Usuario u WHERE u.nombre = :nombre"),
+    @NamedQuery(name = "Usuario.findByApellido", query = "SELECT u FROM Usuario u WHERE u.apellido = :apellido"),
+    @NamedQuery(name = "Usuario.findByDireccion", query = "SELECT u FROM Usuario u WHERE u.direccion = :direccion"),
+    @NamedQuery(name = "Usuario.findByTelefono", query = "SELECT u FROM Usuario u WHERE u.telefono = :telefono"),
+    @NamedQuery(name = "Usuario.findByCorreo", query = "SELECT u FROM Usuario u WHERE u.correo = :correo"),
+    @NamedQuery(name = "Usuario.findByEstatus", query = "SELECT u FROM Usuario u WHERE u.estatus = :estatus")})
 public class Usuario implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
-    
     @Id
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 10)
     @Column(name = "nombre_usuario")
     private String nombreUsuario;
     
+    @Basic(optional = false)
     @NotNull
-    @Size(min = 1)
+    @Size(min = 1, max = 20)
     @Column(name = "contrasenna")
-    private String password;
-     
-    @JoinColumn(name = "codigo_departamento", referencedColumnName = "codigo")
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Departamento departamento;
+    private String contrasenna;
     
+    @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 8)
-    @Column(name = "cedula", unique = true)
+    @Size(min = 1, max = 10)
+    @Column(name = "cedula")
     private String cedula;
     
-    @NotNull
-    @Size(min = 1, max = 50)
+    @Size(max = 50)
     @Column(name = "nombre")
     private String nombre;
     
-    @NotNull
-    @Size(min = 1, max = 50)
+    @Size(max = 50)
     @Column(name = "apellido")
     private String apellido;
     
+    @Size(max = 2147483647)
     @Column(name = "direccion")
     private String direccion;
     
-    @Column(name = "telefono", unique = true)
+    @Column(name = "telefono")
     private Integer telefono;
     
-    @Column(name = "correo", unique = true)
+    @Size(max = 50)
+    @Column(name = "correo")
     private String correo;
     
+    @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 1)
-    @Column(name = "estatus", columnDefinition = "character default 'a'")
+    @Column(name = "estatus")
     private Character estatus;
+    
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "usuario")
+    private GrupoUsuario grupoUsuario;
+    
+    @JoinColumn(name = "codigo_departamento", referencedColumnName = "codigo")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    private Departamento codigoDepartamento;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "nombreUsuario")
+    private List<Solicitudes> solicitudesList;
 
     public Usuario() {
     }
 
-    public Usuario(String nombreUsuario, String password,Departamento departamento, String cedula, String nombre, String apellido, String direccion, Integer telefono, String correo) {
+    public Usuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
-        this.password = password;
-        this.departamento = departamento;
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.correo = correo;
     }
 
-    public Usuario(String nombreUsuario, String password, Departamento departamento, String cedula, String nombre, String apellido, String direccion, Integer telefono, String correo, Character estatus) {
+    public Usuario(String nombreUsuario, String contrasenna, String cedula, Character estatus) {
         this.nombreUsuario = nombreUsuario;
-        this.password = password;
-        this.departamento = departamento;
+        this.contrasenna = contrasenna;
         this.cedula = cedula;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.correo = correo;
         this.estatus = estatus;
-    }
-
-    public Usuario(String nombreUsuario, String password, Departamento departamento, String cedula, String nombre, String apellido) {
-        this.nombreUsuario = nombreUsuario;
-        this.password = password;
-        this.departamento = departamento;
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.apellido = apellido;
     }
 
     public String getNombreUsuario() {
@@ -119,20 +117,12 @@ public class Usuario implements Serializable {
         this.nombreUsuario = nombreUsuario;
     }
 
-    public String getPassword() {
-        return password;
+    public String getContrasenna() {
+        return contrasenna;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Departamento getDepartamento() {
-        return departamento;
-    }
-
-    public void setDepartamento(Departamento departamento) {
-        this.departamento = departamento;
+    public void setContrasenna(String contrasenna) {
+        this.contrasenna = contrasenna;
     }
 
     public String getCedula() {
@@ -191,21 +181,53 @@ public class Usuario implements Serializable {
         this.estatus = estatus;
     }
 
+    public GrupoUsuario getGrupoUsuario() {
+        return grupoUsuario;
+    }
+
+    public void setGrupoUsuario(GrupoUsuario grupoUsuario) {
+        this.grupoUsuario = grupoUsuario;
+    }
+
+    public Departamento getCodigoDepartamento() {
+        return codigoDepartamento;
+    }
+
+    public void setCodigoDepartamento(Departamento codigoDepartamento) {
+        this.codigoDepartamento = codigoDepartamento;
+    }
+
+    public List<Solicitudes> getSolicitudesList() {
+        return solicitudesList;
+    }
+
+    public void setSolicitudesList(List<Solicitudes> solicitudesList) {
+        this.solicitudesList = solicitudesList;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (nombreUsuario != null ? nombreUsuario.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Usuario)) {
+            return false;
+        }
+        Usuario other = (Usuario) object;
+        if ((this.nombreUsuario == null && other.nombreUsuario != null) || (this.nombreUsuario != null && !this.nombreUsuario.equals(other.nombreUsuario))) {
+            return false;
+        }
+        return true;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "nombreUsuario=" + nombreUsuario + ", password=" + password + ", departamento=" + departamento + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion + ", telefono=" + telefono + ", correo=" + correo + ", estatus=" + estatus + '}';
+        return nombre + " " + apellido;
     }
     
-    /**
-    * Invalida la Sesión y redigiré a la página de inicio
-    */
-   public void logout() {
-     ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-     ec.invalidateSession();
-     try {
-       ec.redirect(ec.getRequestContextPath());
-     } catch (IOException ex) {
-       Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
-     }
-   }
 }

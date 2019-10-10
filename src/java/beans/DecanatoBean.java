@@ -8,7 +8,6 @@ package beans;
 import domain.Decanato;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -22,8 +21,10 @@ import services.DecanatoService;
 @RequestScoped
 public class DecanatoBean {
     
-    @EJB
+    @Inject
     private DecanatoService decanatoService;
+    
+    private Decanato decanatoSeleccionado;
     
     List<Decanato> decanatos;
     
@@ -32,7 +33,8 @@ public class DecanatoBean {
     
     @PostConstruct
     public void inicializar() {
-        decanatos = decanatoService.listarDecanatos();
+        decanatos = decanatoService.listarDecanatosActivos();
+        decanatoSeleccionado = new Decanato();
     }
 
     public List<Decanato> getDecanatos() {
@@ -42,6 +44,32 @@ public class DecanatoBean {
     public void setDecanatos(List<Decanato> decanatos) {
         this.decanatos = decanatos;
     }
+
+    public Decanato getDecanatoSeleccionado() {
+        return decanatoSeleccionado;
+    }
+
+    public void setDecanatoSeleccionado(Decanato decanatoSeleccionado) {
+        this.decanatoSeleccionado = decanatoSeleccionado;
+    }
     
+    public void reiniciarDecanatoSeleccionado(){
+        this.decanatoSeleccionado = new Decanato();
+    }
+    
+    public void modificarDecanato() {
+        decanatoService.actualizarDecanato(this.decanatoSeleccionado);
+        this.decanatoSeleccionado = null;
+    }
+    
+    public void agregarDecanato() {
+        decanatoService.registrarDecanato(this.decanatoSeleccionado);
+        this.decanatoSeleccionado = null;
+    }
+    
+    public void eliminarDecanato() {
+        decanatoService.eliminarDecanato(this.decanatoSeleccionado);
+        this.decanatoSeleccionado = null;
+    }
     
 }

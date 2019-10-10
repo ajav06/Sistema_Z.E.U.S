@@ -8,9 +8,6 @@
       <property name="eclipselink.logging.level.sql" value="FINE"/>
       <property name="eclipselink.logging.parameters" value="true"/>
       <property name="eclipselink.canonicalmodel.subpackage" value="prod"/>
-      
-      <property name="javax.persistence.schema-generation.database.action" value="create-or-extend-tables"/>
-      
       <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform"/>
       <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
     </properties>

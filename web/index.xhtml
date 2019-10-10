@@ -4,38 +4,10 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     
-    <ui:composition template="./../template/base.xhtml">
+    <ui:composition template="./template/base.xhtml">
     
         <ui:define name="head">
             <title>Inicio</title>
-            <style type="text/css">
-                #item {
-                    color: black
-                }
-
-                #item:hover {
-                    background-color: #1a237e;
-                    color: #ffffff;
-                }
-
-                #itemlistre:hover {
-                    background-color: #1a237e;
-                }
-
-                #encabezado:hover {
-                    color: #ffffff
-                }
-
-                #encabezado {
-                    color: #1a237e;
-                    color: black
-                }
-
-                #menu {
-                    margin-top: 0px !important;
-                    padding-top: 0px !important
-                }
-            </style>
         </ui:define>
 
         <ui:define name="content">
@@ -51,7 +23,7 @@
                             <div class="ui relaxed divided list">
                                 <div class="item" id="itemlistre">
                                     <div class="content">
-                                        <a class="header" id="encabezado">Reporte 1
+                                        <a class="header" id="encabezado" href="./equipos/incluir.xhtml">Reporte 1
                                             <div class="description">Realizado 2 dias</div>
                                         </a>
                                     </div>

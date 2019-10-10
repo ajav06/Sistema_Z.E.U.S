@@ -1,0 +1,23 @@
+INSERT INTO public.decanato(
+	nombre, siglas, direccion, correo, telefono, estatus)
+	VALUES ('Ciencias y Tecnologia', 'DCyT', 'AV Florencio Jimenez', 'dcyt@ucla.com', 1234, 'a');
+    
+INSERT INTO public.departamento(
+	codigo_decanato, nombre, descripcion, estatus)
+	VALUES (1, 'Sistemas', 'Departamento de Sistemas del DCyT', 'a');
+
+INSERT INTO public.tipo_usuario(
+	nombre, estatus)
+	VALUES ('Administrador', 'a');
+
+INSERT INTO public.usuario(
+	nombre_usuario, contrasenna, codigo_departamento, cedula, estatus)
+	VALUES ('ajav06', '1234', 1, '26710983', 'a');
+
+INSERT INTO public.grupo_usuario(
+	nombre_usuario, codigo_tipo_usuario, fecha_modificacion)
+	VALUES ('ajav06',1, '08/10/2019');
+
+INSERT INTO public.marca(
+	nombre, estatus)
+	VALUES ('SANSUNG', 'a');

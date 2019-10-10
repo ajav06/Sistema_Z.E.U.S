@@ -7,7 +7,6 @@ package services;
 
 import java.util.List;
 import javax.annotation.Resource;
-import javax.inject.Inject;
 import javax.ejb.SessionContext;
 
 import domain.Decanato;
@@ -21,7 +20,7 @@ import javax.ejb.Stateless;
  */
 
 @Stateless
-public class DecanatoServiceImpl implements DecanatoService, DecanatoServiceRemote{
+public class DecanatoServiceImpl implements DecanatoService{
     
     @Resource
     private SessionContext contexto;
@@ -40,12 +39,12 @@ public class DecanatoServiceImpl implements DecanatoService, DecanatoServiceRemo
     }
 
     @Override
-    public Decanato encontrarDecanatoPorId(Decanato decanato) {
+    public Decanato buscarDecanatoPorCodigo(Decanato decanato) {
         return decanatoDao.findDecanatoById(decanato);
     }
 
     @Override
-    public Decanato encontrarDecanatoPorNombre(Decanato decanato) {
+    public Decanato buscarDecanatoPorNombre(Decanato decanato) {
         return decanatoDao.findDecanatoByName(decanato);
     }
 

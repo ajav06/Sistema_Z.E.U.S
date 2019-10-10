@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core" 
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+
+    <ui:composition template="./../template/base.xhtml">
+
+        <ui:define name="head">
+            <title>Incluir Equipo</title>
+        </ui:define>
+        
+        <ui:define name="left"></ui:define>
+
+        <ui:define name="login">
+            <div class="ui middle aligned center aligned grid" style="margin-top: 100px">
+                <div class="ui large segment "
+                    style="background-color:  #c6c4c4  ;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border-bottom-right-radius: solid #c6c4c4">
+                    <div class="ui category search"></div>
+                    <div class="ui form">
+                        <h:form class="ui form">
+                            <h4 class="ui dividing header">Unidad a Incluir</h4>
+                            <div class="field">
+                                <div class="fields">
+                                    <div class="field">
+                                        <label>Nombre</label>
+                                        <h:inputText value="#{equipoBean.equipoSeleccionado.nombre}" 
+                                                     pt:placeholder="Nombre de la Unidad" 
+                                                     required="true"
+                                                     requiredMessage="Ingrese el Nombre"/>
+                                    </div>
+                                    <div class="field">
+                                        <label>Marca</label>
+                                        <h:selectOneMenu value="#{equipoBean.equipoSeleccionado.codigoMarca}" 
+                                                         class="ui fluid dropdown"
+                                                         converter="omnifaces.SelectItemsIndexConverter"
+                                                         required="true"
+                                                         requiredMessage="Selecciona una Marca">
+                                            <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
+                                            <f:selectItems value="#{marcaBean.marcas}" var="marca" itemValue="#{marca}" itemLabel="#{marca.nombre}" />
+                                        </h:selectOneMenu>
+                                    </div>
+                                    <div class="field">
+                                        <label>Descripci&oacute;n</label>
+                                        <h:inputText value = "#{equipoBean.equipoSeleccionado.descripcion}"
+                                                     pt:placeholder="Descripci&oacute;n de la unidad" 
+                                                     required="true"
+                                                     requiredMessage="Ingrese la Descripci&oacute;n"/>
+                                    </div>
+                                </div>
+
+                                <div class="two fields">
+                                    <div class="ui center aligned fluid container">
+                                        <div class="ui buttons">
+                                            
+                                            <button class="ui labeled icon button" >
+                                                <i class="left chevron icon"></i>
+                                                <a href="" style="color: #c6c4c4;"/> Atr&aacute;s
+                                            </button>
+                                            
+                                            <h:commandLink class="ui button" 
+                                                             actionListener="#{equipoBean.agregarEquipo()}">
+                                                <i class='save icon'></i> Guardar
+                                            </h:commandLink>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </ui:define>
+
+    </ui:composition>
+</html>

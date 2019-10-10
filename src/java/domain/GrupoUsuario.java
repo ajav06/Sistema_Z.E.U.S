@@ -6,69 +6,125 @@
 package domain;
 
 import java.io.Serializable;
+import java.util.Date;
+import javax.persistence.Basic;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
- * @author AJAV06
+ * @author Scorpion
  */
-
 @Entity
 @Table(name = "grupo_usuario")
 @NamedQueries({
-    @NamedQuery(name = "GrupoUsuario.findAll", query = "SELECT gu FROM GrupoUsuario gu"),
-    @NamedQuery(name = "GrupoUsuario.findByType", query = "SELECT gu FROM GrupoUsuario gu WHERE gu.tipoUsuario.idTipoUsuario = :tipoUsuario"),
-    @NamedQuery(name = "GrupoUsuario.findByName", query = "SELECT gu FROM GrupoUsuario gu WHERE gu.Usuario.nombreUsuario = :nombreUsuario"),
-})
+    @NamedQuery(name = "GrupoUsuario.findAll", query = "SELECT g FROM GrupoUsuario g"),
+    @NamedQuery(name = "GrupoUsuario.findByNombreUsuario", query = "SELECT g FROM GrupoUsuario g WHERE g.nombreUsuario = :nombreUsuario"),
+    @NamedQuery(name = "GrupoUsuario.findByFechaModificacion", query = "SELECT g FROM GrupoUsuario g WHERE g.fechaModificacion = :fechaModificacion")})
 public class GrupoUsuario implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
     
     @Id
-    @JoinColumn(name = "nombre_usuario", referencedColumnName = "nombre_usuario")
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Usuario Usuario;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 10)
+    @Column(name = "nombre_usuario")
+    private String nombreUsuario;
+    
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "fecha_modificacion")
+    @Temporal(TemporalType.DATE)
+    private Date fechaModificacion;
     
     @JoinColumn(name = "codigo_tipo_usuario", referencedColumnName = "codigo")
-    @ManyToOne(cascade = CascadeType.ALL)
-    private TipoUsuario tipoUsuario;
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    private TipoUsuario codigoTipoUsuario;
     
-    
+    @JoinColumn(name = "nombre_usuario", referencedColumnName = "nombre_usuario", insertable = false, updatable = false)
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    private Usuario usuario;
 
     public GrupoUsuario() {
     }
 
+    public GrupoUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public GrupoUsuario(String nombreUsuario, Date fechaModificacion) {
+        this.nombreUsuario = nombreUsuario;
+        this.fechaModificacion = fechaModificacion;
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public Date getFechaModificacion() {
+        return fechaModificacion;
+    }
+
+    public void setFechaModificacion(Date fechaModificacion) {
+        this.fechaModificacion = fechaModificacion;
+    }
+
+    public TipoUsuario getCodigoTipoUsuario() {
+        return codigoTipoUsuario;
+    }
+
+    public void setCodigoTipoUsuario(TipoUsuario codigoTipoUsuario) {
+        this.codigoTipoUsuario = codigoTipoUsuario;
+    }
+
     public Usuario getUsuario() {
-        return Usuario;
+        return usuario;
     }
 
-    public GrupoUsuario(Usuario Usuario, TipoUsuario tipoUsuario) {
-        this.Usuario = Usuario;
-        this.tipoUsuario = tipoUsuario;
-    }
- 
-    public void setUsuario(Usuario Usuario) {
-        this.Usuario = Usuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-    public TipoUsuario getTipoUsuario() {
-        return tipoUsuario;
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (nombreUsuario != null ? nombreUsuario.hashCode() : 0);
+        return hash;
     }
 
-    public void setTipoUsuario(TipoUsuario tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof GrupoUsuario)) {
+            return false;
+        }
+        GrupoUsuario other = (GrupoUsuario) object;
+        if ((this.nombreUsuario == null && other.nombreUsuario != null) || (this.nombreUsuario != null && !this.nombreUsuario.equals(other.nombreUsuario))) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public String toString() {
-        return "GrupoUsuario{" + "Usuario=" + Usuario + ", tipoUsuario=" + tipoUsuario + '}';
+        return "domain.GrupoUsuario[ nombreUsuario=" + nombreUsuario + " ]";
     }
- 
+    
 }

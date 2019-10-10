@@ -21,9 +21,9 @@ public interface DecanatoService {
     
     public List<Decanato> listarDecanatosActivos();
     
-    public Decanato encontrarDecanatoPorId(Decanato decanato);
+    public Decanato buscarDecanatoPorCodigo(Decanato decanato);
     
-    public Decanato encontrarDecanatoPorNombre(Decanato decanato);
+    public Decanato buscarDecanatoPorNombre(Decanato decanato);
     
     public void registrarDecanato(Decanato decanato);
     

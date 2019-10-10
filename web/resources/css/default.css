@@ -1,29 +1,62 @@
-body {
-    background-color: #ffffff;
-    font-size: 12px;
-    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
-    color: #000000;  
-    margin: 10px;
+/*
+* BARRA SUPERIOR
+*/
+
+#top-bar{
+    background-color:  #c6c4c4;
+    height: 60px; 
+    padding-top: 0px; 
+    border-block-end: 4px solid #1a237e;
 }
 
-h1 {
-    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
-    border-bottom: 1px solid #AFAFAF; 
-    font-size:  16px;
-    font-weight: bold;
-    margin: 0px;
-    padding: 0px;
-    color: #D20005;
+#top-bar-dropdown{
+    margin-top: 3px; 
+    padding-block-start: 2px;
+    padding-block-end: 2px;
+    background-color:  #c6c4c4;
+    border: 0px #c6c4c4;
 }
 
-a:link, a:visited {
-  color: #045491;
-  font-weight : bold;
-  text-decoration: none;
+
+/*
+* MENU IZQUIERDO
+*/
+#left-menu{
+    width: 100%; 
+    padding-top: 0 rem !important; 
+    margin-top: 0 rem !important; 
+    background-color: #c6c4c4;
+    height: 100%;
+    border-radius: 24px 24px 24px 24px;
+    -moz-border-radius: 24px 24px 24px 24px;
+    -webkit-border-radius: 24px 24px 24px 24px;
+    border: 0px ; 
+    font-size: 18px;   
 }
 
-a:link:hover, a:visited:hover  {
-  color: #045491;
-  font-weight : bold;
-  text-decoration : underline;
+#item {
+    color: black
+}
+
+#item:hover {
+    background-color: #1a237e;
+    color: #ffffff;
+}
+
+#itemlistre:hover {
+    background-color: #1a237e;
+}
+
+#encabezado:hover {
+    color: #ffffff
+}
+
+#encabezado {
+    color: #1a237e;
+    color: black
+}
+
+#menu {
+    margin-top: 0px !important;
+    padding-top: 0px !important
 }
