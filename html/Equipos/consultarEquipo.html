@@ -9,31 +9,36 @@
         <title>Consultar</title>
         </head>
  <h1>
-        <div class="ui large segment" style="background-color:  #c6c4c4  ;height: 60px; padding-top: 0px;border-block-end:4px solid #DC143C;">    
+        <div class="ui large segment" style="background-color:  #c6c4c4  ;height: 60px; padding-top: 0px;border-block-end:4px solid #1a237e;">    
            
         </div>
 </h1>
-<h2> <div class="ui middle aligned center aligned grid" style="margin-top: 20px;color:#DC143C; font-size: 50px;">Consultar Equipo</div></h2>
-
     <body>
-
-        <div class="ui middle aligned center aligned grid" style="margin-top: 50px">
-            
-                <div class="ui segment " style="background-color:  #c6c4c4  ;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border-bottom-right-radius: solid #c6c4c4">
-                  <div class="ui category search"></div>
-        
-        <div class="ui form">
-                <form class="ui form">
-                        <h4 class="ui aligned center dividing header">Informacion del Equipo</h4>
+        <div class="ui grid">
+                <div class="four wide column">
+                <div class="ui inverted vertical menu" style=" width: 100%; background-color: #c6c4c4;height: 100%;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 0px ; font-size: 15px;">
+                <a class="item" id="item" >Reportes</a>
+                <a class="active item" id="item" style="background-color: #1a237e"  >Gestionar Usuarios</a>
+                <a class="item" id="item" href="../Decanatos/ListaDecanatos.html" >Gestionar Decanatos</a>
+                <a class="item" id="item" href="../Equipos/ListaEquipos.html">Gestionar Equipos</a>
+                <a class="item" id="item" >Estadisticas</a>
+                </div>
+                </div>
+                <div class="twelve wide stretched column" style="border-block-color:  #9e9d9d ;height: 600px;">
+                <div class="ui segment " style="background-color:  #ffffff; height: 100%;width: 98% ;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 1px solid #1a237e">
+                <div class="ui category search"></div>
+                <div class="ui middle aligned center aligned grid" style="margin-top: 50px; margin-left: 10px">
+                <div class="ui form" style="width: 80%; background-color: #c6c4c4;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;">
+                <h4 class="ui aligned center dividing header" style="border-block-end: 1px solid #1a237e; font-size: 22px;color: #1a237e; margin: 20px ;">Consultar Equipo</h4>
                 <div class="two fields">
                 <div class="field">
-                 <label>Nombre</label>
-                 <input type="text" placeholder="Nombre de la Unidad">
-                 </div>
-                 <div class="field">
-                  <label>Marca</label>
-                  <input type="text" placeholder="Marca">
-                 </div>
+                <label>Nombre</label>
+                <input type="text" placeholder="Nombre de la Unidad">
+                </div>
+                <div class="field">
+                <label>Marca</label>
+                <input type="text" placeholder="Marca">
+                </div>
                 </div>
                 <div class="two fields">
                  <div class="field">
@@ -50,12 +55,17 @@
                 <input type="text" placeholder="Numero">
                 </div>
                 <div class="ui center aligned fluid container">
-             <div class="ui buttons"></br>
-                    <button class="ui labeled icon button"><i class="left chevron icon"></i><A HREF= "pagprincipalEquipo.html" style="color: #DC143C;"> Atrás </button>
+             <div class="ui buttons" style="margin-block-end: 20px"></br>
+                    <button class="ui labeled icon button"><i class="left chevron icon"></i><A HREF= "pagprincipalEquipo.html" style="color: #1a237e;"> Atrás </button>
                     <button class="ui button"><i class="save icon"></i> Guardar </button>
-                    
+                </div>    
                   </div>
+                </div>
                 </div>
         </div>
       </body>
 </html>
+<div class="ui basic modal" id="modal" style=" background-color: transparent">
+    <i class="close icon"></i>
+  
+    </div>
