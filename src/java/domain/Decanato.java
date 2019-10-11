@@ -20,6 +20,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -37,6 +38,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Decanato.findByCorreo", query = "SELECT d FROM Decanato d WHERE d.correo = :correo AND d.estatus = 'a'"),
     @NamedQuery(name = "Decanato.findByTelefono", query = "SELECT d FROM Decanato d WHERE d.telefono = :telefono AND d.estatus = 'a'"),
     @NamedQuery(name = "Decanato.findByEstatus", query = "SELECT d FROM Decanato d WHERE d.estatus = :estatus")})
+@XmlRootElement
 public class Decanato implements Serializable {
 
     private static final long serialVersionUID = 1L;

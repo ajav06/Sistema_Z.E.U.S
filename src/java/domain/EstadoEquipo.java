@@ -20,6 +20,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -33,6 +34,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "EstadoEquipo.findByNombre", query = "SELECT e FROM EstadoEquipo e WHERE e.nombre = :nombre"),
     @NamedQuery(name = "EstadoEquipo.findByDescripcion", query = "SELECT e FROM EstadoEquipo e WHERE e.descripcion = :descripcion"),
     @NamedQuery(name = "EstadoEquipo.findByEstatus", query = "SELECT e FROM EstadoEquipo e WHERE e.estatus = :estatus")})
+@XmlRootElement
 public class EstadoEquipo implements Serializable {
 
     private static final long serialVersionUID = 1L;

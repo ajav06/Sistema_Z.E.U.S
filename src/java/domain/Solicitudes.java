@@ -23,6 +23,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -37,6 +38,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Solicitudes.findByFechaInicio", query = "SELECT s FROM Solicitudes s WHERE s.fechaInicio = :fechaInicio"),
     @NamedQuery(name = "Solicitudes.findByFechaAtencion", query = "SELECT s FROM Solicitudes s WHERE s.fechaAtencion = :fechaAtencion"),
     @NamedQuery(name = "Solicitudes.findByEstatus", query = "SELECT s FROM Solicitudes s WHERE s.estatus = :estatus")})
+@XmlRootElement
 public class Solicitudes implements Serializable {
 
     private static final long serialVersionUID = 1L;

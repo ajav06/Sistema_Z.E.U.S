@@ -22,6 +22,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -33,6 +34,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "GrupoUsuario.findAll", query = "SELECT g FROM GrupoUsuario g"),
     @NamedQuery(name = "GrupoUsuario.findByNombreUsuario", query = "SELECT g FROM GrupoUsuario g WHERE g.nombreUsuario = :nombreUsuario"),
     @NamedQuery(name = "GrupoUsuario.findByFechaModificacion", query = "SELECT g FROM GrupoUsuario g WHERE g.fechaModificacion = :fechaModificacion")})
+@XmlRootElement
 public class GrupoUsuario implements Serializable {
 
     private static final long serialVersionUID = 1L;

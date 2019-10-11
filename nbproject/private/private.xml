@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Scorpion/OneDrive/Documentos/Java%20EE/sistema_zeus/web/WEB-INF/sun-web.xml</file>
+            <file>file:/C:/Users/Scorpion/OneDrive/Documentos/Java%20EE/sistema_zeus/src/java/services/rest/MarcaServiceRS.java</file>
+            <file>file:/C:/Users/Scorpion/OneDrive/Documentos/Java%20EE/sistema_zeus/web/template/base.xhtml</file>
+            <file>file:/C:/Users/Scorpion/OneDrive/Documentos/Java%20EE/sistema_zeus/src/java/services/rest/EquipoServiceRS.java</file>
+            <file>file:/C:/Users/Scorpion/OneDrive/Documentos/Java%20EE/sistema_zeus/web/index.xhtml</file>
+            <file>file:/C:/Users/Scorpion/OneDrive/Documentos/Java%20EE/sistema_zeus/src/java/domain/Equipo.java</file>
+            <file>file:/C:/Users/Scorpion/OneDrive/Documentos/Java%20EE/sistema_zeus/web/WEB-INF/web.xml</file>
         </group>
     </open-files>
 </project-private>
