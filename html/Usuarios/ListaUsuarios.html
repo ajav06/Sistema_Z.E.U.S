@@ -56,27 +56,27 @@
                       <i class="search icon"></i>
                   </div>
                   <div class="results"></div>
-                       <div class="ui animated circular button" tabindex="0" aria-label="Equipos" style="width: 130px; margin-left: 28%">
+                       <div class="ui animated circular button" tabindex="0" aria-label="Equipos" style="width: 130px; margin-left: 28%" id="registrar" >
                           <div class="visible content" style="color: #1a237e">
                           <i class="ui plus icon" ></i> Usuario</div>
                           <div class="hidden content" style="color: #1a237e">
-                          <i class="ui plus icon"></i>Incluir
+                          <i class="ui plus icon"></i>Registrar
                           </div>
                         </div>
                   <table class="ui compact celled definition table" style="border: 0px solid #1a237e; " >
                         <thead class="full-width">
                           <tr>
                               <th id="encabezadotabla" style="width: 10%;">Nombre de Usuario</th>
-                              <th id="encabezadotabla">Nombre y Apellido</th>
-                              <th id="encabezadotabla">Decanato</th>
-                              <th id="encabezadotabla">Departamento</th>
-                              <th id="encabezadotabla" style="width: 35%">Opción</th>
+                              <th id="encabezadotabla" style="width: 20%; ">Nombre y Apellido</th>
+                              <th id="encabezadotabla" style="width: 30%">Decanato</th>
+                              <th id="encabezadotabla" style="width: 30%">Departamento</th>
+                              <th id="encabezadotabla" style="width: 20%">Opción</th>
                           </tr>
                         </thead>
                           <tbody style="background-color: #f3f5f6">
                           <tr>
                           <td>502</td>
-                          <td>Gabriel Roao</td>
+                          <td>Gabriel Roa</td>
                           <td>Decanato de Humanidades y artes</td>
                           <td>Departamento de Estudios Basicos</td>
                           <td>
@@ -128,7 +128,6 @@
               //Abrir el modal de modificar y cerrar el de consultar
             $(document).ready(function(){
             $('#modificar').click(function(){
-            $('#formconsultar').modal('hide');
             $('#formodificar').modal('show');
             });
             })
@@ -142,16 +141,16 @@
             //Funciones del Incluir
               //Abrir el modal de incluir
             $(document).ready(function(){
-            $('#incluir').click(function(){
-            $('#formincluir').modal('show');
+            $('#registrar').click(function(){
+            $('#formregistrar').modal('show');
             });
             });
             
             //Funciones del Eliminar
               //Abrir el modal de Eliminar
               $(document).ready(function(){
-            $('#eliminar').click(function(){
-            $('#txteliminar').modal('show');
+            $('#suspender').click(function(){
+            $('#txtsuspender').modal('show');
             });
             });
 
@@ -162,6 +161,12 @@
             });
             });
 
+            //cerrar el mensaje de confirmacion
+            $(document).ready(function(){
+            $('#cancelar1').click(function(){
+            $('#formodificar').modal('show');
+            });
+            });
 
              </script>
 
@@ -224,7 +229,7 @@
                         <div class="ui center aligned fluid container" style=" margin-top: 5%" >
                             <div class="ui cancel  circular button" style="width: 130px ; color: #1a237e"><i class="left chevron icon"></i>Atras</div>
                             <div class="ui circular button"style="width: 130px; color: #1a237e" id="modificar">  Modificar</div>
-                            <div class="ui circular button"style="width: 130px; color: #1a237e" id="eliminar"> Suspender </div> 
+                            <div class="ui circular button"style="width: 130px; color: #1a237e" id="suspender"> Suspender </div> 
                         </div> 
                         </div>
                       </div>
@@ -297,7 +302,7 @@
                         <div class="ui center aligned fluid container" style=" margin-top: 5%" >
                             <div class="ui buttons" style=" margin-top: 5%" >
                                 <button class="ui cancel labeled icon button" id="atras" style="color: #1a237e"><i class="left chevron icon" ></i> Atrás </button>
-                                <button class="ui button" id="guardar" style="color: #1a237e"><i class="save icon"></i> Guardar </button>
+                                <button class="ui button" id="guardar1" style="color: #1a237e"><i class="save icon"></i> Guardar </button>
                             </div> 
                         </div> 
                         </div>
@@ -306,8 +311,118 @@
               </div>
             </div>
           </div>
-        </div>
 
+           <!-- Modal de Registrar''<> -->
+
+           <div class="ui basic modal" id="formregistrar">
+              <div class="content" style="height: 100%;width: 110% ;">
+                  <div class="ui two column very relaxed grid" style="width: 110% ">
+                        
+                      <div class="column" style="width: 33%; background-image: url(../image/fondo8.jpg);padding-left: 0px !important; padding-right: 0px !important;padding-top: 0px !important; padding-bottom: 0px !important; border-radius: 24px 0px 0px 24px;">
+                       
+                      </div>
+                      <div class="column" style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
+                        <div class="ui segment" style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
+                            <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 2%; ">Registar Usuario</div>
+                            </div>
+                  <div class="ui form" style="width: 80%; margin-left: 10%">
+                      <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 2%">
+                          <div class="two fields">
+                          <div class="field">
+                              <label style="color: #ffffff" >Tipo de Usuario</label>
+                              <select class="ui fluid dropdown" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;">
+                              <option >Selecciona el Tipo de Usuario</option>
+                              <option >Bienes Nacionales</option>
+                              <option >Administrador</option>
+                              <option >Empleado</option>
+                              </select>
+                          </div>
+                          <div class="field">
+                              <label style="color: #ffffff">Nombre</label>
+                              <input type="text" placeholder="Nombre de la Unidad" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;" required>
+                          </div>
+                          </div>
+                          <div class="two fields">
+                              <div class="field">
+                                  <label style="color: #ffffff" >Decanatos</label>
+                                  <select class="ui fluid dropdown" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;" required>
+                                  <option>Selecciona el Decanatos</option>
+                                  <option >Decanato de Ciencias Veterinarias</option>
+                                  <option> Decanato de Humanidades y Artes</option>
+                                  <option>Decanato de Ciencia y Tecnologia</option>
+                                  </select>
+                              </div>
+                              <div class="field">
+                                  <label style="color: #ffffff">Direccion</label>
+                                  <input type="text" placeholder="Direccion" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;" >
+                              </div>
+                          </div>
+                          <div class="two fields">
+                                  <div class="field">
+                                  <label style="color: #ffffff">Telefono</label>
+                                  <input type="text" placeholder="telefono" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;" >
+                                  </div>
+                                  <div class="field">
+                                  <label style="color: #ffffff">Correo</label>
+                                  <input type="text" placeholder="Correo" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;" >
+                                  </div>
+                          </div>
+                              <div class="field">
+                              <label style="color: #ffffff">Contraseña</label>
+                              <input type="text" placeholder="Contraseña" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;" required >
+                              </div>
+                          </div>
+                          <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
+                          <div class="ui center aligned fluid container" style=" margin-top: 5%" >
+                              <div class="ui buttons" style=" margin-top: 5%" >
+                                  <button class="ui cancel labeled icon button"  style="color: #1a237e"><i class="left chevron icon" ></i> Atrás </button>
+                                  <button class="ui button" id="guardar2" style="color: #1a237e"><i class="save icon"></i> Guardar </button>
+                              </div> 
+                          </div> 
+                          </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          
+
+         <!-- Mensajes ''<> -->
+                                      <!-- Mensaje de Suspender Usuario ''<> -->
+                                      <div class="ui mini modal" id="txtsuspender"  >
+                                          <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+                                            <p style="color: #ffff">¿Esta seguro que desea suspender al usuario?</p>
+                                          </div>
+                                          <div class="actions">
+                                            <div class="ui red inverted button" id="no" >
+                                              <i class="remove icon"></i>
+                                              Cancelar
+                                            </div>
+                                            <div class="ui green ok inverted button">
+                                              <i class="checkmark icon"></i>
+                                              Aceptar
+                                            </div>
+                                          </div>
+                                          </div>
+
+                                          <!-- Mensaje de Confirmacion modificacion ''<> -->
+
+                                      <div class="ui mini modal" id="modificacion"  >
+                                          <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+                                            <p style="color: #ffff">¿Esta seguro que desea guardar los cambios?</p>
+                                          </div>
+                                          <div class="actions">
+                                            <div class="ui red inverted button" id="cancelar1" >
+                                              <i class="remove icon"></i>
+                                              Cancelar
+                                            </div>
+                                            <div class="ui green ok inverted button">
+                                              <i class="checkmark icon"></i>
+                                              Aceptar
+                                            </div>
+                                          </div>
+                                          </div>
+                                       
     </body>
   
     
