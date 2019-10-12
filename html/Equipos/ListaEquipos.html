@@ -62,7 +62,7 @@
                       <i class="search icon"></i>
                   </div>
                   <div class="results"></div>
-                  <div class="ui animated circular button"  tabindex="0" aria-label="Equipos" style="width: 130px; margin-left: 60px" id="incluir">
+                  <div class="ui animated circular button"  tabindex="0" aria-label="Equipos" style="width: 130px; margin-left: 12%" id="incluir">
                     <div class="visible content" style="color: #1a237e">
                       <i class="ui plus icon" ></i> Equipos</div>
                     <div class="hidden content"   style="color: #1a237e">
@@ -91,12 +91,12 @@
                           <td>
                           <div class="item">
                           <div class="right floated content">
-                            <div class="ui circular button"style="width: 130px" id="consultar"> <A  style="color: #1a237e; ">Ver Detalles</A> </div>
-                            <div class="ui animated circular button" tabindex="0" style="width: 130px" id="reparar">
+                            <div class="ui circular button"style="width: 130px" id="consultar"> <A  style="color: #1a237e; ">Consultar</A> </div>
+                            <div class="ui animated circular button" tabindex="0" style="width: 130px" id="repar">
                                 <div class="visible content" style="color: #1a237e">Reparar</div>
                                 <div class="hidden content" > <A  style="color: #1a237e">Solicitar</A> </div>
                             </div>
-                            <div class="ui animated circular button" tabindex="0" style="width: 130px;" id="desincorporar">
+                            <div class="ui animated circular button" tabindex="0" style="width: 130px;" id="desin">
                                 <div class="visible content" style="color: #1a237e"> Desincorporar </div>
                                 <div class="hidden content"><A  style="color: #1a237e"> Solicitar </A></div>  </button>                          
                             </div>
@@ -110,12 +110,12 @@
                           <td>
                           <div class="item">
                             <div class="right floated content">
-                            <div class="ui circular button"style="width: 130px" id="consultar"> <A  style="color: #1a237e; ">Ver Detalles</A> </div>
-                            <div class="ui animated circular button" tabindex="0" style="width: 130px" id="reparar">
+                            <div class="ui circular button"style="width: 130px" id="consultar"> <A  style="color: #1a237e; ">Consultar</A> </div>
+                            <div class="ui animated circular button" tabindex="0" style="width: 130px" id="repar">
                                 <div class="visible content" style="color: #1a237e">Reparar</div>
                                 <div class="hidden content" > <A  style="color: #1a237e">Solicitar</A> </div>
                             </div>
-                            <div class="ui animated circular button" tabindex="0" style="width: 130px" id="desincorporar">
+                            <div class="ui animated circular button" tabindex="0" style="width: 130px" id="desin">
                                 <div class="hidden content" style="color: #1a237e"> Solicitar </div>
                                 <div class="visible content"><A style="color: #1a237e;border-collapse: unset;">Desincorporar</A></div>
                             </div>
@@ -126,12 +126,12 @@
                           <td>
                           <div class="item">
                           <div class="right floated content">
-                          <div class="ui circular button" id="consultar" style="width: 130px" id="consultar"><A  style="color: #1a237e; ">Ver Detalles</A></div>
-                          <div class="ui animated circular button" tabindex="0" style="width: 130px" id="reparar">
+                          <div class="ui circular button" id="consultar" style="width: 130px" id="consultar"><A  style="color: #1a237e; ">Consultar</A></div>
+                          <div class="ui animated circular button" tabindex="0" style="width: 130px" id="repar">
                               <div class="visible content" style="color: #1a237e">Reparar</div>
                               <div class="hidden content" > <A  style="color: #1a237e">Solicitar</A> </div>
                           </div>
-                          <div class="ui animated circular button" tabindex="0" style="width: 130px" id="desincorporar">
+                          <div class="ui animated circular button" tabindex="0" style="width: 130px" id="desin">
                               <div class="hidden content" style="color: #1a237e"> Solicitar </div>
                               <div class="visible content"><A style="color: #1a237e;border-collapse: unset;">Desincorporar</A></div>
                           </div>
@@ -142,7 +142,7 @@
                       </tbody>   
                       </div>
                          <script>
-                        // Funciones del consultar 
+                        // Funciones del consultar /////////////////////////////////////
                           //Abrir el modal de consultar
                         $(document).ready(function(){
                         $('#consultar').click(function(){
@@ -150,7 +150,11 @@
                         });
                         });
 
-                        //Funciones del Modificar
+                        ///////////////////////////////////////////////////////////////
+
+
+
+                        //Funciones del Modificar//////////////////////////////////////
                           //Abrir el modal de modificar y cerrar el de consultar
                         $(document).ready(function(){
                         $('#modificar').click(function(){
@@ -165,30 +169,73 @@
                         });
                         });
 
-                        //Funciones del Incluir
+                        /////////////////////////////////////////////////////////////////
+
+
+
+                        //Funciones del Incluir//////////////////////////////////////////
                           //Abrir el modal de incluir
                         $(document).ready(function(){
                         $('#incluir').click(function(){
                         $('#formincluir').modal('show');
                         });
                         });
+
+                        //////////////////////////////////////////////////////////////////
+
+
                         
-                        //Funciones del Eliminar
+                        //Funciones del Eliminar/////////////////////////////////////////
                           //Abrir el modal de Eliminar
-                          $(document).ready(function(){
+                        $(document).ready(function(){
                         $('#eliminar').click(function(){
                         $('#txteliminar').modal('show');
                         });
                         });
 
                           //Cerrar el modal de Eliminar y redirigirse al modal de consultar
-                          $(document).ready(function(){
+                        $(document).ready(function(){
                         $('#no').click(function(){
                         $('#formconsultar').modal('show');
                         });
                         });
 
+                        /////////////////////////////////////////////////////////////////
 
+
+                        //Mensaje de reparar Equipo/////////////////////////////////////
+                         //Abrir el mensaje de reparar Equipo
+                        $(document).ready(function(){
+                        $('#reparar').click(function(){
+                        $('#txtreparar').modal('show');
+                        });
+                        });
+
+                        $(document).ready(function(){
+                        $('#repar').click(function(){
+                        $('#txtreparar').modal('show');
+                        });
+                        });
+
+                        ////////////////////////////////////////////////////////////////
+
+
+
+                         //Mensaje de reparar Equipo/////////////////////////////////////
+                         //Abrir el mensaje de reparar Equipo
+                         $(document).ready(function(){
+                        $('#desincorporar').click(function(){
+                        $('#txtdesincorporar').modal('show');
+                        });
+                        });
+
+                        $(document).ready(function(){
+                        $('#desin').click(function(){
+                        $('#txtdesincorporar').modal('show');
+                        });
+                        });
+
+                        ////////////////////////////////////////////////////////////////
                          </script>
 
                          <!-- Modal de Consultar''<> -->
@@ -224,7 +271,14 @@
                                             <div class="ui cancel  circular button" style="width: 130px ; color: #1a237e"><i class="left chevron icon"></i>Atras</div>
                                             <div class="ui circular button"style="width: 130px; color: #1a237e" id="modificar">  Modificar</div>
                                             <div class="ui circular button"style="width: 130px; color: #1a237e" id="eliminar"> Eliminar </div> 
-                                            
+                                            <div class="ui animated circular button" tabindex="0" style="width: 130px; margin-top: 10px" id="reparar">
+                                                <div class="visible content" style="color: #1a237e">Reparar</div>
+                                                <div class="hidden content" > <A  style="color: #1a237e">Solicitar</A> </div>
+                                            </div>
+                                            <div class="ui animated circular button" tabindex="0" style="width: 130px; margin-top: 10px" id="desincorporar">
+                                                <div class="hidden content" style="color: #1a237e"> Solicitar </div>
+                                                <div class="visible content"><A style="color: #1a237e;border-collapse: unset;">Desincorporar</A></div>
+                                            </div>
                                         </div> 
                                         </div>
                                       </div>
@@ -341,13 +395,14 @@
                                       </div>
                                       </div>
 
-                                      <!-- Mensaje de reparar equipo ''<> -->
-                                      <div class="ui mini modal" id="txtreparar"  >
-                                          <div class="content" style="background-color: #1a237e">
-                                            <p style="color: #ffff">¿Esta seguro que desea reparar el equipo?</p>
+
+                                      <!-- Mensaje de confirmacion de modificacion ''<> -->
+                                      <div class="ui mini modal" id="txtmodificar"  >
+                                      <div class="content" style="background-color: #1a237e">
+                                            <p style="color: #ffff">¿Esta seguro que desea guardar los cambios?</p>
                                           </div>
                                           <div class="actions">
-                                            <div class="ui red inverted button" id="no" >
+                                            <div class="ui red inverted button" id="cancelar1" >
                                               <i class="remove icon"></i>
                                               Cancelar
                                             </div>
@@ -357,13 +412,33 @@
                                             </div>
                                           </div>
                                         </div>
-                                        <!-- Mensaje de reparar equipo ''<> -->
+
+
+                                      <!-- Mensaje de reparar equipo ''<> -->
                                       <div class="ui mini modal" id="txtreparar"  >
+                                          <div class="content" style="background-color: #1a237e">
+                                            <p style="color: #ffff">¿Esta seguro que desea reparar el equipo?</p>
+                                          </div>
+                                          <div class="actions">
+                                            <div class="ui cancel red inverted button"  >
+                                              <i class="remove icon"></i>
+                                              Cancelar
+                                            </div>
+                                            <div class="ui green ok inverted button">
+                                              <i class="checkmark icon"></i>
+                                              Aceptar
+                                            </div>
+                                          </div>
+                                        </div>
+
+
+                                        <!-- Mensaje de desincorporar equipo ''<> -->
+                                      <div class="ui mini modal" id="txtdesincorporar"  >
                                           <div class="content" style="background-color: #1a237e">
                                             <p style="color: #ffff">¿Esta seguro que desea desincorporar el equipo?</p>
                                           </div>
                                           <div class="actions">
-                                            <div class="ui red inverted button" id="no" >
+                                            <div class="ui cancel red inverted button" id="cancelar3" >
                                               <i class="remove icon"></i>
                                               Cancelar
                                             </div>
