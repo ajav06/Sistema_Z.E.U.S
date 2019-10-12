@@ -49,6 +49,7 @@
                   <div class="ui inverted vertical menu" style="height: 100%; width: 100%; background-image: url(../image/fondo1.jpg) ;border-radius: 0px 24px 24px 0px; font-size: 18px;">
                     <a class="item" id="item" href="../Reportes/ListaReportes.html" >Reportes</a>
                     <a class="item" id="item"  href="../Usuarios/ListaUsuarios.html">Gestionar Usuarios</a>
+                    <a class="item" id="item" href="" >Gestionar Departamentos</a>
                     <a class="item" id="item" href="../Decanatos/ListaDecanatos.html">Gestionar Decanatos</a>
                     <a class="active item" style="background-color: #1a237e" href="ListaEquipos.html">Gestionar Equipos</a>
                     <a class="item" id="item" >Estadisticas</a>
@@ -62,7 +63,7 @@
                       <i class="search icon"></i>
                   </div>
                   <div class="results"></div>
-                  <div class="ui animated circular button"  tabindex="0" aria-label="Equipos" style="width: 130px; margin-left: 60px" id="incluir">
+                  <div class="ui animated circular button"  tabindex="0" aria-label="Equipos" style="width: 130px; margin-left: 12%" id="incluir">
                     <div class="visible content" style="color: #1a237e">
                       <i class="ui plus icon" ></i> Equipos</div>
                     <div class="hidden content"   style="color: #1a237e">
@@ -91,12 +92,12 @@
                           <td>
                           <div class="item">
                           <div class="right floated content">
-                            <div class="ui circular button"style="width: 130px" id="consultar"> <A  style="color: #1a237e; ">Ver Detalles</A> </div>
-                            <div class="ui animated circular button" tabindex="0" style="width: 130px" id="reparar">
+                            <div class="ui circular button"style="width: 130px" id="consultar"> <A  style="color: #1a237e; ">Consultar</A> </div>
+                            <div class="ui animated circular button" tabindex="0" style="width: 130px" id="repar">
                                 <div class="visible content" style="color: #1a237e">Reparar</div>
                                 <div class="hidden content" > <A  style="color: #1a237e">Solicitar</A> </div>
                             </div>
-                            <div class="ui animated circular button" tabindex="0" style="width: 130px;" id="desincorporar">
+                            <div class="ui animated circular button" tabindex="0" style="width: 130px;" id="desin">
                                 <div class="visible content" style="color: #1a237e"> Desincorporar </div>
                                 <div class="hidden content"><A  style="color: #1a237e"> Solicitar </A></div>                         
                             </div> </div> </div>
@@ -108,12 +109,12 @@
                           <td>
                           <div class="item">
                             <div class="right floated content">
-                            <div class="ui circular button"style="width: 130px" id="consultar"> <A  style="color: #1a237e; ">Ver Detalles</A> </div>
-                            <div class="ui animated circular button" tabindex="0" style="width: 130px" id="reparar">
+                            <div class="ui circular button"style="width: 130px" id="consultar"> <A  style="color: #1a237e; ">Consultar</A> </div>
+                            <div class="ui animated circular button" tabindex="0" style="width: 130px" id="repar">
                                 <div class="visible content" style="color: #1a237e">Reparar</div>
                                 <div class="hidden content" > <A  style="color: #1a237e">Solicitar</A> </div>
                             </div>
-                            <div class="ui animated circular button" tabindex="0" style="width: 130px" id="desincorporar">
+                            <div class="ui animated circular button" tabindex="0" style="width: 130px" id="desin">
                                 <div class="hidden content" style="color: #1a237e"> Solicitar </div>
                                 <div class="visible content"><A style="color: #1a237e;border-collapse: unset;">Desincorporar</A></div>
                             </div>
@@ -124,12 +125,12 @@
                           <td>
                           <div class="item">
                           <div class="right floated content">
-                          <div class="ui circular button" id="consultar" style="width: 130px" id="consultar"><A  style="color: #1a237e; ">Ver Detalles</A></div>
-                          <div class="ui animated circular button" tabindex="0" style="width: 130px" id="reparar">
+                          <div class="ui circular button" id="consultar" style="width: 130px" id="consultar"><A  style="color: #1a237e; ">Consultar</A></div>
+                          <div class="ui animated circular button" tabindex="0" style="width: 130px" id="repar">
                               <div class="visible content" style="color: #1a237e">Reparar</div>
                               <div class="hidden content" > <A  style="color: #1a237e">Solicitar</A> </div>
                           </div>
-                          <div class="ui animated circular button" tabindex="0" style="width: 130px" id="desincorporar">
+                          <div class="ui animated circular button" tabindex="0" style="width: 130px" id="desin">
                               <div class="hidden content" style="color: #1a237e"> Solicitar </div>
                               <div class="visible content"><A style="color: #1a237e;border-collapse: unset;">Desincorporar</A></div>
                           </div> </div> </div>
@@ -139,7 +140,7 @@
                       </div>
 
                          <script>
-                        // Funciones del consultar 
+                        // Funciones del consultar /////////////////////////////////////
                           //Abrir el modal de consultar
                         $(document).ready(function(){
                         $('#consultar').click(function(){
@@ -169,13 +170,13 @@
                         });
                         //Funciones del Eliminar
                           //Abrir el modal de Eliminar
-                          $(document).ready(function(){
+                        $(document).ready(function(){
                         $('#eliminar').click(function(){
                         $('#txteliminar').modal('show');
                         });
                         });
                           //Cerrar el modal de Eliminar y redirigirse al modal de consultar
-                          $(document).ready(function(){
+                        $(document).ready(function(){
                         $('#no').click(function(){
                         $('#formconsultar').modal('show');
                         });
@@ -208,7 +209,7 @@
                         })
                          </script>
 
-                         <!-- Modal de Ver Detalles''<> -->
+                         <!-- Modal de Consultar''<> -->
                         <div class="ui basic modal" id="formconsultar">
                             <div class="content" style="height: 100%;width: 110% ;">
                                 <div class="ui two column very relaxed grid" style="width: 110% ">
@@ -243,17 +244,17 @@
                                   </div> </div> </div> </div> </div>
                         <!-- Modificar Equipo''<> -->
                         <div class="ui basic modal" id="formodificar" > 
-                            <div class="content" style=" height: 100%;width: 110% ;">
-                                <div class="ui two column very relaxed grid" style="width: 110% ">
-                                <div class="column" style="width: 33%; background-image: url(../image/fondo8.jpg);padding-left: 0px !important; padding-right: 0px !important;padding-top: 0px !important; padding-bottom: 0px !important; border-radius: 24px 0px 0px 24px;">
+                        <div class="content" style=" height: 100%;width: 110% ;">
+                        <div class="ui two column very relaxed grid" style="width: 110% ">
+                            <div class="column" style="width: 33%; background-image: url(../image/fondo8.jpg);padding-left: 0px !important; padding-right: 0px !important;padding-top: 0px !important; padding-bottom: 0px !important; border-radius: 24px 0px 0px 24px;">
+                            </div>
+                            <div class="column" style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
+                                <div class="ui segment" style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
+                                <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 2%; ">Modificar Equipo</div>
                                 </div>
-                                <div class="column" style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
-                                    <div class="ui segment" style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
-                                    <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 2%; ">Modificar Equipo</div>
-                                    </div>
-                                    <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 2%">
-                                    <div class="two fields">
-                                    <div class="field">
+                                <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 2%">
+                                <div class="two fields">
+                                <div class="field">
                                     <label style="color: #ffffff">Nombre</label>
                                     <input type="text" placeholder="Nombre del equipo" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;" >
                                     </div>
@@ -281,7 +282,7 @@
                        <!-- incluir Equipo ''<> -->
                       <div class="ui basic modal" id="formincluir" > 
                             <div class="content" style=" height: 100%;width: 110% ;">
-                                <div class="ui two column very relaxed grid" style="width: 110% ">
+                            <div class="ui two column very relaxed grid" style="width: 110% ">
                                 <div class="column" style="width: 33%; background-image: url(../image/fondo8.jpg);padding-left: 0px !important; padding-right: 0px !important;padding-top: 0px !important; padding-bottom: 0px !important; border-radius: 24px 0px 0px 24px;">
                                 </div>
                                 <div class="column" style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
@@ -301,7 +302,7 @@
                                           <option value="cyt">Hp</option>
                                           <option value="cs">Sony</option>
                                           <option value="cee">Apple</option>
-                                          </select>
+                                        </select>
                                     </div>
                                     </div>
                                     <div class="field">
