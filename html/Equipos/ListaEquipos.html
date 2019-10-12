@@ -207,6 +207,35 @@
                         $('#txtreparar').modal('show');
                         });
                         })
+
+                        //
+                        //Modal para solicitar reparar
+                        $(document).ready(function(){
+                        $('#guardar1').click(function(){
+                        $('#modificacion').modal('show');
+                        });
+                        });
+
+                        //Modal para solicitar reparar
+                        $(document).ready(function(){
+                        $('#cancelar2').click(function(){
+                        $('#formodificar').modal('show');
+                        });
+                        });
+
+                         //Modal para solicitar reparar
+                         $(document).ready(function(){
+                        $('#cancelar3').click(function(){
+                        $('#formreparar').modal('show');
+                        });
+                        });
+
+                         //Modal para solicitar reparar
+                         $(document).ready(function(){
+                        $('#cancelar4').click(function(){
+                        $('#formdesincorporar').modal('show');
+                        });
+                        });
                          </script>
 
                          <!-- Modal de Ver Detalles''<> -->
@@ -217,10 +246,10 @@
                                     </div>
                                     <div class="column" style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
                                       <div class="ui segment" style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
-                                          <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 2%; ">Consultar Equipo</div>
+                                          <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 0%; ">Consultar Equipo</div>
                                           </div>
                                 <div class="ui form" style="width: 80%; margin-left: 10%">
-                                    <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 2%">
+                                    <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 0%">
                                         <div class="two fields">
                                         <div class="field">
                                         <label style="color: #ffffff">Nombre</label>
@@ -252,7 +281,7 @@
                                     <div class="ui segment" style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
                                     <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 2%; ">Modificar Equipo</div>
                                     </div>
-                                    <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 2%">
+                                    <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 0%">
                                     <div class="two fields">
                                     <div class="field">
                                     <label style="color: #ffffff">Nombre</label>
@@ -274,10 +303,9 @@
                                     </div>
                                     <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
                                         <div class="ui center aligned fluid container" style=" margin-top: 5%" >
-                                            <div class="ui buttons" style=" margin-top: 5%" >
-                                              <button class="ui cancel labeled icon button" id="atras" style="color: #1a237e"><i class="left chevron icon" ></i> Atrás </button>
-                                              <button class="ui button" id="guardar" style="color: #1a237e"><i class="save icon"></i> Guardar </button>
-                                            </div> </div> </div>
+                                              <button class="ui cancel circular icon button" id="atras" style="color: #1a237e; width: 130px;"><i class="left chevron icon" ></i> Atrás </button>
+                                              <button class="ui circular button" id="guardar1" style="color: #1a237e; width: 130px;"><i class="save icon"></i> Guardar </button>
+                                     </div> </div>
                                     </div> </div> </div> </div> </div>
                        <!-- incluir Equipo ''<> -->
                       <div class="ui basic modal" id="formincluir" > 
@@ -289,7 +317,7 @@
                                     <div class="ui segment" style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
                                     <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 2%; ">Incluir Equipo</div>
                                     </div>
-                                    <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 2%">
+                                    <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 0%">
                                     <div class="two fields">
                                     <div class="field">
                                     <label style="color: #ffffff">Nombre</label>
@@ -311,10 +339,9 @@
                                     </div>
                                     <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
                                         <div class="ui center aligned fluid container" style=" margin-top: 5%" >
-                                            <div class="ui buttons" style=" margin-top: 5%" >
-                                              <button class="ui cancel labeled icon button" style="color: #1a237e"><i class="left chevron icon" ></i> Atrás </button>
-                                              <button class="ui button" id="guardar" style="color: #1a237e"><i class="save icon"></i> Guardar </button>
-                                            </div> </div> </div>
+                                              <button class="ui cancel circular icon button" style="color: #1a237e; width: 130px;"><i class="left chevron icon" ></i> Atrás </button>
+                                              <button class="ui circular button" id="guardar" style="color: #1a237e;  width: 130px;"><i class="save icon"></i> Guardar </button>
+                                     </div> </div>
                                     </div> </div> </div> </div> </div>
 <!-- Modal para solicitar reparacion''<> -->
 <div class="ui basic modal" id="formreparar" > 
@@ -335,10 +362,9 @@
             </div>
             <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
                 <div class="ui center aligned fluid container" style=" margin-top: 5%" >
-                    <div class="ui buttons" style=" margin-top: 5%" >
-                      <button class="ui cancel labeled icon button" id="cancelar" style="color: #1a237e"><i class="left chevron icon" ></i> Cancelar </button>
-                      <button class="ui button" id="acep" style="color: #1a237e"><i class="save icon"></i> Aceptar </button>
-                    </div>  </div>  </div>
+                      <button class="ui cancel circular icon button" id="cancelar" style="color: #1a237e; width: 130px;"><i class="left chevron icon" ></i> Cancelar </button>
+                      <button class="ui circular button" id="acep" style="color: #1a237e; width: 130px;"><i class="save icon"></i> Aceptar </button>
+            </div>  </div>
             </div> </div> </div> </div> </div>
 <!-- Modal para solicitar desincorporacion''<> -->
 <div class="ui basic modal" id="formdesincorporar" > 
@@ -348,7 +374,7 @@
         </div>
         <div class="column" style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
             <div class="ui segment" style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
-            <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 2%; ">Desincorporar Equipo</div>
+            <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 0%; ">Desincorporar Equipo</div>
             </div>
             <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 2%">
             <div class="two fields">
@@ -359,9 +385,8 @@
             </div>
             <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
                 <div class="ui center aligned fluid container" style=" margin-top: 5%" >
-                    <div class="ui buttons" style=" margin-top: 5%" >
-                      <button class="ui cancel labeled icon button" id="cancelar" style="color: #1a237e"><i class="left chevron icon" ></i> Cancelar </button>
-                      <button class="ui button" id="acepto" style="color: #1a237e"><i class="save icon"></i> Aceptar </button>
+                      <button class="ui cancel circular icon button" id="cancelar" style="color: #1a237e; width: 130px;"><i class="left chevron icon" ></i> Cancelar </button>
+                      <button class="ui circular button" id="acepto" style="color: #1a237e; width: 130px;"><i class="save icon"></i> Aceptar </button>
                     </div>  </div>  </div>
             </div> </div> </div> </div> </div>
 
@@ -382,13 +407,31 @@
                                         </div>
                                       </div>
                                       </div>
+
+                                       <!-- Mensaje de confirmacion de modificacion ''<> -->
+                                       <div class="ui mini modal" id="modificacion"  >
+                                          <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+                                            <p style="color: #ffff">¿Está seguro que desea guardar los cambios?</p>
+                                          </div>
+                                          <div class="actions">
+                                            <div class="ui red inverted button" id="cancelar2" >
+                                              <i class="remove icon"></i>
+                                              Cancelar
+                                            </div>
+                                            <div class="ui green ok inverted button">
+                                              <i class="checkmark icon"></i>
+                                              Aceptar
+                                            </div>
+                                          </div>
+                                          </div>
+
                                       <!-- Mensaje de reparar equipo ''<> -->
                                       <div class="ui mini modal" id="txtreparar"  >
                                           <div class="content" style="background-color: #1a237e">
                                             <p style="color: #ffff">¿Está seguro que desea reparar el equipo?</p>
                                           </div>
                                           <div class="actions">
-                                            <div class="ui red inverted button">
+                                            <div class="ui red inverted button" id="cancelar3">
                                               <i class="remove icon"></i>
                                               Cancelar
                                             </div>
@@ -404,7 +447,7 @@
                                             <p style="color: #ffff">¿Está seguro que desea desincorporar el equipo?</p>
                                           </div>
                                           <div class="actions">
-                                            <div class="ui red inverted button" >
+                                            <div class="ui red inverted button" id="cancelar4" >
                                               <i class="remove icon"></i>
                                               Cancelar
                                             </div>
