@@ -10,137 +10,224 @@
         <title>Reportes</title>
         </head>
         <style type="text/css">
-             #item 
-            {
-              color:#ffff
-            }
-            #item:hover 
-            {
-              background-color: #1a237e;color: #ffff;
-            }
-            #encabezadotabla{background-color: #1a237e; color: #ffff}
-            #letra:hover{color: #ffffff}
+             #item { color:#ffffff}
+            #item:hover {
+              background-color:  #1a237e;color: #ffff;
+              }
+            #encabezadotabla{background-color: #1a237e;color: #ffff;}
         </style>
         <h1>
-          <div class="ui large segment" style=" background-image: url(../image/adwebsys-fondo.jpg) ;height: 60px; padding-top: 0px;border-block-end:4px solid #1a237e;">    
-            <div class="ui right aligned fluid container"  >
-                <div class="ui simple dropdown item" style=" color: #ffff;margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  transparent;border: 0px #c6c4c4;"><i class="dropdown icon"></i>Armando Paredes
-                    <div class="menu">
-                      <div class="item">Mi información</div>
-                      <div class="item">Notificaciones</div>
-                      <div class="item">
-                        <i class="left dropdown icon"></i>
-                        <span class="text">Menú</span>
-                          <div class="left menu">
-                            <div class="item">Seguridad</div>
-                            <div class="item">otras cosas que se me ocurriran despues</div>
-                          </div>
+            <div class="ui large segment" style=" background-image: url(../image/adwebsys-fondo.jpg) ;height: 60px; padding-top: 0px;border-block-end:4px solid #1a237e;">    
+              <div class="ui right aligned fluid container"  >
+                  <div class="ui simple dropdown item" style=" color: #ffff;margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  transparent;border: 0px #c6c4c4;"><i class="dropdown icon"></i>Armando Paredes
+                      <div class="menu">
+                        <div class="item">Mi informacion</div>
+                        <div class="item">Notificaciones</div>
+                        <div class="item">Cerrar Sesion</div>
                       </div>
-                      <div class="item">Cerrar Sesión</div>
-                    </div>
-                </div> 
+                  </div> 
+              </div>
             </div>
-          </div>
+        </h1>
     <body>
-      <div class="ui grid">
-        <div class="four wide column">
-          <div class="ui inverted vertical menu" style="height: 100%; width: 100%; background-image: url(../image/fondo1.jpg) ;border-radius: 0px 24px 24px 0px; font-size: 18px;">
-            <a class="item" id="item" href="../Reportes/ListaReportes.html" >Reportes</a>
-            <a class="item" id="item"  href="../Usuarios/ListaUsuarios.html">Gestionar Usuarios</a>
-            <a class="item" id="item" href="../Decanatos/ListaDecanatos.html">Gestionar Decanatos</a>
-            <a class="active item" style="background-color: #1a237e" href="ListaEquipos.html">Gestionar Equipos</a>
-            <a class="item" id="item" >Estadisticas</a>
-          </div>
-        </div>
-        <div class="twelve wide stretched column" style="border-block-color:  #9e9d9d ;height: 600px;">
-          <div class="ui segment" style="height: 85%;  width: 98% ;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 1px solid #1a237e">
-          <div class="results"></div>
-                          <table class="ui compact celled definition table" >
-                            <thead class="full-width">
-                              <tr>
-                                <th id="encabezadotabla">Nombre del reporte</th>
-                                <th id="encabezadotabla">Opciones</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td>Generar totales de equipo</td>
-                                <td><div class="item">
-                                  <div class="right floated content">
-                                      <div class="item">
-                                          <div class="right floated content">
-                                          <div class="ui circular button"style="width: 130px" id="universidad"> <A  style="color: #1a237e; "> Por Universidad </A> </div>
-                                          <div class="ui circular button"style="width: 130px" id="decanato"> <A  style="color: #1a237e; "> Por Decanato </A> </div>
-                                          <div class="ui circular button"style="width: 130px" id="departamento"> <A  style="color: #1a237e; "> Por Departamento </A> </div>
-                                          </div> </td>
-                              </tr>
-                              <tr>
-                                <td>Generar dptos. con mayor y menor cantidad de equipos</td>
-                                <td>
-                                  <div class="item">
-                                    <div class="right floated content">
-                                        <div class="ui circular button"style="width: 130px" id="ucla"> <A  style="color: #1a237e; "> Por Universidad </A> </div>
-                                        <div class="ui circular button"style="width: 130px" id="dcnt"> <A  style="color: #1a237e; "> Por Decanato </A> </div>
-                                    </div>
-                              <tr>
-                                <td>Generar reporte de solicitudes</td>
-                                <td><div class="item">
-                                  <div class="right floated content">
-                                      <div class="ui circular button"style="width: 130px" id="listado"> <A  style="color: #1a237e; "> Ver listado </A> </div>
-                                  </div></td>
-                              </tr>
-                            </tbody>
-                         </div> </div> </div>
+            <div class="ui grid">
+                    <div class="four wide column">
+                        <div class="ui inverted vertical menu" style="width: 100%; background-image: url(../image/fondo1.jpg) ;height: 100%;border-radius: 0px 24px 24px 0px; font-size: 18px;">
+                            <a class="active item" id="item" style="background-color:  #1a237e" >Reportes</a>
+                            <a class="item" id="item" href="../Usuarios/ListaUsuarios.html" >Usuarios</a>
+                            <a class="item" id="item" href="../Departamentos/ListadoDepartamentos.html" >Departamentos</a>
+                            <a class="item" id="item" href="../Decanatos/ListaDecanatos.html" >Decanatos</a>
+                            <a class="item" id="item" href="../Equipos/ListaEquipos.html">Equipos</a>
+                            <a class="item" id="item" href="../EstadoEquipos/EstadoEquipos.html" >Estados de Equipos</a>
+                            <a class="item" id="item" href="../Solicitudes/Solicitudes.html">Solicitudes</a>
+                        </div>
+                    </div>
+              <div class="twelve wide stretched column" style="border-block-color:  #9e9d9d ;height: 600px;">
+                <div class="ui segment" style="height: 50%; width: 98% ;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 1px solid  #1a237e">
+                <div class="ui category search"></div> 
+                <div class="results"></div>
+                    <div class="ui segment" style="background-color: #1a237e;height: 40px; margin-top: 1%;">
+                    <div class="header" style="text-align: center;font-size: 30px;color: #ffffff;margin-top: -1%"> Reportes</div>
+                    </div>
+                  <!-- Total de Equipos por universidad''<> -->
+                  <div class="ui container" id="totaluni" style="display: none !important" >
+                  <div class="ui aligned center dividing header" >Totales de equipos en la Universidad</div>
+                  <table class="ui celled structured table">
+                      <thead>
+                      <tr>
+                          <th rowspan="2">Nombre de la Universidad</th>
+                          <th colspan="4" class="ui aligned center">Cantidad de equipos</th>
+                      </tr>
+                      <tr>
+                          <th>Activos</th>
+                          <th>En reparacion</th>
+                          <th>Desincorporados</th>
+                          <th>Total</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                          <td>UCLA</td>
+                          <td class="right aligned">2</td>
+                          <td class="right aligned">2</td>
+                          <td class="right aligned">2</td>
+                          <td class="right aligned">6</td>
+                      </tr>
+                      </tbody>
+                      </table>
+                      <div class="ui center aligned fluid container" >
+                      <button class="ui circular button icon" aria-label="label" id="atras1">
+                          <i class="left chevron icon"></i>}
+                           Atras
+                      </button>
+                      </div>
+                  </div>
+
+
+
+
+
+
+
+
+
+
+            <div class="ui container" id="totaldep" style="display: none">
+            <div class="ui aligned center dividing header" >Totales de equipos por Departamento</div>
+                <table class="ui celled structured table">
+                <thead>
+                <tr>
+                    <th rowspan="2">Decanato a solicitar</th>
+                    <th rowspan="2">Departamento a solicitar</th>
+                    <th colspan="4" class="ui aligned center">Cantidad de equipos</th>
+                </tr>
+                <tr>
+                    <th>Activos</th>
+                    <th>En reparacion</th>
+                    <th>Desincorporados</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><select class="ui fluid dropdown">
+                        <option value="">...</option>
+                        <option value="cyt">DCYT Decanato de Ciencias y Tecnologia</option>
+                        <option value="cs">DCS Decanato de Ciencias de la Salud</option>
+                        <option value="cee">DCEE Decanato de Ciencias Económicas y Empresariales</option>
+                        <option value="eha">DEHA Decanato de Humanidades y Artes</option>
+                        <option value="ic">DIC Decanato de Ingeniería Civil</option>
+                        <option value="cv">DCV Decanato de Ciencias Veterinarias</option>
+                        </select></td>
+                    <td><select class="ui fluid dropdown">
+                        <option value="">...</option>
+                        <option value="sis">Departamento de Sistemas</option>
+                        <option value="con">Departamento de Contabilidad</option>
+                        <option value="mat">Departamento de Matematica</option>
+                        </select></td>
+                      <td class="right aligned">5</td>
+                      <td class="right aligned">2</td>
+                      <td class="right aligned">8</td>
+                      <td class="right aligned">15</td>
+                </tr>
+                </tbody>
+                </table>
+                <div class="ui center aligned fluid container">
+                      <button class="ui circular button icon" aria-label="label" id="atras1">
+                      <i class="left chevron icon"></i>}
+                      Atras
+                      </button>
+                </div>
+              </div> 
+            
+
+
+            <table class="ui compact celled definition table" style="border: 1px solid #1a237e;margin-top: 1% ">
+            <tbody>
+            <tr>
+                <td>Generar totales de equipo</td>
+                <td>
+                <div class="item">
+                <div class="right floated content" id="poruni1" >
+                    <div class="ui animated circular button" tabindex="0" aria-label="Equipos" style="width: 160px"  id="registrar">
+                    <div class="visible content" style="color: #1a237e">Por Universidad</div>
+                    <div class="hidden content" style="color: #1a237e">Reporte</div>
+                </div>
+                <div class="ui animated circular button" id="pordec1" tabindex="0" aria-label="Equipos" style="width: 160px" id="registrar">
+                    <div class="visible content" style="color: #1a237e">Por Decanato</div>
+                    <div class="hidden content" style="color: #1a237e">Reporte</div>
+                </div>
+                <div class="ui animated circular button"  id="pordep1"  tabindex="0" aria-label="Equipos" style="width: 160px" >
+                      <div class="visible content" style="color: #1a237e">Por Departamento</div>
+                      <div class="hidden content" style="color: #1a237e">Reporte</div>
+                      </div>
+                </div>
+                </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 40%">Generar dptos. con mayor y menor cantidad de equipos</td>
+                <td>
+                <div class="item">
+                <div class="right floated content">
+                <div class="ui animated circular button" id="poruni1" onclick="mostrar()" tabindex="0" aria-label="Equipos" style="width: 160px"  id="registrar">
+                    <div class="visible content" style="color: #1a237e">Por Universidad</div>
+                    <div class="hidden content" style="color: #1a237e">Reporte</div>
+                </div>
+                <div class="ui animated circular button" tabindex="0" aria-label="Equipos" style="width: 160px" id="registrar">
+                    <div class="visible content" style="color: #1a237e">Por Decanato</div>
+                    <div class="hidden content" style="color: #1a237e">Reporte</div>
+                </div>
+                </div>
+                </div>
+            <tr>
+                <td>Generar reporte de solicitudes</td>
+                <td>
+                <div class="item">
+                    <div class="ui animated circular button" tabindex="0" aria-label="Equipos" style="width: 160px" id="registrar">
+                        <div class="visible content" style="color: #1a237e">Ver Listado</div>
+                        <div class="hidden content" style="color: #1a237e">Reporte</div>
+                    </div>
+                    </div>
+                </div>
+                </td>
+            </tr>
+            </tbody>
+            </div>
+
 
             <script>
-                //Abrir el modal de Generar totales de equipos por universidad
-                $(document).ready(function(){
-                $('#universidad').click(function(){
-                $('#totalesequipouniv').modal('show');
-                });
-                });
-                </script>
+            
+            //Abrir Total de equipos por universidad
+            $("#poruni1").click(function() {
+            $("#totaluni").show("slow");
+            });
 
-              <!-- Modal de Generar totales de equipos por universidad''<> -->
-      <div class="ui basic modal" id="totalesequipouniv">
-          <div class="content" style="height: 100%;width: 110% ;">
-              <div class="ui two column very relaxed grid" style="width: 110% "> 
-                  <div class="column" style="width: 33%; background-image: url(../image/pink.jpg);padding-left: 0px !important; padding-right: 0px !important;padding-top: 0px !important; padding-bottom: 0px !important; border-radius: 24px 0px 0px 24px;">
-                  </div>
-                  <div class="column" style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
-                    <div class="ui segment" style="background-color: #ffffff ;height: 25%;border-radius: 0px 24px 0px 0px;">
-                        <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 2%; "> Totales de equipos en la Universidad </div>
-                      </div>       
-                        <div class="ui middle aligned center aligned grid" style="margin-top: 50px">
-                        <table class="ui celled structured table">
-                                        <thead>
-                                          <tr>
-                                            <th rowspan="2">Nombre de la Universidad</th> 
-                                            <th colspan="4" class="ui aligned center">Cantidad de equipos</th>
-                                          </tr>
-                                          <tr>
-                                            <th>Activos</th>
-                                            <th>En reparacion</th>
-                                            <th>Desincorporados</th>
-                                            <th>Total</th> 
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <td>UCLA</td>
-                                            <td class="right aligned">2</td>
-                                            <td class="right aligned">2</td>
-                                            <td class="right aligned">2</td>
-                                            <td class="right aligned">6</td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    </div> </div> </div> 
-                                      <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
-                                          <div class="ui center aligned fluid container" style=" margin-top: 5%" >
-                                              <div class="ui buttons" style=" margin-top: 5%" >
-                                                <button class="ui cancel labeled icon button" id="atras" style="color: #1a237e"><i class="left chevron icon" ></i> Cancelar </button>
-                              </div> </div> </div>
-          </div> </div> </div> </div> 
-    </body>
+            //Cerrrar Total de equipos por universidad
+            $("#atras1").click(function() {
+            $("#totaluni").hide(1500);
+            });
+
+
+            //Abrir Total de equipos por departamento
+            $(document).ready(function() {
+            $('#totaluni').hide();
+            $("#pordep1").on("click", function() {
+            $('#totaldep').toggle();
+            });
+            });
+            //$("").click(function(){
+            //$("").show("slow");
+            //});
+            
+                        
+
+            //            $("#atras3").click(function() {
+            //            $("#totaldep").hide(1500);
+            //            });
+
+            </script>
+            </div>
+            </div>
+    </body>   
 </html>
