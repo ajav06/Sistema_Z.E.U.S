@@ -23,14 +23,6 @@
                       <div class="menu">
                         <div class="item">Mi informacion</div>
                         <div class="item">Notificaciones</div>
-                        <div class="item">
-                          <i class="left dropdown icon"></i>
-                          <span class="text">Menú</span>
-                            <div class="left menu">
-                              <div class="item">Seguridad</div>
-                              <div class="item">otras cosas que se me ocurriran despues</div>
-                            </div>
-                        </div>
                         <div class="item">Cerrar Sesion</div>
                       </div>
                   </div> 
@@ -46,12 +38,12 @@
                             <a class="item" id="item" href="../Decanatos/ListaDecanatos.html" >Gestionar Decanatos</a>
                             <a class="item" id="item" href="../Departamentos/ListadoDepartamentos.html" >Gestionar Departamentos</a>
                             <a class="item" id="item" href="../Equipos/ListaEquipos.html">Gestionar Equipos</a>
-                            <a class="item" id="item" >Estadisticas</a>
+                            <a class="item" id="item" href="../Solicitudes/Solicitudes.html">Solicitudes</a>
                         </div>
                     </div>
               <div class="twelve wide stretched column" style="border-block-color:  #9e9d9d ;height: 600px;">
                 <div class="ui segment" style="height: 50%; width: 98% ;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 1px solid  #1a237e">
-                <div class="ui category search">
+                <div class="ui category search"></div> 
                 <div class="results"></div>
                     <div class="ui segment" style="background-color: #1a237e;height: 40px; margin-top: 1%;">
                     <div class="header" style="text-align: center;font-size: 30px;color: #ffffff;margin-top: -1%"> Reportes</div>
@@ -92,7 +84,7 @@
 
 
             <div class="ui container" id="totaldep" style="display: none">
-            <div class="ui aligned center dividing header" >Totales de equipos por Departamento</h2>
+            <div class="ui aligned center dividing header" >Totales de equipos por Departamento</div>
                 <table class="ui celled structured table">
                 <thead>
                 <tr>
@@ -138,7 +130,7 @@
                       </button>
                 </div>
               </div> 
-            </div> 
+            
 
 
             <table class="ui compact celled definition table" style="border: 1px solid #1a237e;margin-top: 1% ">
@@ -209,9 +201,10 @@
 
 
             //Abrir Total de equipos por departamento
-            $("#pordep1").click(function() {
+            $("#pordep1").click(function(){
             $("#totaldep").show("slow");
             });
+            
                         
 
             //            $("#atras3").click(function() {
