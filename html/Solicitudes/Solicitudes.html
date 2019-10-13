@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+	<link rel="stylesheet" type="text/css" href=" ../../Semantic-UI-CSS-master/semantic.min.css ">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+		integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="../../Semantic-UI-CSS-master/semantic.min.js"></script>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Solicitudes</title>
+	</head>
+	<style type="text/css">
+		#item {
+			color: #ffffff
+		}
+
+		#item:hover {
+			background-color: #1a237e;
+			color: #ffff;
+		}
+
+		#encabezadotabla {
+			background-color: #1a237e; color: #ffff;
+		}
+	</style>
+	<h1>
+		<div class="ui segment" style=" background-image: url(../image/adwebsys-fondo.jpg) ;height: 60px; padding-top: 0px;border-block-end:4px solid #1a237e;">    
+			<div class="ui right aligned fluid container"  >
+			<div class="ui simple dropdown item" style=" color: #ffff;margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  transparent;border: 0px #c6c4c4;"><i class="dropdown icon"></i>Armando Paredes
+			<div class="menu">
+				<div class="item">Mi informacion</div>
+				<div class="item">Notificaciones</div>
+				<div class="item">
+					<i class="left dropdown icon"></i>
+					<span class="text">Menú</span>
+					<div class="left menu">
+					<div class="item">Seguridad</div>
+					<div class="item">otras cosas que se me ocurriran despues</div>
+					</div>
+				</div>
+				<div class="item">Cerrar Sesion</div>
+			</div>
+			</div> 
+			</div>
+			</div>
+	</h1>
+
+	<body>
+		<div class="ui grid">
+			<div class="four wide column">
+				<div class="ui inverted vertical menu" style=" width: 100%; background-image: url(../image/fondo1.jpg) ;height: 100%;border-radius: 0px 24px 24px 0px; font-size: 18px;">
+					<a class="item" id="item" href="../Reportes/ListaReportes.html" >Reportes</a>
+					<a class=" item" id="item" href="../Usuarios/ListaUsuarios.html"  >Gestionar Usuarios</a>
+					<a class=" item" id="item" href="../Decanatos/ListaDecanatos.html" >Gestionar Decanatos</a>
+					<a class="item" id="item"  href="ListadoDepartamentos.html" >Gestionar Departamentos</a>
+					<a class="item" id="item" href="../Equipos/ListaEquipos.html">Gestionar Equipos</a>
+					<a class="active item" id="item" href="Solicitudes.html" style="background-color: #1a237e">Solicitudes</a>
+				 </div>
+			 </div>
+			<div class="twelve wide stretched column" style="border-block-color:  #9e9d9d ;height: 600px;">
+				<div class="ui segment"
+					style="height: 50%; width: 98% ;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 1px solid #1a237e">
+					<div class="ui category search">
+					<div class="ui icon input">
+						<input class="prompt" type="text" placeholder="Ingrese el Nombre del Decanato" style="width: 500px; ">
+						<i class="search icon"></i>
+					</div>
+					<div class="results"></div>
+					<table class="ui compact celled definition table" style="border: 0px solid #1a237e; ">
+						<thead class="full-width">
+							<tr>
+                            <th id="encabezadotabla" >Tipo de Solicitud</th>
+                            <th id="encabezadotabla" >Fecha de Emision</th>
+                            <th id="encabezadotabla"style="width: 30%">Decanato</th>
+							<th id="encabezadotabla" style="width: 30%">Departamento</th>
+							<th id="encabezadotabla">Opcion</th>
+							</tr>
+						</thead>
+						<tbody style="background-color: #f3f5f6">
+							<tr>
+                                <td>Reparacion</td>
+                                <td>04/07/2000</td>
+								<td>Decanato de Ciencias y Tecnologia</td>
+								<td>Estudios Basicos</td>
+								<td>
+								<div class="item">
+									<div class="ui circular button" style="width: 130px"> <A id="verdetalles1" style="color: #1a237e; ">Ver Detalles</A>
+                                    </div>
+                                </div>
+								</td>
+							</tr>
+							<tr>
+                                <td>Reparacion</td>
+                                <td>04/07/1990</td>
+								<td>Decanato de Ingenieria Civil</td>
+								<td>Departamento de Matematica</td>
+								<td>
+								<div class="item">
+									<div class="ui circular button" style="width: 130px"> <A style="color: #1a237e; ">Ver Detalles</A>
+                                    </div>
+								</div>
+							<tr>
+                                <td>Desincorporacion</td>
+                                <td>04/07/1990</td>
+								<td>Decanato de Humanidades y Artes</td>
+								<td>Departamento de Artes Plasticas</td>
+								<td>
+								<div class="item">
+									<div class="ui circular button" style="width: 130px"> <A style="color: #1a237e; ">Ver Detalles</A>
+                                    </div>
+								</div>	
+								</td>
+							</tr>
+						</tbody>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			// Funciones del consultar 
+            //Abrir el modal de consultar
+			$(document).ready(function(){
+            $('#verdetalles1').click(function(){
+            $('#formdetalles').modal('show');
+            });
+            });
+
+			// Funciones del consultar 
+                          //Abrir el modal de consultar
+			$(document).ready(function(){
+            $('#aceptar').click(function(){
+            $('#aceptarsol').modal('show');
+            });
+            });
+
+			// Funciones del consultar 
+            //Abrir el modal de consultar
+			$(document).ready(function(){
+            $('#cancelar1').click(function(){
+            $('#formdetalles').modal('show');
+            });
+            });
+
+			// Funciones del consultar 
+            //Abrir el modal de consultar
+			$(document).ready(function(){
+            $('#rechazar').click(function(){
+            $('#rechazarsol').modal('show');
+            });
+            });
+			// Funciones del consultar 
+            //Abrir el modal de consultar
+			$(document).ready(function(){
+            $('#cancelar2').click(function(){
+            $('#formdetalles').modal('show');
+            });
+            });
+		</script>
+
+		    <!-- Modal de Detalles''<> -->
+	<div class="ui basic modal" id="formdetalles">
+			<div class="content" style="height: 100%;width: 110% ;">
+			<div class="ui two column very relaxed grid" style="width: 110% ">
+				<div class="column" style="width: 33%; background-image: url(../image/fondo3.PNG);padding-left: 0px !important; padding-right: 0px !important;padding-top: 0px !important; padding-bottom: 0px !important; border-radius: 24px 0px 0px 24px;">
+				</div>
+				<div class="column" style="width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
+				<div class="ui segment" style="background-color: #ffffff ;height: 12%;border-radius: 0px 24px 0px 0px;">
+				<div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 0%; ">Detalles de la Solicitud</div>
+				</div>
+				   <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 0%">
+						<div class="two fields">
+						<div class="field">
+							<label style="color: #ffffff">Equipo</label>
+							<input type="text" placeholder="Equipo" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
+						</div>
+						<div class="field">
+							<label style="color: #ffffff">Fecha de Emision</label>
+							<input type="text" placeholder="Fecha de Emision" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
+						</div>
+						</div>
+						<div class="two fields">
+						<div class="field">
+							<label style="color: #ffffff">Estatus del Equipo</label>
+							<input type="text" placeholder="Estatus del Equipo" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
+						</div>
+						<div class="field">
+							<label style="color: #ffffff">Decanato</label>
+							<input type="text" placeholder="Decanato" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
+						</div>
+						</div>
+						<div class="two fields">
+						<div class="field">
+							<label style="color: #ffffff">Departamento</label>
+							<input type="text" placeholder="Departamento" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
+						</div>
+						<div class="field">
+							<label style="color: #ffffff">Emisor</label>
+							<input type="text" placeholder="Emisor" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
+						</div>
+						</div>
+						<div class="field">
+							<label style="color: #ffffff">Motivo</label>
+							<input type="text" placeholder="Motivo" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff; height: 150px;" disabled>
+						</div>
+						</div>
+						<div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
+						<div class="ui center aligned fluid container" style=" margin-top: 5%" >
+						  <div class="ui cancel  circular button" style="width: 130px ; color: #1a237e"><i class="left chevron icon"></i>Atras</div>
+						  <div class="ui circular button"style="width: 130px; color: #1a237e" id="aceptar"> Aceptar</div>
+						  <div class="ui circular button"style="width: 130px; color: #1a237e" id="rechazar"> Rechazar</div> 
+						</div> 
+						</div>
+					</div>
+				</div>
+				</div>
+				</div>
+
+				 <!-- Mensajes''<> -->
+				 <!-- Mensaje de confirmacion de solicitud ''<> -->
+				 <div class="ui mini modal" id="aceptarsol"  >
+				 <div class="content" style="background-color: #1a237e">
+					<p style="color: #ffff">¿Está seguro que desea aceptar la solicitud?</p>
+				</div>
+				<div class="actions">
+					<div class="ui red inverted button" id="cancelar1">
+						<i class="remove icon"></i>
+						Cancelar
+					</div>
+					<div class="ui green ok inverted button">
+						<i class="checkmark icon"></i>
+						Aceptar
+					</div>
+				</div>
+				</div>
+
+				<!-- Mensaje de confirmacion de solicitud ''<> -->
+				<div class="ui mini modal" id="rechazarsol"  >
+				<div class="content" style="background-color: #1a237e">
+					<p style="color: #ffff">¿Está seguro que desea rechazar la solicitud?</p>
+				</div>
+				<div class="actions">
+					<div class="ui red inverted button" id="cancelar2" >
+						<i class="remove icon"></i>
+						Cancelar
+						</div>
+					<div class="ui green ok inverted button">
+						<i class="checkmark icon"></i>
+						Aceptar
+					</div> 
+				</div> 
+			</div>
+				
+    </body>
+</html>
