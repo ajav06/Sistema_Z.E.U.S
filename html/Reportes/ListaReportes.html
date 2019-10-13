@@ -50,7 +50,7 @@
                     <div class="header" style="text-align: center;font-size: 30px;color: #ffffff;margin-top: -1%"> Reportes</div>
                     </div>
                   <!-- Total de Equipos por universidad''<> -->
-                  <div class="ui container" id="totaluni" style="display: none" >
+                  <div class="ui container" id="totaluni" style="display: none !important" >
                   <div class="ui aligned center dividing header" >Totales de equipos en la Universidad</div>
                   <table class="ui celled structured table">
                       <thead>
@@ -82,6 +82,14 @@
                       </button>
                       </div>
                   </div>
+
+
+
+
+
+
+
+
 
 
             <div class="ui container" id="totaldep" style="display: none">
@@ -202,9 +210,15 @@
 
 
             //Abrir Total de equipos por departamento
-            $("#pordep1").click(function(){
-            $("#totaldep").show("slow");
+            $(document).ready(function() {
+            $('#totaluni').hide();
+            $("#pordep1").on("click", function() {
+            $('#totaldep').toggle();
             });
+            });
+            //$("").click(function(){
+            //$("").show("slow");
+            //});
             
                         
 
