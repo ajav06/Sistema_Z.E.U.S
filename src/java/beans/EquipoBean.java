@@ -46,6 +46,10 @@ public class EquipoBean {
     public void setEquipoSeleccionado(Equipo equipoSeleccionado) {
         this.equipoSeleccionado = equipoSeleccionado;
     }
+    
+    public void vaciarEquipoSeleccionado() {
+        this.equipoSeleccionado = null;
+    }
 
     public List<Equipo> getEquipos() {
         return equipos;
@@ -59,20 +63,27 @@ public class EquipoBean {
         this.equipoSeleccionado = new Equipo();
     }
     
+    public void actualizarListado(){
+        this.equipos = equipoService.listarEquipos();
+    }
+    
     public void agregarEquipo(){
         this.equipoSeleccionado.setEstatus('a');
         equipoService.registrarEquipo(equipoSeleccionado);
         this.equipoSeleccionado = null;
-        Faces.redirect("?faces-redirect=true/index.xhtml");
+        this.actualizarListado();
+        // Faces.redirect("?faces-redirect=true/index.xhtml");
     }
     
     public void modificarEquipo() {
         equipoService.actualizarEquipo(equipoSeleccionado);
         this.equipoSeleccionado = null;
+        this.actualizarListado();
     }
     
     public void eliminarEquipo() {
         equipoService.eliminarEquipo(equipoSeleccionado);
         this.equipoSeleccionado = null;
+        this.actualizarListado();
     }
 }

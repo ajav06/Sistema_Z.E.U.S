@@ -1,6 +1,8 @@
 /*
 *   BARRA SUPERIOR
 */
+@import url(../resources/semantic/semantic.min.css);
+
 #top{
     margin-bottom: 1%;
 }
@@ -129,27 +131,27 @@
 *   MODAL
 */
 
-#formconsultar > .content{
-    height: 100%; width: 110% ;
+.modal > .content{
+    height: 100%; 
+    width: 110%;
 }
 
-#column-ver-equipo {
-    width: 33%; 
+.fondo-modal{
+    background-image: url(../resources/images/adwebsys-fondo.jpg) !important;
+}
+
+.column-equipo {
+    width: 33% !important; 
     background-image: url(../resources/images/fondo8.jpg);
-    padding-left: 0px !important; 
-    padding-right: 0px !important;
-    padding-top: 0px !important; 
-    padding-bottom: 0px !important; 
+    padding: 0;
     border-radius: 24px 0px 0px 24px;
 }
 
 .column-fondo {
     width: 67% !important;
-    background-image: url(../resources/images/adwebsys-fondo.jpg) !important; 
-    border-radius: 0px 24px 24px 0px !important; 
-    padding-left: 0px !important; 
-    padding-right: 0px !important; 
-    padding-top: 0px !important;
+    background-image: url(../resources/images/adwebsys-fondo.jpg); 
+    border-radius: 0px 24px 24px 0px; 
+    padding: 0 !important;
 }
 
 .column-fondo > .segment{

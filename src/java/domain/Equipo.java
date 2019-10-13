@@ -153,7 +153,7 @@ public class Equipo implements Serializable {
 
     @Override
     public String toString() {
-        return "domain.Equipo[ codigo=" + codigo + " ]";
+        return "domain.Equipo[ codigo=" + codigo + ", nombre=" + nombre + " ]";
     }
     
 }

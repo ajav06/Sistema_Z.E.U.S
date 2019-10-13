@@ -16,6 +16,10 @@ function modificar(){
     $('#formodificar').modal('show');
 }
 
+function aceptarModificacion(){
+    $('#modificacion').modal('show');
+}
+
 //Volver al modal de consultar
 function atras() {
     $('#formconsultar').modal('show');
@@ -27,6 +31,10 @@ function incluir() {
     $('#formincluir').modal('show');
 }
 
+function aceptarInclusion(){
+    $('#inclusion').modal('show');
+}
+
 //Funciones del Eliminar
 //Abrir el modal de Eliminar
 function eliminar(){
@@ -34,8 +42,9 @@ function eliminar(){
 }
 
 //Cerrar el modal de Eliminar y redirigirse al modal de consultar
-function no(){
-    $('#formconsultar').modal('show');
+function cancelar(modal){
+    console.log(modal);
+    $('#'+modal).modal('hide');
 }
 
 //Modal para solicitar desincorporar
@@ -58,5 +67,9 @@ function reparar(){
 function aceptarReparacion(){
     $('#formreparar').modal('hide');
     $('#txtreparar').modal('show');
+}
+
+function imprimir(dato) {
+    console.log(dato);
 }
 
