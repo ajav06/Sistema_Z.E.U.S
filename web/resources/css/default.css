@@ -1,62 +1,194 @@
 /*
-* BARRA SUPERIOR
+*   BARRA SUPERIOR
 */
+#top{
+    margin-bottom: 1%;
+}
 
 #top-bar{
-    background-color:  #c6c4c4;
-    height: 60px; 
-    padding-top: 0px; 
-    border-block-end: 4px solid #1a237e;
+    background-image: url(../resources/images/adwebsys-fondo.jpg);
+    height: 2.5%;
+    border-block-end:4px solid #1a237e;
 }
 
 #top-bar-dropdown{
-    margin-top: 3px; 
+    color: #ffff;
     padding-block-start: 2px;
     padding-block-end: 2px;
-    background-color:  #c6c4c4;
+    background-color:  transparent;
     border: 0px #c6c4c4;
 }
 
 
 /*
-* MENU IZQUIERDO
+*   MENU IZQUIERDO
 */
 #left-menu{
+    height: 100%; 
     width: 100%; 
-    padding-top: 0 rem !important; 
-    margin-top: 0 rem !important; 
-    background-color: #c6c4c4;
-    height: 100%;
-    border-radius: 24px 24px 24px 24px;
-    -moz-border-radius: 24px 24px 24px 24px;
-    -webkit-border-radius: 24px 24px 24px 24px;
-    border: 0px ; 
-    font-size: 18px;   
+    background-image: url(../resources/images/fondo1.jpg);
+    border-radius: 0px 24px 24px 0px; 
+    font-size: 18px;
+}
+
+.item.active{
+    background-color: #1a237e;
 }
 
 #item {
-    color: black
+    color: #ffff;
 }
 
 #item:hover {
     background-color: #1a237e;
-    color: #ffffff;
+    color: #ffff;
+}
+
+
+#menu {
+    margin-top: 0px !important;
+    padding-top: 0px !important
+}
+
+/*
+*   Contenido
+*/
+
+#base-content{
+    height: 90%;
 }
 
 #itemlistre:hover {
     background-color: #1a237e;
 }
 
-#encabezado:hover {
-    color: #ffffff
-}
-
 #encabezado {
     color: #1a237e;
-    color: black
+    color: black;
 }
 
-#menu {
-    margin-top: 0px !important;
-    padding-top: 0px !important
+#encabezado:hover {
+    color: #ffffff;
+}
+
+.twelve.wide.stretched.column {
+    border-block-color:  #9e9d9d ;
+}
+
+.twelve.wide.stretched.column > .segment{
+    height: 85%;  
+    width: 98% ;
+    border-radius: 24px 24px 24px 24px;
+    -moz-border-radius: 24px 24px 24px 24px;
+    -webkit-border-radius: 24px 24px 24px 24px;
+    border: 1px solid #1a237e;
+}
+
+#mas-equipos {
+    width: 130px; 
+    margin-left: 60px;
+}
+
+.visible.content {
+    color: #1a237e !important;
+}
+
+.hidden.content {
+    color: #1a237e !important;
+}
+
+.circular.button {
+    width: 130px;
+    color: #1a237e;
+}
+
+.circular.button:hover {
+    width: 130px;
+    color: #1a237e;
+}
+
+/*
+*   Tabla
+*/
+.table {
+    border: 0px solid #1a237e;
+}
+
+#encabezado-tabla {
+    background-color: #1a237e;
+    color: #ffff;
+}
+
+.encabezado-tabla {
+    background-color: #1a237e !important;
+    color: #ffff !important;
+    width: 33.33% !important;
+}
+
+/*
+*   MODAL
+*/
+
+#formconsultar > .content{
+    height: 100%; width: 110% ;
+}
+
+#column-ver-equipo {
+    width: 33%; 
+    background-image: url(../resources/images/fondo8.jpg);
+    padding-left: 0px !important; 
+    padding-right: 0px !important;
+    padding-top: 0px !important; 
+    padding-bottom: 0px !important; 
+    border-radius: 24px 0px 0px 24px;
+}
+
+.column-fondo {
+    width: 67% !important;
+    background-image: url(../resources/images/adwebsys-fondo.jpg) !important; 
+    border-radius: 0px 24px 24px 0px !important; 
+    padding-left: 0px !important; 
+    padding-right: 0px !important; 
+    padding-top: 0px !important;
+}
+
+.column-fondo > .segment{
+    background-color: #ffffff !important;
+    height: 15% !important;
+    border-radius: 0px 24px 0px 0px !important;    
+}
+
+.column-fondo > .segment > .header{
+    font-size: 30px !important;
+    color: #1a237e !important;
+    margin-top: .5% !important;
+}
+
+/*
+*   Formulario
+*/
+
+.form-1{
+    width: 80%; 
+    margin-left: 10%;
+}
+
+.form-1 > .form {
+    width: 80%; 
+    margin: 10% ; 
+    margin-top: 2%
+}
+
+label {
+    color: #ffffff !important;
+}
+
+input {
+    border-block-color: #1a237e !important;
+    border-radius: 24px 24px 24px 24px !important;
+}
+
+textarea {
+    border-block-color: #1a237e !important;
+    border-radius: 24px 24px 24px 24px !important;
 }
