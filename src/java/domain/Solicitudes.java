@@ -67,7 +67,7 @@ public class Solicitudes implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "estatus")
-    private Character estatus;
+    private String estatus;
     
     @JoinColumn(name = "codigo_equipo_departamento", referencedColumnName = "codigo")
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
@@ -84,7 +84,7 @@ public class Solicitudes implements Serializable {
         this.codigo = codigo;
     }
 
-    public Solicitudes(Integer codigo, String tipoSolicitud, Date fechaInicio, Character estatus) {
+    public Solicitudes(Integer codigo, String tipoSolicitud, Date fechaInicio, String estatus) {
         this.codigo = codigo;
         this.tipoSolicitud = tipoSolicitud;
         this.fechaInicio = fechaInicio;
@@ -123,11 +123,11 @@ public class Solicitudes implements Serializable {
         this.fechaAtencion = fechaAtencion;
     }
 
-    public Character getEstatus() {
+    public String getEstatus() {
         return estatus;
     }
 
-    public void setEstatus(Character estatus) {
+    public void setEstatus(String estatus) {
         this.estatus = estatus;
     }
 

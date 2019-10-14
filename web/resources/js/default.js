@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
 // Funciones del consultar 
 //Abrir el modal de consultar
 function consultar(){
@@ -11,7 +13,17 @@ function consultar(){
 
 //Funciones del Modificar
 //Abrir el modal de modificar y cerrar el de consultar
-function modificar(){
+function modificar(id){
+    $.ajax({
+        url: "/sistema_zeus/webservice/equipos/"+id,
+        type: "GET",
+        dataType: 'XML',
+        success: function (data) {
+            equipo = data.getElementsByTagName('equipo');
+            console.log(equipo);         
+        }
+    })
+    
     $('#formconsultar').modal('hide');
     $('#formodificar').modal('show');
 }

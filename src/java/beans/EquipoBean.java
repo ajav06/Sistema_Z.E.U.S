@@ -68,7 +68,7 @@ public class EquipoBean {
     }
     
     public void agregarEquipo(){
-        this.equipoSeleccionado.setEstatus('a');
+        this.equipoSeleccionado.setEstatus("a");
         equipoService.registrarEquipo(equipoSeleccionado);
         this.equipoSeleccionado = null;
         this.actualizarListado();

@@ -34,7 +34,7 @@ public class MarcaServiceRS {
     private MarcaService marcaService;
     
     @GET
-    @Produces(value={MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces(value={MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public List<Marca> listarMarcas(){
         return marcaService.listarMarcas();
     }

@@ -21,6 +21,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -75,7 +76,7 @@ public class Decanato implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "estatus")
-    private Character estatus;
+    private String estatus;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoDecanato")
     private List<Departamento> departamentoList;
@@ -87,7 +88,7 @@ public class Decanato implements Serializable {
         this.codigo = codigo;
     }
 
-    public Decanato(Integer codigo, String nombre, String siglas, Character estatus) {
+    public Decanato(Integer codigo, String nombre, String siglas, String estatus) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.siglas = siglas;
@@ -142,14 +143,15 @@ public class Decanato implements Serializable {
         this.telefono = telefono;
     }
 
-    public Character getEstatus() {
+    public String getEstatus() {
         return estatus;
     }
 
-    public void setEstatus(Character estatus) {
+    public void setEstatus(String estatus) {
         this.estatus = estatus;
     }
 
+    @XmlTransient
     public List<Departamento> getDepartamentoList() {
         return departamentoList;
     }

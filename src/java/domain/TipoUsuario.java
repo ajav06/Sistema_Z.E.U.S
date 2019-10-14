@@ -21,6 +21,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -53,7 +54,7 @@ public class TipoUsuario implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "estatus")
-    private Character estatus;
+    private String estatus;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoTipoUsuario")
     private List<GrupoUsuario> grupoUsuarioList;
@@ -65,7 +66,7 @@ public class TipoUsuario implements Serializable {
         this.codigo = codigo;
     }
 
-    public TipoUsuario(Integer codigo, String nombre, Character estatus) {
+    public TipoUsuario(Integer codigo, String nombre, String estatus) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.estatus = estatus;
@@ -87,14 +88,15 @@ public class TipoUsuario implements Serializable {
         this.nombre = nombre;
     }
 
-    public Character getEstatus() {
+    public String getEstatus() {
         return estatus;
     }
 
-    public void setEstatus(Character estatus) {
+    public void setEstatus(String estatus) {
         this.estatus = estatus;
     }
 
+    @XmlTransient
     public List<GrupoUsuario> getGrupoUsuarioList() {
         return grupoUsuarioList;
     }

@@ -84,7 +84,7 @@
                                         <div class="ui circular button"
                                              actionListener="#{equipoBean.setEquipoSeleccionado(equipo)}"
                                              onclick="imprimir('#{equipoBean.equipoSeleccionado}');
-                                                      consultar()">
+                                                      modificar(#{equipo.codigo})">
                                             Ver detalles
                                         </div>
                                         <div class="ui animated circular button" tabindex="0"
@@ -127,7 +127,7 @@
                                                         <label>Nombre</label>
                                                         <input type="text" 
                                                                placeholder="Nombre del equipo" 
-                                                               value="#{equipoBean.equipoSeleccionado.nombre}" 
+                                                               id="nombre"
                                                                disabled="true" />
                                                     </div>
 
@@ -198,7 +198,7 @@
                                                         <label>Nombre</label>
                                                         <h:inputText pt:type="text"
                                                                      pt:placeholder="Nombre del equipo"
-                                                                     value="#{equipoBean.equipoSeleccionado.nombre}" />
+                                                                     id="nombre" />
                                                     </div>
 
                                                     <div class="field">

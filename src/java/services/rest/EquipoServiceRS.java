@@ -29,6 +29,8 @@ import javax.ws.rs.core.Response.Status;
  * @author Scorpion
  */
 @Path("/equipos")
+@Produces(value = {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+@Consumes(value = {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 @Stateless
 public class EquipoServiceRS {
     
@@ -36,21 +38,17 @@ public class EquipoServiceRS {
     private EquipoService equipoService;
     
     @GET
-    @Produces(value={MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public List<Equipo> listarEquipos(){
         return equipoService.listarEquiposActivos();
     }
     
     @GET
-    @Produces(value={MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Path("{id}") //hace referencia a /equipos/{id}
     public Equipo buscarEquipoPorCodigo(@PathParam("id") int id) {
         return equipoService.buscarEquipoPorCodigo(new Equipo(id));
     }
     
     @POST
-    @Produces(value={MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    @Consumes(value={MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Response registrarEquipo(Equipo equipo){
         try {
             equipoService.registrarEquipo(equipo);
@@ -61,8 +59,6 @@ public class EquipoServiceRS {
     }
     
     @PUT
-    @Produces(value={MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    @Consumes(value={MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Path("{id}")
     public Response actualizarEquipo(@PathParam("id") int id, Equipo equipoActualizada){
         try{

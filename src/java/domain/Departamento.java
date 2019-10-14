@@ -23,6 +23,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -60,7 +61,7 @@ public class Departamento implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "estatus")
-    private Character estatus;
+    private String estatus;
     
     @JoinColumn(name = "codigo_decanato", referencedColumnName = "codigo")
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
@@ -79,7 +80,7 @@ public class Departamento implements Serializable {
         this.codigo = codigo;
     }
 
-    public Departamento(Integer codigo, String nombre, Character estatus) {
+    public Departamento(Integer codigo, String nombre, String estatus) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.estatus = estatus;
@@ -109,11 +110,11 @@ public class Departamento implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public Character getEstatus() {
+    public String getEstatus() {
         return estatus;
     }
 
-    public void setEstatus(Character estatus) {
+    public void setEstatus(String estatus) {
         this.estatus = estatus;
     }
 
@@ -125,6 +126,7 @@ public class Departamento implements Serializable {
         this.codigoDecanato = codigoDecanato;
     }
 
+    @XmlTransient
     public List<Usuario> getUsuarioList() {
         return usuarioList;
     }
@@ -133,6 +135,7 @@ public class Departamento implements Serializable {
         this.usuarioList = usuarioList;
     }
 
+    @XmlTransient
     public List<EquipoDepartamento> getEquipoDepartamentoList() {
         return equipoDepartamentoList;
     }

@@ -23,6 +23,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -61,7 +62,7 @@ public class Equipo implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "estatus")
-    private Character estatus;
+    private String estatus;
     
     @JoinColumn(name = "codigo_marca", referencedColumnName = "codigo")
     @ManyToOne(optional = false)
@@ -77,7 +78,7 @@ public class Equipo implements Serializable {
         this.codigo = codigo;
     }
 
-    public Equipo(Integer codigo, String nombre, Character estatus) {
+    public Equipo(Integer codigo, String nombre, String estatus) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.estatus = estatus;
@@ -107,11 +108,11 @@ public class Equipo implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public Character getEstatus() {
+    public String getEstatus() {
         return estatus;
     }
 
-    public void setEstatus(Character estatus) {
+    public void setEstatus(String estatus) {
         this.estatus = estatus;
     }
 
@@ -123,6 +124,7 @@ public class Equipo implements Serializable {
         this.codigoMarca = codigoMarca;
     }
 
+    @XmlTransient
     public List<EquipoDepartamento> getEquipoDepartamentoList() {
         return equipoDepartamentoList;
     }
