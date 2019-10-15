@@ -29,6 +29,7 @@
     #letra:hover {
         color: #ffffff
     }
+    #print:hover{cursor: pointer;}
 </style>
 <h1>
     <div class="ui large segment"
@@ -65,9 +66,11 @@
                 <a class="item" id="item" href="../Departamentos/ListadoDepartamentos.html">Departamentos</a>
                 <a class="item" id="item" href="../Decanatos/ListaDecanatos.html">Decanatos</a>
                 <a class="item" id="item" href="ListaEquipos.html">Equipos</a>
-                <a class="item" id="item" href="listadoEquipodep.html">Equipos en Departamento</a>
+                <a class="item" id="item" href="listadoEquipodep.html" style="background-color: #1a237e;">Equipos en Departamento</a>
                 <a class="item" id="item" href="../EstadoEquipos/EstadoEquipos.html">Estados de Equipos</a>
                 <a class="item" id="item" href="../Solicitudes/Solicitudes.html">Solicitudes</a>
+                <a class="item" id="item" href="../Solicitudes/SolicitudesReparacion.html" >Solicitudes de Reparacion</a>
+                <a class="item" id="item" href="../Solicitudes/SolicitudesDesincorporacion.html">Solicitudes de Desincorporacion</a>
                 
             </div>
         </div>
@@ -91,8 +94,8 @@
                     <table class="ui compact celled definition table" style="border: 0px solid #1a237e; ">
                         <thead class="full-width">
                             <tr>
-                                <th id="encabezadotabla" style=" width: 30%">Codigo</th>
-                                <th id="encabezadotabla" style=" width:50%">Equipo</th>
+                                <th id="encabezadotabla" style=" width: 20%">Codigo</th>
+                                <th id="encabezadotabla" style=" width:33%">Equipo</th>
                                 <th id="encabezadotabla">Opcion</th>
                             </tr>
                         </thead>
@@ -105,6 +108,17 @@
                                         <div class="right floated content">
                                             <div class="ui circular button" style="width: 130px" id="consultar"> <A
                                                     style="color: #1a237e; ">Consultar</A> </div>
+                                            <div class="ui circular animated  button" tabindex="0" style="width: 130px; margin-top: 2%;"
+                                                    id="repa">
+                                                <div class="visible content" style="color: #1a237e">Reparar</div>
+                                                <div class="hidden content"> <A style="color: #1a237e;">Solicitar</A></div>
+                                            </div>
+                                            <div class="ui circular animated  button" tabindex="0" style="width: 130px; margin-top: 2%;"
+                                                id="desin">
+                                                    <div class="hidden content" style="color: #1a237e"> Solicitar </div>
+                                                    <div class="visible content"><A
+                                                    style="color: #1a237e;border-collapse: unset;">Desincorporar</A></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -118,6 +132,19 @@
                                         <div class="right floated content">
                                             <div class="ui circular button" style="width: 130px" id="consultar"> <A
                                                     style="color: #1a237e; ">Consultar</A> </div>
+                                                <div class="ui animated circular button" tabindex="0" style="width: 130px; margin-top: 2%;"
+                                                id="reparar">
+                                                <div class="visible content" style="color: #1a237e">Reparar</div>
+                                                <div class="hidden content"> <A style="color: #1a237e;">Solicitar</A>
+                                                </div>
+                                            </div>
+                                            <div class="ui animated circular button" tabindex="0" style="width: 130px; margin-top: 2%;"
+                                                id="desincorporar">
+                                                <div class="hidden content" style="color: #1a237e"> Solicitar </div>
+                                                <div class="visible content"><A
+                                                        style="color: #1a237e;border-collapse: unset;">Desincorporar</A>
+                                                </div>
+                                            </div>
                                             </div>
                                             </div>
                                         </div>
@@ -129,7 +156,19 @@
                                         <div class="right floated content">
                                             <div class="ui circular button" id="consultar" style="width: 130px"
                                                 id="consultar"><A style="color: #1a237e; ">Consultar</A></div>
-                                            
+                                                <div class="ui animated circular button" tabindex="0" style="width: 130px; margin-top: 2%;"
+                                                id="reparar">
+                                                <div class="visible content" style="color: #1a237e">Reparar</div>
+                                                <div class="hidden content"> <A style="color: #1a237e;">Solicitar</A>
+                                                </div>
+                                            </div>
+                                            <div class="ui animated circular button" tabindex="0" style="width: 130px; margin-top: 2%;"
+                                                id="desincorporar">
+                                                <div class="hidden content" style="color: #1a237e"> Solicitar </div>
+                                                <div class="visible content"><A
+                                                        style="color: #1a237e;border-collapse: unset;">Desincorporar</A>
+                                                </div>
+                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -150,7 +189,6 @@
                     //Abrir el modal de modificar y cerrar el de consultar
                     $(document).ready(function () {
                         $('#modificar').click(function () {
-                            $('#formconsultar').modal('hide');
                             $('#formodificar').modal('show');
                         });
                     })
@@ -160,8 +198,8 @@
                             $('#formconsultar').modal('show');
                         });
                     });
-                    //Funciones del Incluir
-                    //Abrir el modal de incluir
+                    //Funciones del Registrar
+                    //Abrir el modal de Registrar
                     $(document).ready(function () {
                         $('#registrar').click(function () {
                             $('#formregistrar').modal('show');
@@ -176,20 +214,25 @@
                     });
                     //Cerrar el modal de Eliminar y redirigirse al modal de consultar
                     $(document).ready(function () {
-                        $('#no').click(function () {
+                        $('#cancel').click(function () {
                             $('#formconsultar').modal('show');
                         });
                     });
+                    
                     //Modal para solicitar desincorporar
                     $(document).ready(function () {
                         $('#desincorporar').click(function () {
                             $('#formdesincorporar').modal('show');
                         });
                     });
+                    $(document).ready(function () {
+                        $('#desin').click(function () {
+                            $('#formdesincorporar').modal('show');
+                        });
+                    });
                     //aceptar desincorporacion
                     $(document).ready(function () {
                         $('#acepto').click(function () {
-                            $('#formdesincorporar').modal('hide');
                             $('#txtdesincorporar').modal('show');
                         });
                     })
@@ -199,42 +242,94 @@
                             $('#formreparar').modal('show');
                         });
                     });
+                    $(document).ready(function () {
+                        $('#repa').click(function () {
+                            $('#formreparar').modal('show');
+                        });
+                    });
                     //aceptar reparacion
                     $(document).ready(function () {
                         $('#acep').click(function () {
-                            $('#formreparar').modal('hide');
                             $('#txtreparar').modal('show');
                         });
                     })
 
-                    //
-                    //Modal para solicitar reparar
+                    //Mmensaje de confirmacion de mpdificacion
                     $(document).ready(function () {
                         $('#guardar1').click(function () {
                             $('#modificacion').modal('show');
                         });
                     });
 
-                    //Modal para solicitar reparar
+                    //Volver al formulario de modificacion
                     $(document).ready(function () {
-                        $('#cancelar2').click(function () {
+                        $('#cancelar1').click(function () {
                             $('#formodificar').modal('show');
                         });
                     });
 
-                    //Modal para solicitar reparar
+                    //Volver al formulario de reparacion
                     $(document).ready(function () {
-                        $('#cancelar3').click(function () {
+                        $('#cancelar2').click(function () {
                             $('#formreparar').modal('show');
                         });
                     });
 
-                    //Modal para solicitar reparar
+                    //Volver al formulario de desincorporacion
                     $(document).ready(function () {
-                        $('#cancelar4').click(function () {
+                        $('#cancelar3').click(function () {
                             $('#formdesincorporar').modal('show');
                         });
                     });
+
+                    //Mensaje de registro
+                    $(document).ready(function () {
+                        $('#guardar2').click(function () {
+                            $('#registro').modal('show');
+                        });
+                    });
+                    $(document).ready(function () {
+                        $('#cancelar4').click(function () {
+                            $('#formregistrar').modal('show');
+                        });
+                    });
+
+                     //Mensaje de exito
+                     $(document).ready(function () {
+                        $('#aceptar').click(function () {
+                            $('#exito').modal('show');
+                        });
+                    });
+
+                    $(document).ready(function () {
+                        $('#aceptar1').click(function () {
+                            $('#exito').modal('show');
+                        });
+                    });
+
+                    $(document).ready(function () {
+                        $('#aceptar2').click(function () {
+                            $('#exito').modal('show');
+                        });
+                    });
+
+                    $(document).ready(function () {
+                        $('#aceptar3').click(function () {
+                            $('#exito').modal('show');
+                        });
+                    });
+                    
+                    $(document).ready(function () {
+                        $('#aceptar4').click(function () {
+                            $('#codigo').modal('show');
+                        });
+                    });$(document).ready(function () {
+                        $('#print').click(function () {
+                            $('#codigo').modal('show');
+                        });
+                    });
+
+
                 </script>
 
                 <!-- Modal de consultar''<> -->
@@ -251,14 +346,21 @@
                                     <div class="ui aligned center dividing header"
                                         style=" font-size: 30px;color: #1a237e;margin-top: 0%; ">Consultar Equipo</div>
                                 </div>
-                                <div class="ui form" style="width: 80%; margin-left: 10%">
-                                    <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 0%">
+                                    <div class="ui form" style=" margin: 10% ; margin-top: 0%">
                                         <div class="two fields">
                                             <div class="field">
+                                                <div class="two fields">
+                                                <div class="field" style="width: 90%;">
                                                 <label style="color: #ffffff">Codigo</label>
                                                 <input type="text" placeholder="Codigo" id="tx1"
-                                                    style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;"
-                                                    disabled>
+                                                style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;"
+                                                disabled>
+                                                </div>
+                                                <div class="field" style="width: 30px;margin-right:10px; ">
+                                                <label style="color: transparent; width: 2px;">C</label>
+                                                <i class="ui print white icon" id="print"></i>
+                                                </div>
+                                                </div>
                                             </div>
                                             <div class="field">
                                                 <label style="color: #ffffff">Estatus</label>
@@ -270,8 +372,21 @@
                                         <div class="field">
                                             <label style="color: #ffffff">Equipo</label>
                                             <input type="text" placeholder="Equipo"
-                                                style="height: 200px; border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;"
+                                                style=" border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;"
                                                 disabled>
+                                        </div>
+                                            <div class="field">
+                                                <label style="color: #ffffff">Decanato</label>
+                                                <input type="text" placeholder="Decanato" id="tx1"
+                                                    style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;"
+                                                    disabled>
+                                            </div>
+                                            <div class="field">
+                                                <label style="color: #ffffff">Departamento</label>
+                                                <input type="text" placeholder="Departamento"
+                                                    style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;"
+                                                    disabled>
+                                            </div>
                                         </div>
                                         <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
                                             <div class="ui center aligned fluid container" style=" margin-top: 5%">
@@ -284,7 +399,7 @@
                                                 <div class="ui circular button" style="width: 130px; color: #1a237e"
                                                     id="eliminar"> Eliminar
                                                 </div>
-                                                <div class="ui animated circular button" tabindex="0" style="width: 130px; margin-top: 2%;"
+                                                <div class="ui animated circular button" tabindex="0" style="width: 130px; margin-top: 2%; margin-left: 4%;"
                                                 id="reparar">
                                                 <div class="visible content" style="color: #1a237e">Reparar</div>
                                                 <div class="hidden content"> <A style="color: #1a237e;">Solicitar</A>
@@ -315,23 +430,20 @@
                             <div class="column"
                                 style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
                                 <div class="ui segment"
-                                    style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
+                                    style="background-color: #ffffff ;height: 90px;border-radius: 0px 24px 0px 0px;">
                                     <div class="ui aligned center dividing header"
                                         style=" font-size: 30px;color: #1a237e;margin-top: 2%; ">Modificar Equipo</div>
                                 </div>
-                                <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 0%">
-                                        <div class="field">
-                                                <label style="color: #ffffff">Nombre</label>
-                                                <input type="text" placeholder="Nombre" id="tx1"
-                                                    style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;"
-                                                    disabled>
-                                            </div>
-                                            <div class="field">
-                                                <label style="color: #ffffff" >Descripcion</label>
-                                                <input type="text" placeholder="Descripcion"
-                                                    style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;height: 200px;"
-                                                    disabled>
-                                            </div>
+                                <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 5%">
+                                    <div class="field">
+                                        <label style="color: #ffffff">Estado</label>
+                                        <select class="ui fluid dropdown"
+                                            style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;">
+                                            <option value="">Selecciona el estado</option>
+                                            <option value="hp">Dañado</option>
+                                            <option value="so">...</option>
+                                        </select>
+                                </div>
                                     </div>
                                     <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
                                             <div class="ui center aligned fluid container" style=" margin-top: 5%">
@@ -362,7 +474,8 @@
                                         <div class="ui aligned center dividing header"
                                             style=" font-size: 30px;color: #1a237e;margin-top: 2%; ">Registrar Equipo</div>
                                     </div>
-                                    <div class="ui form" style="width: 80%; margin: 10% ;">
+                                    <div class="ui form" style="width: 80%; margin-top: 5% ;margin-left: 11%;">
+                                        <div class="two field">
                                             <div class="field">
                                                     <label style="color: #ffffff">Equipos</label>
                                                     <select class="ui fluid dropdown"
@@ -372,14 +485,24 @@
                                                         <option value="so">Teclado</option>
                                                         <option value="ap">Mouse</option>
                                                     </select>
-                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                    <label style="color: #ffffff">Estado</label>
+                                                    <select class="ui fluid dropdown"
+                                                        style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;">
+                                                        <option value="">Selecciona el estado</option>
+                                                        <option value="hp">Dañado</option>
+                                                        <option value="so">...</option>
+                                                    </select>
+                                            </div>
+                                        </div>
                                         </div>
                                         <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
                                                 <div class="ui center aligned fluid container" style=" margin-top: 5%">
                                                     <button class="ui cancel circular icon button" id="atras"
                                                         style="color: #1a237e; width: 130px;"><i class="left chevron icon"></i>
                                                         Atrás </button>
-                                                    <button class="ui circular button" id="guardar1"
+                                                    <button class="ui circular button" id="guardar2"
                                                         style="color: #1a237e; width: 130px;"><i class="save icon"></i> Guardar
                                                     </button>
                                                 </div>
@@ -472,12 +595,12 @@
                     <p style="color: #ffff">¿Está seguro que desea eliminar el equipo?</p>
                 </div>
                 <div class="actions">
-                    <div class="ui red inverted button" id="no">
+                    <div class="ui red inverted button" id="cancel">
                         <i class="remove icon"></i>
                         Cancelar
                     </div>
-                    <div class="ui green ok inverted button">
-                        <i class="checkmark icon"></i>
+                    <div class="ui green ok inverted button" id="aceptar">
+                        <i class="checkmark icon" ></i>
                         Aceptar
                     </div>
                 </div>
@@ -489,11 +612,11 @@
                     <p style="color: #ffff">¿Está seguro que desea guardar los cambios?</p>
                 </div>
                 <div class="actions">
-                    <div class="ui red inverted button" id="cancelar2">
+                    <div class="ui red inverted button" id="cancelar1">
                         <i class="remove icon"></i>
                         Cancelar
                     </div>
-                    <div class="ui green ok inverted button">
+                    <div class="ui green ok inverted button" id="aceptar1">
                         <i class="checkmark icon"></i>
                         Aceptar
                     </div>
@@ -506,11 +629,11 @@
                     <p style="color: #ffff">¿Está seguro que desea reparar el equipo?</p>
                 </div>
                 <div class="actions">
-                    <div class="ui red inverted button" id="cancelar3">
+                    <div class="ui red inverted button" id="cancelar2">
                         <i class="remove icon"></i>
                         Cancelar
                     </div>
-                    <div class="ui green ok inverted button">
+                    <div class="ui green ok inverted button" id="aceptar2">
                         <i class="checkmark icon"></i>
                         Aceptar
                     </div>
@@ -522,16 +645,63 @@
                     <p style="color: #ffff">¿Está seguro que desea desincorporar el equipo?</p>
                 </div>
                 <div class="actions">
-                    <div class="ui red inverted button" id="cancelar4">
+                    <div class="ui red inverted button" id="cancelar3">
                         <i class="remove icon"></i>
                         Cancelar
                     </div>
-                    <div class="ui green ok inverted button">
+                    <div class="ui green ok inverted button" id="aceptar3">
                         <i class="checkmark icon"></i>
                         Aceptar
                     </div>
                 </div>
             </div>
+            <!-- Mensaje de Confirmacion registro ''<> -->
+	  
+		<div class="ui mini modal" id="registro"  >
+			<div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+				<p style="color: #ffff">¿Esta seguro que desea registrar el Equipo?</p>
+			</div>
+			<div class="actions">
+				<div class="ui red inverted button" id="cancelar4" >
+				<i class="remove icon"></i>
+				Cancelar
+				</div>
+				<div class="ui green ok inverted button" id="aceptar4">
+				<i class="checkmark icon" ></i>
+				Aceptar
+				</div>
+			</div>
+            </div>
+        <!-- Mensaje de codigo ''<> -->
+	  
+		<div class="ui mini modal" id="codigo"  >
+			<div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+                <p style="color: #ffff;font-size: 15px;text-align: center;">El codigo del equipo es</p>
+                <p style="color: #ffff;font-size: 20px;text-align: center;">123</p>
+			</div>
+			<div class="actions">
+				<div class="ui green ok inverted button" >
+				<i class="checkmark icon"></i>
+				Aceptar
+				</div>
+			</div>
+			</div>
+        </div>
+    </div>
+		
+		<!-- Mensaje de transaccion exitosa ''<> -->
+	  
+		<div class="ui mini modal" id="exito"  >
+			<div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+				<p style="color: #ffff">Operacion realizada con exito</p>
+			</div>
+			<div class="actions">
+				<div class="ui green ok inverted button" >
+				<i class="checkmark icon"></i>
+				Aceptar
+				</div>
+			</div>
+			</div>
         </div>
     </div>
 </body>

@@ -59,6 +59,8 @@
 					<a class="item" id="item" href="../Equipos/listadoEquipodep.html">Equipos en Departamento</a>
 					<a class="item" id="item" href="../EstadoEquipos/EstadoEquipos.html" >Estados de Equipos</a>
 					<a class="item" id="item" href="../Solicitudes/Solicitudes.html" >Solicitudes</a>
+					<a class="item" id="item" href="../Solicitudes/SolicitudesReparacion.html" >Solicitudes de Reparacion</a>
+					<a class="item" id="item" href="../Solicitudes/SolicitudesDesincorporacion.html">Solicitudes de Desincorporacion</a>
 				 </div>
 			 </div>
 			<div class="twelve wide stretched column" style="border-block-color:  #9e9d9d ;height: 600px;">
@@ -94,8 +96,7 @@
 								<div class="item">
 									<div class="ui circular button" style="width: 130px"> <A id="consultar" style="color: #1a237e; "> Consultar </A>
                                     </div>
-                                    <div class="ui circular button" style="width: 130px"> <A id="verequipos" style="color: #1a237e; "> Ver Equipos </A>
-									</div>
+                                    <a class="ui circular button"style="width: 130px; color: #1a237e" href="../Equipos/ListaEquipos.html">Ver Equipos</a> 
 								</div>
 								</td>
 							</tr>
@@ -106,8 +107,7 @@
 								<div class="item">
 									<div class="ui circular button" style="width: 130px"> <A style="color: #1a237e; "> Consultar </A>
                                     </div>
-                                    <div class="ui circular button" style="width: 130px"> <A id="verequipos" style="color: #1a237e; "> Ver Equipos </A>
-									</div>
+                                    <a class="ui circular button"style="width: 130px; color: #1a237e" href="../Equipos/ListaEquipos.html">Ver Equipos</a> 
 								</div>
 							<tr>
 								<td>Decanato de Humanidades y Artes</td>
@@ -116,8 +116,7 @@
 								<div class="item">
 									<div class="ui circular button" style="width: 130px"> <A style="color: #1a237e; "> Consultar </A>
                                     </div>
-                                    <div class="ui circular button" style="width: 130px"> <A id="verequipos" style="color: #1a237e; "> Ver Equipos </A>
-									</div>
+                                    <a class="ui circular button"style="width: 130px; color: #1a237e" href="../Equipos/ListaEquipos.html">Ver Equipos</a> 
 								</div>	
 								</td>
 							</tr>
@@ -169,6 +168,12 @@
             
     /////////////////////////////////////////////////////
 
+	//Mensaje de confirmacion de registro
+	$(document).ready(function(){
+   	$('#guardar2').click(function(){
+    $('#registro').modal('show');
+    });
+    });
 
 	//Mensaje de confirmacion de modificacion///////////////
     $(document).ready(function(){
@@ -186,6 +191,8 @@
 
     /////////////////////////////////////////////////////
 
+
+
 	//Funciones del Suspender///////////////////////////
     //Abrir el modal de Suspender
     $(document).ready(function(){
@@ -196,13 +203,29 @@
 
     //Cerrar el modal de Suspender y redirigirse al modal de consultar
     $(document).ready(function(){
-    $('#no').click(function(){
+    $('#cancelar').click(function(){
     $('#formconsultar').modal('show');
     });
     });
 
      /////////////////////////////////////////////////////
-	
+
+	//Operacion exitosa
+	$(document).ready(function(){
+    $('#aceptar').click(function(){
+    $('#exito').modal('show');
+    });
+    });
+	$(document).ready(function(){
+    $('#aceptar1').click(function(){
+    $('#exito').modal('show');
+    });
+    });
+	$(document).ready(function(){
+    $('#aceptar2').click(function(){
+    $('#exito').modal('show');
+    });
+    });
 	</script>
 
 
@@ -237,7 +260,7 @@
                   <div class="ui cancel  circular button" style="width: 130px ; color: #1a237e"><i class="left chevron icon"></i>Atras</div>
                   <div class="ui circular button"style="width: 130px; color: #1a237e" id="modificar">  Modificar</div>
                   <div class="ui circular button"style="width: 130px; color: #1a237e" id="eliminar"> Eliminar </div> 
-                  <div class="ui circular button"style="width: 130px; color: #1a237e" id="verequipos1">Ver Equipos</div> 
+                  <a class="ui circular button"style="width: 130px; color: #1a237e" href="../Equipos/ListaEquipos.html">Ver Equipos</a> 
                 </div> 
                 </div>
             </div>
@@ -322,11 +345,11 @@
 			<p style="color: #ffff">¿Esta seguro que desea eliminar el Departamento?</p>
 		</div>
 		<div class="actions">
-			<div class="ui red inverted button" id="no" >
+			<div class="ui red inverted button" id="cancelar" >
 			<i class="remove icon"></i>
 			Cancelar
 		</div>
-		<div class="ui green ok inverted button">
+		<div class="ui green ok inverted button" id="aceptar" >
 			<i class="checkmark icon"></i>
 			 Aceptar
 		</div>
@@ -344,10 +367,40 @@
 			<i class="remove icon"></i>
 			Cancelar
 			</div>
-			<div class="ui green ok inverted button">
+			<div class="ui green ok inverted button"id="aceptar1">
 			<i class="checkmark icon"></i>
 			Aceptar
 			</div>
 		</div>
 		</div>
+		  <!-- Mensaje de Confirmacion registro ''<> -->
+	  
+		  <div class="ui mini modal" id="registro"  >
+			<div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+				<p style="color: #ffff">¿Esta seguro que desea registrar el Departamento?</p>
+			</div>
+			<div class="actions">
+				<div class="ui red inverted button" id="cancelar2" >
+				<i class="remove icon"></i>
+				Cancelar
+				</div>
+				<div class="ui green ok inverted button" id="aceptar2">
+				<i class="checkmark icon" ></i>
+				Aceptar
+				</div>
+			</div>
+            </div>
+		<!-- Mensaje de transaccion exitosa ''<> -->
+	  
+		<div class="ui mini modal" id="exito"  >
+			<div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+				<p style="color: #ffff">Operacion realizada con exito</p>
+			</div>
+			<div class="actions">
+				<div class="ui green ok inverted button" >
+				<i class="checkmark icon"></i>
+				Aceptar
+				</div>
+			</div>
+			</div>
 </html>

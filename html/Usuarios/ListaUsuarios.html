@@ -51,6 +51,8 @@
                  <a class="item" id="item" href="../Departamentos/ListadoDepartamentos.html">Equipos en Departamento</a>
                  <a class="item" id="item" href="../EstadoEquipos/EstadoEquipos.html" >Estados de Equipos</a>
                  <a class="item" id="item" href="../Solicitudes/Solicitudes.html" >Solicitudes</a>
+                 <a class="item" id="item" href="../Solicitudes/SolicitudesReparacion.html" >Solicitudes de Reparacion</a>
+                 <a class="item" id="item" href="../Solicitudes/SolicitudesDesincorporacion.html">Solicitudes de Desincorporacion</a>
               </div>
           </div>
           <div class="twelve wide stretched column" style="border-block-color:  #9e9d9d ;height: 600px;">
@@ -172,7 +174,7 @@
 
             //Cerrar el modal de Suspender y redirigirse al modal de consultar
               $(document).ready(function(){
-            $('#no').click(function(){
+            $('#cancelar').click(function(){
             $('#formconsultar').modal('show');
             });
             });
@@ -197,6 +199,53 @@
 
             /////////////////////////////////////////////////////
 
+            //Mensaje de confirmacion de modificacion///////////////
+            $(document).ready(function(){
+            $('#guardar2').click(function(){
+            $('#registro').modal('show');
+            });
+            });
+
+            //Cerrar mensaje de confirmacion de modificacion/////
+            $(document).ready(function(){
+            $('#cancelar2').click(function(){
+            $('#formregistrar').modal('show');
+            });
+            });
+
+            /////////////////////////////////////////////////////
+
+            //Operacion Exitosa
+            $(document).ready(function(){
+                    $('#aceptar').click(function(){
+                    $('#exito').modal('show');
+                    });
+                    });
+                    $(document).ready(function(){
+                    $('#aceptar1').click(function(){
+                    $('#exito').modal('show');
+                    });
+                    });
+                    $(document).ready(function(){
+                    $('#aceptar2').click(function(){
+                    $('#exito').modal('show');
+                    });
+                    });//Operacion Exitosa
+                    $(document).ready(function(){
+                    $('#aceptar').click(function(){
+                    $('#exito').modal('show');
+                    });
+                    });
+                    $(document).ready(function(){
+                    $('#aceptar1').click(function(){
+                    $('#exito').modal('show');
+                    });
+                    });
+                    $(document).ready(function(){
+                    $('#aceptar2').click(function(){
+                    $('#exito').modal('show');
+                    });
+                    });
              </script>
 
          <!-- Modal de Consultar''<> -->
@@ -410,11 +459,11 @@
           <p style="color: #ffff">¿Esta seguro que desea suspender al usuario?</p>
       </div>
       <div class="actions">
-          <div class="ui red inverted button" id="no" >
+          <div class="ui red inverted button" id="cancelar" >
           <i class="remove icon"></i>
            Cancelar
       </div>
-      <div class="ui green ok inverted button">
+      <div class="ui green ok inverted button" id="aceptar">
           <i class="checkmark icon"></i>
            Aceptar
       </div>
@@ -432,12 +481,44 @@
           <i class="remove icon"></i>
           Cancelar
           </div>
-          <div class="ui green ok inverted button">
+          <div class="ui green ok inverted button" id="aceptar1">
           <i class="checkmark icon"></i>
           Aceptar
           </div>
       </div>
       </div>
+      
+            <!-- Mensaje de Confirmacion registro ''<> -->
+	  
+		<div class="ui mini modal" id="registro"  >
+        <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+          <p style="color: #ffff">¿Esta seguro que desea registrar el Usuario?</p>
+        </div>
+        <div class="actions">
+          <div class="ui red inverted button" id="cancelar2" >
+          <i class="remove icon"></i>
+          Cancelar
+          </div>
+          <div class="ui green ok inverted button" id="aceptar2">
+          <i class="checkmark icon" ></i>
+          Aceptar
+          </div>
+        </div>
+        </div>
+      
+      <!-- Mensaje de transaccion exitosa ''<> -->
+      
+      <div class="ui mini modal" id="exito"  >
+        <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+          <p style="color: #ffff">Operacion realizada con exito</p>
+        </div>
+        <div class="actions">
+          <div class="ui green ok inverted button" >
+          <i class="checkmark icon"></i>
+          Aceptar
+          </div>
+        </div>
+        </div>
                                        
     </body>
   
