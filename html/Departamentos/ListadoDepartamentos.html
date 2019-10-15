@@ -26,25 +26,23 @@
 		}
 	</style>
 	<h1>
-		<div class="ui segment" style=" background-image: url(../image/adwebsys-fondo.jpg) ;height: 60px; padding-top: 0px;border-block-end:4px solid #1a237e;">    
-			<div class="ui right aligned fluid container"  >
-			<div class="ui simple dropdown item" style=" color: #ffff;margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  transparent;border: 0px #c6c4c4;"><i class="dropdown icon"></i>Armando Paredes
-			<div class="menu">
-				<div class="item">Mi informacion</div>
-				<div class="item">Notificaciones</div>
-				<div class="item">
-					<i class="left dropdown icon"></i>
-					<span class="text">Menú</span>
-					<div class="left menu">
-					<div class="item">Seguridad</div>
-					<div class="item">otras cosas que se me ocurriran despues</div>
+			<div class="ui large segment" style=" background-image: url(../image/adwebsys-fondo.jpg) ;height: 66px; padding-top: 0px;border-block-end:4px solid #1a237e;">    
+				<div class="ui right aligned fluid container">
 					</div>
-				</div>
-				<div class="item">Cerrar Sesion</div>
-			</div>
-			</div> 
-			</div>
-			</div>
+					<img src="../image/este.png" style="width: 18%; margin-top: 0.66%;">
+					<div class="ui simple dropdown item" style=" color: #ffff;margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  transparent;border: 0px #c6c4c4; margin-left: 66%;"><i class="dropdown icon"></i>Armando Paredes
+						<div class="menu">
+						  <div class="item">Mi información</div>
+						  <div class="item">Notificaciones</div>
+						  <div class="item">
+							<i class="left dropdown icon"></i>
+							<span class="text">Menú</span>
+							  <div class="left menu">
+								<div class="item">Seguridad</div>
+								<div class="item">otras cosas que se me ocurriran despues</div>
+							  </div> </div>
+						  <div class="item">Cerrar Sesión</div>
+						</div> </div>  </div> </div>
 	</h1>
 
 	<body>
@@ -66,7 +64,7 @@
 					style="height: 50%; width: 98% ;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 1px solid #1a237e">
 					<div class="ui category search">
 					<div class="ui icon input">
-						<input class="prompt" type="text" placeholder="Ingrese el Nombre del Decanato" style="width: 500px; ">
+						<input class="prompt" type="text" placeholder="Ingresa el nombre del Decanato" style="width: 500px; ">
 						<i class="search icon"></i>
 					</div>
 					<div class="results"></div>
@@ -83,13 +81,13 @@
 							<tr>
 							<th id="encabezadotabla" style="width: 40%">Nombre del Decanato</th>
 							<th id="encabezadotabla">Nombre Departamento</th>
-							<th id="encabezadotabla">Opcion</th>
+							<th id="encabezadotabla">Opción</th>
 							</tr>
 						</thead>
 						<tbody style="background-color: #f3f5f6">
 							<tr>
-								<td>Decanato de Ciencias y Tecnologia</td>
-								<td>Estudios Basicos</td>
+								<td>Decanato de Ciencias y Tecnología</td>
+								<td>Estudios Básicos</td>
 								<td>
 								<div class="item">
 									<div class="ui circular button" style="width: 130px"> <A id="consultar" style="color: #1a237e; "> Consultar </A>
@@ -100,8 +98,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td>Decanato de Ingenieria Civil</td>
-								<td>Departamento de Matematica</td>
+								<td>Decanato de Ingeniería Civil</td>
+								<td>Departamento de Matemática</td>
 								<td>
 								<div class="item">
 									<div class="ui circular button" style="width: 130px"> <A style="color: #1a237e; "> Consultar </A>
@@ -111,7 +109,7 @@
 								</div>
 							<tr>
 								<td>Decanato de Humanidades y Artes</td>
-								<td>Departamento de Artes Plasticas</td>
+								<td>Departamento de Artes Plásticas</td>
 								<td>
 								<div class="item">
 									<div class="ui circular button" style="width: 130px"> <A style="color: #1a237e; "> Consultar </A>
@@ -136,11 +134,7 @@
    	$('#formconsultar').modal('show');
     });
     });
-
     //////////////////////////////////////////////////////
-
-
-
 	 //Funciones del Modificar///////////////////////////
     //Abrir el modal de modificar y cerrar el de consultar
 	$(document).ready(function(){
@@ -154,38 +148,28 @@
     $('#formconsultar').modal('show');
     });
     });
-
     /////////////////////////////////////////////////////
-
-
-
 	//Funciones de Registrar///////////////////////////
     //Abrir el modal de Registrar
 	$(document).ready(function(){
     $('#registrar').click(function(){
     $('#formregistrar').modal('show');
     });
-    });
-            
+    });       
     /////////////////////////////////////////////////////
-
-
 	//Mensaje de confirmacion de modificacion///////////////
     $(document).ready(function(){
    	$('#guardar1').click(function(){
     $('#modificacion').modal('show');
     });
     });
-
     //Cerrar mensaje de confirmacion de modificacion/////
     $(document).ready(function(){
     $('#cancelar1').click(function(){
     $('#formodificar').modal('show');
     });
     });
-
     /////////////////////////////////////////////////////
-
 	//Funciones del Suspender///////////////////////////
     //Abrir el modal de Suspender
     $(document).ready(function(){
@@ -193,16 +177,19 @@
     $('#txteliminar').modal('show');
     });
     });
-
     //Cerrar el modal de Suspender y redirigirse al modal de consultar
     $(document).ready(function(){
     $('#no').click(function(){
     $('#formconsultar').modal('show');
     });
     });
-
+	//Aceptar incluir
+	$(document).ready(function(){
+    $('#guardar2').click(function(){
+    $('#txtincluir').modal('show');
+    });
+    });
      /////////////////////////////////////////////////////
-	
 	</script>
 
 
@@ -314,7 +301,6 @@
 		</div>
 		</div>
 
-
 		<!-- Mensajes ''<> -->
         <!-- Mensaje de Eliminar ''<> -->
         <div class="ui mini modal" id="txteliminar"  >
@@ -334,7 +320,6 @@
 		</div>
 	  
 		<!-- Mensaje de Confirmacion modificacion ''<> -->
-	  
 		<div class="ui mini modal" id="modificacion"  >
 		<div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
 			<p style="color: #ffff">¿Esta seguro que desea guardar los cambios?</p>
@@ -347,7 +332,21 @@
 			<div class="ui green ok inverted button">
 			<i class="checkmark icon"></i>
 			Aceptar
-			</div>
-		</div>
-		</div>
+			</div> </div> </div>
+
+			<!-- Mensaje para confirmar incluir usuario ''<> -->
+			<div class="ui mini modal" id="txtincluir"  >
+					<div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+					  <p style="color: #ffff">¿Está seguro que desea registrar el departamento?</p>
+					</div>
+					<div class="actions">
+					  <div class="ui red inverted button" id="no" >
+						<i class="remove icon"></i>
+						Cancelar
+					  </div>
+					  <div class="ui green ok inverted button">
+						<i class="checkmark icon"></i>
+						Aceptar
+					  </div> </div> </div> </div> </div>   
+		</body>			
 </html>

@@ -22,9 +22,11 @@
             #letra:hover{color: #ffffff}
         </style>
     <h1>
-          <div class="ui large segment" style=" background-image: url(../image/adwebsys-fondo.jpg) ;height: 60px; padding-top: 0px;border-block-end:4px solid #1a237e;">    
-            <div class="ui right aligned fluid container"  >
-                <div class="ui simple dropdown item" style=" color: #ffff;margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  transparent;border: 0px #c6c4c4;"><i class="dropdown icon"></i>Armando Paredes
+          <div class="ui large segment" style=" background-image: url(../image/adwebsys-fondo.jpg) ;height: 66px; padding-top: 0px;border-block-end:4px solid #1a237e;">    
+            <div class="ui right aligned fluid container">
+                </div>
+                <img src="../image/este.png" style="width: 18%; margin-top: 0.66%;">
+                <div class="ui simple dropdown item" style=" color: #ffff;margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  transparent;border: 0px #c6c4c4; margin-left: 66%;"><i class="dropdown icon"></i>Armando Paredes
                     <div class="menu">
                       <div class="item">Mi información</div>
                       <div class="item">Notificaciones</div>
@@ -34,23 +36,22 @@
                           <div class="left menu">
                             <div class="item">Seguridad</div>
                             <div class="item">otras cosas que se me ocurriran despues</div>
-                          </div>
-                      </div>
+                          </div> </div>
                       <div class="item">Cerrar Sesión</div>
-                    </div>
-                </div> 
-            </div>
-          </div>
+                    </div> </div>  </div> </div>
     </h1>
     <body>
             <div class="ui grid">
                 <div class="four wide column">
                   <div class="ui inverted vertical menu" style="height: 100%; width: 100%; background-image: url(../image/fondo1.jpg) ;border-radius: 0px 24px 24px 0px; font-size: 18px;">
-                    <a class="item" id="item" href="../Reportes/ListaReportes.html" >Reportes</a>
-                    <a class="item" id="item"  href="../Usuarios/ListaUsuarios.html">Gestionar Usuarios</a>
-                    <a class="item" id="item" href="../Decanatos/ListaDecanatos.html">Gestionar Decanatos</a>
-                    <a class="active item" style="background-color: #1a237e" href="ListaEquipos.html">Gestionar Equipos</a>
-                    <a class="item" id="item" >Estadisticas</a>
+                    <a class="item" id="item" href="../Reportes/ListaReportes.html">Reportes</a>
+                    <a class=" item" id="item" href="../Usuarios/ListaUsuarios.html"  >Usuarios</a>
+					<a class="item" id="item" href="../Departamentos/ListadoDepartamentos.html" >Departamentos</a>
+					<a class="active item" id="item"href="../Decanatos/ListaDecanatos.html" >Decanatos</a>
+					<a class="item" id="item" href="../Equipos/ListaEquipos.html"  style="background-color: #1a237e" >Equipos</a>
+					<a class="item" id="item" href="../Equipos/listadoEquipodep.html">Equipos en Departamento</a>
+					<a class="item" id="item" href="../EstadoEquipos/EstadoEquipos.html" >Estados de Equipos</a>
+					<a class="item" id="item" href="../Solicitudes/Solicitudes.html" >Solicitudes</a>
                   </div>
                 </div>
                 <div class="twelve wide stretched column" style="border-block-color:  #9e9d9d ;height: 600px;">
@@ -63,7 +64,7 @@
                           <A href="ListaEquipos.html" style="color: #1a237e"><i class="left chevron icon" ></i> Listado </A></div>
                     </div>
                     <div class="ui category search">
-                  <div class="ui icon input" >
+                  <div class="ui icon input" style="margin-left: 30%;">
                       <input class="prompt" type="text" placeholder="Ingresa el nombre de la marca" style="width: 300px;">
                       <i class="search icon"></i>
                   </div>
@@ -135,6 +136,18 @@
                         $('#').modal('show');
                         });
                         });
+                        //Aceptar modificar
+                        $(document).ready(function(){
+                        $('#guardar').click(function(){
+                        $('#txtmodificar').modal('show');
+                        });
+                        });
+                        //Aceptar incluir
+                        $(document).ready(function(){
+                        $('#registro').click(function(){
+                        $('#txtincluir').modal('show');
+                        });
+                        });
                          </script>
 
                         <!-- Modificar Marca -->
@@ -158,6 +171,7 @@
                                             <div class="ui buttons" style=" margin-top: 5%" >
                                               <button class="ui cancel labeled icon button" id="atras" style="color: #1a237e"><i class="left chevron icon" ></i> Cancelar </button>
                                               <button class="ui button" id="guardar" style="color: #1a237e"><i class="save icon"></i> Modificar </button>
+                                              
                                             </div> </div> </div>
                                     </div> </div> </div> </div> </div>
                                 
@@ -182,7 +196,7 @@
                                         <div class="ui center aligned fluid container" style=" margin-top: 5%" >
                                             <div class="ui buttons" style=" margin-top: 5%" >
                                               <button class="ui cancel labeled icon button" style="color: #1a237e"><i class="left chevron icon" ></i> Cancelar </button>
-                                              <button class="ui button save" id="guardar" style="color: #1a237e"><i class="save icon"></i> Registrar </button>
+                                              <button class="ui button save" id="registro" style="color: #1a237e"><i class="save icon"></i> Registrar </button>
                                             </div>
                                         </div> 
                                     </div>
@@ -207,5 +221,37 @@
                                           Aceptar
                                         </div>
                                       </div> </div> </div> </div>
+
+                                      <!-- Mensaje para confirmar modificar marca ''<> -->
+                                      <div class="ui mini modal" id="txtmodificar"  >
+                                            <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+                                              <p style="color: #ffff">¿Está seguro que desea guardar los cambios?</p>
+                                            </div>
+                                            <div class="actions">
+                                              <div class="ui red inverted button" id="no" >
+                                                <i class="remove icon"></i>
+                                                Cancelar
+                                              </div>
+                                              <div class="ui green ok inverted button">
+                                                <i class="checkmark icon"></i>
+                                                Aceptar
+                                              </div>
+                                            </div> </div> </div> </div>
+
+                                            <!-- Mensaje para confirmar incluir marca ''<> -->
+                                      <div class="ui mini modal" id="txtincluir"  >
+                                            <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+                                              <p style="color: #ffff">¿Está seguro que desea registrar la marca?</p>
+                                            </div>
+                                            <div class="actions">
+                                              <div class="ui red inverted button" id="no" >
+                                                <i class="remove icon"></i>
+                                                Cancelar
+                                              </div>
+                                              <div class="ui green ok inverted button">
+                                                <i class="checkmark icon"></i>
+                                                Aceptar
+                                              </div>
+                                            </div> </div> </div> </div>
     </body>
 </html>

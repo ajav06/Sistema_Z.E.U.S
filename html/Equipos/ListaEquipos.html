@@ -31,28 +31,23 @@
     }
 </style>
 <h1>
-    <div class="ui large segment"
-        style=" background-image: url(../image/adwebsys-fondo.jpg) ;height: 60px; padding-top: 0px;border-block-end:4px solid #1a237e;">
-        <div class="ui right aligned fluid container">
-            <div class="ui simple dropdown item"
-                style=" color: #ffff;margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  transparent;border: 0px #c6c4c4;">
-                <i class="dropdown icon"></i>Armando Paredes
-                <div class="menu">
-                    <div class="item">Mi informacion</div>
-                    <div class="item">Notificaciones</div>
-                    <div class="item">
+        <div class="ui large segment" style=" background-image: url(../image/adwebsys-fondo.jpg) ;height: 66px; padding-top: 0px;border-block-end:4px solid #1a237e;">    
+            <div class="ui right aligned fluid container">
+                </div>
+                <img src="../image/este.png" style="width: 18%; margin-top: 0.66%;">
+                <div class="ui simple dropdown item" style=" color: #ffff;margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  transparent;border: 0px #c6c4c4; margin-left: 66%;"><i class="dropdown icon"></i>Armando Paredes
+                    <div class="menu">
+                      <div class="item">Mi información</div>
+                      <div class="item">Notificaciones</div>
+                      <div class="item">
                         <i class="left dropdown icon"></i>
                         <span class="text">Menú</span>
-                        <div class="left menu">
+                          <div class="left menu">
                             <div class="item">Seguridad</div>
                             <div class="item">otras cosas que se me ocurriran despues</div>
-                        </div>
-                    </div>
-                    <div class="item">Cerrar Sesion</div>
-                </div>
-            </div>
-        </div>
-    </div>
+                          </div> </div>
+                      <div class="item">Cerrar Sesión</div>
+                    </div> </div>  </div> </div>
 </h1>
 
 <body>
@@ -64,7 +59,7 @@
                 <a class="item" id="item" href="../Usuarios/ListaUsuarios.html">Usuarios</a>
                 <a class="item" id="item" href="../Departamentos/ListadoDepartamentos.html">Departamentos</a>
                 <a class="item" id="item" href="../Decanatos/ListaDecanatos.html">Decanatos</a>
-                <a class="active item" style="background-color: #1a237e" href="ListaEquipos.html">Equipos</a>
+                <a class="active item" href="ListaEquipos.html" style="background-color: #1a237e" >Equipos</a>
                 <a class="item" id="item" href="listadoEquipodep.html">Equipos en Departamento</a>
                 <a class="item" id="item" href="../EstadoEquipos/EstadoEquipos.html">Estados de Equipos</a>
                 <a class="item" id="item" href="../Solicitudes/Solicitudes.html">Solicitudes</a>
@@ -210,7 +205,6 @@
                             $('#txtreparar').modal('show');
                         });
                     })
-
                     //
                     //Modal para solicitar reparar
                     $(document).ready(function () {
@@ -218,27 +212,31 @@
                             $('#modificacion').modal('show');
                         });
                     });
-
                     //Modal para solicitar reparar
                     $(document).ready(function () {
                         $('#cancelar2').click(function () {
                             $('#formodificar').modal('show');
                         });
                     });
-
                     //Modal para solicitar reparar
                     $(document).ready(function () {
                         $('#cancelar3').click(function () {
                             $('#formreparar').modal('show');
                         });
                     });
-
                     //Modal para solicitar reparar
                     $(document).ready(function () {
                         $('#cancelar4').click(function () {
                             $('#formdesincorporar').modal('show');
                         });
                     });
+                    //Aceptar incluir
+                    $(document).ready(function(){
+                    $('#guardar2').click(function(){
+                    $('#txtincluir').modal('show');
+                    });
+                    });
+
                 </script>
 
                 <!-- Modal de Ver Detalles''<> -->
@@ -508,11 +506,21 @@
                     <div class="ui green ok inverted button">
                         <i class="checkmark icon"></i>
                         Aceptar
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
+                    </div> </div> </div>  </div>  </div>
 
+           <!-- Mensaje para confirmar incluir usuario ''<> -->
+          <div class="ui mini modal" id="txtincluir"  >
+                <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+                  <p style="color: #ffff">¿Está seguro que desea registrar el equipo?</p>
+                </div>
+                <div class="actions">
+                  <div class="ui red inverted button" id="no" >
+                    <i class="remove icon"></i>
+                    Cancelar
+                  </div>
+                  <div class="ui green ok inverted button">
+                    <i class="checkmark icon"></i>
+                    Aceptar
+                  </div> </div> </div> </div> </div>         
+</body>
 </html>

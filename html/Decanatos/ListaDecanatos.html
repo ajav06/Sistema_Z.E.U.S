@@ -26,10 +26,11 @@
 		}
 	</style>
 	<h1>
-		<div class="ui segment" style=" background-image: url(../image/adwebsys-fondo.jpg) ;height: 60px; padding-top: 0px;border-block-end:4px solid #1a237e;">    
-			<div class="ui right aligned fluid container"  >
-			<div class="ui simple dropdown item" style=" color: #ffff;margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  transparent;border: 0px #c6c4c4;"><i class="dropdown icon"></i>Armando Paredes
-			<div class="menu">
+		<div class="ui segment" style=" background-image: url(../image/adwebsys-fondo.jpg) ;height: 66px; padding-top: 0px;border-block-end:4px solid #1a237e;">    
+			<div class="ui right aligned fluid container"></div>
+			<img src="../image/este.png" style="width: 18%; margin-top: 0.66%;">
+					<div class="ui simple dropdown item" style=" color: #ffff;margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  transparent;border: 0px #c6c4c4; margin-left: 66%;"><i class="dropdown icon"></i>Armando Paredes
+						<div class="menu">
 				<div class="item">Mi informacion</div>
 				<div class="item">Notificaciones</div>
 				<div class="item">
@@ -66,7 +67,7 @@
 					style="height: 50%; width: 98% ;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 1px solid #1a237e">
 					<div class="ui category search">
 					<div class="ui icon input">
-						<input class="prompt" type="text" placeholder="Ingrese el Nombre del Decanato" style="width: 500px; ">
+						<input class="prompt" type="text" placeholder="Ingresa el nombre del Decanato" style="width: 500px; ">
 						<i class="search icon"></i>
 					</div>
 					<div class="results"></div>
@@ -83,13 +84,13 @@
 							<tr>
 							<th id="encabezadotabla" style="width: 40%">Nombre</th>
 							<th id="encabezadotabla">Siglas</th>
-							<th id="encabezadotabla" style="width: 40%">Direccion</th>
-							<th id="encabezadotabla">Opcion</th>
+							<th id="encabezadotabla" style="width: 40%">Dirección</th>
+							<th id="encabezadotabla">Opción</th>
 							</tr>
 						</thead>
 						<tbody style="background-color: #f3f5f6">
 							<tr>
-								<td>Decanato de Ciencias y Tecnologia</td>
+								<td>Decanato de Ciencias y Tecnología</td>
 								<td>DCYT</td>
 								<td>Narnia</td>
 								<td>
@@ -100,7 +101,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td>Decanato de Ingenieria Civil</td>
+								<td>Decanato de Ingeniería Civil</td>
 								<td>DIC</td>
 								<td>Mas alla de narnia</td>
 								<td>
@@ -200,7 +201,12 @@
     });
 
      /////////////////////////////////////////////////////
-	
+	//Aceptar incluir
+	$(document).ready(function(){
+    $('#guardar2').click(function(){
+    $('#txtincluir').modal('show');
+    });
+     });
 	</script>
 
 
@@ -218,31 +224,31 @@
         	    <div class="two fields">
                 <div class="field">
             	    <label style="color: #ffffff">Nombre</label>
-        	        <input type="text" placeholder="Nombre" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
+        	        <input type="text" placeholder="nombre" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
                 </div>
                 <div class="field">
  	               <label style="color: #ffffff">Siglas</label>
-    	            <input type="text" placeholder="Cedula" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
+    	            <input type="text" placeholder="siglas" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
                 </div>
                 </div>
                 <div class="two fields">
                 <div class="field">
-        	        <label style="color: #ffffff">Telefono</label>
-            	    <input type="text" placeholder="Telefono" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
+        	        <label style="color: #ffffff">Teléfono</label>
+            	    <input type="text" placeholder="teléfono" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
                 </div>
                 <div class="field">
 	                <label style="color: #ffffff">Correo</label>
-    	            <input type="text" placeholder="Correo" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
+    	            <input type="text" placeholder="correo" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
                 </div>
                 </div>
                 <div class="field">
-        	        <label style="color: #ffffff">Direccion</label>
-            	    <input type="text" placeholder="Direccion" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
+        	        <label style="color: #ffffff">Dirección</label>
+            	    <input type="text" placeholder="dirección" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
                 </div>
                 </div>
                 <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
                 <div class="ui center aligned fluid container" style=" margin-top: 5%" >
-                  <div class="ui cancel  circular button" style="width: 130px ; color: #1a237e"><i class="left chevron icon"></i>Atras</div>
+                  <div class="ui cancel  circular button" style="width: 130px ; color: #1a237e"><i class="left chevron icon"></i>Atrás</div>
                   <div class="ui circular button"style="width: 130px; color: #1a237e" id="modificar">  Modificar</div>
                   <div class="ui circular button"style="width: 130px; color: #1a237e" id="eliminar"> Eliminar </div> 
                 </div> 
@@ -267,26 +273,26 @@
 					<div class="two fields">
 					<div class="field">
 						<label style="color: #ffffff">Nombre</label>
-						<input type="text" placeholder="Nombre" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff">
+						<input type="text" placeholder="nombre" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff">
 					</div>
 					<div class="field">
 						<label style="color: #ffffff">Siglas</label>
-						<input type="text" placeholder="Siglas" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff">
+						<input type="text" placeholder="siglas" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff">
 					</div>
 					</div>
 					<div class="two fields">
 					<div class="field">
-						<label style="color: #ffffff">Telefono</label>
-						<input type="text" placeholder="Telefono" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff">
+						<label style="color: #ffffff">Teléfono</label>
+						<input type="text" placeholder="telefono" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff">
 					</div>
 					<div class="field">
 						<label style="color: #ffffff">Correo</label>
-						<input type="text" placeholder="Correo" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff">
+						<input type="text" placeholder="correo" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff">
 					</div>
 					</div>
 					<div class="field">
-						<label style="color: #ffffff">Direccion</label>
-						<input type="text" placeholder="Direccion" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff">
+						<label style="color: #ffffff">Dirección</label>
+						<input type="text" placeholder="dirección" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff">
 					</div>
 				</div>
 				<div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
@@ -315,26 +321,26 @@
 				<div class="two fields">
                 <div class="field">
 	                <label style="color: #ffffff">Nombre</label>
-    	            <input type="text" placeholder="Nombre" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff">
+    	            <input type="text" placeholder="nombre" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff">
                 </div>
                 <div class="field">
         	        <label style="color: #ffffff">Siglas</label>
-            	    <input type="text" placeholder="Cedula" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff">
+            	    <input type="text" placeholder="siglas" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff">
                 </div>
                 </div>
                 <div class="two fields">
                 <div class="field">
-	                <label style="color: #ffffff">Telefono</label>
-    	            <input type="text" placeholder="Telefono" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff">
+	                <label style="color: #ffffff">Teléfono</label>
+    	            <input type="text" placeholder="teléfono" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff">
                 </div>
                 <div class="field">
         	        <label style="color: #ffffff">Correo</label>
-            	    <input type="text" placeholder="Correo" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff">
+            	    <input type="text" placeholder="correo" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff">
                 </div>
                 </div>
                 <div class="field">
-	                <label style="color: #ffffff">Direccion</label>
-    	            <input type="text" placeholder="Direccion" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff">
+	                <label style="color: #ffffff">Dirección</label>
+    	            <input type="text" placeholder="dirección" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff">
                 </div>
 				</div>
 				<div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
@@ -353,7 +359,7 @@
         <!-- Mensaje de Eliminar ''<> -->
         <div class="ui mini modal" id="txteliminar"  >
 		<div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
-			<p style="color: #ffff">¿Esta seguro que desea eliminar el Decanato?</p>
+			<p style="color: #ffff">¿Está seguro que desea eliminar el Decanato?</p>
 		</div>
 		<div class="actions">
 			<div class="ui red inverted button" id="no" >
@@ -363,15 +369,12 @@
 		<div class="ui green ok inverted button">
 			<i class="checkmark icon"></i>
 			 Aceptar
-		</div>
-		</div>
-		</div>
+		</div> </div> </div>
 	  
 		<!-- Mensaje de Confirmacion modificacion ''<> -->
-	  
 		<div class="ui mini modal" id="modificacion"  >
 		<div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
-			<p style="color: #ffff">¿Esta seguro que desea guardar los cambios?</p>
+			<p style="color: #ffff">¿Está seguro que desea guardar los cambios?</p>
 		</div>
 		<div class="actions">
 			<div class="ui red inverted button" id="cancelar1" >
@@ -381,7 +384,21 @@
 			<div class="ui green ok inverted button">
 			<i class="checkmark icon"></i>
 			Aceptar
-			</div>
-		</div>
-		</div>
+			</div> </div> </div>
+
+			<!-- Mensaje para confirmar incluir decanatos -->
+			<div class="ui mini modal" id="txtincluir"  >
+					<div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+					  <p style="color: #ffff">¿Está seguro que desea registrar el decanato?</p>
+					</div>
+					<div class="actions">
+					  <div class="ui red inverted button" id="no" >
+						<i class="remove icon"></i>
+						Cancelar
+					  </div>
+					  <div class="ui green ok inverted button">
+						<i class="checkmark icon"></i>
+						Aceptar
+					  </div>
+					</div> </div> </div> </div>
 </html>
