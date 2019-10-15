@@ -69,11 +69,11 @@
                       <i class="search icon"></i>
                   </div>
                   <div class="results"></div>
-                  <div class="ui animated circular button"  tabindex="0" aria-label="Equipos" style="width: 130px; margin-left: 60px" id="incluir">
+                  <div class="ui animated circular button"  tabindex="0" aria-label="Equipos" style="width: 130px; margin-left: 60px" id="registrar">
                     <div class="visible content" style="color: #1a237e">
                       <i class="ui plus icon" ></i> Marca</div>
                     <div class="hidden content"   style="color: #1a237e">
-                      <i class="ui plus icon"></i>Incluir</div>
+                      <i class="ui plus icon"></i>Registrar</div>
                   </div>
                   <table class="ui compact celled definition table" style="border: 0px solid #1a237e; ">
                       <thead class="width: 60px" >
@@ -120,8 +120,8 @@
                         });
                           //Abrir el modal de incluir
                         $(document).ready(function(){
-                        $('#incluir').click(function(){
-                        $('#formincluir').modal('show');
+                        $('#registrar').click(function(){
+                        $('#formregistrar').modal('show');
                         });
                         });
                           //Abrir el modal de Eliminar
@@ -130,10 +130,44 @@
                         $('#txteliminar').modal('show');
                         });
                         });
-                          //Cerrar el modal de Eliminar
+                        //Mensaje de modificacion
+                        $(document).ready(function(){
+                        $('#guardar1').click(function(){
+                        $('#modificacion').modal('show');
+                        });
+                        });
+                        //mensaje de registro
+                        $(document).ready(function(){
+                        $('#guardar2').click(function(){
+                        $('#registro').modal('show');
+                        });
+                        });
+                        //Volver al formulario de modificar
+                        $(document).ready(function(){
+                        $('#cancelar1').click(function(){
+                        $('#formodificar').modal('show');
+                        });
+                        });
+                        //volver al formulario de registrar
+                        $(document).ready(function(){
+                        $('#cancelar2').click(function(){
+                        $('#formregistrar').modal('show');
+                        });
+                        });
+                          //Operacion Exitosa
                           $(document).ready(function(){
-                        $('#no').click(function(){
-                        $('#').modal('show');
+                        $('#aceptar').click(function(){
+                        $('#exito').modal('show');
+                        });
+                        });
+                        $(document).ready(function(){
+                        $('#aceptar1').click(function(){
+                        $('#exito').modal('show');
+                        });
+                        });
+                        $(document).ready(function(){
+                        $('#aceptar2').click(function(){
+                        $('#exito').modal('show');
                         });
                         });
                         //Aceptar modificar
@@ -175,15 +209,15 @@
                                             </div> </div> </div>
                                     </div> </div> </div> </div> </div>
                                 
-                       <!-- Incluir Marca -->
-                      <div class="ui basic modal" id="formincluir" > 
+                       <!-- Incluir registrar -->
+                      <div class="ui basic modal" id="formregistrar" > 
                             <div class="content" style=" height: 40%;width: 110% ;">
                                 <div class="ui two column very relaxed grid" style="width: 110% ">
                                 <div class="column" style="width: 33%; background-image: url(../image/23.jpg);padding-left: 0px !important; padding-right: 0px !important;padding-top: 0px !important; padding-bottom: 0px !important; border-radius: 24px 0px 0px 24px;">
                                 </div>
                                 <div class="column" style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
                                     <div class="ui segment" style="background-color: #ffffff ;height: 25%;border-radius: 0px 24px 0px 0px;">
-                                    <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 2%; "> Incluir Marca </div>
+                                    <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 2%; ">Registrar Marca </div>
                                     </div>
                                     <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 2%">
                                     <div class="two fields">
@@ -212,11 +246,11 @@
                                         <p style="color: #ffff">¿Está seguro que desea eliminar la marca?</p>
                                       </div>
                                       <div class="actions">
-                                        <div class="ui red inverted button" id="no" >
+                                        <div class="ui red inverted button">
                                           <i class="remove icon"></i>
                                           Cancelar
                                         </div>
-                                        <div class="ui green ok inverted button">
+                                        <div class="ui green ok inverted button" id="aceptar">
                                           <i class="checkmark icon"></i>
                                           Aceptar
                                         </div>

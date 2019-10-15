@@ -57,6 +57,8 @@
                     <a class="item" id="item" href="../Equipos/listadoEquipodep.html">Equipos en Departamento</a>
                     <a class="active item"style="background-color: #1a237e" href="EstadoEquipos.html" >Estados de Equipos</a>
                     <a class="item" id="item" href="../Solicitudes/Solicitudes.html" >Solicitudes</a>
+                    <a class="item" id="item" href="../Solicitudes/SolicitudesReparacion.html" >Solicitudes de Reparacion</a>
+                    <a class="item" id="item" href="../Solicitudes/SolicitudesDesincorporacion.html">Solicitudes de Desincorporacion</a>
                   </div>
                 </div>
                 <div class="twelve wide stretched column" style="border-block-color:  #9e9d9d ;height: 600px;">
@@ -77,14 +79,12 @@
                   <table class="ui compact celled definition table" style="border: 0px solid #1a237e; ">
                       <thead class="full-width" >
                       <tr >
-                          <th id="encabezadotabla" style=" width: 40%">Nombre</th>
-                          <th id="encabezadotabla"style=" width: 40%">Estado</th>
+                          <th id="encabezadotabla" style=" width: 85%">Nombre del estado</th>
                           <th id="encabezadotabla">Opciones</th>
                       </tr>
                       </thead>
                       <tbody style="background-color: #f3f5f6">
                         <tr>
-                          <td >Monitor</td>
                           <td >Reparacion</td>
                           <td>
                           <div class="item">
@@ -94,7 +94,6 @@
                           </td>
                         </tr>
                         <tr>
-                          <td >Teclado</td>
                           <td >Dañado</td>
                           <td>
                           <div class="item">
@@ -102,7 +101,6 @@
                             <div class="ui circular button"style="width: 130px" id="consultar"> <A  style="color: #1a237e; ">Consultar</A> </div>
                             </div>
                        <tr>
-                          <td >Mouse</td>
                           <td >Desincorporado</td>
                           <td>
                           <div class="item">
@@ -189,7 +187,7 @@
                     </div>
                     <div class="column" style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
                         <div class="ui segment" style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
-                        <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 0%; ">Consultar Usuario</div>
+                        <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 0%; ">Consultar Estado de Equipo</div>
                         </div>
                         <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 2%">
                         <div class="field">
@@ -219,7 +217,7 @@
                     </div>
                     <div class="column" style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
                     <div class="ui segment" style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
-                    <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 2%; ">Modificar Usuario</div>
+                    <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 2%; ">Modificar Estado de Equipo</div>
                     </div>
                     <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 2%">
                     <div class="field">
@@ -245,7 +243,7 @@
                     </div>
                     <div class="column" style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
                     <div class="ui segment" style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
-                    <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 0%; ">Registar Usuario</div>
+                    <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 0%; ">Registar Estado de Equipo</div>
                     </div>
                     <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 2%">
                         <div class="field">
@@ -275,7 +273,7 @@
                   <i class="remove icon"></i>
                    Cancelar
               </div>
-              <div class="ui green ok inverted button">
+              <div class="ui green ok inverted button" id="aceptar">
                   <i class="checkmark icon"></i>
                    Aceptar
               </div>
@@ -292,13 +290,12 @@
                   <i class="remove icon"></i>
                   Cancelar
                   </div>
-                  <div class="ui green ok inverted button">
+                  <div class="ui green ok inverted button" id="aceptar1">
                   <i class="checkmark icon"></i>
                   Aceptar
                   </div>
               </div>
               </div>
-
               <!-- Mensaje para confirmar incluir estado de equipo ''<> -->
           <div class="ui mini modal" id="txtincluir"  >
               <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">

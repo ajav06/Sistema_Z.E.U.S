@@ -49,6 +49,8 @@
                  <a class="item" id="item" href="../Departamentos/ListadoDepartamentos.html">Equipos en Departamento</a>
                  <a class="item" id="item" href="../EstadoEquipos/EstadoEquipos.html" >Estados de Equipos</a>
                  <a class="item" id="item" href="../Solicitudes/Solicitudes.html" >Solicitudes</a>
+                 <a class="item" id="item" href="../Solicitudes/SolicitudesReparacion.html" >Solicitudes de Reparacion</a>
+                 <a class="item" id="item" href="../Solicitudes/SolicitudesDesincorporacion.html">Solicitudes de Desincorporacion</a>
               </div>
           </div>
           <div class="twelve wide stretched column" style="border-block-color:  #9e9d9d ;height: 600px;">
@@ -153,7 +155,7 @@
             });
             //Cerrar el modal de Suspender y redirigirse al modal de consultar
               $(document).ready(function(){
-            $('#no').click(function(){
+            $('#cancelar').click(function(){
             $('#formconsultar').modal('show');
             });
             });
@@ -378,11 +380,11 @@
           <p style="color: #ffff">¿Está seguro que desea suspender al usuario?</p>
       </div>
       <div class="actions">
-          <div class="ui red inverted button" id="no" >
+          <div class="ui red inverted button" id="cancelar" >
           <i class="remove icon"></i>
            Cancelar
       </div>
-      <div class="ui green ok inverted button">
+      <div class="ui green ok inverted button" id="aceptar">
           <i class="checkmark icon"></i>
            Aceptar
       </div>
@@ -399,7 +401,7 @@
           <i class="remove icon"></i>
           Cancelar
           </div>
-          <div class="ui green ok inverted button">
+          <div class="ui green ok inverted button" id="aceptar1">
           <i class="checkmark icon"></i>
           Aceptar
           </div> </div> </div>
