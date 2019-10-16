@@ -64,7 +64,7 @@
 }
 
 /*
-*   Contenido
+*   CONTENIDO
 */
 
 #base-content{
@@ -172,6 +172,13 @@
 .column-equipo {
     width: 33% !important; 
     background-image: url(../resources/images/fondo8.jpg);
+    padding: 0;
+    border-radius: 24px 0px 0px 24px;
+}
+
+.column-marca {
+    width: 33% !important; 
+    background-image: url(../resources/images/marcas.jpg);
     padding: 0;
     border-radius: 24px 0px 0px 24px;
 }

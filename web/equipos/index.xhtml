@@ -14,7 +14,7 @@
         </ui:define>
 
         <ui:define name="content">
-            <div class="twelve wide stretched column" style="border-block-color:  #9e9d9d ;">
+            <div class="twelve wide stretched column">
                 <div class="ui segment">
                     
                     <div class="ui category search">
@@ -72,11 +72,9 @@
                                 <div class="item">
                                     <div class="ui centered grid">
                                         
-                                        <div class="ui animated circular button" tabindex="0"
-                                             onclick="consultarEquipo(#{equipo.codigo})"
-                                             id="reparar">
-                                            <div class="visible content">Consultar</div>
-                                            <div class="hidden content">Ver detalles</div>
+                                        <div class="ui circular button"
+                                             onclick="consultarEquipo(#{equipo.codigo})">
+                                            Consultar
                                         </div>
                                         
                                     </div>
@@ -107,7 +105,7 @@
                                                         
                                                         <input type="text" 
                                                                placeholder="Nombre del equipo" 
-                                                               name="nombre"
+                                                               name="nombreE"
                                                                disabled="true"/>
                                                     </div>
 
@@ -115,7 +113,7 @@
                                                         <label>Marca</label>
                                                         <input type="text" 
                                                                placeholder="Marca del equipo"
-                                                               name="marca"
+                                                               name="marcaE"
                                                                disabled="true"/>
                                                     </div>
 
@@ -125,7 +123,7 @@
                                                     <label>Descripción</label>
                                                     <textarea pt:type="text" 
                                                             pt:placeholder="Descripción"
-                                                            name="descripcion" 
+                                                            name="descripcionE" 
                                                             disabled="true"/>
 
                                                 </div>
@@ -175,8 +173,8 @@
                                         <h:form>
                                             <input type="number" 
                                                 placeholder="Nombre del equipo"
-                                                id="codigo"
-                                                name="codigo"
+                                                id="codigoE"
+                                                name="codigoE"
                                                 style="display: none"/>
                                             
                                             <div class="ui form">
@@ -185,16 +183,16 @@
                                                         <label>Nombre</label>
                                                         <input type="text"
                                                                      placeholder="Nombre del equipo"
-                                                                     id="nombre"
-                                                                     name="nombre" />
+                                                                     id="nombreE"
+                                                                     name="nombreE" />
                                                     </div>
 
                                                     <div class="field">
                                                         <label>Marca</label>
                                                         <h:selectOneMenu value="#{equipoBean.equipoSeleccionado.codigoMarca}" 
                                                              class="ui fluid dropdown"
-                                                             pt:name="codigoMarca"
-                                                             id="codigoMarca"
+                                                             pt:name="codigoMarcaE"
+                                                             id="codigoMarcaE"
                                                              converter="omnifaces.SelectItemsIndexConverter"
                                                              onchange="buscarMarca()"
                                                              required="true"
@@ -211,9 +209,9 @@
                                                 <div class="field">
                                                     <label>Descripción</label>
                                                     <textarea type="text"
-                                                            id="descripcion"
+                                                            id="descripcionE"
                                                             placeholder="Descripción"
-                                                            name="descripcion"/>
+                                                            name="descripcionE"/>
                                                 </div>
                                                 
                                             </div>

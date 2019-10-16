@@ -76,6 +76,21 @@
                 
             </ui:insert>
         </div>
+        
+        <!-- Mensaje de transaccion exitosa ''<> -->
+        <div class="ui mini modal" id="txtexito">
+            <div class="content fondo-modal">
+                <p>Operacion realizada con exito</p>
+            </div>
+            <div class="actions">
+                <div class="ui green ok inverted button"
+                     onclick="$('#txtexito').modal('hide');
+                                recargarPagina()">
+                    <i class="checkmark icon"></i>
+                    Aceptar
+                </div>
+            </div>
+        </div>
     </h:body>
     
     <h:outputScript library="js" name="jquery-3.1.1.min.js" />

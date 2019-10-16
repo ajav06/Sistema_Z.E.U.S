@@ -22,7 +22,7 @@ function buscarMarca(tipo){
             });
         }
     }else{
-        var nom = $('select[name=codigoMarca] option:selected').text();
+        var nom = $('select[name=codigoMarcaE] option:selected').text();
         console.log(nom);
         if (nom != "Seleccione..."){
             $.ajax({
@@ -42,7 +42,7 @@ function buscarMarca(tipo){
 function buscarSelectMarca(id)
 {
 	// creamos un variable que hace referencia al select
-	var select=document.getElementsByName('codigoMarca')[0];
+	var select=document.getElementsByName('codigoMarcaE')[0];
  
 	// obtenemos el valor a buscar
 	var buscar=id;
@@ -50,11 +50,11 @@ function buscarSelectMarca(id)
 	// recorremos todos los valores del select
 	for(var i=1;i<select.length;i++)
 	{
-		if(select.options[i].text==buscar)
-		{
-			// seleccionamos el valor que coincide
-			select.selectedIndex=i;
-		}
+            if(select.options[i].text==buscar)
+            {
+                    // seleccionamos el valor que coincide
+                    select.selectedIndex=i;
+            }
 	}
 }
 
@@ -74,19 +74,19 @@ function consultarEquipo(id){
         url: '/sistema_zeus/webservice/equipos/' + id,
         type: 'GET',
         dataType: 'JSON',
-        success: function (data, textStatus, jqXHR) {
+        success: function (data) {
                         
             console.log(data);
             
-            document.getElementsByName('nombre')[0].value = data.nombre;
-            document.getElementsByName('nombre')[1].value = data.nombre;
+            document.getElementsByName('nombreE')[0].value = data.nombre;
+            document.getElementsByName('nombreE')[1].value = data.nombre;
             
-            document.getElementsByName('descripcion')[0].value = data.descripcion;
-            document.getElementsByName('descripcion')[1].value = data.descripcion;
+            document.getElementsByName('descripcionE')[0].value = data.descripcion;
+            document.getElementsByName('descripcionE')[1].value = data.descripcion;
             
-            document.getElementById("codigo").value = data.codigo;
+            document.getElementById("codigoE").value = data.codigo;
             
-            document.getElementsByName('marca')[0].value = data.codigoMarca.nombre;
+            document.getElementsByName('marcaE')[0].value = data.codigoMarca.nombre;
             
             buscarSelectMarca(data.codigoMarca.nombre);
             
@@ -96,15 +96,15 @@ function consultarEquipo(id){
 }
 
 function actualizarEquipo(){
-    var id = $('input[id=codigo]').val();
+    var id = $('input[id=codigoE]').val();
     
     $.ajax({
         type: 'PUT',
         url: '/sistema_zeus/webservice/equipos/'+id,
         data: JSON.stringify({
             "codigo" : id,
-            "nombre": $('input[id=nombre]').val(),
-            "descripcion" : $('textArea[id=descripcion]').val(),
+            "nombre": $('input[id=nombreE]').val(),
+            "descripcion" : $('textArea[id=descripcionE]').val(),
             "estatus": "a",
             "codigoMarca":{
                 "codigo": marcaSeleccionada.codigo,
@@ -118,10 +118,11 @@ function actualizarEquipo(){
         },
         success: function (data) {
             console.log("Actualizado: "+data);
-            location.reload();
+            $('#txtexito').modal('show');
         },
         error: function() {
             console.log("No se ha podido obtener la información");
+            $('#txtexito').modal('show');
         }
     });
 }
@@ -148,10 +149,11 @@ function incluirEquipo(){
         },
         success: function (data) {
             console.log("Actualizado: "+data);
-            location.reload();
+            $('#txtexito').modal('show');
         },
         error: function() {
             console.log("No se ha podido obtener la información");
+            $('#txtexito').modal('show');
         }
     });
 }

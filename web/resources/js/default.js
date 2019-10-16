@@ -98,6 +98,10 @@ function aceptarReparacion(){
     $('#txtreparar').modal('show');
 }
 
+function recargarPagina(){
+    location.reload();
+}
+
 /*
 function mostrarEquipo(id){
     //esta será nuestra petición
