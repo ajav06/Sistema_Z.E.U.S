@@ -89,8 +89,8 @@
                     <table class="ui compact celled definition table" style="border: 0px solid #1a237e; ">
                         <thead class="full-width">
                             <tr>
-                                <th id="encabezadotabla" style=" width: 30%">Código</th>
-                                <th id="encabezadotabla" style=" width:50%">Equipo</th>
+                                <th id="encabezadotabla" style=" width: 20%">Código</th>
+                                <th id="encabezadotabla" style=" width:30%">Equipo</th>
                                 <th id="encabezadotabla">Opcion</th>
                             </tr>
                         </thead>
@@ -103,16 +103,16 @@
                                         <div class="right floated content">
                                             <div class="ui circular button" style="width: 130px" id="consultar"> <A
                                                     style="color: #1a237e; ">Consultar</A> </div>
-                                            <div class="ui circular animated  button" tabindex="0" style="width: 130px; margin-top: 2%;"
+                                            <div class="ui circular animated  button" tabindex="0" style="width: 130px;"
                                                     id="repa">
                                                 <div class="visible content" style="color: #1a237e">Reparar</div>
                                                 <div class="hidden content"> <A style="color: #1a237e;">Solicitar</A></div>
                                             </div>
-                                            <div class="ui circular animated  button" tabindex="0" style="width: 130px; margin-top: 2%;"
+                                            <div class="ui circular animated  button" tabindex="0" style="width: 130px;"
                                                 id="desin">
                                                     <div class="hidden content" style="color: #1a237e"> Solicitar </div>
                                                     <div class="visible content"><A
-                                                    style="color: #1a237e;border-collapse: unset;">Desincorporar</A></div>
+                                                    style="color: #1a237e;">Desincorporar</A></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -342,17 +342,24 @@
                             <div class="column"
                                 style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
                                 <div class="ui segment"
-                                    style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
+                                    style="background-color: #ffffff ;height: 60px;border-radius: 0px 24px 0px 0px;">
                                     <div class="ui aligned center dividing header"
                                         style=" font-size: 30px;color: #1a237e;margin-top: 0%; ">Consultar Equipo</div>
                                 </div>
                                     <div class="ui form" style=" margin: 10% ; margin-top: 0%">
                                         <div class="two fields">
                                             <div class="field">
+                                                    <div class="two fields">
+                                                <div class="field" style="width: 90%;">
                                                 <label style="color: #ffffff">Código</label>
                                                 <input type="text" placeholder="código" id="tx1"
                                                     style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;"
                                                     disabled>
+                                                </div>
+                                                <div class="field" style="width: 5px;">
+                                                    <i class="ui print icon" id="print" style="margin-top: 30px;"></i>
+                                                </div>
+                                            </div>
                                             </div>
                                             <div class="field">
                                                 <label style="color: #ffffff">Estatus</label>
@@ -364,7 +371,7 @@
                                         <div class="field">
                                             <label style="color: #ffffff">Equipo</label>
                                             <input type="text" placeholder="equipo"
-                                                style="height: 200px; border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;"
+                                                style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;"
                                                 disabled>
                                         </div>
                                             <div class="field">
@@ -391,7 +398,8 @@
                                                 <div class="ui circular button" style="width: 130px; color: #1a237e"
                                                     id="eliminar"> Eliminar
                                                 </div>
-                                                <div class="ui animated circular button" tabindex="0" style="width: 130px; margin-top: 2%; margin-left: 4%;"
+                                            </div>
+                                                <div class="ui animated circular button" tabindex="0" style="width: 130px; margin-top: 2%;margin-left: 180px;"
                                                 id="reparar">
                                                 <div class="visible content" style="color: #1a237e">Reparar</div>
                                                 <div class="hidden content"> <A style="color: #1a237e;">Solicitar</A>
@@ -411,7 +419,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
                 <!-- Modificar Equipo''<> -->
                 <div class="ui basic modal" id="formodificar">
                     <div class="content" style=" height: 100%;width: 110% ;">
@@ -428,16 +435,12 @@
                                 </div>
                                 <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 0%">
                                         <div class="field">
-                                                <label style="color: #ffffff">Nombre</label>
-                                                <input type="text" placeholder="nombre" id="tx1"
-                                                    style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;"
-                                                    disabled>
-                                            </div>
-                                            <div class="field">
-                                                <label style="color: #ffffff" >Descripción</label>
-                                                <input type="text" placeholder="descripcion"
-                                                    style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;height: 200px;"
-                                                    disabled>
+                                                <label style="color: #ffffff" >Estado del Equipo</label>
+                                                <select class="ui fluid dropdown" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;" required>
+                                                <option>Selecciona el Estado</option>
+                                                <option >Reparado</option>
+                                                <option>Desincorporado</option>
+                                            </select>
                                             </div>
                                     </div>
                                     <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
@@ -653,13 +656,39 @@
                   <p style="color: #ffff">¿Está seguro que desea registrar el equipo?</p>
                 </div>
                 <div class="actions">
-                  <div class="ui red inverted button" id="no" >
+                  <div class="ui red inverted button" id="cancelar4" >
                     <i class="remove icon"></i>
                     Cancelar
                   </div>
-                  <div class="ui green ok inverted button">
+                  <div class="ui green ok inverted button" id="aceptar4">
                     <i class="checkmark icon"></i>
                     Aceptar
-                  </div> </div> </div> </div> </div>   
+                  </div> </div> </div>
+                <!-- Mensaje de transaccion exitosa ''<> -->
+                <div class="ui mini modal" id="exito"  >
+                <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+                   <p style="color: #ffff">Operacion realizada con exito</p>
+                </div>
+                <div class="actions">
+                <div class="ui green ok inverted button" >
+                <i class="checkmark icon"></i>
+                Aceptar
+                </div>
+                </div>
+                </div>
+                <!-- Mensaje de Codigo ''<> -->
+                <div class="ui mini modal" id="codigo"  >
+                        <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+                           <p style="color: #ffff;font-size:15px">El codigo del equipo es</p>
+                           <p style="color: #ffff;font-size:20px; text-align: center; ">123</p>
+                        </div>
+                        <div class="actions">
+                        <div class="ui green ok inverted button" >
+                        <i class="checkmark icon"></i>
+                        Aceptar
+                        </div>
+                        </div>
+                        </div>
+                        
 </body>
 </html> 

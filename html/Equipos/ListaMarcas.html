@@ -47,7 +47,7 @@
                     <a class="item" id="item" href="../Reportes/ListaReportes.html">Reportes</a>
                     <a class=" item" id="item" href="../Usuarios/ListaUsuarios.html"  >Usuarios</a>
 					<a class="item" id="item" href="../Departamentos/ListadoDepartamentos.html" >Departamentos</a>
-					<a class="active item" id="item"href="../Decanatos/ListaDecanatos.html" >Decanatos</a>
+					<a class="item" id="item"href="../Decanatos/ListaDecanatos.html" >Decanatos</a>
 					<a class="item" id="item" href="../Equipos/ListaEquipos.html"  style="background-color: #1a237e" >Equipos</a>
 					<a class="item" id="item" href="../Equipos/listadoEquipodep.html">Equipos en Departamento</a>
 					<a class="item" id="item" href="../EstadoEquipos/EstadoEquipos.html" >Estados de Equipos</a>
@@ -182,6 +182,25 @@
                         $('#txtincluir').modal('show');
                         });
                         });
+                        //Modal para solicitar reparar
+                    $(document).ready(function () {
+                        $('#aceptar').click(function () {
+                            $('#exito').modal('show');
+                        });
+                    });
+                    //
+                    //Modal para solicitar reparar
+                    $(document).ready(function () {
+                        $('#aceptar1').click(function () {
+                            $('#exito').modal('show');
+                        });
+                    });
+                    //Modal para solicitar reparar
+                    $(document).ready(function () {
+                        $('#aceptar2').click(function () {
+                            $('#exito').modal('show');
+                        });
+                    });
                          </script>
 
                         <!-- Modificar Marca -->
@@ -202,11 +221,9 @@
                                     </div></div></div>
                                     <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
                                         <div class="ui center aligned fluid container" style=" margin-top: 5%" >
-                                            <div class="ui buttons" style=" margin-top: 5%" >
-                                              <button class="ui cancel labeled icon button" id="atras" style="color: #1a237e"><i class="left chevron icon" ></i> Cancelar </button>
-                                              <button class="ui button" id="guardar" style="color: #1a237e"><i class="save icon"></i> Modificar </button>
-                                              
-                                            </div> </div> </div>
+                                              <button class="ui cancel circular icon button" id="atras" style="color: #1a237e;color: #1a237e; width: 130px;"><i class="left chevron icon" ></i> Cancelar </button>
+                                              <button class="ui circular button" id="guardar" style="color: #1a237e;color: #1a237e; width: 130px;"><i class="save icon"></i> Modificar </button>
+                                              </div> </div>
                                     </div> </div> </div> </div> </div>
                                 
                        <!-- Incluir registrar -->
@@ -228,10 +245,10 @@
                                     </div></div>
                                     <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
                                         <div class="ui center aligned fluid container" style=" margin-top: 5%" >
-                                            <div class="ui buttons" style=" margin-top: 5%" >
-                                              <button class="ui cancel labeled icon button" style="color: #1a237e"><i class="left chevron icon" ></i> Cancelar </button>
-                                              <button class="ui button save" id="registro" style="color: #1a237e"><i class="save icon"></i> Registrar </button>
-                                            </div>
+                                            
+                                              <button class="ui cancel circular icon button" style="color: #1a237e; width: 130px;"><i class="left chevron icon" ></i> Cancelar </button>
+                                              <button class="ui circular button save" id="registro" style="color: #1a237e; width: 130px;"><i class="save icon"></i> Registrar </button>
+                                            
                                         </div> 
                                     </div>
                                     </div>
@@ -246,7 +263,7 @@
                                         <p style="color: #ffff">¿Está seguro que desea eliminar la marca?</p>
                                       </div>
                                       <div class="actions">
-                                        <div class="ui red inverted button">
+                                        <div class="ui red inverted button" id="cancelar">
                                           <i class="remove icon"></i>
                                           Cancelar
                                         </div>
@@ -262,11 +279,11 @@
                                               <p style="color: #ffff">¿Está seguro que desea guardar los cambios?</p>
                                             </div>
                                             <div class="actions">
-                                              <div class="ui red inverted button" id="no" >
+                                              <div class="ui red inverted button" id="cancelar1" >
                                                 <i class="remove icon"></i>
                                                 Cancelar
                                               </div>
-                                              <div class="ui green ok inverted button">
+                                              <div class="ui green ok inverted button" id="aceptar2">
                                                 <i class="checkmark icon"></i>
                                                 Aceptar
                                               </div>
@@ -278,14 +295,29 @@
                                               <p style="color: #ffff">¿Está seguro que desea registrar la marca?</p>
                                             </div>
                                             <div class="actions">
-                                              <div class="ui red inverted button" id="no" >
+                                              <div class="ui red inverted button" id="cancelar2" >
                                                 <i class="remove icon"></i>
                                                 Cancelar
                                               </div>
-                                              <div class="ui green ok inverted button">
+                                              <div class="ui green ok inverted button" id="aceptar2">
                                                 <i class="checkmark icon"></i>
                                                 Aceptar
                                               </div>
-                                            </div> </div> </div> </div>
+                                            </div> </div>
+                                            <!-- Mensaje de transaccion exitosa ''<> -->
+      
+			                                      <div class="ui mini modal" id="exito"  >
+                                            <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+                                                 <p style="color: #ffff">Operacion realizada con exito</p>
+                                            </div>
+                                            <div class="actions">
+                                            <div class="ui green ok inverted button" >
+                                            <i class="checkmark icon"></i>
+                                              Aceptar
+                                            </div>
+                                            </div>
+                                            </div>
+                                          
+                                          </div> </div>
     </body>
 </html>

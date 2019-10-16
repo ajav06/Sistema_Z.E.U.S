@@ -272,6 +272,24 @@
     $('#txtincluir').modal('show');
     });
      });
+	  //Operacion Exitosa
+	$(document).ready(function () {
+    $('#aceptar').click(function () {
+    $('#exito').modal('show');
+    });
+    });
+                    
+    $(document).ready(function () {
+    $('#aceptar1').click(function () {
+    $('#exito').modal('show');
+    });
+    });
+
+    $(document).ready(function () {
+    $('#aceptar2').click(function () {
+    $('#exito').modal('show');
+    });
+    });
 	</script>
 
 
@@ -457,13 +475,26 @@
 					  <p style="color: #ffff">¿Está seguro que desea registrar el decanato?</p>
 					</div>
 					<div class="actions">
-					  <div class="ui red inverted button" id="no" >
+					  <div class="ui red inverted button" id="cancelar2" >
 						<i class="remove icon"></i>
 						Cancelar
 					  </div>
-					  <div class="ui green ok inverted button">
+					  <div class="ui green ok inverted button" id="aceptar2">
 						<i class="checkmark icon"></i>
 						Aceptar
 					  </div>
-					</div> </div> </div> </div>
+					</div> </div> 
+					<!-- Mensaje de transaccion exitosa ''<> -->
+					<div class="ui mini modal" id="exito"  >
+							<div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+								   <p style="color: #ffff">Operacion realizada con exito</p>
+							</div>
+							<div class="actions">
+							<div class="ui green ok inverted button" >
+							<i class="checkmark icon"></i>
+							Aceptar
+							</div>
+							</div>
+							</div>
+				</div> </div>
 </html>
