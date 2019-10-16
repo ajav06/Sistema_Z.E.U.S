@@ -122,7 +122,7 @@ function actualizarEquipo(){
         },
         error: function() {
             console.log("No se ha podido obtener la información");
-            $('#txtexito').modal('show');
+            alert('No se ha podido obtener la información');
         }
     });
 }
@@ -153,7 +153,7 @@ function incluirEquipo(){
         },
         error: function() {
             console.log("No se ha podido obtener la información");
-            $('#txtexito').modal('show');
+            alert('No se ha podido obtener la información');
         }
     });
 }

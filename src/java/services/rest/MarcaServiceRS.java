@@ -67,7 +67,7 @@ public class MarcaServiceRS {
     public Response actualizarMarca(@PathParam("id") int id, Marca marcaActualizada){
         try{
             Marca marca = marcaService.buscarMarcaPorCodigo(new Marca(id));
-            if(marca == null){
+            if(marca != null){
                 marcaService.actualizarMarca(marcaActualizada);
                 return Response.ok().entity(marcaActualizada).build();
             } else{

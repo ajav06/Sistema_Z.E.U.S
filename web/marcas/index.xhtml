@@ -56,12 +56,14 @@
                                         <div class="ui centered grid">
                                             
                                             <div class="ui circular button"
-                                                 onclick="modificar()">
+                                                 onclick="modificar();
+                                                          consultarMarca(#{marca.codigo},1)">
                                                 Modificar
                                             </div>
                                             
                                             <div class="ui circular button"
-                                                 onclick="eliminar()">
+                                                 onclick="eliminar();
+                                                          consultarMarca(#{marca.codigo},2)">
                                                 Eliminar
                                             </div>
 
@@ -88,7 +90,7 @@
                                         <div class="ui form-1">
                                             <h:form>
                                                 <input type="number" 
-                                                        placeholder="Nombre del equipo"
+                                                        placeholder="Código de la Marca"
                                                         id="codigoM"
                                                         name="codigoM"
                                                         style="display: none"/>
@@ -118,7 +120,8 @@
                                                             Cancelar
                                                         </div>
 
-                                                        <div class="ui green ok inverted button">
+                                                        <div class="ui green ok inverted button"
+                                                             onclick="actualizarMarca()">
                                                             <i class="checkmark icon"></i>
                                                             Aceptar
                                                         </div>
@@ -169,7 +172,8 @@
                                                             <label>Nombre</label>
                                                             <input type="text" 
                                                                    placeholder="Nombre de la marca"
-                                                                   name="nombreMI"/>
+                                                                   name="nombreMI"
+                                                                   id="nombreMI"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -185,7 +189,8 @@
                                                             Cancelar
                                                         </div>
 
-                                                        <div class="ui green ok inverted button">
+                                                        <div class="ui green ok inverted button"
+                                                             onclick="incluirMarca()">
                                                             <i class="checkmark icon"></i>
                                                             Aceptar
                                                         </div>
@@ -219,6 +224,19 @@
                         <!-- Mensajes ''<> -->
                         <!-- Mensaje de eliminar marca ''<> -->
                         <div class="ui mini modal" id="txteliminar">
+                            
+                            <input type="number" 
+                                    placeholder="Código del equipo"
+                                    id="codigoME"
+                                    name="codigoME"
+                                    style="display: none"/>
+                            
+                            <input type="text" 
+                                    placeholder="Nombre del equipo"
+                                    id="nombreME"
+                                    name="nombreME"
+                                    style="display: none"/>
+                            
                             <div class="content fondo-modal">
                                 <p>¿Está seguro que desea eliminar la marca?</p>
                             </div>
@@ -227,7 +245,8 @@
                                     <i class="remove icon"></i>
                                     Cancelar
                                 </div>
-                                <div class="ui green ok inverted button">
+                                <div class="ui green ok inverted button"
+                                     onclick="eliminarMarca()">
                                     <i class="checkmark icon"></i>
                                     Aceptar
                                 </div>
