@@ -1,80 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="stylesheet" type="text/css" href=" ../../Semantic-UI-CSS-master/semantic.min.css ">
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script> 
-  <script src="../../Semantic-UI-CSS-master/semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href=" ../../Semantic-UI-CSS-master/semantic.min.css ">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script> 
+    <script src="../../Semantic-UI-CSS-master/semantic.min.js"></script>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Solicitudes</title>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lista de Usuarios</title>
         </head>
+        <style type="text/css">
+             #item { color:#ffff}
+            #item:hover {
+              background-color: #1a237e;color: #ffff;
+              }
+            #encabezado{background-color: #1a237e; color: #ffff}
+        </style>
+        <h1>
+                  <div class="ui large segment" style=" background-image: url(../image/adwebsys-fondo.jpg) ;height: 66px; padding-top: 0px;border-block-end:4px solid #1a237e;">    
+              <div class="ui right aligned fluid container">
+                  </div>
+                  <img src="../image/este.png" style="width: 18%; margin-top: 0.66%;">
+                  <div class="ui simple dropdown item" style=" color: #ffff;margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  transparent;border: 0px #c6c4c4; margin-left: 66%;"><i class="dropdown icon"></i>Armando Paredes
+                      <div class="menu">
+                  <div class="ui simple dropdown item" style=" color: #ffff;margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  transparent;border: 0px #c6c4c4; margin-left: 66%;"><i class="dropdown icon"></i>Armando Paredes
+                      <div class="menu">
+              <div class="item">Mi informacion</div>
+              <div class="item">Notificaciones</div>
+              <div class="item">
+                  <i class="left dropdown icon"></i>
+                  <span class="text">Menú</span>
+                  <div class="left menu">
+                  <div class="item">Seguridad</div>
+                  <div class="item">otras cosas que se me ocurriran despues</div>
+                  </div>
+              </div>
+              <div class="item">Cerrar Sesion</div>
+          </div> </div> </div>
+          </div>
+        </h1>
         
- <h1>
-        <div class="ui large segment" style="background-color:  #c6c4c4  ;height: 60px; padding-top: 0px;border-block-end:4px solid #1a237e;">
-        </div>
-</h1>
-<div class="ui middle aligned center aligned grid" style="margin-top: 20px;color:#1a237e; font-size: 20px;"></div>
-
-
     <body>
-      <div class="ui middle aligned center aligned grid" style="margin-top: 50px">
-            
-                    <div class="ui large segment " style="background-color: #c6c4c4; border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border-bottom-right-radius: solid #c6c4c4">
-                      <div class="ui category search"></div>
-
-                        <h2 class="ui aligned center dividing header" >Reporte de Solicitudes</h2>
-
-                        <div class="two fields">
-                                <div class="field">
-                                   
-                                    <select class="ui fluid dropdown">
-                                      <option value="">Mes a consultar ...</option>
-                                  <option value="ene">Enero</option>
-                                  <option value="feb">Febrero</option>
-                                  <option value="mar">Marzo</option>
-                                  <option value="abr">Abril</option>
-                                  <option value="may">Mayo</option>
-                                  <option value="jun">Junio</option>
-                                  <option value="jul">Julio</option>
-                                  <option value="ago">Agosto</option>
-                                  <option value="sep">Septiembre</option>
-                                  <option value="oct">Octubre</option>
-                                  <option value="nov">Noviembre</option>
-                                  <option value="dic">Diciembre</option>
-                                    </select>
-                                </div>
-                        </div>
-
-
-                        <table class="ui celled structured table">
-                                <thead>
-                                  <tr>
-                                    <th rowspan="2">Fecha emision</th>
-                                    <th rowspan="2">Fecha atencion</th>
-                                    <th rowspan="2">Tipo de Solicitud</th>
-                                    <th rowspan="2">Decanato Solicitante</th>
-                                    <th rowspan="2">Departamento Solicitante</th>
-                                    <th rowspan="2">Empleado Solicitante</th>
-                                    <th rowspan="2">Equipo Solicitante</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td class="right aligned">23/03/18</td>
-                                    <td class="right aligned">30/11/18</td>
-                                    <td class="right aligned">Reparar</td>
-                                    <td class="right aligned">DCYT</td>
-                                    <td class="right aligned">Departamento de Sistemas</td>
-                                    <td class="right aligned">Gabriel Roa</td>
-                                    <td class="right aligned">Monitor</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-            
-             <div class="ui center aligned fluid container">
-             <div class="ui buttons">
-                <A HREF= "ListaReportes.html"  class="ui labeled icon button" style="color: #1a237e;"><i class="left chevron icon"></i> Atrás </A></div>
-                        </div>
-                      </div>
-      </body>
+        <div class="ui grid">
+          <div class="four wide column">
+             <div class="ui inverted vertical menu" style=" width: 100%; background-image: url(../image/fondo1.jpg) ;height: 100%;border-radius: 0px 24px 24px 0px; font-size: 18px;">
+                 <a class="item" id="item" style="background-color: #1a237e">Reportes</a>
+                 <a class="active item" id="item" href="../Usuarios/ListaUsuarios.html">Usuarios</a>
+                 <a class="item" id="item" href="../Departamentos/ListadoDepartamentos.html" > Departamentos</a>
+                 <a class="item" id="item" href="../Decanatos/ListaDecanatos.html" >Decanatos</a>
+                 <a class="item" id="item" href="../Equipos/ListaEquipos.html">Equipos</a>
+                 <a class="item" id="item" href="../Equipos/listadoEquipodep.html">Equipos en Departamento</a>
+                 <a class="item" id="item" href="../EstadoEquipos/EstadoEquipos.html" >Estados de Equipos</a>
+                 <a class="item" id="item" href="../Solicitudes/Solicitudes.html" >Solicitudes</a>
+                 <a class="item" id="item" href="../Solicitudes/SolicitudesReparacion.html" >Solicitudes de Reparacion</a>
+                 <a class="item" id="item" href="../Solicitudes/SolicitudesDesincorporacion.html">Solicitudes de Desincorporacion</a>
+                </div>
+          </div>
+          <div class="twelve wide stretched column" style="border-block-color:  #9e9d9d ;height: 600px;">
+              <div class="ui segment " style="border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;border:1px solid #1a237e">
+                      <h2 class="ui aligned center dividing header" style="color: #1a237e;" >Reporte de Solicitudes</h2>
+                      <div class="ui two column very relaxed grid">
+                          <div class="column">
+                              <select class="ui fluid dropdown">
+                                  <option value="">Mes a consultar ...</option>
+                              <option value="ene">Enero</option>
+                              <option value="feb">Febrero</option>
+                              <option value="mar">Marzo</option>
+                              <option value="abr">Abril</option>
+                              <option value="may">Mayo</option>
+                              <option value="jun">Junio</option>
+                              <option value="jul">Julio</option>
+                              <option value="ago">Agosto</option>
+                              <option value="sep">Septiembre</option>
+                              <option value="oct">Octubre</option>
+                              <option value="nov">Noviembre</option>
+                              <option value="dic">Diciembre</option>
+                                </select>
+                          </div>
+                          <div class="column">
+                              <select class="ui fluid dropdown">
+                                  <option value="">Año a consultar ...</option>
+                              <option value="ene">2019</option>
+                              <option value="feb">2018</option>
+                              <option value="mar">2017</option>
+                              <option value="abr">2016</option>
+                              <option value="may">2015</option>
+                              <option value="jun">2014</option>
+                              <option value="jul">2013</option>
+                              <option value="ago">2012</option>
+                              <option value="sep">2011</option>
+                              <option value="oct">2010</option>
+                              <option value="nov">2009</option>
+                              <option value="dic">2008</option>
+                                </select>
+                          </div>
+                        
+                
+                      <table class="ui celled structured table" style="width: 90%; margin-left: 50px;">
+                              <thead>
+                                <tr>
+                                  <th rowspan="2" id="encabezado" >Fecha emisión</th>
+                                  <th rowspan="2" id="encabezado" >Fecha atención</th>
+                                  <th rowspan="2" id="encabezado" >Tipo de solicitud</th>
+                                  <th rowspan="2" id="encabezado">Decanato</th>
+                                  <th rowspan="2" id="encabezado" >Departamento</th>
+                                  <th rowspan="2" id="encabezado" >Empleado</th>
+                                  <th rowspan="2" id="encabezado" >Equipo</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td class="right aligned">23/03/18</td>
+                                  <td class="right aligned">30/11/18</td>
+                                  <td class="right aligned">Reparar</td>
+                                  <td class="right aligned">DCYT</td>
+                                  <td class="right aligned">Departamento de Sistemas</td>
+                                  <td class="right aligned">Gabriel Roa</td>
+                                  <td class="right aligned">Monitor</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <div class="ui center aligned fluid container">
+                                <A HREF= "ListaReportes.html"  class="ui labeled icon button" style="color: #1a237e;"><i class="left chevron icon"></i> Atrás </A></div>
+                          </div>
+</body>
 </html>

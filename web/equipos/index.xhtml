@@ -82,9 +82,8 @@
                                 <div class="item">
                                     <div class="right floated content">
                                         <div class="ui circular button"
-                                             actionListener="#{equipoBean.setEquipoSeleccionado(equipo)}"
-                                             onclick="imprimir('#{equipoBean.equipoSeleccionado}');
-                                                      modificar(#{equipo.codigo})">
+                                             onclick="mostrarEquipo(#{equipo.codigo});
+                                                        equipo(#{equipo.codigo})">
                                             Ver detalles
                                         </div>
                                         <div class="ui animated circular button" tabindex="0"
@@ -125,17 +124,18 @@
                                                 <div class="two fields">
                                                     <div class="field">
                                                         <label>Nombre</label>
+                                                        
                                                         <input type="text" 
                                                                placeholder="Nombre del equipo" 
-                                                               id="nombre"
-                                                               disabled="true" />
+                                                               name="nombre"
+                                                               disabled="true"/>
                                                     </div>
 
                                                     <div class="field">
                                                         <label>Marca</label>
                                                         <input type="text" 
                                                                placeholder="Marca del equipo"
-                                                               value="#{equipoBean.equipoSeleccionado.codigoMarca}"
+                                                               name="marca"
                                                                disabled="true"/>
                                                     </div>
 
@@ -143,9 +143,9 @@
 
                                                 <div class="field">
                                                     <label>Descripción</label>
-                                                    <h:inputTextarea pt:type="text" 
+                                                    <textarea pt:type="text" 
                                                                      pt:placeholder="Descripción"
-                                                                     value="#{equipoBean.equipoSeleccionado.descripcion}" 
+                                                                     name="descripcion" 
                                                                      disabled="true"/>
 
                                                 </div>
@@ -189,22 +189,31 @@
                                             Modificar Equipo
                                         </div>
                                     </div>
-
+                                                              
                                     <div class="ui form-1">
-                                        <h:form>
+                                        <h:form pt:action="http://localhost:9090/sistema_zeus/webservice/equipos" pt:method="PUT">
+                                            <input type="number" 
+                                                placeholder="Nombre del equipo"
+                                                id="codigo"
+                                                name="codigo"
+                                                style="display: none"/>
+                                            
                                             <div class="ui form">
                                                 <div class="two fields">
                                                     <div class="field">
                                                         <label>Nombre</label>
-                                                        <h:inputText pt:type="text"
-                                                                     pt:placeholder="Nombre del equipo"
-                                                                     id="nombre" />
+                                                        <input type="text"
+                                                                     placeholder="Nombre del equipo"
+                                                                     id="nombre"
+                                                                     name="nombre" />
                                                     </div>
 
                                                     <div class="field">
                                                         <label>Marca</label>
                                                         <h:selectOneMenu value="#{equipoBean.equipoSeleccionado.codigoMarca}" 
                                                              class="ui fluid dropdown"
+                                                             pt:name="codigoMarca"
+                                                             id="codigoMarca"
                                                              converter="omnifaces.SelectItemsIndexConverter"
                                                              required="true"
                                                              requiredMessage="Selecciona una Marca">
@@ -219,9 +228,10 @@
 
                                                 <div class="field">
                                                     <label>Descripción</label>
-                                                    <h:inputTextarea pt:type="text" 
-                                                                     pt:placeholder="Descripción"
-                                                                     value="#{equipoBean.equipoSeleccionado.descripcion}"/>
+                                                    <textarea type="text"
+                                                                     id="descripcion"
+                                                                     placeholder="Descripción"
+                                                                     name="descripcion"/>
                                                 </div>
                                                 
                                                 <!-- Mensaje de confirmacion de modificacion ''<> -->
@@ -235,11 +245,12 @@
                                                             <i class="remove icon"></i>
                                                             Cancelar
                                                         </div>
-                                                        <h:commandLink class="ui green ok inverted button"
-                                                                       actionListener="#{equipoBean.modificarEquipo()}">
-                                                            <i class="checkmark icon"></i>
+                                                        
+                                                        <div class="ui green ok inverted button" 
+                                                             onclick="actualizar()">
+                                                            <i class="remove icon"></i>
                                                             Aceptar
-                                                        </h:commandLink>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -287,14 +298,13 @@
                                                         <label>Nombre</label>
                                                         <h:inputText pt:type="text"
                                                                      pt:placeholder="Nombre del equipo"
-                                                                     value="#{equipoBean.equipoSeleccionado.nombre}"
                                                                      required="true"
                                                                      requiredMessage="Ingrese el Nombre"/>
                                                     </div>
 
                                                     <div class="field">
                                                         <label>Marca</label>
-                                                        <h:selectOneMenu value="#{equipoBean.equipoSeleccionado.codigoMarca}" 
+                                                        <h:selectOneMenu
                                                              class="ui fluid dropdown"
                                                              converter="omnifaces.SelectItemsIndexConverter"
                                                              required="true"
@@ -312,7 +322,6 @@
                                                     <label>Descripción</label>
                                                     <h:inputTextarea pt:type="text" 
                                                                      pt:placeholder="Descripción"
-                                                                     value="#{equipoBean.equipoSeleccionado.descripcion}"
                                                                      required="true"
                                                                      requiredMessage="Ingrese la Descripci&oacute;n"/>
                                                 </div>
@@ -332,8 +341,7 @@
                                                         Cancelar
                                                     </div>
 
-                                                    <h:commandLink class="ui green ok inverted button"
-                                                                   actionListener="#{equipoBean.agregarEquipo()}">
+                                                    <h:commandLink class="ui green ok inverted button">
                                                         <i class="checkmark icon"></i>
                                                         Aceptar
                                                     </h:commandLink>

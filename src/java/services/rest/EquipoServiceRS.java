@@ -6,7 +6,6 @@
 package services.rest;
 
 import domain.Equipo;
-import domain.Marca;
 import services.EquipoService;
 
 import java.util.List;
@@ -23,16 +22,19 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 /**
  *
  * @author Scorpion
  */
 @Path("/equipos")
 @Produces(value = {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-@Consumes(value = {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+@Consumes(value = {MediaType.APPLICATION_JSON})
 @Stateless
 public class EquipoServiceRS {
+    
+    static Logger log = LogManager.getRootLogger();
     
     @Inject
     private EquipoService equipoService;
@@ -61,11 +63,16 @@ public class EquipoServiceRS {
     @PUT
     @Path("{id}")
     public Response actualizarEquipo(@PathParam("id") int id, Equipo equipoActualizada){
+        log.debug(id);
+        log.debug(equipoActualizada);
         try{
             Equipo equipo = equipoService.buscarEquipoPorCodigo(new Equipo(id));
-            if(equipo == null){
-                equipoService.actualizarEquipo(equipoActualizada);
-                return Response.ok().entity(equipoActualizada).build();
+            if(equipo != null){
+                equipo.setCodigoMarca(equipoActualizada.getCodigoMarca());
+                equipo.setNombre(equipoActualizada.getNombre());
+                equipo.setDescripcion(equipoActualizada.getDescripcion());
+                equipoService.actualizarEquipo(equipo);
+                return Response.ok().entity(equipo).build();
             } else{
                 return Response.status(Status.NOT_FOUND).build();
             }
