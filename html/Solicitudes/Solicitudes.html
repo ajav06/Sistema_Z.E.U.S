@@ -12,40 +12,36 @@
 		<title>Solicitudes</title>
 	</head>
 	<style type="text/css">
-		#item {
-			color: #ffffff
+		#item 
+		{
+		  color:#ffff
 		}
-
-		#item:hover {
-			background-color: #1a237e;
-			color: #ffff;
+		#item:hover 
+		{
+		  background-color: #1a237e;color: #ffff;
 		}
-
-		#encabezadotabla {
-			background-color: #1a237e; color: #ffff;
-		}
+		#encabezadotabla{background-color: #1a237e; color: #ffff}
+		#letra:hover{color: #ffffff}
 	</style>
-	<h1>
-		<div class="ui segment" style=" background-image: url(../image/adwebsys-fondo.jpg) ;height: 60px; padding-top: 0px;border-block-end:4px solid #1a237e;">    
-			<div class="ui right aligned fluid container"  >
-			<div class="ui simple dropdown item" style=" color: #ffff;margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  transparent;border: 0px #c6c4c4;"><i class="dropdown icon"></i>Armando Paredes
-			<div class="menu">
-				<div class="item">Mi informacion</div>
-				<div class="item">Notificaciones</div>
-				<div class="item">
+<h1>
+	  <div class="ui large segment" style=" background-image: url(../image/adwebsys-fondo.jpg) ;height: 66px; padding-top: 0px;border-block-end:4px solid #1a237e;">    
+		<div class="ui right aligned fluid container">
+			</div>
+			<img src="../image/este.png" style="width: 18%; margin-top: 0.66%;">
+			<div class="ui simple dropdown item" style=" color: #ffff;margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  transparent;border: 0px #c6c4c4; margin-left: 66%;"><i class="dropdown icon"></i>Armando Paredes
+				<div class="menu">
+				  <div class="item">Mi información</div>
+				  <div class="item">Notificaciones</div>
+				  <div class="item">
 					<i class="left dropdown icon"></i>
 					<span class="text">Menú</span>
-					<div class="left menu">
-					<div class="item">Seguridad</div>
-					<div class="item">otras cosas que se me ocurriran despues</div>
-					</div>
-				</div>
-				<div class="item">Cerrar Sesion</div>
-			</div>
-			</div> 
-			</div>
-			</div>
-	</h1>
+					  <div class="left menu">
+						<div class="item">Seguridad</div>
+						<div class="item">otras cosas que se me ocurriran despues</div>
+					  </div> </div>
+				  <div class="item">Cerrar Sesión</div>
+				</div> </div>  </div> </div>
+</h1>
 
 	<body>
 		<div class="ui grid">
@@ -56,9 +52,12 @@
 					<a class=" item" id="item" href="../Decanatos/ListaDecanatos.html" >Decanatos</a>
 					<a class="item" id="item"  href="../Departamentos/ListadoDepartamentos.html" >Departamentos</a>
 					<a class="item" id="item" href="../Equipos/ListaEquipos.html">Equipos</a>
+					<a class="item" id="item" href="../Departamentos/ListadoDepartamentos.html">Equipos en Departamento</a>
 					<a class="item" id="item" href="../EstadoEquipos/EstadoEquipos.html" >Estados de Equipos</a>
 					<a class="active item" id="item" href="Solicitudes.html" style="background-color: #1a237e">Solicitudes</a>
-				 </div>
+					<a class="item" id="item" href="../Solicitudes/SolicitudesReparacion.html" >Solicitudes de Reparacion</a>
+					<a class="item" id="item" href="SolicitudesDesincorporacion.html">Solicitudes de Desincorporacion</a>
+				</div>
 			 </div>
 			<div class="twelve wide stretched column" style="border-block-color:  #9e9d9d ;height: 600px;">
 				<div class="ui segment" style="height: 50%; width: 98% ;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 1px solid #1a237e">
@@ -72,19 +71,19 @@
 					<table class="ui compact celled definition table" style="border: 0px solid #1a237e; ">
 						<thead class="full-width">
 							<tr>
-                            <th id="encabezadotabla" >Tipo de Solicitud</th>
-                            <th id="encabezadotabla" >Fecha de Emision</th>
+                            <th id="encabezadotabla" >Tipo de solicitud</th>
+                            <th id="encabezadotabla" >Fecha de emisión</th>
                             <th id="encabezadotabla"style="width: 30%">Decanato</th>
 							<th id="encabezadotabla" style="width: 30%">Departamento</th>
-							<th id="encabezadotabla">Opcion</th>
+							<th id="encabezadotabla">Opción</th>
 							</tr>
 						</thead>
 						<tbody style="background-color: #f3f5f6">
 							<tr>
-                                <td>Reparacion</td>
+                                <td>Reparación</td>
                                 <td>04/07/2000</td>
-								<td>Decanato de Ciencias y Tecnologia</td>
-								<td>Estudios Basicos</td>
+								<td>Decanato de Ciencias y Tecnología</td>
+								<td>Estudios Básicos</td>
 								<td>
 								<div class="item">
 									<div class="ui circular button" id="verdetalles1" style="width: 130px"> <A style="color: #1a237e; ">Ver Detalles</A>
@@ -93,32 +92,28 @@
 								</td>
 							</tr>
 							<tr>
-                                <td>Reparacion</td>
+                                <td>Reparación</td>
                                 <td>04/07/1990</td>
-								<td>Decanato de Ingenieria Civil</td>
-								<td>Departamento de Matematica</td>
+								<td>Decanato de Ingeniería Civil</td>
+								<td>Departamento de Matemática</td>
 								<td>
 								<div class="item">
 									<div class="ui circular button" style="width: 130px"> <A style="color: #1a237e; ">Ver Detalles</A>
                                     </div>
 								</div>
 							<tr>
-                                <td>Desincorporacion</td>
+                                <td>Desincorporación</td>
                                 <td>04/07/1990</td>
 								<td>Decanato de Humanidades y Artes</td>
-								<td>Departamento de Artes Plasticas</td>
+								<td>Departamento de Artes Plásticas</td>
 								<td>
 								<div class="item">
 									<div class="ui circular button" style="width: 130px"> <A style="color: #1a237e; ">Ver Detalles</A>
-                                    </div>
-								</div>	
+                                    </div> </div>	
 								</td>
 							</tr>
 						</tbody>
-					</div>
-				</div>
-			</div>
-		</div>
+					</div> </div> </div> </div>
 		<script>
 			// Funciones del consultar 
             //Abrir el modal de consultar
@@ -127,7 +122,6 @@
             $('#formdetalles').modal('show');
             });
             });
-
 			// Funciones del consultar 
                           //Abrir el modal de consultar
 			$(document).ready(function(){
@@ -135,7 +129,6 @@
             $('#aceptarsol').modal('show');
             });
             });
-
 			// Funciones del consultar 
             //Abrir el modal de consultar
 			$(document).ready(function(){
@@ -143,7 +136,6 @@
             $('#formdetalles').modal('show');
             });
             });
-
 			// Funciones del consultar 
             //Abrir el modal de consultar
 			$(document).ready(function(){
@@ -156,6 +148,17 @@
 			$(document).ready(function(){
             $('#cancelar2').click(function(){
             $('#formdetalles').modal('show');
+            });
+            });
+			//Operacion Exitosa
+			$(document).ready(function(){
+            $('#aceptar1').click(function(){
+            $('#exito').modal('show');
+            });
+            });
+			$(document).ready(function(){
+            $('#aceptar2').click(function(){
+            $('#exito').modal('show');
             });
             });
 		</script>
@@ -174,54 +177,49 @@
 						<div class="two fields">
 						<div class="field">
 							<label style="color: #ffffff">Equipo</label>
-							<input type="text" placeholder="Equipo" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
+							<input type="text" placeholder="equipo" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
 						</div>
 						<div class="field">
-							<label style="color: #ffffff">Fecha de Emision</label>
-							<input type="text" placeholder="Fecha de Emision" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
+							<label style="color: #ffffff">Fecha de emisión</label>
+							<input type="text" placeholder="fecha de emisión" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
 						</div>
 						</div>
 						<div class="two fields">
 						<div class="field">
-							<label style="color: #ffffff">Estatus del Equipo</label>
-							<input type="text" placeholder="Estatus del Equipo" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
+							<label style="color: #ffffff">Estatus del equipo</label>
+							<input type="text" placeholder="estatus del equipo" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
 						</div>
 						<div class="field">
 							<label style="color: #ffffff">Decanato</label>
-							<input type="text" placeholder="Decanato" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
+							<input type="text" placeholder="decanato" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
 						</div>
 						</div>
 						<div class="two fields">
 						<div class="field">
 							<label style="color: #ffffff">Departamento</label>
-							<input type="text" placeholder="Departamento" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
+							<input type="text" placeholder="departamento" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
 						</div>
 						<div class="field">
 							<label style="color: #ffffff">Emisor</label>
-							<input type="text" placeholder="Emisor" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
+							<input type="text" placeholder="emisor" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
 						</div>
 						</div>
 						<div class="field">
 							<label style="color: #ffffff">Motivo</label>
-							<input type="text" placeholder="Motivo" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff; height: 150px;" disabled>
+							<input type="text" placeholder="motivo" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;background-color: #ffffff; height: 150px;" disabled>
 						</div>
 						</div>
 						<div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
 						<div class="ui center aligned fluid container" style=" margin-top: 5%" >
-						  <div class="ui cancel  circular button" style="width: 130px ; color: #1a237e"><i class="left chevron icon"></i>Atras</div>
-						  <div class="ui circular button"style="width: 130px; color: #1a237e" id="aceptar"> Aceptar</div>
-						  <div class="ui circular button"style="width: 130px; color: #1a237e" id="rechazar"> Rechazar</div> 
-						</div> 
-						</div>
-					</div>
-				</div>
-				</div>
-				</div>
+						  <div class="ui cancel  circular button" style="width: 130px ; color: #1a237e"><i class="left chevron icon"></i>Atrás</div>
+						  <div class="ui circular button"style="width: 130px; color: #1a237e" id="aceptar">Aceptar</div>
+						  <div class="ui circular button"style="width: 130px; color: #1a237e" id="rechazar">Rechazar</div> 
+						</div>	</div>	</div> </div> </div> </div>
 
 				 <!-- Mensajes''<> -->
 				 <!-- Mensaje de confirmacion de solicitud ''<> -->
 				 <div class="ui mini modal" id="aceptarsol"  >
-				 <div class="content" style="background-color: #1a237e">
+				 <div class="content" style="background-color: green">
 					<p style="color: #ffff">¿Está seguro que desea aceptar la solicitud?</p>
 				</div>
 				<div class="actions">
@@ -229,16 +227,14 @@
 						<i class="remove icon"></i>
 						Cancelar
 					</div>
-					<div class="ui green ok inverted button">
+					<div class="ui green ok inverted button" id="aceptar1">
 						<i class="checkmark icon"></i>
 						Aceptar
-					</div>
-				</div>
-				</div>
+					</div> </div> </div>
 
 				<!-- Mensaje de confirmacion de solicitud ''<> -->
 				<div class="ui mini modal" id="rechazarsol"  >
-				<div class="content" style="background-color: #1a237e">
+				<div class="content" style="background-color: red">
 					<p style="color: #ffff">¿Está seguro que desea rechazar la solicitud?</p>
 				</div>
 				<div class="actions">
@@ -246,12 +242,25 @@
 						<i class="remove icon"></i>
 						Cancelar
 						</div>
-					<div class="ui green ok inverted button">
+					<div class="ui green ok inverted button" id="aceptar2" >
 						<i class="checkmark icon"></i>
 						Aceptar
 					</div> 
 				</div> 
 			</div>
+			<!-- Mensaje de transaccion exitosa ''<> -->
+      
+			<div class="ui mini modal" id="exito"  >
+					<div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+					  <p style="color: #ffff">Operacion realizada con exito</p>
+					</div>
+					<div class="actions">
+					  <div class="ui green ok inverted button" >
+					  <i class="checkmark icon"></i>
+					  Aceptar
+					  </div>
+					</div>
+					</div>
 				
     </body>
 </html>

@@ -12,13 +12,15 @@ import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
+import javax.jws.WebService;
 
 /**
  *
  * @author Scorpion
  */
 @Stateless
-public class MarcaServiceImpl implements MarcaService{
+@WebService(endpointInterface = "services.MarcaServiceWS")
+public class MarcaServiceImpl implements MarcaService, MarcaServiceWS{
     
     @Resource
     private SessionContext contexto;

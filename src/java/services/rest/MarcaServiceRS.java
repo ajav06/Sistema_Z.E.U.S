@@ -27,6 +27,8 @@ import services.MarcaService;
  * @author Scorpion
  */
 @Path("/marcas")
+@Produces(value = {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+@Consumes(value = {MediaType.APPLICATION_JSON})
 @Stateless
 public class MarcaServiceRS {
     
@@ -34,21 +36,23 @@ public class MarcaServiceRS {
     private MarcaService marcaService;
     
     @GET
-    @Produces(value={MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public List<Marca> listarMarcas(){
         return marcaService.listarMarcas();
     }
     
     @GET
-    @Produces(value={MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Path("{id}") //hace referencia a /marcas/{id}
     public Marca buscarMarcaPorCodigo(@PathParam("id") int id) {
         return marcaService.buscarMarcaPorCodigo(new Marca(id));
     }
     
+    @GET
+    @Path("nombre/{nom}") //hace referencia a /marcas/{id}
+    public Marca buscarMarcaPorNombre(@PathParam("nom") String nom) {
+        return marcaService.buscarMarcaPorNombre(new Marca(nom));
+    }
+    
     @POST
-    @Produces(value={MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    @Consumes(value={MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Response registrarMarca(Marca marca){
         try {
             marcaService.registrarMarca(marca);
@@ -59,8 +63,6 @@ public class MarcaServiceRS {
     }
     
     @PUT
-    @Produces(value={MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    @Consumes(value={MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Path("{id}")
     public Response actualizarMarca(@PathParam("id") int id, Marca marcaActualizada){
         try{

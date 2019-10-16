@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Scorpion/OneDrive/Documentos/Java%20EE/sistema_zeus/src/java/services/rest/MarcaServiceRS.java</file>
-            <file>file:/C:/Users/Scorpion/OneDrive/Documentos/Java%20EE/sistema_zeus/web/template/base.xhtml</file>
-            <file>file:/C:/Users/Scorpion/OneDrive/Documentos/Java%20EE/sistema_zeus/src/java/services/rest/EquipoServiceRS.java</file>
-            <file>file:/C:/Users/Scorpion/OneDrive/Documentos/Java%20EE/sistema_zeus/web/index.xhtml</file>
-            <file>file:/C:/Users/Scorpion/OneDrive/Documentos/Java%20EE/sistema_zeus/src/java/domain/Equipo.java</file>
-            <file>file:/C:/Users/Scorpion/OneDrive/Documentos/Java%20EE/sistema_zeus/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Scorpion/OneDrive/Documentos/Java%20EE/Web/sistema_zeus/web/resources/js/default.js</file>
+            <file>file:/C:/Users/Scorpion/OneDrive/Documentos/Java%20EE/Web/sistema_zeus/src/java/services/rest/EquipoServiceRS.java</file>
+            <file>file:/C:/Users/Scorpion/OneDrive/Documentos/Java%20EE/Web/sistema_zeus/web/resources/js/peticiones.js</file>
+            <file>file:/C:/Users/Scorpion/OneDrive/Documentos/Java%20EE/Web/sistema_zeus/src/java/domain/Equipo.java</file>
+            <file>file:/C:/Users/Scorpion/OneDrive/Documentos/Java%20EE/Web/sistema_zeus/web/equipos/index.xhtml</file>
         </group>
     </open-files>
 </project-private>
