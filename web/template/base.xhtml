@@ -21,10 +21,12 @@
         <div id="top" class="top">
             <ui:insert name="top">
                 <div class="ui large segment" id="top-bar">
-                    <div class="ui right aligned fluid container">
+                    <h:graphicImage library="images" name="este.png" id="top-logo" />
+                    
+                    <div class="ui right aligned fluid container" id="container-top">
                         <h:form>
-                            <div class="ui simple dropdown item" id="top-bar-dropdown">
-                                <i class="dropdown icon"></i>
+                            <div class="ui simple dropdown item" id="top-bar-dropdown" >
+                                <i class="dropdown icon" style="padding-right: 4px"></i> ALBERT ACEVEDO
                                 <div class="menu">
                                     <div class="item">Mi información</div>
                                     <div class="item">Notificaciones</div>
@@ -52,13 +54,19 @@
         <div class="ui grid" id="base-content">
             <ui:insert name="left">
                 <div class="four wide column">
-                    <div class="ui inverted vertical menu" id="left-menu"
-                        style="">
+                    <div class="ui inverted vertical menu" id="left-menu">
+                        
                         <a class="item" id="item" href="/sistema_zeus/">Reportes</a>
-                        <a class="item" id="item" href="../Usuarios/ListaUsuarios.html">Gestionar Usuarios</a>
-                        <a class="item" id="item" href="../Decanatos/ListaDecanatos.html">Gestionar Decanatos</a>
-                        <a class="item" id="item" href="/sistema_zeus/equipos/">Gestionar Equipos</a>
-                        <a class="item" id="item">Estadisticas</a>
+                        <a class="item" id="item" href="../Usuarios/ListaUsuarios.html">Usuarios</a>
+                        <a class="item" id="item" href="../Departamentos/ListadoDepartamentos.html">Departamentos</a>
+                        <a class="item" id="item" href="../Decanatos/ListaDecanatos.html">Decanatos</a>
+                        <a class="item" id="item" href="/sistema_zeus/equipos/">Equipos</a>
+                        <a class="item" id="item" href="/sistema_zeus/equiposDpto">Equipos en Departamento</a>
+                        <a class="item" id="item" href="../EstadoEquipos/EstadoEquipos.html">Estados de Equipos</a>
+                        <a class="item" id="item" href="../Solicitudes/Solicitudes.html">Solicitudes</a>
+                        <a class="item" id="item" href="../Solicitudes/SolicitudesReparacion.html">Solicitudes de Reparacion</a>
+                        <a class="item" id="item" href="../Solicitudes/SolicitudesDesincorporacion.html">Solicitudes de Desincorporacion</a>
+                        
                     </div>
                 </div>
             </ui:insert>

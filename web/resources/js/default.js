@@ -7,7 +7,6 @@ var equipoSeleccionado;
 
 $(document).ready(function() {
     $('#listas').DataTable({
-        "info":     false,
         "ordering": false,
         "pagingType": "simple_numbers",
         "pageLength": 4,
