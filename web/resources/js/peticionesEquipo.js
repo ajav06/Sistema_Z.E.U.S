@@ -6,6 +6,39 @@
 
 var marcaSeleccionada = null;
 
+function buscarMarca(tipo){
+    if(tipo==1){
+        var nom = $('select[name=codigoMarcaEI] option:selected').text();
+        console.log(nom);
+        if (nom != "Seleccione..."){
+            $.ajax({
+                url: '/sistema_zeus/webservice/marcas/nombre/' + nom,
+                type: 'GET',
+                dataType: 'JSON',
+                success: function (data, textStatus, jqXHR) {
+                    console.log(data);
+                    marcaSeleccionada = data;
+                }
+            });
+        }
+    }else{
+        var nom = $('select[name=codigoMarca] option:selected').text();
+        console.log(nom);
+        if (nom != "Seleccione..."){
+            $.ajax({
+                url: '/sistema_zeus/webservice/marcas/nombre/' + nom,
+                type: 'GET',
+                dataType: 'JSON',
+                success: function (data, textStatus, jqXHR) {
+                    console.log(data);
+                    marcaSeleccionada = data;
+                }
+            });
+        }
+    }
+    
+}
+
 function buscarSelectMarca(id)
 {
 	// creamos un variable que hace referencia al select
@@ -67,7 +100,7 @@ function actualizarEquipo(){
     
     $.ajax({
         type: 'PUT',
-        url: '/sistema_zeus/webservice/equipos/' + id,
+        url: '/sistema_zeus/webservice/equipos/'+id,
         data: JSON.stringify({
             "codigo" : id,
             "nombre": $('input[id=nombre]').val(),
@@ -93,18 +126,32 @@ function actualizarEquipo(){
     });
 }
 
-function buscarMarca(){
-    var nom = $('select[name=codigoMarca] option:selected').text();
-    console.log(nom);
-    if (nom != "Seleccione..."){
-        $.ajax({
-            url: '/sistema_zeus/webservice/marcas/nombre/' + nom,
-            type: 'GET',
-            dataType: 'JSON',
-            success: function (data, textStatus, jqXHR) {
-                console.log(data);
-                marcaSeleccionada = data;
+function incluirEquipo(){
+    
+    $.ajax({
+        type: 'POST',
+        url: '/sistema_zeus/webservice/equipos/',
+        data: JSON.stringify({
+            "codigo" : null,
+            "nombre": $('input[id=nombreEI]').val(),
+            "descripcion" : $('textArea[id=descripcionEI]').val(),
+            "estatus": "a",
+            "codigoMarca":{
+                "codigo": marcaSeleccionada.codigo,
+                "nombre": marcaSeleccionada.nombre,
+                "estatus": marcaSeleccionada.estatus
             }
-        });
-    }
+        }),
+        headers: { 
+            'Accept': 'application/json',
+            'Content-Type': 'application/json' 
+        },
+        success: function (data) {
+            console.log("Actualizado: "+data);
+            location.reload();
+        },
+        error: function() {
+            console.log("No se ha podido obtener la información");
+        }
+    });
 }

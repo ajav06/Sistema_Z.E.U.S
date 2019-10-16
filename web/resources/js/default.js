@@ -5,31 +5,38 @@
  */
 var equipoSeleccionado;
 
-function actualizar(){
-    var id = $('input[name="codigo"]').val();
-    var Equipo = {
-            'codigo': document.getElementById("codigo").value,
-            'nombre': document.getElementById("nombre").value,
-            'descripcion': document.getElementById("descripcion").value,
-            'codigoMarca': document.getElementsByName('codigoMarca')[0].option
-        };
-    equipoSeleccionado.getElementsByTagName("codigo")[0].firstChild.nodeValue = Equipo.codigo;
-    equipoSeleccionado.getElementsByTagName("nombre")[0].firstChild.nodeValue = Equipo.nombre;
-    equipoSeleccionado.getElementsByTagName("descripcion")[0].firstChild.nodeValue = Equipo.descripcion;
-    hola = equipoSeleccionado;
-    console.log(hola);
-    $.ajax({
-        URL : 'sistema_zeus/webservice/equipos/'+id,
-        type: 'PUT',
-        date: equipoSeleccionado,
-        success: function(date) {
-            alert("success?");
-        },
-        error: function (xhr, textStatus, errorThrown) {  
-            console.log('Error in Operation');  
-        } 
+$(document).ready(function() {
+    $('#listas').DataTable({
+        "info":     false,
+        "ordering": false,
+        "pagingType": "simple_numbers",
+        "pageLength": 4,
+        "language": {
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Último",
+                "sNext":     '<i class="right chevron icon"></i>',
+                "sPrevious": '<i class="left chevron icon"></i>'
+            },
+            "oAria": {
+                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        }
     });
-}
+} );
 
 
 // Funciones del consultar 
@@ -68,12 +75,6 @@ function aceptarInclusion(){
 //Abrir el modal de Eliminar
 function eliminar(){
     $('#txteliminar').modal('show');
-}
-
-//Cerrar el modal de Eliminar y redirigirse al modal de consultar
-function cancelar(modal){
-    console.log(modal);
-    $('#'+modal).modal('hide');
 }
 
 //Modal para solicitar desincorporar

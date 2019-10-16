@@ -13,6 +13,7 @@
         </ui:insert>
         
         <h:outputStylesheet library="css" name="default.css" />
+        <h:outputStylesheet library="css" name="datatables.min.css" />
     </h:head>
 
     <h:body>
@@ -53,10 +54,10 @@
                 <div class="four wide column">
                     <div class="ui inverted vertical menu" id="left-menu"
                         style="">
-                        <a class="item" id="item" href="../index.xhtml">Reportes</a>
+                        <a class="item" id="item" href="/sistema_zeus/">Reportes</a>
                         <a class="item" id="item" href="../Usuarios/ListaUsuarios.html">Gestionar Usuarios</a>
                         <a class="item" id="item" href="../Decanatos/ListaDecanatos.html">Gestionar Decanatos</a>
-                        <a class="item" id="item" href="./equipos/lista.xhtml">Gestionar Equipos</a>
+                        <a class="item" id="item" href="/sistema_zeus/equipos/">Gestionar Equipos</a>
                         <a class="item" id="item">Estadisticas</a>
                     </div>
                 </div>
@@ -71,6 +72,7 @@
     
     <h:outputScript library="js" name="jquery-3.1.1.min.js" />
     <h:outputScript library="semantic" name="semantic.min.js" />
+    <h:outputScript library="js" name="datatables.min.js" />
     <h:outputScript library="js" name="default.js" />
-    <h:outputScript library="js" name="peticiones.js" />
+    <h:outputScript library="js" name="peticionesEquipo.js" />
 </html>

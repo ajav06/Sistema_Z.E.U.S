@@ -86,11 +86,6 @@
     border: 1px solid #1a237e;
 }
 
-#mas-equipos {
-    width: 130px; 
-    margin-left: 60px;
-}
-
 .visible.content {
     color: #1a237e !important;
 }
@@ -101,7 +96,7 @@
 
 .circular.button {
     width: 130px;
-    color: #1a237e;
+    color: #1a237e !important;
 }
 
 .circular.button:hover {
@@ -110,21 +105,40 @@
 }
 
 /*
-*   Tabla
+*   TABLA
 */
 .table {
     border: 0px solid #1a237e;
 }
 
-#encabezado-tabla {
-    background-color: #1a237e;
-    color: #ffff;
+.ui.stackable.grid > .row{
+    margin-top: 1%;
+}
+
+.dataTables_length > label{
+    color: #1a237e !important;
+}
+
+#listas_filter > label {
+    color: #1a237e !important;
+}
+
+#listas_info {
+    color: #1a237e !important;
+}
+
+.pagination > a{
+    color: #1a237e !important;
 }
 
 .encabezado-tabla {
     background-color: #1a237e !important;
     color: #ffff !important;
     width: 33.33% !important;
+}
+
+.ui.centered.grid{
+    margin: .5%;
 }
 
 /*
@@ -138,6 +152,10 @@
 
 .fondo-modal{
     background-image: url(../resources/images/adwebsys-fondo.jpg) !important;
+}
+
+.fondo-modal > p{
+    color: #ffff !important;
 }
 
 .column-equipo {
@@ -167,7 +185,7 @@
 }
 
 /*
-*   Formulario
+*   FORMULARIO
 */
 
 .form-1{
@@ -193,4 +211,9 @@ input {
 textarea {
     border-block-color: #1a237e !important;
     border-radius: 24px 24px 24px 24px !important;
+}
+
+.form-1 > .actions{
+    margin-block-end: 20px; 
+    margin-block-start: 5%;
 }

@@ -18,47 +18,40 @@
                 <div class="ui segment">
                     
                     <div class="ui category search">
-                        <div class="ui icon input">
-                            <input class="prompt" 
-                                   type="text" 
-                                   placeholder="Ingresa el nombre del equipo"
-                                   style="width: 500px;" />
-                            <i class="search icon"></i>
-                        </div>
+                                                
+                        <div class="ui centered grid">
+                            <div class="ui animated circular button" 
+                                 tabindex="0" 
+                                 pt:aria-label="Equipos"
+                                 actionListener="#{equipoBean.reiniciarEquipoSeleccionado()}"
+                                 onclick="incluir()">
 
-                        <div class="results"></div>
-                        
-                        <div class="ui animated circular button" 
-                             tabindex="0" 
-                             pt:aria-label="Equipos"
-                             id="mas-equipos"
-                             actionListener="#{equipoBean.reiniciarEquipoSeleccionado()}"
-                             onclick="incluir()">
+                                <div class="visible content">
+                                    <i class="ui plus icon"></i> 
+                                    Equipos
+                                </div>
 
-                            <div class="visible content">
-                                <i class="ui plus icon"></i> 
-                                Equipos
+                                <div class="hidden content">
+                                    <i class="ui plus icon"></i> 
+                                    Incluir
+                                </div>
                             </div>
 
-                            <div class="hidden content">
-                                <i class="ui plus icon"></i> 
-                                Incluir
+                            <div class="ui animated circular button" 
+                                 tabindex="0" 
+                                 aria-label="Equipos">
+                                <a class="visible content" href="./../index.xhtml"> 
+                                    Marcas
+                                </a>
+                                <a class="hidden content" href="./../index.xhtml"> 
+                                    Consultar 
+                                </a>
                             </div>
                         </div>
-
-                        <div class="ui animated circular button" 
-                             tabindex="0" 
-                             aria-label="Equipos">
-                            <a class="visible content" href="./../index.xhtml"> 
-                                Marcas
-                            </a>
-                            <a class="hidden content" href="./../index.xhtml"> 
-                                Consultar 
-                            </a>
-                        </div>
                         
-                        <h:form>
+                        
                         <h:dataTable class="ui compact celled definition table"
+                                     id="listas"
                                      var="equipo"
                                      value="#{equipoBean.equipos}"
                                      headerClass="encabezado-tabla">
@@ -81,9 +74,11 @@
                                 <f:facet name="header">Opciones</f:facet>
                                 <div class="item">
                                     <div class="right floated content">
-                                        <div class="ui circular button"
-                                             onclick="consultarEquipo(#{equipo.codigo})">
-                                            Ver detalles
+                                        <div class="ui animated circular button" tabindex="0"
+                                             onclick="consultarEquipo(#{equipo.codigo})"
+                                             id="reparar">
+                                            <div class="visible content">Consultar</div>
+                                            <div class="hidden content">Ver detalles</div>
                                         </div>
                                         <div class="ui animated circular button" tabindex="0"
                                              onclick="reparar()"
@@ -101,7 +96,6 @@
                                 </div>
                             </h:column>
                         </h:dataTable>
-                        </h:form>
                     </div>
 
                     <!-- Modal de Ver Detalles''<> -->
@@ -143,33 +137,34 @@
                                                 <div class="field">
                                                     <label>Descripción</label>
                                                     <textarea pt:type="text" 
-                                                                     pt:placeholder="Descripción"
-                                                                     name="descripcion" 
-                                                                     disabled="true"/>
+                                                            pt:placeholder="Descripción"
+                                                            name="descripcion" 
+                                                            disabled="true"/>
 
-                                                </div>
-
-                                                <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
-                                                    <div class="ui center aligned fluid container" style=" margin-top: 5%">
-                                                        <div class="ui cancel  circular button">
-                                                            <i class="left chevron icon"></i>
-                                                            Atrás
-                                                        </div>
-                                                        
-                                                        <div class="ui circular button"
-                                                             onclick="modificar()"> 
-                                                            Modificar
-                                                        </div>
-
-                                                        <div class="ui circular button"
-                                                             onclick="eliminar()"> 
-                                                            Eliminar
-                                                        </div>
-                                                    </div>
                                                 </div>
 
                                             </div>
                                         </h:form>
+                                        
+                                        <div class="actions">
+                                            <div class="ui center aligned fluid container" style=" margin-top: 5%">
+                                                <div class="ui cancel  circular button">
+                                                    <i class="left chevron icon"></i>
+                                                    Atrás
+                                                </div>
+
+                                                <div class="ui circular button"
+                                                     onclick="modificar()"> 
+                                                    Modificar
+                                                </div>
+
+                                                <div class="ui circular button"
+                                                     onclick="eliminar()"> 
+                                                    Eliminar
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -190,7 +185,7 @@
                                     </div>
                                                               
                                     <div class="ui form-1">
-                                        <h:form pt:action="http://localhost:9090/sistema_zeus/webservice/equipos" pt:method="PUT">
+                                        <h:form>
                                             <input type="number" 
                                                 placeholder="Nombre del equipo"
                                                 id="codigo"
@@ -229,34 +224,35 @@
                                                 <div class="field">
                                                     <label>Descripción</label>
                                                     <textarea type="text"
-                                                                     id="descripcion"
-                                                                     placeholder="Descripción"
-                                                                     name="descripcion"/>
+                                                            id="descripcion"
+                                                            placeholder="Descripción"
+                                                            name="descripcion"/>
                                                 </div>
                                                 
-                                                <!-- Mensaje de confirmacion de modificacion ''<> -->
-                                                <div class="ui mini modal" id="modificacion">
-                                                    <div class="content fondo-modal">
-                                                        <p style="color: #ffff">¿Está seguro que desea guardar los cambios?</p>
+                                            </div>
+                                            
+                                            <!-- Mensaje de confirmacion de modificacion ''<> -->
+                                            <div class="ui mini modal" id="modificacion">
+                                                <div class="content fondo-modal">
+                                                    <p style="color: #ffff">¿Está seguro que desea guardar los cambios?</p>
+                                                </div>
+                                                <div class="actions">
+                                                    <div class="ui red inverted button cancel">
+                                                        <i class="remove icon"></i>
+                                                        Cancelar
                                                     </div>
-                                                    <div class="actions">
-                                                        <div class="ui red inverted button" 
-                                                             onclick="$('#modificacion').modal('hide');">
-                                                            <i class="remove icon"></i>
-                                                            Cancelar
-                                                        </div>
-                                                        
-                                                        <div class="ui green ok inverted button" 
-                                                             onclick="actualizarEquipo()">
-                                                            <i class="checkmark icon"></i>
-                                                            Aceptar
-                                                        </div>
+
+                                                    <div class="ui green ok inverted button" 
+                                                         onclick="actualizarEquipo()">
+                                                        <i class="checkmark icon"></i>
+                                                        Aceptar
                                                     </div>
                                                 </div>
                                             </div>
+                                            
                                         </h:form>
                                         
-                                        <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
+                                        <div class="actions">
                                             <div class="ui center aligned fluid container" style=" margin-top: 5%">
                                                 <button class="ui cancel circular icon button"
                                                         onclick="atras()">
@@ -264,8 +260,8 @@
                                                     Atrás 
                                                 </button>
                                                 <button class="ui circular button"
-                                                        onclick="aceptarModificacion();
-                                                                 buscarMarca()">
+                                                        onclick="buscarMarca(2);
+                                                                aceptarModificacion()">
                                                     <i class='save icon'></i>
                                                     Guardar
                                                 </button>
@@ -297,22 +293,25 @@
                                                 <div class="two fields">
                                                     <div class="field">
                                                         <label>Nombre</label>
-                                                        <h:inputText pt:type="text"
-                                                                     pt:placeholder="Nombre del equipo"
-                                                                     required="true"
-                                                                     requiredMessage="Ingrese el Nombre"/>
+                                                        <input type="text"
+                                                                     placeholder="Nombre del equipo"
+                                                                     id="nombreEI"
+                                                                     name="nombre" />
                                                     </div>
 
                                                     <div class="field">
                                                         <label>Marca</label>
-                                                        <h:selectOneMenu
+                                                        <h:selectOneMenu value="#{equipoBean.equipoSeleccionado.codigoMarca}" 
                                                              class="ui fluid dropdown"
+                                                             pt:name="codigoMarcaEI"
+                                                             id="codigoMarcaEI"
                                                              converter="omnifaces.SelectItemsIndexConverter"
+                                                             onchange="buscarMarca()"
                                                              required="true"
                                                              requiredMessage="Selecciona una Marca">
                                                             <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
-                                                            <f:selectItems value="#{marcaBean.marcas}" 
-                                                                           var="marca" itemValue="#{marca}" 
+                                                            <f:selectItems value="#{marcaBean.marcas}" var="marca" 
+                                                                           itemValue="#{marca.codigo}"
                                                                            itemLabel="#{marca.nombre}" />
                                                         </h:selectOneMenu>
                                                     </div>
@@ -321,44 +320,44 @@
 
                                                 <div class="field">
                                                     <label>Descripción</label>
-                                                    <h:inputTextarea pt:type="text" 
-                                                                     pt:placeholder="Descripción"
-                                                                     required="true"
-                                                                     requiredMessage="Ingrese la Descripci&oacute;n"/>
+                                                    <textarea type="text"
+                                                            id="descripcionEI"
+                                                            placeholder="Descripción"
+                                                            name="descripcion"/>
                                                 </div>
+                                                
                                             </div>
                                             
                                             <!-- Mensaje de confirmacion de inclusion ''<> -->
                                             <div class="ui mini modal" id="inclusion">
                                                 <div class="content fondo-modal">
-                                                    <p style="color: #ffff">¿Está seguro que desea incluir el equipo?</p>
+                                                    <p>¿Está seguro que desea incluir el equipo?</p>
                                                 </div>
                                                 <div class="actions">
-                                                    <div class="ui red inverted button"
-                                                         actionListener="#{equipoBean.vaciarEquipoSeleccionado()}"
-                                                         onclick="$('#inclusion').modal('hide');
-                                                                  imprimir('#{equipoBean.equipoSeleccionado}')">
+                                                    <div class="ui red inverted button cancel">
                                                         <i class="remove icon"></i>
                                                         Cancelar
                                                     </div>
-
-                                                    <h:commandLink class="ui green ok inverted button">
+                                                    
+                                                    <div class="ui green ok inverted button"
+                                                         onclick="incluirEquipo()">
                                                         <i class="checkmark icon"></i>
                                                         Aceptar
-                                                    </h:commandLink>
+                                                    </div>
                                                 </div>
                                             </div> 
+                                            
                                         </h:form>
                                         
-                                        <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
+                                        <div class="actions">
                                             <div class="ui center aligned fluid container" style=" margin-top: 5%">
-                                                <button class="ui cancel circular icon button"
-                                                        onclick="atras()">
+                                                <button class="ui cancel circular icon button">
                                                     <i class="left chevron icon"></i>
-                                                    Atrás 
+                                                    Cancelar 
                                                 </button>
                                                 <button class="ui circular button"
-                                                        onclick="aceptarInclusion()">
+                                                        onclick="buscarMarca(1);
+                                                                 aceptarInclusion()">
                                                     <i class="save icon"></i> 
                                                     Guardar 
                                                 </button>
@@ -395,12 +394,34 @@
                                                     <h:inputTextarea pt:type="text" pt:placeholder="Motivo de la reparación"/>
                                                 </div>
                                             </div>
+                                            
+                                            <!-- Mensaje de reparar equipo ''<> -->
+                                            <div class="ui mini modal" id="txtreparar">
+                                                <div class="content fondo-modal">
+                                                    <p>¿Está seguro que desea reparar el equipo?</p>
+                                                </div>
+                                                
+                                                <div class="actions">
+                                                    
+                                                    <div class="ui red inverted button cancel">
+                                                        <i class="remove icon"></i>
+                                                        Cancelar
+                                                    </div>
+                                                    
+                                                    <div class="ui green ok inverted button">
+                                                        <i class="checkmark icon"></i>
+                                                        Aceptar
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            
                                         </h:form>
                                         
-                                        <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
+                                        <div class="actions">
                                             <div class="ui center aligned fluid container" style=" margin-top: 5%">
                                                 <button class="ui cancel circular icon button" id="cancelar">
-                                                    <i class="left chevron icon"></i>
+                                                    <i class="left chevron icon cancel"></i>
                                                     Cancelar 
                                                 </button>
                                                 <button class="ui circular button" 
@@ -419,37 +440,64 @@
 
                     <!-- Modal para solicitar desincorporacion''<> -->
                     <div class="ui basic modal" id="formdesincorporar">
-                        <div class="content" style=" height: 100%;width: 110% ;">
+                        <div class="content">
                             <div class="ui two column very relaxed grid" style="width: 110% ">
-                                <div class="column"
-                                    style="width: 33%;padding-left: 0px !important; padding-right: 0px !important;padding-top: 0px !important; padding-bottom: 0px !important; border-radius: 24px 0px 0px 24px;">
-                                </div>
-                                <div class="column"
-                                    style=" width: 67%;border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
-                                    <div class="ui segment"
-                                        style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
-                                        <div class="ui aligned center dividing header"
-                                            style=" font-size: 30px;color: #1a237e;margin-top: 2%; ">Desincorporar Equipo
+                                <div class="column column-equipo"></div>
+                                
+                                <div class="column column-fondo">
+                                    <div class="ui segment">
+                                        <div class="ui aligned center dividing header">
+                                            Desincorporar Equipo
                                         </div>
                                     </div>
-                                    <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 2%">
-                                        <div class="two fields">
-                                        </div>
-                                        <div class="field">
-                                            <label style="color: #ffffff">Motivo</label>
-                                            <input type="text" placeholder="Motivo de la desincorporación"
-                                                style="height: 200px; border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;" />
-                                        </div>
-                                        <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
+                                    
+                                    <div class="ui form-1">
+                                        <h:form>
+                                            <div class="ui form">
+                                                <div class="two fields">
+                                                </div>
+                                                
+                                                <div class="field">
+                                                    <label>Motivo</label>
+                                                    <textArea type="text" 
+                                                           placeholder="Motivo de la desincorporación" />
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Mensaje de desincorporar equipo ''<> -->
+                                            <div class="ui mini modal" id="txtdesincorporar">
+                                                <div class="content fondo-modal">
+                                                    <p>¿Está seguro que desea desincorporar el equipo?</p>
+                                                </div>
+                                                <div class="actions">
+                                                    <div class="ui red inverted button cancel">
+                                                        <i class="remove icon"></i>
+                                                        Cancelar
+                                                    </div>
+                                                    <div class="ui green ok inverted button">
+                                                        <i class="checkmark icon"></i>
+                                                        Aceptar
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </h:form>
+                                        
+                                        <div class="actions">
                                             <div class="ui center aligned fluid container" style=" margin-top: 5%">
-                                                <button class="ui cancel circular icon button" id="cancelar"
-                                                    style="color: #1a237e; width: 130px;"><i class="left chevron icon"></i>
-                                                    Cancelar </button>
+                                                <button class="ui cancel circular icon button">
+                                                    <i class="left chevron icon"></i>
+                                                    Cancelar 
+                                                </button>
+
                                                 <button class="ui circular button" id="acepto"
-                                                    style="color: #1a237e; width: 130px;"><i class="save icon"></i> Aceptar
+                                                        onclick="aceptarDesincorporacion()">
+                                                    <i class="save icon"></i> 
+                                                    Aceptar
                                                 </button>
                                             </div>
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -458,8 +506,6 @@
 
                     
                     <!-- Mensajes ''<> -->
-                    
-                     
                     <!-- Mensaje de eliminar equipo ''<> -->
                     <div class="ui mini modal" id="txteliminar">
                         <div class="content" >
@@ -467,43 +513,6 @@
                         </div>
                         <div class="actions">
                             <div class="ui red inverted button" id="no">
-                                <i class="remove icon"></i>
-                                Cancelar
-                            </div>
-                            <div class="ui green ok inverted button">
-                                <i class="checkmark icon"></i>
-                                Aceptar
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
-
-                    <!-- Mensaje de reparar equipo ''<> -->
-                    <div class="ui mini modal" id="txtreparar">
-                        <div class="content" style="background-color: #1a237e">
-                            <p style="color: #ffff">¿Está seguro que desea reparar el equipo?</p>
-                        </div>
-                        <div class="actions">
-                            <div class="ui red inverted button"
-                                 onclick="$('#txtreparar').modal('hide');">
-                                <i class="remove icon"></i>
-                                Cancelar
-                            </div>
-                            <div class="ui green ok inverted button">
-                                <i class="checkmark icon"></i>
-                                Aceptar
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Mensaje de desincorporar equipo ''<> -->
-                    <div class="ui mini modal" id="txtdesincorporar">
-                        <div class="content" style="background-color: #1a237e">
-                            <p style="color: #ffff">¿Está seguro que desea desincorporar el equipo?</p>
-                        </div>
-                        <div class="actions">
-                            <div class="ui red inverted button" id="cancelar4">
                                 <i class="remove icon"></i>
                                 Cancelar
                             </div>
