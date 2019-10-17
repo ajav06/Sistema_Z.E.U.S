@@ -91,7 +91,12 @@ function consultarEquipo(id){
             buscarSelectMarca(data.codigoMarca.nombre);
             
             consultar();
-        }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+           alert(xhr.status);
+           alert(xhr.responseText);
+           alert(thrownError);
+       }
     });
 }
 
