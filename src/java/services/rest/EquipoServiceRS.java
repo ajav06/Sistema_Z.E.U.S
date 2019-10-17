@@ -68,11 +68,8 @@ public class EquipoServiceRS {
         try{
             Equipo equipo = equipoService.buscarEquipoPorCodigo(new Equipo(id));
             if(equipo != null){
-                equipo.setCodigoMarca(equipoActualizada.getCodigoMarca());
-                equipo.setNombre(equipoActualizada.getNombre());
-                equipo.setDescripcion(equipoActualizada.getDescripcion());
-                equipoService.actualizarEquipo(equipo);
-                return Response.ok().entity(equipo).build();
+                equipoService.actualizarEquipo(equipoActualizada);
+                return Response.ok().entity(equipoActualizada).build();
             } else{
                 return Response.status(Status.NOT_FOUND).build();
             }

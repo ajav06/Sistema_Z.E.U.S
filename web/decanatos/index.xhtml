@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+    <h:body>
+
+        <ui:composition template="./../template/base.xhtml">
+
+            <ui:define name="head">
+                <title>Decanatos</title>
+            </ui:define>
+
+            <ui:define name="content">
+                <div class="twelve wide stretched column">
+                    <div class="ui segment">
+                        
+                        <div class="ui category search">
+                            
+                            <div class="ui centered grid">
+                                <div class="ui animated circular button" 
+                                     tabindex="0" 
+                                     aria-label="Equipos"
+                                     onclick="incluir()">
+                                    
+                                    <div class="visible content">
+                                        <i class="ui plus icon"></i> 
+                                        Decanatos
+                                    </div>
+                                    
+                                    <div class="hidden content">
+                                        <i class="ui plus icon"></i>
+                                        Registrar
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h:dataTable class="ui compact celled definition table"
+                                         id="listas"
+                                         var="decanato"
+                                         value="#{decanatoBean.decanatos}"
+                                         headerClass="encabezado-tabla">
+                                
+                                <h:column>
+                                    <f:facet name="header">Nombre</f:facet>
+                                    #{decanato.nombre}
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">Siglas</f:facet>
+                                    #{decanato.siglas}
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">Dirección</f:facet>
+                                    #{decanato.direccion}
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">Opciones</f:facet>
+                                    <div class="item">
+                                        <div class="ui centered grid">
+                                            
+                                            <div class="ui circular animated button"
+                                                 aria-label="label"
+                                                 onclick="consultar()">
+                                                <div class="visible content">
+                                                    Consultar
+                                                </div>
+                                                
+                                                <div class="hidden content">
+                                                    Ver
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="ui circular animated button"
+                                                 aria-label="label">
+                                                <div class="visible content">
+                                                    Departamentos
+                                                </div>
+                                                
+                                                <div class="hidden content">
+                                                    Ver
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </h:column>
+                                
+                            </h:dataTable>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>
