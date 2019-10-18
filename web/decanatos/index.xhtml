@@ -111,48 +111,46 @@
                                     </div>
 
                                     <div class="ui form-1">
-                                        <h:form>
-                                            <div class="ui form">
-                                                <div class="two fields">
-                                                    <div class="field">
-                                                            <label>Nombre</label>
-                                                            <input type="text" 
-                                                                   placeholder="nombre"
-                                                                   disabled="true"/>
-                                                    </div>
-
-                                                    <div class="field">
-                                                        <label>Siglas</label>
+                                        <div class="ui form">
+                                            <div class="two fields">
+                                                <div class="field">
+                                                        <label>Nombre</label>
                                                         <input type="text" 
-                                                               placeholder="siglas"
+                                                               placeholder="nombre"
                                                                disabled="true"/>
-                                                    </div>
-                                                </div>
-
-                                                <div class="two fields">
-                                                    <div class="field">
-                                                        <label>Teléfono</label>
-                                                        <input type="text" 
-                                                               placeholder="teléfono"
-                                                               disabled="true"/>
-                                                    </div>
-
-                                                    <div class="field">
-                                                        <label>Correo</label>
-                                                        <input type="email" 
-                                                               placeholder="correo"
-                                                               disabled="true"/>
-                                                    </div>
                                                 </div>
 
                                                 <div class="field">
-                                                    <label>Dirección</label>
-                                                    <textArea type="text" 
-                                                              placeholder="dirección"
-                                                              disabled="true"/>
+                                                    <label>Siglas</label>
+                                                    <input type="text" 
+                                                           placeholder="siglas"
+                                                           disabled="true"/>
                                                 </div>
                                             </div>
-                                        </h:form>
+
+                                            <div class="two fields">
+                                                <div class="field">
+                                                    <label>Teléfono</label>
+                                                    <input type="text" 
+                                                           placeholder="teléfono"
+                                                           disabled="true"/>
+                                                </div>
+
+                                                <div class="field">
+                                                    <label>Correo</label>
+                                                    <input type="email" 
+                                                           placeholder="correo"
+                                                           disabled="true"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Dirección</label>
+                                                <textArea type="text" 
+                                                          placeholder="dirección"
+                                                          disabled="true"/>
+                                            </div>
+                                        </div>
 
                                         <div class="actions">
                                             <div class="ui center aligned fluid container" style=" margin-top: 5%">
@@ -194,19 +192,21 @@
                                 </div>
 
                                 <div class="ui form-1">
-                                    <h:form>
+                                    <form>
                                         <div class="ui form">
                                             <div class="two fields">
                                                 <div class="field">
                                                     <label>Nombre</label>
                                                     <input type="text" 
-                                                           placeholder="Nombre"/>
+                                                           placeholder="Nombre"
+                                                           required="true"/>
                                                 </div>
 
                                                 <div class="field">
                                                     <label>Siglas</label>
                                                     <input type="text" 
-                                                           placeholder="Siglas"/>
+                                                           placeholder="Siglas"
+                                                           required="true"/>
                                                 </div>
                                             </div>
 
@@ -232,25 +232,7 @@
 
                                         </div>
 
-                                        <!-- Mensaje de Confirmacion modificacion ''<> -->
-                                        <div class="ui mini modal" id="modificacion">
-                                            <div class="content fondo-modal">
-                                                <p>¿Está seguro que desea guardar los cambios?</p>
-                                            </div>
-                                            <div class="actions">
-                                                <div class="ui red inverted button cancel" >
-                                                    <i class="remove icon"></i>
-                                                    Cancelar
-                                                </div>
-
-                                                <div class="ui green ok inverted button">
-                                                    <i class="checkmark icon"></i>
-                                                    Aceptar
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </h:form>
+                                    </form>
 
                                     <div class="actions">
                                         <div class="ui center aligned fluid container" style=" margin-top: 5%">
@@ -259,7 +241,7 @@
                                                 Atrás
                                             </button>
 
-                                            <button class="ui circular button"
+                                            <button type="submit" class="ui circular button"
                                                     onclick="aceptarModificacion()">
                                                 <i class="save icon"></i> 
                                                 Modificar
@@ -324,23 +306,6 @@
                                             </div>
                                         </div>
 
-                                        <!-- Mensaje para confirmar incluir decanatos -->
-                                        <div class="ui mini modal" id="inclusion">
-                                            <div class="content fondo-modal">
-                                                    <p>¿Está seguro que desea registrar el decanato?</p>
-                                            </div>
-                                            <div class="actions">
-                                                <div class="ui red inverted button cancel">
-                                                    <i class="remove icon"></i>
-                                                    Cancelar
-                                                </div>
-                                                <div class="ui green ok inverted button">
-                                                    <i class="checkmark icon"></i>
-                                                    Aceptar
-                                                </div>
-                                            </div>
-                                        </div>
-
                                     </h:form>
 
                                     <div class="actions">
@@ -366,6 +331,41 @@
 
 
                 <!-- Mensajes ''<> -->
+                <!-- Mensaje para confirmar incluir decanatos -->
+                <div class="ui mini modal" id="inclusion">
+                    <div class="content fondo-modal">
+                            <p>¿Está seguro que desea registrar el decanato?</p>
+                    </div>
+                    <div class="actions">
+                        <div class="ui red inverted button cancel">
+                            <i class="remove icon"></i>
+                            Cancelar
+                        </div>
+                        <div class="ui green ok inverted button">
+                            <i class="checkmark icon"></i>
+                            Aceptar
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mensaje de Confirmacion modificacion ''<> -->
+                <div class="ui mini modal" id="modificacion">
+                    <div class="content fondo-modal">
+                        <p>¿Está seguro que desea guardar los cambios?</p>
+                    </div>
+                    <div class="actions">
+                        <div class="ui red inverted button cancel" >
+                            <i class="remove icon"></i>
+                            Cancelar
+                        </div>
+
+                        <div class="ui green ok inverted button">
+                            <i class="checkmark icon"></i>
+                            Aceptar
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- Mensaje de Eliminar ''<> -->
                 <div class="ui mini modal" id="txteliminar">
                     <div class="content fondo-modal">

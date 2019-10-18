@@ -218,25 +218,6 @@
 
                                     </div>
 
-                                    <!-- Mensaje de confirmacion de modificacion ''<> -->
-                                    <div class="ui mini modal" id="modificacion">
-                                        <div class="content fondo-modal">
-                                            <p style="color: #ffff">¿Está seguro que desea guardar los cambios?</p>
-                                        </div>
-                                        <div class="actions">
-                                            <div class="ui red inverted button cancel">
-                                                <i class="remove icon"></i>
-                                                Cancelar
-                                            </div>
-
-                                            <div class="ui green ok inverted button" 
-                                                 onclick="actualizarEquipo()">
-                                                <i class="checkmark icon"></i>
-                                                Aceptar
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </h:form>
 
                                 <div class="actions">
@@ -315,25 +296,6 @@
 
                                     </div>
 
-                                    <!-- Mensaje de confirmacion de inclusion ''<> -->
-                                    <div class="ui mini modal" id="inclusion">
-                                        <div class="content fondo-modal">
-                                            <p>¿Está seguro que desea incluir el equipo?</p>
-                                        </div>
-                                        <div class="actions">
-                                            <div class="ui red inverted button cancel">
-                                                <i class="remove icon"></i>
-                                                Cancelar
-                                            </div>
-
-                                            <div class="ui green ok inverted button"
-                                                 onclick="incluirEquipo()">
-                                                <i class="checkmark icon"></i>
-                                                Aceptar
-                                            </div>
-                                        </div>
-                                    </div> 
-
                                 </h:form>
 
                                 <div class="actions">
@@ -358,6 +320,44 @@
             </div>
 
             <!-- Mensajes ''<> -->
+            <!-- Mensaje de confirmacion de inclusion ''<> -->
+            <div class="ui mini modal" id="inclusion">
+                <div class="content fondo-modal">
+                    <p>¿Está seguro que desea incluir el equipo?</p>
+                </div>
+                <div class="actions">
+                    <div class="ui red inverted button cancel">
+                        <i class="remove icon"></i>
+                        Cancelar
+                    </div>
+
+                    <div class="ui green ok inverted button"
+                         onclick="incluirEquipo()">
+                        <i class="checkmark icon"></i>
+                        Aceptar
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mensaje de confirmacion de modificacion ''<> -->
+            <div class="ui mini modal" id="modificacion">
+                <div class="content fondo-modal">
+                    <p>¿Está seguro que desea guardar los cambios?</p>
+                </div>
+                <div class="actions">
+                    <div class="ui red inverted button cancel">
+                        <i class="remove icon"></i>
+                        Cancelar
+                    </div>
+
+                    <div class="ui green ok inverted button" 
+                         onclick="actualizarEquipo()">
+                        <i class="checkmark icon"></i>
+                        Aceptar
+                    </div>
+                </div>
+            </div>
+            
             <!-- Mensaje de eliminar equipo ''<> -->
             <div class="ui mini modal" id="txteliminar">
                 <div class="content fondo-modal" >
@@ -368,7 +368,8 @@
                         <i class="remove icon"></i>
                         Cancelar
                     </div>
-                    <div class="ui green ok inverted button">
+                    <div class="ui green ok inverted button"
+                         onclick="eliminarEquipo()">
                         <i class="checkmark icon"></i>
                         Aceptar
                     </div>

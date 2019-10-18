@@ -37,7 +37,7 @@ public class MarcaServiceRS {
     
     @GET
     public List<Marca> listarMarcas(){
-        return marcaService.listarMarcas();
+        return marcaService.listarMarcasActivas();
     }
     
     @GET

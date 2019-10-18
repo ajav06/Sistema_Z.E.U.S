@@ -15,9 +15,11 @@ function consultarMarca(id, tip){
             if(tip == 1){
                 document.getElementById('codigoM').value = data.codigo;
                 document.getElementById('nombreM').value = data.nombre;
+                modificar();
             } else {
                 document.getElementById('codigoME').value = data.codigo;
                 document.getElementById('nombreME').value = data.nombre;
+                eliminar();
             }
         }
     });

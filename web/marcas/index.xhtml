@@ -55,14 +55,12 @@
                                         <div class="ui centered grid">
                                             
                                             <div class="ui circular button"
-                                                 onclick="modificar();
-                                                          consultarMarca(#{marca.codigo},1)">
+                                                 onclick="consultarMarca(#{marca.codigo},1)">
                                                 Modificar
                                             </div>
                                             
                                             <div class="ui circular button"
-                                                 onclick="eliminar();
-                                                          consultarMarca(#{marca.codigo},2)">
+                                                 onclick="consultarMarca(#{marca.codigo},2)">
                                                 Eliminar
                                             </div>
 
@@ -111,24 +109,7 @@
 
                                         </div>
 
-                                        <!-- Mensaje para confirmar modificar marca ''<> -->
-                                        <div class="ui mini modal" id="modificacion">
-                                            <div class="content fondo-modal">
-                                                <p>¿Está seguro que desea guardar los cambios?</p>
-                                            </div>
-                                            <div class="actions">
-                                                <div class="ui red inverted button cancel">
-                                                    <i class="remove icon"></i>
-                                                    Cancelar
-                                                </div>
-
-                                                <div class="ui green ok inverted button"
-                                                     onclick="actualizarMarca()">
-                                                    <i class="checkmark icon"></i>
-                                                    Aceptar
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
 
                                     </h:form>
 
@@ -180,25 +161,6 @@
                                             </div>
                                         </div>
 
-                                        <!-- Mensaje de confirmacion de inclusion ''<> -->
-                                        <div class="ui mini modal" id="inclusion">
-                                            <div class="content fondo-modal">
-                                                <p>¿Está seguro que desea incluir la marca?</p>
-                                            </div>
-                                            <div class="actions">
-                                                <div class="ui red inverted button cancel">
-                                                    <i class="remove icon"></i>
-                                                    Cancelar
-                                                </div>
-
-                                                <div class="ui green ok inverted button"
-                                                     onclick="incluirMarca()">
-                                                    <i class="checkmark icon"></i>
-                                                    Aceptar
-                                                </div>
-                                            </div>
-                                        </div> 
-
                                     </h:form>
 
                                     <div class="actions">
@@ -224,6 +186,44 @@
                 </div>
 
                 <!-- Mensajes ''<> -->
+                <!-- Mensaje de confirmacion de inclusion ''<> -->
+                <div class="ui mini modal" id="inclusion">
+                    <div class="content fondo-modal">
+                        <p>¿Está seguro que desea incluir la marca?</p>
+                    </div>
+                    <div class="actions">
+                        <div class="ui red inverted button cancel">
+                            <i class="remove icon"></i>
+                            Cancelar
+                        </div>
+
+                        <div class="ui green ok inverted button"
+                             onclick="incluirMarca()">
+                            <i class="checkmark icon"></i>
+                            Aceptar
+                        </div>
+                    </div>
+                </div> 
+                
+                <!-- Mensaje para confirmar modificar marca ''<> -->
+                <div class="ui mini modal" id="modificacion">
+                    <div class="content fondo-modal">
+                        <p>¿Está seguro que desea guardar los cambios?</p>
+                    </div>
+                    <div class="actions">
+                        <div class="ui red inverted button cancel">
+                            <i class="remove icon"></i>
+                            Cancelar
+                        </div>
+
+                        <div class="ui green ok inverted button"
+                             onclick="actualizarMarca()">
+                            <i class="checkmark icon"></i>
+                            Aceptar
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- Mensaje de eliminar marca ''<> -->
                 <div class="ui mini modal" id="txteliminar">
 
