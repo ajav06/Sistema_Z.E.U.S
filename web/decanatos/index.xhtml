@@ -66,7 +66,8 @@
                                             
                                             <div class="ui circular animated button"
                                                  aria-label="label"
-                                                 onclick="consultar()">
+                                                 onclick="consultarDecanato(#{decanato.codigo});
+                                                          consultar()">
                                                 <div class="visible content">
                                                     Consultar
                                                 </div>
@@ -115,15 +116,17 @@
                                             <div class="two fields">
                                                 <div class="field">
                                                         <label>Nombre</label>
-                                                        <input type="text" 
-                                                               placeholder="nombre"
+                                                        <input type="text"
+                                                               name="nombreD"
+                                                               placeholder="Nombre"
                                                                disabled="true"/>
                                                 </div>
 
                                                 <div class="field">
                                                     <label>Siglas</label>
                                                     <input type="text" 
-                                                           placeholder="siglas"
+                                                           name="siglasD"
+                                                           placeholder="Siglas"
                                                            disabled="true"/>
                                                 </div>
                                             </div>
@@ -131,23 +134,26 @@
                                             <div class="two fields">
                                                 <div class="field">
                                                     <label>Teléfono</label>
-                                                    <input type="text" 
-                                                           placeholder="teléfono"
+                                                    <input type="text"
+                                                           name="telefonoD" 
+                                                           placeholder="Teléfono"
                                                            disabled="true"/>
                                                 </div>
 
                                                 <div class="field">
                                                     <label>Correo</label>
-                                                    <input type="email" 
-                                                           placeholder="correo"
+                                                    <input type="text"
+                                                           name="emailD" 
+                                                           placeholder="Correo"
                                                            disabled="true"/>
                                                 </div>
                                             </div>
 
                                             <div class="field">
                                                 <label>Dirección</label>
-                                                <textArea type="text" 
-                                                          placeholder="dirección"
+                                                <textArea type="text"
+                                                          name="direccionD"
+                                                          placeholder="Dirección"
                                                           disabled="true"/>
                                             </div>
                                         </div>
@@ -193,18 +199,27 @@
 
                                 <div class="ui form-1">
                                     <form>
+                                        <input type="text"
+                                                id="codigoD"
+                                                placeholder="Código Decanato"
+                                                style="display: none"/>
+
                                         <div class="ui form">
                                             <div class="two fields">
                                                 <div class="field">
                                                     <label>Nombre</label>
-                                                    <input type="text" 
+                                                    <input type="text"
+                                                           name="nombreD"
+                                                           id="nombreD"
                                                            placeholder="Nombre"
                                                            required="true"/>
                                                 </div>
 
                                                 <div class="field">
                                                     <label>Siglas</label>
-                                                    <input type="text" 
+                                                    <input type="text"
+                                                           name="siglasD"
+                                                           id="siglasD"
                                                            placeholder="Siglas"
                                                            required="true"/>
                                                 </div>
@@ -213,20 +228,26 @@
                                             <div class="two fields">
                                                 <div class="field">
                                                     <label>Teléfono</label>
-                                                    <input type="text" 
+                                                    <input type="text"
+                                                           name="telefonoD"
+                                                           id="telefonoD"
                                                            placeholder="Teléfono"/>
                                                 </div>
 
                                                 <div class="field">
                                                     <label>Correo</label>
-                                                    <input type="email" 
+                                                    <input type="text"
+                                                           name="emailD"
+                                                           id="emailD"
                                                            placeholder="Correo"/>
                                                 </div>
                                             </div>
 
                                             <div class="field">
                                                 <label>Dirección</label>
-                                                <textArea type="text" 
+                                                <textArea type="text"
+                                                          name="direccionD"
+                                                          id="direccionD"
                                                           placeholder="Dirección"/>
                                             </div>
 
@@ -236,12 +257,13 @@
 
                                     <div class="actions">
                                         <div class="ui center aligned fluid container" style=" margin-top: 5%">
-                                            <button class="ui cancel circular icon button">
+                                            <button class="ui cancel circular icon button"
+                                                    onclick="atras()">
                                                 <i class="left chevron icon"></i> 
                                                 Atrás
                                             </button>
 
-                                            <button type="submit" class="ui circular button"
+                                            <button class="ui circular button"
                                                     onclick="aceptarModificacion()">
                                                 <i class="save icon"></i> 
                                                 Modificar
@@ -274,13 +296,15 @@
                                             <div class="two fields">
                                                 <div class="field">
                                                     <label>Nombre</label>
-                                                    <input type="text" 
+                                                    <input type="text"
+                                                           id="nombreDI"
                                                            placeholder="Nombre"/>
                                                 </div>
 
                                                 <div class="field">
                                                     <label>Siglas</label>
-                                                    <input type="text" 
+                                                    <input type="text"
+                                                           id="siglasDI"
                                                            placeholder="Siglas"/>
                                                 </div>
                                             </div>
@@ -288,20 +312,23 @@
                                             <div class="two fields">
                                                 <div class="field">
                                                     <label>Teléfono</label>
-                                                    <input type="text" 
+                                                    <input type="text"
+                                                           id="telefonoDI"
                                                            placeholder="Teléfono" />
                                                 </div>
 
                                                 <div class="field">
                                                     <label>Correo</label>
-                                                    <input type="email" 
+                                                    <input type="text"
+                                                           id="emailDI"
                                                            placeholder="Correo"/>
                                                 </div>
                                             </div>
 
                                             <div class="field">
                                                 <label>Dirección</label>
-                                                <textArea type="text" 
+                                                <textArea type="text"
+                                                          id="direccionDI"
                                                           placeholder="Dirección"/>
                                             </div>
                                         </div>
@@ -341,7 +368,8 @@
                             <i class="remove icon"></i>
                             Cancelar
                         </div>
-                        <div class="ui green ok inverted button">
+                        <div class="ui green ok inverted button"
+                             onclick="incluirDecanato()">
                             <i class="checkmark icon"></i>
                             Aceptar
                         </div>
@@ -359,7 +387,8 @@
                             Cancelar
                         </div>
 
-                        <div class="ui green ok inverted button">
+                        <div class="ui green ok inverted button"
+                             onclick="actualizarDecanato()">
                             <i class="checkmark icon"></i>
                             Aceptar
                         </div>
@@ -376,7 +405,8 @@
                             <i class="remove icon"></i>
                             Cancelar
                         </div>
-                        <div class="ui green ok inverted button">
+                        <div class="ui green ok inverted button"
+                             onclick="eliminarDecanto()">
                             <i class="checkmark icon"></i>
                             Aceptar
                         </div>

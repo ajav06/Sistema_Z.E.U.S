@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+var marcaEliminar = null;
+
 function consultarMarca(id, tip){
     $.ajax({
         url: '/sistema_zeus/webservice/marcas/' + id,
@@ -17,8 +19,7 @@ function consultarMarca(id, tip){
                 document.getElementById('nombreM').value = data.nombre;
                 modificar();
             } else {
-                document.getElementById('codigoME').value = data.codigo;
-                document.getElementById('nombreME').value = data.nombre;
+                marcaEliminar=data;
                 eliminar();
             }
         }
@@ -52,14 +53,14 @@ function actualizarMarca(){
 }
 
 function eliminarMarca(){
-    var id = $('input[id=codigoME]').val();
+    var id = marcaEliminar.codigo;
     
     $.ajax({
         type: 'PUT',
         url: '/sistema_zeus/webservice/marcas/'+id,
         data: JSON.stringify({
             "codigo" : id,
-            "nombre": $('input[id=nombreME]').val(),
+            "nombre": marcaEliminar.nombre,
             "estatus": "i"
         }),
         headers: { 

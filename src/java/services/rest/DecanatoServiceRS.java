@@ -6,6 +6,8 @@
 package services.rest;
 
 import domain.Decanato;
+import services.DecanatoService;
+
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -19,7 +21,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import services.DecanatoService;
+import javax.ws.rs.core.Response.Status;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
@@ -51,7 +55,7 @@ public class DecanatoServiceRS {
             decanatoService.registrarDecanato(decanato);
             return Response.ok().entity(decanato).build();
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+            return Response.status(Status.INTERNAL_SERVER_ERROR).build();
         }
     }
     
@@ -64,10 +68,10 @@ public class DecanatoServiceRS {
                 decanatoService.actualizarDecanato(decanatoActualizado);
                 return Response.ok().entity(decanatoActualizado).build();
             } else{
-                return Response.status(Response.Status.NOT_FOUND).build();
+                return Response.status(Status.NOT_FOUND).build();
             }
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+            return Response.status(Status.INTERNAL_SERVER_ERROR).build();
         }
     }
     

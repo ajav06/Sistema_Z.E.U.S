@@ -75,26 +75,9 @@ function consultarEquipo(id){
         url: '/sistema_zeus/webservice/equipos/' + id,
         type: 'GET',
         dataType: 'JSON',
-        success: function (data) {
-                        
+        success: function (data) {            
             console.log(data);
-                        
-            equipoEliminar = data;
-
-            document.getElementsByName('nombreE')[0].value = data.nombre;
-            document.getElementsByName('nombreE')[1].value = data.nombre;
-
-            document.getElementsByName('descripcionE')[0].value = data.descripcion;
-            document.getElementsByName('descripcionE')[1].value = data.descripcion;
-
-            document.getElementById("codigoE").value = data.codigo;
-
-            document.getElementsByName('marcaE')[0].value = data.codigoMarca.nombre;
-
-            buscarSelectMarca(data.codigoMarca.nombre);
-
-            consultar();
-            
+            llenarCamposEquipo(data);
         },
         error: function (xhr, ajaxOptions, thrownError) {
            /*alert(xhr.status);
@@ -198,4 +181,22 @@ function eliminarEquipo(){
             alert('No se ha podido obtener la información');
         }
     });
+}
+
+function llenarCamposEquipo(data){          
+    equipoEliminar = data;
+
+    document.getElementsByName('nombreE')[0].value = data.nombre;
+    document.getElementsByName('nombreE')[1].value = data.nombre;
+
+    document.getElementsByName('descripcionE')[0].value = data.descripcion;
+    document.getElementsByName('descripcionE')[1].value = data.descripcion;
+
+    document.getElementById("codigoE").value = data.codigo;
+
+    document.getElementsByName('marcaE')[0].value = data.codigoMarca.nombre;
+
+    buscarSelectMarca(data.codigoMarca.nombre);
+
+    consultar();
 }
