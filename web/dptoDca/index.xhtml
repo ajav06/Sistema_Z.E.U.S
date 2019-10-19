@@ -10,7 +10,7 @@
         <ui:composition template="./../template/base.xhtml">
 
             <ui:define name="head">
-                <title>Decanatos</title>
+                <title>Departamentos Del #{decanatoBean.decanatoSeleccionado.siglas}</title>
             </ui:define>
 
             <ui:define name="content">
@@ -22,12 +22,13 @@
                             <div class="ui centered grid">
                                 <div class="ui animated circular button" 
                                      tabindex="0" 
-                                     aria-label="Equipos"
-                                     onclick="incluir()">
+                                     aria-label="Departamentos"
+                                     onclick="incluir()"
+                                     style="width: 16% !important">
                                     
                                     <div class="visible content">
                                         <i class="ui plus icon"></i> 
-                                        Decanatos
+                                        Departamentos
                                     </div>
                                     
                                     <div class="hidden content">
@@ -39,23 +40,18 @@
                             
                             <h:dataTable class="ui compact celled definition table"
                                          id="listas"
-                                         var="decanato"
-                                         value="#{decanatoBean.decanatos}"
+                                         var="departamento"
+                                         value="#{decanatoBean.buscarDecanato(param['id']).departamentoList}"
                                          headerClass="encabezado-tabla">
                                 
                                 <h:column>
-                                    <f:facet name="header">Nombre</f:facet>
-                                    #{decanato.nombre}
+                                    <f:facet name="header">Nombre del Decanato</f:facet>
+                                    #{departamento.codigoDecanato.nombre}
                                 </h:column>
                                 
                                 <h:column>
-                                    <f:facet name="header">Siglas</f:facet>
-                                    #{decanato.siglas}
-                                </h:column>
-                                
-                                <h:column>
-                                    <f:facet name="header">Dirección</f:facet>
-                                    #{decanato.direccion}
+                                    <f:facet name="header">Nombre Departamento</f:facet>
+                                    #{departamento.nombre}
                                 </h:column>
                                 
                                 <h:column>
@@ -65,8 +61,7 @@
                                             
                                             <div class="ui circular animated button"
                                                  aria-label="label"
-                                                 onclick="consultarDecanato(#{decanato.codigo});
-                                                          consultar()">
+                                                 onclick="consultar()">
                                                 <div class="visible content">
                                                     Consultar
                                                 </div>
@@ -77,10 +72,10 @@
                                             </div>
                                             
                                             <a class="ui circular animated button"
-                                                 aria-label="label"
-                                                 href="/sistema_zeus/dptoDca?id=#{decanato.codigo}">
+                                               href="/sistema_zeus/equiposDpto?id=#{departamento.codigo}"
+                                                 aria-label="label">
                                                 <div class="visible content">
-                                                    Departamentos
+                                                    Equipos
                                                 </div>
                                                 
                                                 <div class="hidden content">

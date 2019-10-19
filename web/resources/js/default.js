@@ -102,6 +102,10 @@ function recargarPagina(){
     location.reload();
 }
 
+function imprimir(dato){
+    console.log(dato);
+}
+
 /*
 function mostrarEquipo(id){
     //esta será nuestra petición
