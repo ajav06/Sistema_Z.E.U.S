@@ -56,10 +56,10 @@ function incluirDpto(){
             $('#txtexito').modal('show');
         },
         error: function(xhr, ajaxOptions, thrownError) {
-            alert(xhr.status);
+            /*alert(xhr.status);
             alert(xhr.responseText);
             alert(thrownError);
-            console.log("No se ha podido obtener la información");
+            console.log("No se ha podido obtener la información");*/
             alert('No se ha podido obtener la información');
         }
     });
@@ -150,7 +150,7 @@ function consultarDpto(id){
            /*alert(xhr.status);
            alert(xhr.responseText);
            alert(thrownError);*/
-            alert('No se ha podido obtener la información');
+           alert('No se ha podido obtener la información');
        }
     });
 }

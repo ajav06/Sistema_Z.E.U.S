@@ -96,5 +96,4 @@ public class UsuarioBean{
           Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
 }
