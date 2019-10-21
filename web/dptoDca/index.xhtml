@@ -10,7 +10,7 @@
         <ui:composition template="./../template/base.xhtml">
 
             <ui:define name="head">
-                <title>Departamentos Del #{decanatoBean.decanatoSeleccionado.siglas}</title>
+                <title>Departamentos Del #{decanatoBean.buscarDecanato(param['id']).siglas}</title>
             </ui:define>
 
             <ui:define name="content">
@@ -41,7 +41,7 @@
                             <h:dataTable class="ui compact celled definition table"
                                          id="listas"
                                          var="departamento"
-                                         value="#{decanatoBean.buscarDecanato(param['id']).departamentoList}"
+                                         value="#{departamentoBean.buscarDepartamentosPorDca(param['id'])}"
                                          headerClass="encabezado-tabla">
                                 
                                 <h:column>
@@ -61,7 +61,7 @@
                                             
                                             <div class="ui circular animated button"
                                                  aria-label="label"
-                                                 onclick="consultar()">
+                                                 onclick="consultarDpto(#{departamento.codigo})">
                                                 <div class="visible content">
                                                     Consultar
                                                 </div>
@@ -110,47 +110,30 @@
                                         <div class="ui form">
                                             <div class="two fields">
                                                 <div class="field">
-                                                        <label>Nombre</label>
-                                                        <input type="text"
-                                                               name="nombreD"
-                                                               placeholder="Nombre"
-                                                               disabled="true"/>
+                                                    <label>Nombre del Decanato</label>
+                                                    <input type="text"
+                                                           name="nombreDco"
+                                                           placeholder="Nombre del Decanato"
+                                                           disabled="true"/>
                                                 </div>
 
                                                 <div class="field">
-                                                    <label>Siglas</label>
+                                                    <label>Nombre del Departamento</label>
                                                     <input type="text" 
-                                                           name="siglasD"
-                                                           placeholder="Siglas"
-                                                           disabled="true"/>
-                                                </div>
-                                            </div>
-
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Teléfono</label>
-                                                    <input type="text"
-                                                           name="telefonoD" 
-                                                           placeholder="Teléfono"
-                                                           disabled="true"/>
-                                                </div>
-
-                                                <div class="field">
-                                                    <label>Correo</label>
-                                                    <input type="text"
-                                                           name="emailD" 
-                                                           placeholder="Correo"
+                                                           name="nombreDpto"
+                                                           placeholder="Nombre del Departamento"
                                                            disabled="true"/>
                                                 </div>
                                             </div>
 
                                             <div class="field">
-                                                <label>Dirección</label>
+                                                <label>Descripción</label>
                                                 <textArea type="text"
-                                                          name="direccionD"
-                                                          placeholder="Dirección"
+                                                          name="descripcionD"
+                                                          placeholder="Descripción"
                                                           disabled="true"/>
                                             </div>
+                                            
                                         </div>
 
                                         <div class="actions">
@@ -195,55 +178,42 @@
                                 <div class="ui form-1">
                                     <form>
                                         <input type="text"
-                                                id="codigoD"
+                                                id="codigoDpto"
+                                                placeholder="Código Departamento"
+                                                style="display: none"/>
+                                        
+                                        <input type="text"
+                                                id="codigoDca"
                                                 placeholder="Código Decanato"
+                                                value="#{decanatoBean.decanatoSeleccionado.codigo}"
                                                 style="display: none"/>
 
                                         <div class="ui form">
                                             <div class="two fields">
                                                 <div class="field">
-                                                    <label>Nombre</label>
+                                                    <label>Nombre del Decanato</label>
                                                     <input type="text"
-                                                           name="nombreD"
-                                                           id="nombreD"
-                                                           placeholder="Nombre"
-                                                           required="true"/>
+                                                           id="nombreDco"
+                                                           name="nombreDco"
+                                                           placeholder="Nombre del Decanato"
+                                                           disabled="true"/>
                                                 </div>
 
                                                 <div class="field">
-                                                    <label>Siglas</label>
+                                                    <label>Nombre del Departamento</label>
                                                     <input type="text"
-                                                           name="siglasD"
-                                                           id="siglasD"
-                                                           placeholder="Siglas"
-                                                           required="true"/>
-                                                </div>
-                                            </div>
-
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Teléfono</label>
-                                                    <input type="text"
-                                                           name="telefonoD"
-                                                           id="telefonoD"
-                                                           placeholder="Teléfono"/>
-                                                </div>
-
-                                                <div class="field">
-                                                    <label>Correo</label>
-                                                    <input type="text"
-                                                           name="emailD"
-                                                           id="emailD"
-                                                           placeholder="Correo"/>
+                                                           id="nombreDpto"
+                                                           name="nombreDpto"
+                                                           placeholder="Nombre del Departamento"/>
                                                 </div>
                                             </div>
 
                                             <div class="field">
-                                                <label>Dirección</label>
+                                                <label>Descripción</label>
                                                 <textArea type="text"
-                                                          name="direccionD"
-                                                          id="direccionD"
-                                                          placeholder="Dirección"/>
+                                                          id="descripcionD"
+                                                          name="descripcionD"
+                                                          placeholder="Descripción"/>
                                             </div>
 
                                         </div>
@@ -259,7 +229,8 @@
                                             </button>
 
                                             <button class="ui circular button"
-                                                    onclick="aceptarModificacion()">
+                                                    onclick="aceptarModificacion();
+                                                             buscarDca(2)">
                                                 <i class="save icon"></i> 
                                                 Modificar
                                             </button>
@@ -286,49 +257,42 @@
                                 </div>
 
                                 <div class="ui form-1">
-                                    <h:form>
+                                    <form>
+                                        <input type="text"
+                                                id="codigoDcaI"
+                                                placeholder="Código Decanato"
+                                                value="#{decanatoBean.decanatoSeleccionado.codigo}"
+                                                style="display: none"/>
+                                        
                                         <div class="ui form">
                                             <div class="two fields">
                                                 <div class="field">
-                                                    <label>Nombre</label>
+                                                    <label>Nombre del Decanato</label>
                                                     <input type="text"
-                                                           id="nombreDI"
-                                                           placeholder="Nombre"/>
+                                                           id="nombreDcoI"
+                                                           placeholder="Nombre del Decanato"
+                                                           value="#{decanatoBean.decanatoSeleccionado.nombre}"
+                                                           disabled="true"/>
                                                 </div>
 
                                                 <div class="field">
-                                                    <label>Siglas</label>
+                                                    <label>Nombre del Departamento</label>
                                                     <input type="text"
-                                                           id="siglasDI"
-                                                           placeholder="Siglas"/>
-                                                </div>
-                                            </div>
-
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Teléfono</label>
-                                                    <input type="text"
-                                                           id="telefonoDI"
-                                                           placeholder="Teléfono" />
-                                                </div>
-
-                                                <div class="field">
-                                                    <label>Correo</label>
-                                                    <input type="text"
-                                                           id="emailDI"
-                                                           placeholder="Correo"/>
+                                                           id="nombreDptoI"
+                                                           placeholder="Nombre del Departamento"/>
                                                 </div>
                                             </div>
 
                                             <div class="field">
-                                                <label>Dirección</label>
+                                                <label>Descripción</label>
                                                 <textArea type="text"
-                                                          id="direccionDI"
-                                                          placeholder="Dirección"/>
+                                                          id="descripcionDI"
+                                                          placeholder="Descripción"/>
                                             </div>
+                                            
                                         </div>
 
-                                    </h:form>
+                                    </form>
 
                                     <div class="actions">
                                         <div class="ui center aligned fluid container" style=" margin-top: 5%">
@@ -338,7 +302,8 @@
                                             </button>
 
                                             <button class="ui circular button"
-                                                    onclick="aceptarInclusion()">
+                                                    onclick="aceptarInclusion();
+                                                             buscarDca(3)">
                                                 <i class="save icon"></i> 
                                                 Registrar
                                             </button>
@@ -356,7 +321,7 @@
                 <!-- Mensaje para confirmar incluir decanatos -->
                 <div class="ui mini modal" id="inclusion">
                     <div class="content fondo-modal">
-                            <p>¿Está seguro que desea registrar el decanato?</p>
+                        <p>¿Está seguro que desea registrar el Departamento?</p>
                     </div>
                     <div class="actions">
                         <div class="ui red inverted button cancel">
@@ -364,7 +329,7 @@
                             Cancelar
                         </div>
                         <div class="ui green ok inverted button"
-                             onclick="incluirDecanato()">
+                             onclick="incluirDpto()">
                             <i class="checkmark icon"></i>
                             Aceptar
                         </div>
@@ -383,7 +348,7 @@
                         </div>
 
                         <div class="ui green ok inverted button"
-                             onclick="actualizarDecanato()">
+                             onclick="actualizarDpto()">
                             <i class="checkmark icon"></i>
                             Aceptar
                         </div>
@@ -393,7 +358,7 @@
                 <!-- Mensaje de Eliminar ''<> -->
                 <div class="ui mini modal" id="txteliminar">
                     <div class="content fondo-modal">
-                        <p>¿Está seguro que desea eliminar el Decanato?</p>
+                        <p>¿Está seguro que desea eliminar el Departamento?</p>
                     </div>
                     <div class="actions">
                         <div class="ui red inverted button cancel">
@@ -401,7 +366,7 @@
                             Cancelar
                         </div>
                         <div class="ui green ok inverted button"
-                             onclick="eliminarDecanto()">
+                             onclick="eliminarDpto()">
                             <i class="checkmark icon"></i>
                             Aceptar
                         </div>

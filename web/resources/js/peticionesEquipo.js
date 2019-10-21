@@ -53,8 +53,8 @@ function buscarSelectMarca(id)
 	{
             if(select.options[i].text==buscar)
             {
-                    // seleccionamos el valor que coincide
-                    select.selectedIndex=i;
+                // seleccionamos el valor que coincide
+                select.selectedIndex=i;
             }
 	}
 }
@@ -83,7 +83,7 @@ function consultarEquipo(id){
            /*alert(xhr.status);
            alert(xhr.responseText);
            alert(thrownError);*/
-            alert('No se ha podido obtener la información');
+           alert('No se ha podido obtener la información');
        }
     });
 }

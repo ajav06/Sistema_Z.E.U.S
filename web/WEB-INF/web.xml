@@ -41,15 +41,19 @@
         <url-pattern>/webservice/*</url-pattern>
     </servlet-mapping>
     <security-constraint>
-        <display-name>Constraint1</display-name>
+        <display-name>Usuario_ADMIN</display-name>
         <web-resource-collection>
-            <web-resource-name>admin</web-resource-name>
+            <web-resource-name>Administrador</web-resource-name>
             <description/>
             <url-pattern>/index.xhtml</url-pattern>
+            <url-pattern>/equipos/*</url-pattern>
+            <url-pattern>/marcas/*</url-pattern>
+            <url-pattern>/decanatos/*</url-pattern>
+            <url-pattern>/dptoDca/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description/>
-            <role-name>admin</role-name>
+            <role-name>ADMIN</role-name>
         </auth-constraint>
     </security-constraint>
     <login-config>
@@ -62,6 +66,6 @@
     </login-config>
     <security-role>
         <description/>
-        <role-name>admin</role-name>
+        <role-name>ADMIN</role-name>
     </security-role>
 </web-app>

@@ -88,6 +88,10 @@ public class Decanato implements Serializable {
         this.codigo = codigo;
     }
 
+    public Decanato(String siglas) {
+        this.siglas = siglas;
+    }
+    
     public Decanato(Integer codigo, String nombre, String siglas, String estatus) {
         this.codigo = codigo;
         this.nombre = nombre;

@@ -21,7 +21,7 @@ public interface DecanatoDao {
     
     public Decanato findDecanatoById(Decanato decanato);
     
-    public Decanato findDecanatoByName(Decanato decanato);
+    public Decanato findDecanatoBySiglas(Decanato decanato);
     
     public void insertDecanato(Decanato decanato);
     

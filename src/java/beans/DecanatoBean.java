@@ -54,7 +54,8 @@ public class DecanatoBean {
     }
     
     public Decanato buscarDecanato(int id){
-        return this.decanatoService.buscarDecanatoPorCodigo(new Decanato(id));
+        this.decanatoSeleccionado = this.decanatoService.buscarDecanatoPorCodigo(new Decanato(id));
+        return this.decanatoSeleccionado;
     }
     
     public void reiniciarDecanatoSeleccionado(){

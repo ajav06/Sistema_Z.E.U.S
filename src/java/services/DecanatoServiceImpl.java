@@ -44,8 +44,8 @@ public class DecanatoServiceImpl implements DecanatoService{
     }
 
     @Override
-    public Decanato buscarDecanatoPorNombre(Decanato decanato) {
-        return decanatoDao.findDecanatoByName(decanato);
+    public Decanato buscarDecanatoPorSiglas(Decanato decanato) {
+        return decanatoDao.findDecanatoBySiglas(decanato);
     }
 
     @Override

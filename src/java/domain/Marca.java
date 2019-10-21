@@ -20,8 +20,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -38,7 +36,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Marca.findByNombre", query = "SELECT m FROM Marca m WHERE m.nombre = :nombre AND m.estatus = 'a'"),
     @NamedQuery(name = "Marca.findByEstatus", query = "SELECT m FROM Marca m WHERE m.estatus = :estatus")})
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Marca implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -60,7 +57,6 @@ public class Marca implements Serializable {
     @Column(name = "estatus")
     private String estatus;
     
-    @XmlTransient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoMarca")
     private List<Equipo> equipoList;
 

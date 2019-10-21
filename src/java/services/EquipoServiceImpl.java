@@ -20,8 +20,7 @@ import javax.jws.WebService;
  */
 
 @Stateless
-@WebService(endpointInterface = "services.EquipoServiceWS")
-public class EquipoServiceImpl implements EquipoService, EquipoServiceWS{
+public class EquipoServiceImpl implements EquipoService {
     
     @Resource
     private SessionContext contexto;

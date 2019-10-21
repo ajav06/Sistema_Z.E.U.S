@@ -23,7 +23,7 @@ public interface DecanatoService {
     
     public Decanato buscarDecanatoPorCodigo(Decanato decanato);
     
-    public Decanato buscarDecanatoPorNombre(Decanato decanato);
+    public Decanato buscarDecanatoPorSiglas(Decanato decanato);
     
     public void registrarDecanato(Decanato decanato);
     

@@ -26,7 +26,7 @@
                     <div class="ui right aligned fluid container" id="container-top">
                         <h:form>
                             <div class="ui simple dropdown item" id="top-bar-dropdown" >
-                                <i class="dropdown icon" style="padding-right: 4px"></i> ALBERT ACEVEDO
+                                <i class="dropdown icon" style="padding-right: 4px"></i> #{usuarioBean.usuarioActivo}
                                 <div class="menu">
                                     <div class="item">Mi información</div>
                                     <div class="item">Notificaciones</div>
@@ -101,4 +101,5 @@
     <h:outputScript library="js" name="peticionesEquipo.js" />
     <h:outputScript library="js" name="peticionesMarca.js" />
     <h:outputScript library="js" name="peticionesDecanato.js" />
+    <h:outputScript library="js" name="peticionesDepartamento.js" />
 </html>

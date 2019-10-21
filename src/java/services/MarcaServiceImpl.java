@@ -19,8 +19,7 @@ import javax.jws.WebService;
  * @author Scorpion
  */
 @Stateless
-@WebService(endpointInterface = "services.MarcaServiceWS")
-public class MarcaServiceImpl implements MarcaService, MarcaServiceWS{
+public class MarcaServiceImpl implements MarcaService {
     
     @Resource
     private SessionContext contexto;

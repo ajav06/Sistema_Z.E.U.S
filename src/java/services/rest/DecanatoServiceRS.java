@@ -49,6 +49,12 @@ public class DecanatoServiceRS {
         return decanatoService.buscarDecanatoPorCodigo(new Decanato(id));
     }
     
+    @GET
+    @Path("siglas/{nom}") //hace referencia a /decanatos/{id}
+    public Decanato buscarDecanatoPorNombre(@PathParam("nom") int nom){
+        return decanatoService.buscarDecanatoPorSiglas(new Decanato(nom));
+    }
+    
     @POST
     public Response registrarDecanato(Decanato decanato){
         try{
