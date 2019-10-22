@@ -42,7 +42,7 @@ public class GrupoUsuario implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 10)
+    @Size(min = 1)
     @Column(name = "nombre_usuario")
     private String nombreUsuario;
     
@@ -53,11 +53,11 @@ public class GrupoUsuario implements Serializable {
     private Date fechaModificacion;
     
     @JoinColumn(name = "codigo_tipo_usuario", referencedColumnName = "codigo")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
     private TipoUsuario codigoTipoUsuario;
     
     @JoinColumn(name = "nombre_usuario", referencedColumnName = "nombre_usuario", insertable = false, updatable = false)
-    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    @OneToOne(optional = false)
     private Usuario usuario;
 
     public GrupoUsuario() {

@@ -48,7 +48,7 @@ public class Usuario implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 10)
+    @Size(min = 1, max = 30)
     @Column(name = "nombre_usuario")
     private String nombreUsuario;
     
@@ -92,7 +92,7 @@ public class Usuario implements Serializable {
     private GrupoUsuario grupoUsuario;
     
     @JoinColumn(name = "codigo_departamento", referencedColumnName = "codigo")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
     private Departamento codigoDepartamento;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "nombreUsuario")
