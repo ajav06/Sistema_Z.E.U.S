@@ -8,24 +8,55 @@ var dptoEliminar = null;
 
 function buscarDca(tipo){
     if (tipo==1){
+        var id = $('select[name=nombreDco] option:selected').val();
+        if (id != null){
+            id=parseInt(id)+1;
+        }
         
     } else if (tipo==2) {
         var id = $('input[id=codigoDca]').val();
         
-    } else {
+    } else if (tipo==3) {
         var id = $('input[id=codigoDcaI]').val();
+        
+    } else if (tipo==4) {
+        var id = $('select[name=nombreDcoI] option:selected').val();
+        if (id != null){
+            id=parseInt(id)+1;
+        }
     }
     
     console.log(id);
-    $.ajax({
-        url: '/sistema_zeus/webservice/decanatos/' + id,
-        type: 'GET',
-        dataType: 'JSON',
-        success: function (data, textStatus, jqXHR) {
-            console.log(data);
-            dcaSeleccionado = data;
-        }
-    });
+    if(id != null){
+        $.ajax({
+            url: '/sistema_zeus/webservice/decanatos/' + id,
+            type: 'GET',
+            dataType: 'JSON',
+            success: function (data, textStatus, jqXHR) {
+                console.log(data);
+                dcaSeleccionado = data;
+            }
+        });
+    }
+}
+
+function buscarSelectDca(id)
+{
+	// creamos un variable que hace referencia al select
+	var select=document.getElementsByName('nombreDco')[1];
+ 
+	// obtenemos el valor a buscar
+	var buscar=id;
+ 
+	// recorremos todos los valores del select
+	for(var i=1;i<select.length;i++)
+	{
+            if(select.options[i].text==buscar)
+            {
+                // seleccionamos el valor que coincide
+                select.selectedIndex=i;
+            }
+	}
 }
 
 function incluirDpto(){
@@ -168,6 +199,8 @@ function llenarCamposDpto(data){
     
     document.getElementsByName('descripcionD')[0].value = data.descripcion;
     document.getElementsByName('descripcionD')[1].value = data.descripcion;
+    
+    buscarSelectDca(data.codigoDecanato.nombre);
     
     consultar();
 }

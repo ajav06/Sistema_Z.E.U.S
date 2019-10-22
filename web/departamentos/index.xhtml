@@ -1,9 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
-    <body>
+    <h:body>
 
         <ui:composition template="./../template/base.xhtml">
 
@@ -12,10 +15,384 @@
             </ui:define>
 
             <ui:define name="content">
-                content
+                <div class="twelve wide stretched column">
+                    <div class="ui segment">
+                        
+                        <div class="ui category search">
+                            
+                            <div class="ui centered grid">
+                                <div class="ui animated circular button" 
+                                     tabindex="0" 
+                                     aria-label="Departamentos"
+                                     onclick="incluir()"
+                                     style="width: 160px !important">
+                                    
+                                    <div class="visible content">
+                                        <i class="ui plus icon"></i> 
+                                        Departamentos
+                                    </div>
+                                    
+                                    <div class="hidden content">
+                                        <i class="ui plus icon"></i>
+                                        Registrar
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h:dataTable class="ui compact celled definition table"
+                                         id="listas"
+                                         var="departamento"
+                                         value="#{departamentoBean.departamentos}"
+                                         headerClass="encabezado-tabla">
+                                
+                                <h:column>
+                                    <f:facet name="header">Nombre del Decanato</f:facet>
+                                    #{departamento.codigoDecanato.nombre}
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">Nombre Departamento</f:facet>
+                                    #{departamento.nombre}
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">Opciones</f:facet>
+                                    <div class="item">
+                                        <div class="ui centered grid">
+                                            
+                                            <div class="ui circular animated button"
+                                                 aria-label="label"
+                                                 onclick="consultarDpto(#{departamento.codigo})">
+                                                <div class="visible content">
+                                                    Consultar
+                                                </div>
+                                                
+                                                <div class="hidden content">
+                                                    Ver
+                                                </div>
+                                            </div>
+                                            
+                                            <a class="ui circular animated button"
+                                               href="/sistema_zeus/equiposDpto?id=#{departamento.codigo}"
+                                                 aria-label="label">
+                                                <div class="visible content">
+                                                    Equipos
+                                                </div>
+                                                
+                                                <div class="hidden content">
+                                                    Ver
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </h:column>
+                                
+                            </h:dataTable>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <!-- Modal de Consultar''<> -->
+                <div class="ui basic modal" id="formconsultar">
+                    <div class="content">
+                        <div class="ui two column very relaxed grid" style="width: 110% ">
+                            <div class="column column-decanato"></div>
+
+                                <div class="column column-fondo">
+                                    <div class="ui segment">
+                                        <div class="ui aligned center dividing header">
+                                            Consultar Departamento
+                                        </div>
+                                    </div>
+
+                                    <div class="ui form-1">
+                                        <div class="ui form">
+                                            <div class="two fields">
+                                                <div class="field">
+                                                    <label>Nombre del Decanato</label>
+                                                    <input type="text"
+                                                           name="nombreDco"
+                                                           placeholder="Nombre del Decanato"
+                                                           disabled="true"/>
+                                                </div>
+
+                                                <div class="field">
+                                                    <label>Nombre del Departamento</label>
+                                                    <input type="text" 
+                                                           name="nombreDpto"
+                                                           placeholder="Nombre del Departamento"
+                                                           disabled="true"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Descripción</label>
+                                                <textArea type="text"
+                                                          name="descripcionD"
+                                                          placeholder="Descripción"
+                                                          disabled="true"/>
+                                            </div>
+                                            
+                                        </div>
+
+                                        <div class="actions">
+                                            <div class="ui center aligned fluid container" style=" margin-top: 5%">
+                                                <div class="ui cancel circular button">
+                                                    <i class="left chevron icon"></i>
+                                                    Atrás
+                                                </div>
+
+                                                <div class="ui circular button"
+                                                     onclick="modificar()"> 
+                                                    Modificar
+                                                </div>
+
+                                                <div class="ui circular button"
+                                                     onclick="eliminar()"> 
+                                                    Eliminar
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+                <!-- Modal de Modificar''<> -->
+                <div class="ui basic modal" id="formodificar">
+                    <div class="content">
+                        <div class="ui two column very relaxed grid" style="width: 110% ">
+                            <div class="column column-decanato"></div>
+
+                            <div class="column column-fondo">
+                                <div class="ui segment">
+                                    <div class="ui aligned center dividing header">
+                                        Modificar Departamento
+                                    </div>
+                                </div>
+
+                                <div class="ui form-1">
+                                    <h:form>
+                                        <input type="text"
+                                                id="codigoDpto"
+                                                placeholder="Código Departamento"
+                                                style="display: none"/>
+                                        
+                                        <input type="text"
+                                                id="codigoDca"
+                                                placeholder="Código Decanato"
+                                                value="#{decanatoBean.decanatoSeleccionado.codigo}"
+                                                style="display: none"/>
+
+                                        <div class="ui form">
+                                            <div class="two fields">
+                                                <div class="field">
+                                                    <label>Nombre del Decanato</label>
+                                                    <h:selectOneMenu
+                                                         class="ui fluid dropdown"
+                                                         pt:name="nombreDco"
+                                                         id="nombreDco"
+                                                         onchange="buscarDca(1)"
+                                                         converter="omnifaces.SelectItemsIndexConverter"
+                                                         required="true"
+                                                         requiredMessage="Selecciona un Decanato">
+                                                        <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
+                                                        <f:selectItems value="#{decanatoBean.decanatos}" var="decanato" 
+                                                                       itemValue="#{decanato.codigo}"
+                                                                       itemLabel="#{decanato.nombre}" />
+                                                    </h:selectOneMenu>
+                                                </div>
+
+                                                <div class="field">
+                                                    <label>Nombre del Departamento</label>
+                                                    <input type="text"
+                                                           id="nombreDpto"
+                                                           name="nombreDpto"
+                                                           placeholder="Nombre del Departamento"/>
+                                                 </div>
+                                             </div>
+
+                                            <div class="field">
+                                                <label>Descripción</label>
+                                                <textArea type="text"
+                                                          id="descripcionD"
+                                                          name="descripcionD"
+                                                          placeholder="Descripción"/>
+                                            </div>
+
+                                        </div>
+
+                                    </h:form>
+
+                                    <div class="actions">
+                                        <div class="ui center aligned fluid container" style=" margin-top: 5%">
+                                            <button class="ui cancel circular icon button"
+                                                    onclick="atras()">
+                                                <i class="left chevron icon"></i> 
+                                                Atrás
+                                            </button>
+
+                                            <button class="ui circular button"
+                                                    onclick="aceptarModificacion();
+                                                             buscarDca(2)">
+                                                <i class="save icon"></i> 
+                                                Modificar
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal de Registrar''<> -->
+                <div class="ui basic modal" id="formincluir">
+                    <div class="content">
+                        <div class="ui two column very relaxed grid" style="width: 110% ">
+                            <div class="column column-decanato"></div>
+
+                            <div class="column column-fondo">
+                                <div class="ui segment">
+                                    <div class="ui aligned center dividing header">
+                                        Registrar Departamento
+                                    </div>
+                                </div>
+
+                                <div class="ui form-1">
+                                    <h:form>
+                                        <input type="text"
+                                                id="codigoDcaI"
+                                                placeholder="Código Decanato"
+                                                value="#{decanatoBean.decanatoSeleccionado.codigo}"
+                                                style="display: none"/>
+                                        
+                                        <div class="ui form">
+                                            <div class="two fields">
+                                                <div class="field">
+                                                    <label>Nombre del Decanato</label>
+                                                    <h:selectOneMenu
+                                                         class="ui fluid dropdown"
+                                                         pt:name="nombreDcoI"
+                                                         id="nombreDcoI"
+                                                         onchange="buscarDca(4)"
+                                                         converter="omnifaces.SelectItemsIndexConverter"
+                                                         required="true"
+                                                         requiredMessage="Selecciona un Decanato">
+                                                        <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
+                                                        <f:selectItems value="#{decanatoBean.decanatos}" var="decanato" 
+                                                                       itemValue="#{decanato.codigo}"
+                                                                       itemLabel="#{decanato.nombre}" />
+                                                    </h:selectOneMenu>
+                                                </div>
+
+                                                <div class="field">
+                                                    <label>Nombre del Departamento</label>
+                                                    <input type="text"
+                                                           id="nombreDptoI"
+                                                           placeholder="Nombre del Departamento"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Descripción</label>
+                                                <textArea type="text"
+                                                          id="descripcionDI"
+                                                          placeholder="Descripción"/>
+                                            </div>
+                                            
+                                        </div>
+
+                                    </h:form>
+
+                                    <div class="actions">
+                                        <div class="ui center aligned fluid container" style=" margin-top: 5%">
+                                            <button class="ui cancel circular icon button">
+                                                <i class="left chevron icon"></i> 
+                                                Atrás 
+                                            </button>
+
+                                            <button class="ui circular button"
+                                                    onclick="aceptarInclusion();
+                                                             buscarDca(3)">
+                                                <i class="save icon"></i> 
+                                                Registrar
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Mensajes ''<> -->
+                <!-- Mensaje para confirmar incluir decanatos -->
+                <div class="ui mini modal" id="inclusion">
+                    <div class="content fondo-modal">
+                        <p>¿Está seguro que desea registrar el Departamento?</p>
+                    </div>
+                    <div class="actions">
+                        <div class="ui red inverted button cancel">
+                            <i class="remove icon"></i>
+                            Cancelar
+                        </div>
+                        <div class="ui green ok inverted button"
+                             onclick="incluirDpto()">
+                            <i class="checkmark icon"></i>
+                            Aceptar
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mensaje de Confirmacion modificacion ''<> -->
+                <div class="ui mini modal" id="modificacion">
+                    <div class="content fondo-modal">
+                        <p>¿Está seguro que desea guardar los cambios?</p>
+                    </div>
+                    <div class="actions">
+                        <div class="ui red inverted button cancel" >
+                            <i class="remove icon"></i>
+                            Cancelar
+                        </div>
+
+                        <div class="ui green ok inverted button"
+                             onclick="actualizarDpto()">
+                            <i class="checkmark icon"></i>
+                            Aceptar
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mensaje de Eliminar ''<> -->
+                <div class="ui mini modal" id="txteliminar">
+                    <div class="content fondo-modal">
+                        <p>¿Está seguro que desea eliminar el Departamento?</p>
+                    </div>
+                    <div class="actions">
+                        <div class="ui red inverted button cancel">
+                            <i class="remove icon"></i>
+                            Cancelar
+                        </div>
+                        <div class="ui green ok inverted button"
+                             onclick="eliminarDpto()">
+                            <i class="checkmark icon"></i>
+                            Aceptar
+                        </div>
+                    </div>
+                </div>
+                
             </ui:define>
 
         </ui:composition>
 
-    </body>
+    </h:body>
 </html>
