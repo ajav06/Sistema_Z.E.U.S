@@ -29,7 +29,7 @@ import services.DepartamentoService;
 @Produces(value = {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 @Consumes(value = {MediaType.APPLICATION_JSON})
 @Stateless
-public class DepartamentoRS {
+public class DepartamentoServiceRS {
     
     @Inject
     private DepartamentoService departamentoService;

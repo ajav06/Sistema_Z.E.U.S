@@ -219,20 +219,25 @@
                                         <div class="ui form">
                                             <div class="field">
                                                 <label >Estado del Equipo</label>
-                                                <select class="ui fluid dropdown" 
-                                                        style="border-block-color: #1a237e; 
-                                                        border-radius: 24px 24px 24px 24px;">
-                                                    <option>Selecciona el Estado</option>
-                                                    <option >Reparado</option>
-                                                    <option>Desincorporado</option>
-                                                </select>
+                                                <h:selectOneMenu
+                                                     class="ui fluid dropdown"
+                                                     pt:name="codigoMarcaEI"
+                                                     id="codigoMarcaEI"
+                                                     converter="omnifaces.SelectItemsIndexConverter"
+                                                     required="true"
+                                                     requiredMessage="Selecciona un Estado">
+                                                    <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
+                                                    <f:selectItems value="#{estadoEquipoBean.estadosEquipos}" var="estadoEquipo" 
+                                                                   itemValue="#{estadoEquipo.codigo}"
+                                                                   itemLabel="#{estadoEquipo.nombre}" />
+                                                </h:selectOneMenu>
                                             </div>
                                         </div>
 
                                         <!-- Mensaje de confirmacion de modificacion ''<> -->
                                         <div class="ui mini modal" id="modificacion">
                                             <div class="content fondo-modal">
-                                                <p style="color: #ffff">¿Está seguro que desea guardar los cambios?</p>
+                                                <p>¿Está seguro que desea guardar los cambios?</p>
                                             </div>
                                             <div class="actions">
                                                 <div class="ui red inverted button cancel">
@@ -279,7 +284,7 @@
                             <div class="column column-equipo"></div>
 
                             <div class="column column-fondo">
-                                <div class="ui segment">
+                                <div class="ui segment" style="height: 25% !important">
                                     <div class="ui aligned center dividing header">
                                         Incluir Equipo
                                     </div>
@@ -290,38 +295,35 @@
                                         <div class="ui form">
                                             <div class="two fields">
                                                 <div class="field">
-                                                    <label>Nombre</label>
-                                                    <input type="text"
-                                                                 placeholder="Nombre del equipo"
-                                                                 id="nombreEI"
-                                                                 name="nombre" />
+                                                    <label>Equipo</label>
+                                                    <h:selectOneMenu
+                                                         class="ui fluid dropdown"
+                                                         converter="omnifaces.SelectItemsIndexConverter"
+                                                         required="true"
+                                                         requiredMessage="Selecciona una Marca">
+                                                        <f:selectItem  itemLabel="Selecciona un Equipo" itemValue="#{null}" noSelectionOption="true" />
+                                                        <f:selectItems value="#{equipoBean.equipos}" var="equipo" 
+                                                                       itemValue="#{equipo.codigo}"
+                                                                       itemLabel="#{equipo.nombre}" />
+                                                    </h:selectOneMenu>
                                                 </div>
 
                                                 <div class="field">
-                                                    <label>Marca</label>
-                                                    <h:selectOneMenu value="#{equipoBean.equipoSeleccionado.codigoMarca}" 
+                                                    <label>Estado</label>
+                                                    <h:selectOneMenu
                                                          class="ui fluid dropdown"
                                                          pt:name="codigoMarcaEI"
                                                          id="codigoMarcaEI"
                                                          converter="omnifaces.SelectItemsIndexConverter"
-                                                         onchange="buscarMarca()"
                                                          required="true"
-                                                         requiredMessage="Selecciona una Marca">
+                                                         requiredMessage="Selecciona un Estado">
                                                         <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
-                                                        <f:selectItems value="#{marcaBean.marcas}" var="marca" 
-                                                                       itemValue="#{marca.codigo}"
-                                                                       itemLabel="#{marca.nombre}" />
+                                                        <f:selectItems value="#{estadoEquipoBean.estadosEquipos}" var="estadoEquipo" 
+                                                                       itemValue="#{estadoEquipo.codigo}"
+                                                                       itemLabel="#{estadoEquipo.nombre}" />
                                                     </h:selectOneMenu>
                                                 </div>
 
-                                            </div>
-
-                                            <div class="field">
-                                                <label>Descripción</label>
-                                                <textarea type="text"
-                                                        id="descripcionEI"
-                                                        placeholder="Descripción"
-                                                        name="descripcion"/>
                                             </div>
 
                                         </div>
