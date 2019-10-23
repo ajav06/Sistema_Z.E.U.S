@@ -242,3 +242,8 @@ textarea {
     margin-block-end: 20px; 
     margin-block-start: 5%;
 }
+
+.dropdown {
+    border-block-color: #1a237e !important;
+    border-radius: 24px 24px 24px 24px !important;
+}
