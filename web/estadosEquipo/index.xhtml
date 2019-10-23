@@ -56,7 +56,7 @@
                                     <div class="ui centered grid">
                                         
                                         <div class="ui circular button"
-                                             onclick="consultar()">
+                                             onclick="consultarEdoEqui(#{estadoEquipos.codigo})">
                                             Consultar
                                         </div>
                                         
@@ -95,7 +95,7 @@
                                             <div class="field">
                                                 <label>Descripción</label>
                                                 <textArea type="text"
-                                                          name="descripcionD"
+                                                          name="descripcionEdo"
                                                           placeholder="Descripción"
                                                           disabled="true"/>
                                             </div>
@@ -160,8 +160,8 @@
                                             <div class="field">
                                                 <label>Descripción</label>
                                                 <textArea type="text"
-                                                          id="descripcionD"
-                                                          name="descripcionD"
+                                                          id="descripcionEdo"
+                                                          name="descripcionEdo"
                                                           placeholder="Descripción"/>
                                             </div>
 
@@ -178,8 +178,7 @@
                                             </button>
 
                                             <button class="ui circular button"
-                                                    onclick="aceptarModificacion();
-                                                             buscarDca(2)">
+                                                    onclick="aceptarModificacion()">
                                                 <i class="save icon"></i> 
                                                 Modificar
                                             </button>
@@ -210,8 +209,7 @@
                                         <div class="ui form">
                                             <div class="field">
                                                 <label>Nombre</label>
-                                                <input type="text" 
-                                                       name="nombreEdoI"
+                                                <input type="text"
                                                        id="nombreEdoI"
                                                        placeholder="Nombre"/>
                                             </div>
@@ -219,7 +217,7 @@
                                             <div class="field">
                                                 <label>Descripción</label>
                                                 <textArea type="text"
-                                                          id="descripcionDI"
+                                                          id="descripcionEdoI"
                                                           placeholder="Descripción"/>
                                             </div>
                                             
@@ -235,8 +233,7 @@
                                             </button>
 
                                             <button class="ui circular button"
-                                                    onclick="aceptarInclusion();
-                                                             buscarDca(3)">
+                                                    onclick="aceptarInclusion()">
                                                 <i class="save icon"></i> 
                                                 Registrar
                                             </button>
@@ -262,7 +259,7 @@
                             Cancelar
                         </div>
                         <div class="ui green ok inverted button"
-                             onclick="incluirDpto()">
+                             onclick="incluirEdoEqui()">
                             <i class="checkmark icon"></i>
                             Aceptar
                         </div>
@@ -281,7 +278,7 @@
                         </div>
 
                         <div class="ui green ok inverted button"
-                             onclick="actualizarDpto()">
+                             onclick="actualizarEdoEqui()">
                             <i class="checkmark icon"></i>
                             Aceptar
                         </div>
@@ -299,7 +296,7 @@
                             Cancelar
                         </div>
                         <div class="ui green ok inverted button"
-                             onclick="eliminarDpto()">
+                             onclick="eliminarEdoEqui()">
                             <i class="checkmark icon"></i>
                             Aceptar
                         </div>

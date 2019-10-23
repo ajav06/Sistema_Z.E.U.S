@@ -70,11 +70,11 @@ public class Solicitudes implements Serializable {
     private String estatus;
     
     @JoinColumn(name = "codigo_equipo_departamento", referencedColumnName = "codigo")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
     private EquipoDepartamento codigoEquipoDepartamento;
     
     @JoinColumn(name = "nombre_usuario", referencedColumnName = "nombre_usuario")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
     private Usuario nombreUsuario;
 
     public Solicitudes() {

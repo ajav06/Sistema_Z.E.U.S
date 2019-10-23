@@ -25,7 +25,7 @@ import services.EstadoEquipoService;
  *
  * @author Scorpion
  */
-@Path("/estadoEquipos")
+@Path("/estadosEquipo")
 @Produces(value = {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 @Consumes(value = {MediaType.APPLICATION_JSON})
 @Stateless
