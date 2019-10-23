@@ -200,148 +200,196 @@
                  <!-- Modal de Consultar''<> -->
                 <div class="ui basic modal" id="formconsultar">
                     <div class="content" style="height: 100%;width: 110% ;">
-                    <div class="ui two column very relaxed grid" style="width: 110% ">
-                    <div class="column" style="width: 33%; background-image: url(../image/fondo5.PNG);padding-left: 0px !important; padding-right: 0px !important;padding-top: 0px !important; padding-bottom: 0px !important; border-radius: 24px 0px 0px 24px;">
-                    </div>
-                    <div class="column" style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
-                        <div class="ui segment" style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
-                        <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 0%; ">Consultar Estado de Equipo</div>
+                        <div class="ui two column very relaxed grid" style="width: 110% ">
+                            <div class="column" style="width: 33%; background-image: url(../image/fondo5.PNG);padding-left: 0px !important; padding-right: 0px !important;padding-top: 0px !important; padding-bottom: 0px !important; border-radius: 24px 0px 0px 24px;">
+                            </div>
+                            <div class="column" style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
+                                <div class="ui segment" style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
+                                    <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 0%; ">Consultar Estado de Equipo</div>
+                                </div>
+                                <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 2%">
+                                    <div class="field">
+                                        <label style="color: #ffffff">Nombre</label>
+                                        <input type="text" placeholder="nombre" id="tx1" 
+                                            style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff" 
+                                            disabled>
+                                    </div>
+                                    <div class="field">
+                                        <label style="color: #ffffff">Descripción</label>
+                                        <input type="text" placeholder="descripción" 
+                                            style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;height: 200px;" 
+                                            disabled>
+                                    </div>
+                                </div>
+                                <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
+                                    <div class="ui center aligned fluid container" style=" margin-top: 5%" >
+                                        <div class="ui cancel  circular button" 
+                                            style="width: 130px ; color: #1a237e"><i 
+                                                class="left chevron icon"></i>Atrás
+                                        </div>
+                                        <div class="ui circular button"
+                                            style="width: 130px; color: #1a237e" 
+                                            id="modificar">Modificar
+                                        </div>
+                                        <div class="ui circular button"
+                                            style="width: 130px; color: #1a237e" 
+                                            id="eliminar">Eliminar
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
                         </div>
-                        <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 2%">
-                        <div class="field">
-                        <label style="color: #ffffff">Nombre</label>
-                        <input type="text" placeholder="nombre" id="tx1" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;background-color: #ffffff" disabled>
-                        </div>
-                        <div class="field">
-                        <label style="color: #ffffff">Descripción</label>
-                        <input type="text" placeholder="descripción" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;height: 200px;" disabled>
-                        <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
-                        <div class="ui center aligned fluid container" style=" margin-top: 5%" >
-                          <div class="ui cancel  circular button" style="width: 130px ; color: #1a237e"><i class="left chevron icon"></i>Atrás</div>
-                          <div class="ui circular button"style="width: 130px; color: #1a237e" id="modificar">Modificar</div>
-                          <div class="ui circular button"style="width: 130px; color: #1a237e" id="eliminar">Eliminar</div> 
-                        </div> 
-                        </div>
-                    </div>
-                    </div>
                     </div>
                 </div>
         
                 <!-- Modal de Modificar''<> -->
                 <div class="ui basic modal" id="formodificar">
-                  <div class="content" style="height: 100%;width: 110% ;">
-                  <div class="ui two column very relaxed grid" style="width: 110% ">
-                    <div class="column" style="width: 33%; background-image: url(../image/fondo5.PNG);padding-left: 0px !important; padding-right: 0px !important;padding-top: 0px !important; padding-bottom: 0px !important; border-radius: 24px 0px 0px 24px;">
-                    </div>
-                    <div class="column" style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
-                    <div class="ui segment" style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
-                    <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 2%; ">Modificar Estado de Equipo</div>
-                    </div>
-                    <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 2%">
-                    <div class="field">
-                        <label style="color: #ffffff">Nombre</label>
-                        <input type="text" placeholder="nombre" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;" required>
-                    </div>
-                    <div class="field">
-                        <label style="color: #ffffff">Descripción</label>
-                        <input type="text" placeholder="descripción" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;height: 200px " >
-                    </div>
-                    </div>
-                    <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
-                    <div class="ui center aligned fluid container" style=" margin-top: 5%" >
-                        <button class="ui cancel circular icon button" id="atras" style="color: #1a237e; width: 130px;"><i class="left chevron icon" ></i> Atrás </button>
-                        <button class="ui circular button" id="guardar1" style="color: #1a237e; width: 130px"><i class="save icon"></i> Guardar </button> 
-                    </div> </div> </div> </div> </div> </div> </div>
+                    <div class="content" style="height: 100%;width: 110% ;">
+                        <div class="ui two column very relaxed grid" style="width: 110% ">
+                            <div class="column" 
+                                style="width: 33%; background-image: url(../image/fondo5.PNG);padding-left: 0px !important; padding-right: 0px !important;padding-top: 0px !important; padding-bottom: 0px !important; border-radius: 24px 0px 0px 24px;">
+                            </div>
+                            <div class="column" style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
+                                <div class="ui segment" 
+                                    style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
+                                    <div class="ui aligned center dividing header" 
+                                        style=" font-size: 30px;color: #1a237e;margin-top: 2%; ">Modificar Estado de Equipo
+                                    </div>
+                                </div>
+                                <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 2%">
+                                    <div class="field">
+                                        <label style="color: #ffffff">Nombre</label>
+                                        <input type="text" placeholder="nombre" 
+                                            style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;" 
+                                            required>
+                                    </div>
+                                    <div class="field">
+                                        <label style="color: #ffffff">Descripción</label>
+                                        <input type="text" placeholder="descripción" 
+                                            style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;height: 200px " >
+                                    </div>
+                               </div>
+                              <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
+                                  <div class="ui center aligned fluid container" style=" margin-top: 5%" >
+                                      <button class="ui cancel circular icon button" id="atras" 
+                                          style="color: #1a237e; width: 130px;"><i 
+                                              class="left chevron icon" ></i> Atrás 
+                                      </button>
+                                      <button class="ui circular button" id="guardar1" 
+                                          style="color: #1a237e; width: 130px"><i 
+                                              class="save icon"></i> Guardar 
+                                      </button> 
+                                  </div> 
+                              </div> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div>
         
                 <!-- Modal de Registrar''<> -->
                 <div class="ui basic modal" id="formregistrar">
-                <div class="content" style="height: 100%;width: 110% ;">
-                <div class="ui two column very relaxed grid" style="width: 110% ">
-                    <div class="column" style="width: 33%; background-image: url(../image/fondo5.PNG);padding-left: 0px !important; padding-right: 0px !important;padding-top: 0px !important; padding-bottom: 0px !important; border-radius: 24px 0px 0px 24px;">
-                    </div>
-                    <div class="column" style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
-                    <div class="ui segment" style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
-                    <div class="ui aligned center dividing header" style=" font-size: 30px;color: #1a237e;margin-top: 0%; ">Registar Estado de Equipo</div>
-                    </div>
-                    <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 2%">
-                        <div class="field">
-                            <label style="color: #ffffff">Nombre</label>
-                            <input type="text" placeholder="nombre" style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;" required>
-                        </div>
-                        <div class="field">
-                            <label style="color: #ffffff">Descripción</label>
-                            <input type="text" placeholder="descripción" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;height: 200px " >
-                        </div>
-                        </div>
-                    <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
-                    <div class="ui center aligned fluid container" style=" margin-top: 5%" >
-                        <button class="ui cancel circular icon button"  style="color: #1a237e;width: 130px;"><i class="left chevron icon" ></i> Atrás </button>
-                        <button class="ui circular button" id="guardar2" style="color: #1a237e; width: 130px;"><i class="save icon"></i> Guardar </button>
-                    </div> </div> </div> </div> </div> </div> </div>
-                  
-        
+                    <div class="content" style="height: 100%;width: 110% ;">
+                        <div class="ui two column very relaxed grid" style="width: 110% ">
+                            <div class="column" style="width: 33%; background-image: url(../image/fondo5.PNG);padding-left: 0px !important; padding-right: 0px !important;padding-top: 0px !important; padding-bottom: 0px !important; border-radius: 24px 0px 0px 24px;">
+                            </div>
+                            <div class="column" style=" width: 67%;background-image: url(../image/adwebsys-fondo.jpg); border-radius: 0px 24px 24px 0px; padding-left: 0px !important; padding-right: 0px !important; padding-top: 0px !important ">
+                                <div class="ui segment" style="background-color: #ffffff ;height: 15%;border-radius: 0px 24px 0px 0px;">
+                                    <div class="ui aligned center dividing header" 
+                                    style=" font-size: 30px;color: #1a237e;margin-top: 0%; ">Registar Estado de Equipo
+                                    </div>
+                                </div>
+                                <div class="ui form" style="width: 80%; margin: 10% ; margin-top: 2%">
+                                    <div class="field">
+                                        <label style="color: #ffffff">Nombre</label>
+                                        <input type="text" placeholder="nombre" 
+                                            style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;" required>
+                                    </div>
+                                    <div class="field">
+                                        <label style="color: #ffffff">Descripción</label>
+                                        <input type="text" placeholder="descripción" style="border-block-color: #1a237e;border-radius: 24px 24px 24px 24px;height: 200px " >
+                                    </div>
+                                </div>
+                                <div class="actions" style="margin-block-end: 20px; margin-block-start: 5%">
+                                    <div class="ui center aligned fluid container" style=" margin-top: 5%" >
+                                        <button class="ui cancel circular icon button"  
+                                            style="color: #1a237e;width: 130px;"><i 
+                                                class="left chevron icon" ></i> Atrás 
+                                        </button>
+                                        <button class="ui circular button" id="guardar2" 
+                                            style="color: #1a237e; width: 130px;"><i 
+                                                class="save icon"></i> Guardar 
+                                        </button>
+                                    </div>
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div>
+
               <!-- Mensajes ''<> -->
+
               <!-- Mensaje de Eliminar estado ''<> -->
               <div class="ui mini modal" id="txteliminar"  >
-              <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
-                  <p style="color: #ffff">¿Está seguro que desea eliminar el estado?</p>
-              </div>
-              <div class="actions">
-                  <div class="ui red inverted button" id="cancelar" >
-                  <i class="remove icon"></i>
-                   Cancelar
-              </div>
-              <div class="ui green ok inverted button" id="aceptar">
-                  <i class="checkmark icon"></i>
-                   Aceptar
-              </div>
-              </div>
+                  <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+                      <p style="color: #ffff">¿Está seguro que desea eliminar el estado?</p>
+                  </div>
+                  <div class="actions">
+                      <div class="ui red inverted button" id="cancelar" >
+                          <i class="remove icon"></i>
+                          Cancelar
+                      </div>
+                      <div class="ui green ok inverted button" id="aceptar">
+                          <i class="checkmark icon"></i>
+                          Aceptar
+                      </div>
+                  </div>
               </div>
         
               <!-- Mensaje de Confirmacion modificacion ''<> -->
               <div class="ui mini modal" id="modificacion"  >
-              <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
-                  <p style="color: #ffff">¿Está seguro que desea guardar los cambios?</p>
-              </div>
-              <div class="actions">
-                  <div class="ui red inverted button" id="cancelar1" >
-                  <i class="remove icon"></i>
-                  Cancelar
+                  <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+                      <p style="color: #ffff">¿Está seguro que desea guardar los cambios?</p>
                   </div>
-                  <div class="ui green ok inverted button" id="aceptar1">
-                  <i class="checkmark icon"></i>
-                  Aceptar
+                  <div class="actions">
+                      <div class="ui red inverted button" id="cancelar1" >
+                          <i class="remove icon"></i>
+                          Cancelar
+                      </div>
+                      <div class="ui green ok inverted button" id="aceptar1">
+                          <i class="checkmark icon"></i>
+                          Aceptar
+                      </div>
                   </div>
               </div>
-              </div>
+
               <!-- Mensaje para confirmar incluir estado de equipo ''<> -->
-          <div class="ui mini modal" id="txtincluir"  >
-              <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
-                <p style="color: #ffff">¿Está seguro que desea registrar el estado de equipo?</p>
+              <div class="ui mini modal" id="txtincluir"  >
+                  <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+                      <p style="color: #ffff">¿Está seguro que desea registrar el estado de equipo?</p>
+                  </div>
+                  <div class="actions">
+                      <div class="ui red inverted button" id="cancelar2" >
+                          <i class="remove icon"></i>
+                          Cancelar
+                      </div>
+                      <div class="ui green ok inverted button" id="aceptar2">
+                          <i class="checkmark icon"></i>
+                          Aceptar
+                      </div> 
+                  </div>
               </div>
-              <div class="actions">
-                <div class="ui red inverted button" id="cancelar2" >
-                  <i class="remove icon"></i>
-                  Cancelar
-                </div>
-                <div class="ui green ok inverted button" id="aceptar2">
-                  <i class="checkmark icon"></i>
-                  Aceptar
-                </div> </div> </div>
-                <!-- Mensaje de transaccion exitosa ''<> -->
-      
-			<div class="ui mini modal" id="exito"  >
-        <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
-          <p style="color: #ffff">Operacion realizada con exito</p>
-        </div>
-        <div class="actions">
-          <div class="ui green ok inverted button" >
-          <i class="checkmark icon"></i>
-          Aceptar
-          </div>
-        </div>
-        </div>
-       
-              </div> </div>   
-            </body>
+
+               <!-- Mensaje de transaccion exitosa ''<> -->
+              <div class="ui mini modal" id="exito"  >
+                  <div class="content" style="background-image: url(../image/adwebsys-fondo.jpg)">
+                      <p style="color: #ffff">Operacion realizada con exito</p>
+                  </div>
+                  <div class="actions">
+                      <div class="ui green ok inverted button" >
+                          <i class="checkmark icon"></i>
+                          Aceptar
+                      </div>
+                  </div>
+              </div>  
+    </body>
 </html>
