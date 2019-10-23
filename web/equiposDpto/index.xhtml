@@ -89,7 +89,7 @@
                 <!-- Modal de Ver Detalles''<> -->
                 <div class="ui basic modal" id="formconsultar">
                     <div class="content">
-                        <div class="ui two column very relaxed grid" style="width: 110% ">
+                        <div class="ui two column very relaxed grid">
                             <div class="column column-equipo"></div>
 
                             <div class="column column-fondo">
@@ -105,57 +105,53 @@
                                             <div class="two fields">
 
                                                 <div class="field">
-                                                        <div class="two fields">
-                                                            <div class="field" style="width: 90%;">
-                                                                <label style="color: #ffffff">Código</label>
-                                                                <input type="text" 
-                                                                       placeholder="código" id="tx1"
-                                                                       style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;"
-                                                                       disabled="true"/>
-                                                            </div>
-
-                                                            <div class="field" style="width: 5px;">
-                                                                <i class="ui print icon" id="print" style="margin-top: 30px;"></i>
-                                                            </div>
+                                                    <div class="two fields">
+                                                        <div class="field" style="width: 90%">
+                                                            <label>Código</label>
+                                                            <input type="text" 
+                                                                   placeholder="código"
+                                                                   disabled="true"/>
                                                         </div>
+
+                                                        <div class="field" style="width: 10%">
+                                                            <i class="ui print icon" id="print" style="margin-top: 30px;"></i>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                                 <div class="field">
-                                                    <label style="color: #ffffff">Estatus</label>
-                                                    <input type="text" placeholder="estatus"
-                                                           style="border-block-color: #1a237e;
-                                                           border-radius: 24px 24px 24px 24px;"
+                                                    <label>Estatus</label>
+                                                    <input type="text" 
+                                                           placeholder="estatus"
                                                            disabled="true"/>
                                                 </div>
                                             </div>
 
                                             <div class="field">
-                                                <label style="color: #ffffff">Equipo</label>
-                                                <input type="text" placeholder="equipo"
-                                                       style="border-block-color: #1a237e;
-                                                       border-radius: 24px 24px 24px 24px;"
+                                                <label>Equipo</label>
+                                                <input type="text" 
+                                                       placeholder="equipo"
                                                        disabled="true"/>
                                             </div>
 
                                             <div class="field">
-                                                <label style="color: #ffffff">Decanato</label>
-                                                <input type="text" placeholder="Decanato" id="tx1"
-                                                       style="border-block-color: #1a237e; border-radius: 24px 24px 24px 24px;"
+                                                <label>Decanato</label>
+                                                <input type="text" 
+                                                       placeholder="Decanato"
                                                        disabled="true"/>
                                             </div>
 
                                             <div class="field">
-                                                <label style="color: #ffffff">Departamento</label>
-                                                <input type="text" placeholder="Departamento"
-                                                       style="border-block-color: #1a237e;
-                                                       border-radius: 24px 24px 24px 24px;"
+                                                <label>Departamento</label>
+                                                <input type="text" 
+                                                       placeholder="Departamento"
                                                        disabled="true"/>
                                             </div>
                                         </div>
                                     </h:form>
 
                                     <div class="actions">
-                                        <div class="ui center aligned fluid container" style=" margin-top: 5%">
+                                        <div class="ui center aligned fluid container">
                                             <div class="ui cancel  circular button">
                                                 <i class="left chevron icon"></i>
                                                 Atrás
@@ -172,7 +168,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="ui center aligned fluid container" style=" margin-top: 5%">
+                                        <div class="ui center aligned fluid container">
                                             <div class="ui animated circular button" tabindex="0"
                                                  onclick="reparar()"
                                                  id="reparar">
@@ -198,11 +194,11 @@
                 <!-- Modificar Equipo''<> -->
                 <div class="ui basic modal" id="formodificar">
                     <div class="content">
-                        <div class="ui two column very relaxed grid" style="width: 110% ">
+                        <div class="ui two column very relaxed grid">
                             <div class="column column-equipo"></div>
 
                             <div class="column column-fondo">
-                                <div class="ui segment" style="height: 25% !important">
+                                <div class="ui segment segment-peq">
                                     <div class="ui aligned center dividing header">
                                         Modificar Equipo
                                     </div>
@@ -256,7 +252,7 @@
                                     </h:form>
 
                                     <div class="actions">
-                                        <div class="ui center aligned fluid container" style=" margin-top: 5%">
+                                        <div class="ui center aligned fluid container">
                                             <button class="ui cancel circular icon button"
                                                     onclick="atras()">
                                                 <i class="left chevron icon"></i>
@@ -280,11 +276,11 @@
                 <!-- incluir Equipo ''<> -->
                 <div class="ui basic modal" id="formincluir">
                     <div class="content">
-                        <div class="ui two column very relaxed grid" style="width: 110% ">
+                        <div class="ui two column very relaxed grid">
                             <div class="column column-equipo"></div>
 
                             <div class="column column-fondo">
-                                <div class="ui segment" style="height: 25% !important">
+                                <div class="ui segment segment-peq">
                                     <div class="ui aligned center dividing header">
                                         Incluir Equipo
                                     </div>
@@ -350,7 +346,7 @@
                                     </h:form>
 
                                     <div class="actions">
-                                        <div class="ui center aligned fluid container" style=" margin-top: 5%">
+                                        <div class="ui center aligned fluid container" >
                                             <button class="ui cancel circular icon button">
                                                 <i class="left chevron icon"></i>
                                                 Cancelar 
@@ -373,7 +369,7 @@
                 <!-- Modal para solicitar reparacion''<> -->
                 <div class="ui basic modal" id="formreparar">
                     <div class="content">
-                        <div class="ui two column very relaxed grid" style="width: 110% ">
+                        <div class="ui two column very relaxed grid">
                             <div class="column column-equipo"></div>
 
                             <div class="column column-fondo">
@@ -419,7 +415,7 @@
                                     </h:form>
 
                                     <div class="actions">
-                                        <div class="ui center aligned fluid container" style=" margin-top: 5%">
+                                        <div class="ui center aligned fluid container" >
                                             <button class="ui cancel circular icon button" id="cancelar">
                                                 <i class="left chevron icon cancel"></i>
                                                 Cancelar 
@@ -441,7 +437,7 @@
                 <!-- Modal para solicitar desincorporacion''<> -->
                 <div class="ui basic modal" id="formdesincorporar">
                     <div class="content">
-                        <div class="ui two column very relaxed grid" style="width: 110% ">
+                        <div class="ui two column very relaxed grid">
                             <div class="column column-equipo"></div>
 
                             <div class="column column-fondo">
@@ -484,7 +480,7 @@
                                     </h:form>
 
                                     <div class="actions">
-                                        <div class="ui center aligned fluid container" style=" margin-top: 5%">
+                                        <div class="ui center aligned fluid container" >
                                             <button class="ui cancel circular icon button">
                                                 <i class="left chevron icon"></i>
                                                 Cancelar 

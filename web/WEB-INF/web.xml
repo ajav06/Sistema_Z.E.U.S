@@ -50,6 +50,8 @@
             <url-pattern>/marcas/*</url-pattern>
             <url-pattern>/decanatos/*</url-pattern>
             <url-pattern>/dptoDca/*</url-pattern>
+            <url-pattern>/equiposDpto/*</url-pattern>
+            <url-pattern>/estadosEquipo/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description/>

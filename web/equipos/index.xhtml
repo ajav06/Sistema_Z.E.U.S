@@ -71,8 +71,7 @@
                                     <div class="ui centered grid">
                                         
                                         <div class="ui circular button"
-                                             onclick="consultarEquipo(#{equipo.codigo});
-                                                      imprimir(#{request.isUserInRole('ADMIN')})">
+                                             onclick="consultarEquipo(#{equipo.codigo});">
                                             Consultar
                                         </div>
                                         
@@ -89,7 +88,7 @@
             <!-- Modal de Ver Detalles''<> -->
             <div class="ui basic modal" id="formconsultar">
                 <div class="content">
-                    <div class="ui two column very relaxed grid" style="width: 110% ">
+                    <div class="ui two column very relaxed grid">
                         <div class="column column-equipo"></div>
 
                         <div class="column column-fondo">
@@ -135,7 +134,7 @@
                                 </h:form>
 
                                 <div class="actions">
-                                    <div class="ui center aligned fluid container" style=" margin-top: 5%">
+                                    <div class="ui center aligned fluid container" >
                                         <div class="ui cancel  circular button">
                                             <i class="left chevron icon"></i>
                                             Atrás
@@ -162,7 +161,7 @@
             <!-- Modificar Equipo''<> -->
             <div class="ui basic modal" id="formodificar">
                 <div class="content">
-                    <div class="ui two column very relaxed grid" style="width: 110% ">
+                    <div class="ui two column very relaxed grid">
                         <div class="column column-equipo"></div>
 
                         <div class="column column-fondo">
@@ -222,7 +221,7 @@
                                 </h:form>
 
                                 <div class="actions">
-                                    <div class="ui center aligned fluid container" style=" margin-top: 5%">
+                                    <div class="ui center aligned fluid container" >
                                         <button class="ui cancel circular icon button"
                                                 onclick="atras()">
                                             <i class="left chevron icon"></i>
@@ -246,7 +245,7 @@
             <!-- incluir Equipo ''<> -->
             <div class="ui basic modal" id="formincluir">
                 <div class="content">
-                    <div class="ui two column very relaxed grid" style="width: 110% ">
+                    <div class="ui two column very relaxed grid">
                         <div class="column column-equipo"></div>
 
                         <div class="column column-fondo">
@@ -300,7 +299,7 @@
                                 </h:form>
 
                                 <div class="actions">
-                                    <div class="ui center aligned fluid container" style=" margin-top: 5%">
+                                    <div class="ui center aligned fluid container" >
                                         <button class="ui cancel circular icon button">
                                             <i class="left chevron icon"></i>
                                             Cancelar 

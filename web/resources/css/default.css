@@ -190,6 +190,13 @@
     border-radius: 24px 0px 0px 24px;
 }
 
+.column-edoEqui{
+    width: 33% !important; 
+    background-image: url(../resources/images/fondo5.PNG);
+    padding: 0;
+    border-radius: 24px 0px 0px 24px;
+}
+
 .column-fondo {
     width: 67% !important;
     background-image: url(../resources/images/adwebsys-fondo.jpg); 
@@ -201,6 +208,10 @@
     background-color: #ffffff !important;
     height: 15% !important;
     border-radius: 0px 24px 0px 0px !important;    
+}
+
+.column-fondo > .segment-peq {
+    height: 25% !important;
 }
 
 .column-fondo > .segment > .header{
@@ -241,6 +252,10 @@ textarea {
 .form-1 > .actions{
     margin-block-end: 20px; 
     margin-block-start: 5%;
+}
+
+.actions > .container{
+    margin-top: 5%;
 }
 
 .dropdown {
