@@ -7,6 +7,7 @@ package beans;
 
 import domain.Usuario;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
@@ -33,6 +34,8 @@ public class UsuarioBean{
     private String nombre;
     
     private Usuario usuarioActivo = null;
+    
+    List<Usuario> usuarios;
 
     public UsuarioBean() {
     }
@@ -40,6 +43,7 @@ public class UsuarioBean{
     @PostConstruct
     public void inicializar(){
         getDatosUsuario();
+        this.usuarios = usuarioService.listarUsuarios();
     }
     
     public String getNombre() {
@@ -57,8 +61,15 @@ public class UsuarioBean{
     public void setUsuarioActivo(Usuario usuarioActivo) {
         this.usuarioActivo = usuarioActivo;
     }
-    
 
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+    
     /**
      * Obtiene el nombre del usuario de la sesión
      */

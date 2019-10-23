@@ -27,6 +27,11 @@ public class UsuarioDaoImpl implements UsuarioDao{
     public List<Usuario> findAllUsuarios() {
         return em.createNamedQuery("Usuario.findAll").getResultList();
     }
+    
+    @Override
+    public List<Usuario> findAllActiveUsuarios() {
+        return em.createNamedQuery("Usuario.findAllActive").getResultList();
+    }
 
     @Override
     public Usuario findUsuarioByUsername(Usuario usuario) {
