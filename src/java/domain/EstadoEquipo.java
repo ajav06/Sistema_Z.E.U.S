@@ -48,7 +48,7 @@ public class EstadoEquipo implements Serializable {
     
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
+    @Size(min = 1)
     @Column(name = "nombre")
     private String nombre;
     

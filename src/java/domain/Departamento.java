@@ -33,9 +33,11 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "departamento")
 @NamedQueries({
     @NamedQuery(name = "Departamento.findAll", query = "SELECT d FROM Departamento d"),
-    @NamedQuery(name = "Departamento.findByCodigo", query = "SELECT d FROM Departamento d WHERE d.codigo = :codigo"),
-    @NamedQuery(name = "Departamento.findByNombre", query = "SELECT d FROM Departamento d WHERE d.nombre = :nombre"),
-    @NamedQuery(name = "Departamento.findByDescripcion", query = "SELECT d FROM Departamento d WHERE d.descripcion = :descripcion"),
+    @NamedQuery(name = "Departamento.findAllActive", query = "SELECT d FROM Departamento d WHERE d.estatus = 'a' ORDER BY d.codigo ASC"),
+    @NamedQuery(name = "Departamento.findByCodigo", query = "SELECT d FROM Departamento d WHERE d.codigo = :codigo AND d.estatus = 'a'"),
+    @NamedQuery(name = "Departamento.findByCodigoDca", query = "SELECT d FROM Departamento d WHERE d.codigoDecanato.codigo = :codigo AND d.estatus = 'a'"),
+    @NamedQuery(name = "Departamento.findByNombre", query = "SELECT d FROM Departamento d WHERE d.nombre = :nombre AND d.estatus = 'a'"),
+    @NamedQuery(name = "Departamento.findByDescripcion", query = "SELECT d FROM Departamento d WHERE d.descripcion = :descripcion AND d.estatus = 'a'"),
     @NamedQuery(name = "Departamento.findByEstatus", query = "SELECT d FROM Departamento d WHERE d.estatus = :estatus")})
 @XmlRootElement
 public class Departamento implements Serializable {
@@ -50,7 +52,7 @@ public class Departamento implements Serializable {
     
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
+    @Size(min = 1)
     @Column(name = "nombre")
     private String nombre;
     
@@ -64,7 +66,7 @@ public class Departamento implements Serializable {
     private String estatus;
     
     @JoinColumn(name = "codigo_decanato", referencedColumnName = "codigo")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
     private Decanato codigoDecanato;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoDepartamento")

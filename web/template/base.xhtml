@@ -2,9 +2,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <h:head>
+        <link rel="apple-touch-icon" sizes="57x57" href="#{resource['favicon/apple-icon-57x57.png']}"/>
+        <link rel="apple-touch-icon" sizes="60x60" href="#{resource['favicon/apple-icon-60x60.png']}"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="#{resource['favicon/apple-icon-72x72.png']}"/>
+        <link rel="apple-touch-icon" sizes="76x76" href="#{resource['favicon/apple-icon-76x76.png']}"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="#{resource['favicon/apple-icon-114x114.png']}"/>
+        <link rel="apple-touch-icon" sizes="120x120" href="#{resource['favicon/apple-icon-120x120.png']}"/>
+        <link rel="apple-touch-icon" sizes="144x144" href="#{resource['favicon/apple-icon-144x144.png']}"/>
+        <link rel="apple-touch-icon" sizes="152x152" href="#{resource['favicon/apple-icon-152x152.png']}"/>
+        <link rel="apple-touch-icon" sizes="180x180" href="#{resource['favicon/apple-icon-180x180.png']}"/>
+        <link rel="icon" type="image/png" sizes="192x192"  href="#{resource['favicon/android-icon-192x192.png']}"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="#{resource['favicon/favicon-32x32.png']}"/>
+        <link rel="icon" type="image/png" sizes="96x96" href="#{resource['favicon/favicon-96x96.png']}"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="#{resource['favicon/favicon-16x16.png']}"/>
+        
+        <link rel="manifest" href="#{resource['favicon/manifest.json']}"/>
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="msapplication-TileImage" content="#{resource['favicon/ms-icon-144x144.png']}"/>
+        <meta name="theme-color" content="#ffffff" />
+        
         <meta charset="UTF-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         
@@ -13,6 +33,7 @@
         </ui:insert>
         
         <h:outputStylesheet library="css" name="default.css" />
+        <h:outputStylesheet library="css" name="datatables.min.css" />
     </h:head>
 
     <h:body>
@@ -20,10 +41,12 @@
         <div id="top" class="top">
             <ui:insert name="top">
                 <div class="ui large segment" id="top-bar">
-                    <div class="ui right aligned fluid container">
+                    <h:graphicImage library="images" name="este.png" id="top-logo" />
+                    
+                    <div class="ui right aligned fluid container" id="container-top">
                         <h:form>
-                            <div class="ui simple dropdown item" id="top-bar-dropdown">
-                                <i class="dropdown icon"></i> #{usuarioBean.usuarioActivo}
+                            <div class="ui simple dropdown item" id="top-bar-dropdown" >
+                                <i class="dropdown icon" style="padding-right: 4px"></i> #{usuarioBean.usuarioActivo}
                                 <div class="menu">
                                     <div class="item">Mi información</div>
                                     <div class="item">Notificaciones</div>
@@ -51,13 +74,42 @@
         <div class="ui grid" id="base-content">
             <ui:insert name="left">
                 <div class="four wide column">
-                    <div class="ui inverted vertical menu" id="left-menu"
-                        style="">
-                        <a class="item" id="item" href="../index.xhtml">Reportes</a>
-                        <a class="item" id="item" href="../Usuarios/ListaUsuarios.html">Gestionar Usuarios</a>
-                        <a class="item" id="item" href="../Decanatos/ListaDecanatos.html">Gestionar Decanatos</a>
-                        <a class="item" id="item" href="./equipos/lista.xhtml">Gestionar Equipos</a>
-                        <a class="item" id="item">Estadisticas</a>
+                    <div class="ui inverted vertical menu" id="left-menu">
+                        
+                        <div style="#{request.isUserInRole('ADMIN') ? 'display: none' : ''}">
+                            <a class="item" id="item" href="/sistema_zeus/">Reportes</a>
+                        </div>
+                        
+                        <div style="#{request.isUserInRole('ADMIN') ? '' : 'display: none'}">
+                            <a class="#{request.requestURI eq '/sistema_zeus/usuarios/' ? 'item active' : 'item' }" 
+                               id="item" href="/sistema_zeus/usuarios">Gestionar usuarios</a>
+
+                            <a class="#{request.requestURI eq '/sistema_zeus/decanatos/' ? 'item active' : 'item' }" 
+                               id="item" href="/sistema_zeus/decanatos">Gestionar decanatos</a>
+
+                            <a class="#{request.requestURI eq '/sistema_zeus/departamentos/' 
+                                        or request.requestURI eq '/sistema_zeus/dptoDca/' ? 'item active' : 'item' }" 
+                               id="item" href="/sistema_zeus/departamentos">Gestionar departamentos</a>
+
+                            <a class="#{request.requestURI eq '/sistema_zeus/equipos/' ? 'item active' : 'item' }" 
+                               id="item" href="/sistema_zeus/equipos">Gestionar equipos</a>
+                        </div>
+                        
+                        <div style="#{request.isUserInRole('ADMIN') ? 'display: none' : ''}">
+                            <a class="item" id="item" href="/sistema_zeus/equiposDpto">Equipos en Departamento</a>
+                        </div>
+                            
+                        <div style="#{request.isUserInRole('ADMIN') ? '' : 'display: none'}">
+                            <a class="#{request.requestURI eq '/sistema_zeus/estadosEquipo/' ? 'item active' : 'item' }" 
+                               id="item" href="/sistema_zeus/estadosEquipo">Gestionar estados de equipos</a>
+                        </div>
+                        
+                        <div style="#{request.isUserInRole('ADMIN') ? 'display: none' : ''}">
+                            <a class="item" id="item" href="../Solicitudes/Solicitudes.html">Solicitudes</a>
+                            <a class="item" id="item" href="../Solicitudes/SolicitudesReparacion.html">Solicitudes de Reparacion</a>
+                            <a class="item" id="item" href="../Solicitudes/SolicitudesDesincorporacion.html">Solicitudes de Desincorporacion</a>
+                        </div>
+                        
                     </div>
                 </div>
             </ui:insert>
@@ -67,9 +119,31 @@
                 
             </ui:insert>
         </div>
+        
+        <!-- Mensaje de transaccion exitosa ''<> -->
+        <div class="ui mini modal" id="txtexito">
+            <div class="content fondo-modal">
+                <p>Operacion realizada con exito</p>
+            </div>
+            <div class="actions">
+                <div class="ui green ok inverted button"
+                     onclick="$('#txtexito').modal('hide');
+                                recargarPagina()">
+                    <i class="checkmark icon"></i>
+                    Aceptar
+                </div>
+            </div>
+        </div>
     </h:body>
     
     <h:outputScript library="js" name="jquery-3.1.1.min.js" />
     <h:outputScript library="semantic" name="semantic.min.js" />
+    <h:outputScript library="js" name="datatables.min.js" />
     <h:outputScript library="js" name="default.js" />
+    
+    <!-- PETICIONES AJAX -->
+    <h:outputScript library="js" name="peticionesEquipo.js" />
+    <h:outputScript library="js" name="peticionesMarca.js" />
+    <h:outputScript library="js" name="peticionesDecanato.js" />
+    <h:outputScript library="js" name="peticionesDepartamento.js" />
 </html>

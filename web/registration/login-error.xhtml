@@ -9,12 +9,17 @@
         <ui:define name="head">
             <title>Inicio de Sesión</title>
             <style type="text/css">
+                body{
+                    background-color: #d5dfe4 !important;
+                }
+                
                 body>.grid {
                     height: 90%;
                 }
 
                 .column {
-                    max-width: 450px;
+                    max-width: 30%;
+                    max-height: 30%;
                 }
 
                 .button {
@@ -24,38 +29,54 @@
         </ui:define>
 
         <ui:define name="top">
-            <h1>
-                <div class="ui large segment" style="background-color:  #c6c4c4  ;height: 50px; padding-top: 0px;border-block-end:4px solid #9e9d9d ;" >
-                    <h:graphicImage class="ui image" library="images" name="photo_2019-09-11_22-49-12.jpg" style="height: 45px; " />
-                </div>
-            </h1>
         </ui:define>
 
         <ui:define name="login">
             <div class="ui middle aligned center aligned grid">
                 <div class="column">
-                    <form class="ui large form" id="sign_in" action="j_security_check" method="post">
-
-                    <div class="ui large segment" style="background-color: #c6c4c4 ;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 0px solid #000000" id="formbox">
-                        <div class="field">
-                            <div class="ui left icon input">
-                                <i class="user red icon"></i>
-                                <input type="text" name="j_username" id="login_username" placeholder="Nombre de usuario:"/>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui left icon input">
-                                <i class="lock red icon" ></i>
-                                <input type="password" name="j_password" placeholder="Constraseña:" />
-                            </div> 
-                        </div>
+                    <form class="ui large form" 
+                            id="sign_in" 
+                            action="j_security_check" 
+                            method="POST">
                         
-                        <h3>Error</h3>
-
-                        <input type="submit" value="Iniciar sesion" class="ui large circular button" style="background-color:#DC143C;color:aliceblue;" />
-                    </div>
-                  </form>
+                        <div class="ui large segment"
+                            style="background-color: #c6c4c4 ;
+                            border-radius: 24px 24px 24px 24px;
+                            -moz-border-radius: 24px 24px 24px 24px;
+                            -webkit-border-radius: 24px 24px 24px 24px;
+                            border: 0px solid #000000"
+                            id="formbox">
+                            
+                            <h:graphicImage name="este.png" library="images" style="width: 100%; margin: 2%" />
+                            
+                            <div class="field">
+                                <div class="ui left icon input">
+                                    <i class="user blue icon"></i>
+                                    <input type="text" name="j_username" id="login_username" placeholder="Usuario:" required="true" />
+                                </div>
+                            </div>
+                            
+                            <div class="field">
+                                <div class="ui left icon input">
+                                    <i class="lock blue icon"></i>
+                                    <input type="password" name="j_password" placeholder="Contraseña:" required="true"/>
+                                </div>
+                            </div>
+                            
+                            <ul>
+                                <li style="color: red">
+                                    Error en la Combinación Usuario y Contraseña
+                                </li>
+                            </ul>
+                            
+                            <input type="submit" 
+                                   class="ui large circular button"
+                                   style="background-color:#1a237e;
+                                   color:white !important;
+                                   width: 100%;"
+                                   value="Iniciar sesión" />
+                        </div>
+                    </form>
                 </div>
             </div>
         </ui:define>

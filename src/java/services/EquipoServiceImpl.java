@@ -12,6 +12,7 @@ import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
+import javax.jws.WebService;
 
 /**
  *
@@ -19,7 +20,7 @@ import javax.ejb.Stateless;
  */
 
 @Stateless
-public class EquipoServiceImpl implements EquipoService{
+public class EquipoServiceImpl implements EquipoService {
     
     @Resource
     private SessionContext contexto;
@@ -55,7 +56,7 @@ public class EquipoServiceImpl implements EquipoService{
     @Override
     public void actualizarEquipo(Equipo equipo) {
         try {
-            equipoDao.updateEquipo(equipo);
+        equipoDao.updateEquipo(equipo);
         } catch (Throwable t) {
             contexto.setRollbackOnly();
             t.printStackTrace(System.out);

@@ -47,7 +47,7 @@ public class TipoUsuario implements Serializable {
     
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 30)
+    @Size(min = 1)
     @Column(name = "nombre")
     private String nombre;
     

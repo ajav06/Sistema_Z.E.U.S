@@ -35,7 +35,7 @@ public class EquipoBean {
     
     @PostConstruct
     public void inicializar(){
-        equipos = equipoService.listarEquipos();
+        equipos = equipoService.listarEquiposActivos();
         equipoSeleccionado = new Equipo();
     }
 

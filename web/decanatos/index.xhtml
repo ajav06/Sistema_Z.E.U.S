@@ -1,0 +1,421 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core">
+
+    <h:body>
+
+        <ui:composition template="./../template/base.xhtml">
+
+            <ui:define name="head">
+                <title>Decanatos</title>
+            </ui:define>
+
+            <ui:define name="content">
+                <div class="twelve wide stretched column">
+                    <div class="ui segment">
+                        
+                        <div class="ui category search">
+                            
+                            <div class="ui centered grid">
+                                <div class="ui animated circular button" 
+                                     tabindex="0" 
+                                     aria-label="Equipos"
+                                     onclick="incluir()">
+                                    
+                                    <div class="visible content">
+                                        <i class="ui plus icon"></i> 
+                                        Decanatos
+                                    </div>
+                                    
+                                    <div class="hidden content">
+                                        <i class="ui plus icon"></i>
+                                        Registrar
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h:dataTable class="ui compact celled definition table"
+                                         id="listas"
+                                         var="decanato"
+                                         value="#{decanatoBean.decanatos}"
+                                         headerClass="encabezado-tabla">
+                                
+                                <h:column>
+                                    <f:facet name="header">Nombre</f:facet>
+                                    #{decanato.nombre}
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">Siglas</f:facet>
+                                    #{decanato.siglas}
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">Dirección</f:facet>
+                                    #{decanato.direccion}
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">Opciones</f:facet>
+                                    <div class="item">
+                                        <div class="ui centered grid">
+                                            
+                                            <div class="ui circular animated button"
+                                                 aria-label="label"
+                                                 onclick="consultarDecanato(#{decanato.codigo});
+                                                          consultar()">
+                                                <div class="visible content">
+                                                    Consultar
+                                                </div>
+                                                
+                                                <div class="hidden content">
+                                                    Ver
+                                                </div>
+                                            </div>
+                                            
+                                            <a class="ui circular animated button"
+                                                 aria-label="label"
+                                                 href="/sistema_zeus/dptoDca?id=#{decanato.codigo}">
+                                                <div class="visible content">
+                                                    Departamentos
+                                                </div>
+                                                
+                                                <div class="hidden content">
+                                                    Ver
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </h:column>
+                                
+                            </h:dataTable>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <!-- Modal de Consultar''<> -->
+                <div class="ui basic modal" id="formconsultar">
+                    <div class="content">
+                        <div class="ui two column very relaxed grid" style="width: 110% ">
+                            <div class="column column-decanato"></div>
+
+                                <div class="column column-fondo">
+                                    <div class="ui segment">
+                                        <div class="ui aligned center dividing header">
+                                            Consultar Decanato
+                                        </div>
+                                    </div>
+
+                                    <div class="ui form-1">
+                                        <div class="ui form">
+                                            <div class="two fields">
+                                                <div class="field">
+                                                    <label>Nombre</label>
+                                                    <input type="text"
+                                                           name="nombreD"
+                                                           placeholder="Nombre"
+                                                           disabled="true"/>
+                                                </div>
+
+                                                <div class="field">
+                                                    <label>Siglas</label>
+                                                    <input type="text" 
+                                                           name="siglasD"
+                                                           placeholder="Siglas"
+                                                           disabled="true"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="two fields">
+                                                <div class="field">
+                                                    <label>Teléfono</label>
+                                                    <input type="text"
+                                                           name="telefonoD" 
+                                                           placeholder="Teléfono"
+                                                           disabled="true"/>
+                                                </div>
+
+                                                <div class="field">
+                                                    <label>Correo</label>
+                                                    <input type="text"
+                                                           name="emailD" 
+                                                           placeholder="Correo"
+                                                           disabled="true"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Dirección</label>
+                                                <textArea type="text"
+                                                          name="direccionD"
+                                                          placeholder="Dirección"
+                                                          disabled="true"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="actions">
+                                            <div class="ui center aligned fluid container" style=" margin-top: 5%">
+                                                <div class="ui cancel circular button">
+                                                    <i class="left chevron icon"></i>
+                                                    Atrás
+                                                </div>
+
+                                                <div class="ui circular button"
+                                                     onclick="modificar()"> 
+                                                    Modificar
+                                                </div>
+
+                                                <div class="ui circular button"
+                                                     onclick="eliminar()"> 
+                                                    Eliminar
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+                <!-- Modal de Modificar''<> -->
+                <div class="ui basic modal" id="formodificar">
+                    <div class="content">
+                        <div class="ui two column very relaxed grid" style="width: 110% ">
+                            <div class="column column-decanato"></div>
+
+                            <div class="column column-fondo">
+                                <div class="ui segment">
+                                    <div class="ui aligned center dividing header">
+                                        Modificar Decanato
+                                    </div>
+                                </div>
+
+                                <div class="ui form-1">
+                                    <form>
+                                        <input type="text"
+                                                id="codigoD"
+                                                placeholder="Código Decanato"
+                                                style="display: none"/>
+
+                                        <div class="ui form">
+                                            <div class="two fields">
+                                                <div class="field">
+                                                    <label>Nombre</label>
+                                                    <input type="text"
+                                                           name="nombreD"
+                                                           id="nombreD"
+                                                           placeholder="Nombre"
+                                                           required="true"/>
+                                                </div>
+
+                                                <div class="field">
+                                                    <label>Siglas</label>
+                                                    <input type="text"
+                                                           name="siglasD"
+                                                           id="siglasD"
+                                                           placeholder="Siglas"
+                                                           required="true"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="two fields">
+                                                <div class="field">
+                                                    <label>Teléfono</label>
+                                                    <input type="text"
+                                                           name="telefonoD"
+                                                           id="telefonoD"
+                                                           placeholder="Teléfono"/>
+                                                </div>
+
+                                                <div class="field">
+                                                    <label>Correo</label>
+                                                    <input type="text"
+                                                           name="emailD"
+                                                           id="emailD"
+                                                           placeholder="Correo"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Dirección</label>
+                                                <textArea type="text"
+                                                          name="direccionD"
+                                                          id="direccionD"
+                                                          placeholder="Dirección"/>
+                                            </div>
+
+                                        </div>
+
+                                    </form>
+
+                                    <div class="actions">
+                                        <div class="ui center aligned fluid container" style=" margin-top: 5%">
+                                            <button class="ui cancel circular icon button"
+                                                    onclick="atras()">
+                                                <i class="left chevron icon"></i> 
+                                                Atrás
+                                            </button>
+
+                                            <button class="ui circular button"
+                                                    onclick="aceptarModificacion()">
+                                                <i class="save icon"></i> 
+                                                Modificar
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal de Registrar''<> -->
+                <div class="ui basic modal" id="formincluir">
+                    <div class="content">
+                        <div class="ui two column very relaxed grid" style="width: 110% ">
+                            <div class="column column-decanato"></div>
+
+                            <div class="column column-fondo">
+                                <div class="ui segment">
+                                    <div class="ui aligned center dividing header">
+                                        Registrar Decanato
+                                    </div>
+                                </div>
+
+                                <div class="ui form-1">
+                                    <h:form>
+                                        <div class="ui form">
+                                            <div class="two fields">
+                                                <div class="field">
+                                                    <label>Nombre</label>
+                                                    <input type="text"
+                                                           id="nombreDI"
+                                                           placeholder="Nombre"/>
+                                                </div>
+
+                                                <div class="field">
+                                                    <label>Siglas</label>
+                                                    <input type="text"
+                                                           id="siglasDI"
+                                                           placeholder="Siglas"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="two fields">
+                                                <div class="field">
+                                                    <label>Teléfono</label>
+                                                    <input type="text"
+                                                           id="telefonoDI"
+                                                           placeholder="Teléfono" />
+                                                </div>
+
+                                                <div class="field">
+                                                    <label>Correo</label>
+                                                    <input type="text"
+                                                           id="emailDI"
+                                                           placeholder="Correo"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Dirección</label>
+                                                <textArea type="text"
+                                                          id="direccionDI"
+                                                          placeholder="Dirección"/>
+                                            </div>
+                                        </div>
+
+                                    </h:form>
+
+                                    <div class="actions">
+                                        <div class="ui center aligned fluid container" style=" margin-top: 5%">
+                                            <button class="ui cancel circular icon button">
+                                                <i class="left chevron icon"></i> 
+                                                Atrás 
+                                            </button>
+
+                                            <button class="ui circular button"
+                                                    onclick="aceptarInclusion()">
+                                                <i class="save icon"></i> 
+                                                Registrar
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Mensajes ''<> -->
+                <!-- Mensaje para confirmar incluir decanatos -->
+                <div class="ui mini modal" id="inclusion">
+                    <div class="content fondo-modal">
+                            <p>¿Está seguro que desea registrar el decanato?</p>
+                    </div>
+                    <div class="actions">
+                        <div class="ui red inverted button cancel">
+                            <i class="remove icon"></i>
+                            Cancelar
+                        </div>
+                        <div class="ui green ok inverted button"
+                             onclick="incluirDecanato()">
+                            <i class="checkmark icon"></i>
+                            Aceptar
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mensaje de Confirmacion modificacion ''<> -->
+                <div class="ui mini modal" id="modificacion">
+                    <div class="content fondo-modal">
+                        <p>¿Está seguro que desea guardar los cambios?</p>
+                    </div>
+                    <div class="actions">
+                        <div class="ui red inverted button cancel" >
+                            <i class="remove icon"></i>
+                            Cancelar
+                        </div>
+
+                        <div class="ui green ok inverted button"
+                             onclick="actualizarDecanato()">
+                            <i class="checkmark icon"></i>
+                            Aceptar
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mensaje de Eliminar ''<> -->
+                <div class="ui mini modal" id="txteliminar">
+                    <div class="content fondo-modal">
+                        <p>¿Está seguro que desea eliminar el Decanato?</p>
+                    </div>
+                    <div class="actions">
+                        <div class="ui red inverted button cancel">
+                            <i class="remove icon"></i>
+                            Cancelar
+                        </div>
+                        <div class="ui green ok inverted button"
+                             onclick="eliminarDecanto()">
+                            <i class="checkmark icon"></i>
+                            Aceptar
+                        </div>
+                    </div>
+                </div>
+                
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>

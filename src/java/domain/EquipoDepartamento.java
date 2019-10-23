@@ -44,15 +44,15 @@ public class EquipoDepartamento implements Serializable {
     private Integer codigo;
     
     @JoinColumn(name = "codigo_departamento", referencedColumnName = "codigo")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
     private Departamento codigoDepartamento;
     
     @JoinColumn(name = "codigo_equipo", referencedColumnName = "codigo")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
     private Equipo codigoEquipo;
     
     @JoinColumn(name = "codigo_estado_equipo", referencedColumnName = "codigo")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
     private EstadoEquipo codigoEstadoEquipo;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codigoEquipoDepartamento")

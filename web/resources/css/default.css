@@ -7,16 +7,27 @@
     margin-bottom: 1%;
 }
 
+#top-logo{
+    width: 18%; 
+    margin-top: 0 ; 
+    margin-bottom: -1.5% ;
+    padding: 0
+}
+
+#container-top{
+    margin: -1.3% 0 1.5% 0; 
+    padding-right: 2% !important;
+}
+
 #top-bar{
     background-image: url(../resources/images/adwebsys-fondo.jpg);
     height: 2.5%;
-    border-block-end:4px solid #1a237e;
+    padding: 0% !important;
+    border-block-end: 4px solid #1a237e;
 }
 
 #top-bar-dropdown{
     color: #ffff;
-    padding-block-start: 2px;
-    padding-block-end: 2px;
     background-color:  transparent;
     border: 0px #c6c4c4;
 }
@@ -53,7 +64,7 @@
 }
 
 /*
-*   Contenido
+*   CONTENIDO
 */
 
 #base-content{
@@ -86,11 +97,6 @@
     border: 1px solid #1a237e;
 }
 
-#mas-equipos {
-    width: 130px; 
-    margin-left: 60px;
-}
-
 .visible.content {
     color: #1a237e !important;
 }
@@ -101,7 +107,7 @@
 
 .circular.button {
     width: 130px;
-    color: #1a237e;
+    color: #1a237e !important;
 }
 
 .circular.button:hover {
@@ -110,21 +116,40 @@
 }
 
 /*
-*   Tabla
+*   TABLA
 */
 .table {
     border: 0px solid #1a237e;
 }
 
-#encabezado-tabla {
-    background-color: #1a237e;
-    color: #ffff;
+.ui.stackable.grid > .row{
+    margin-top: 1%;
+}
+
+.dataTables_length > label{
+    color: #1a237e !important;
+}
+
+#listas_filter > label {
+    color: #1a237e !important;
+}
+
+#listas_info {
+    color: #1a237e !important;
+}
+
+.pagination > a{
+    color: #1a237e !important;
 }
 
 .encabezado-tabla {
     background-color: #1a237e !important;
     color: #ffff !important;
     width: 33.33% !important;
+}
+
+.ui.centered.grid{
+    margin: .5%;
 }
 
 /*
@@ -140,9 +165,27 @@
     background-image: url(../resources/images/adwebsys-fondo.jpg) !important;
 }
 
+.fondo-modal > p{
+    color: #ffff !important;
+}
+
 .column-equipo {
     width: 33% !important; 
     background-image: url(../resources/images/fondo8.jpg);
+    padding: 0;
+    border-radius: 24px 0px 0px 24px;
+}
+
+.column-marca {
+    width: 33% !important; 
+    background-image: url(../resources/images/marcas.jpg);
+    padding: 0;
+    border-radius: 24px 0px 0px 24px;
+}
+
+.column-decanato{
+    width: 33% !important; 
+    background-image: url(../resources/images/fondo3.PNG);
     padding: 0;
     border-radius: 24px 0px 0px 24px;
 }
@@ -167,7 +210,7 @@
 }
 
 /*
-*   Formulario
+*   FORMULARIO
 */
 
 .form-1{
@@ -193,4 +236,9 @@ input {
 textarea {
     border-block-color: #1a237e !important;
     border-radius: 24px 24px 24px 24px !important;
+}
+
+.form-1 > .actions{
+    margin-block-end: 20px; 
+    margin-block-start: 5%;
 }
