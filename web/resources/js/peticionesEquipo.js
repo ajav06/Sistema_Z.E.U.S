@@ -21,6 +21,8 @@ function buscarMarca(tipo){
                     marcaSeleccionada = data;
                 }
             });
+        } else {
+            marcaSeleccionada = null;
         }
     }else{
         var nom = $('select[name=codigoMarcaE] option:selected').text();
@@ -88,8 +90,23 @@ function consultarEquipo(id){
     });
 }
 
+function validarCamposIncluirEquipo(){
+    if ($("#nombreEI").val()!="" && marcaSeleccionada!=null && $("#descripcionEI").val()!=""){
+        aceptarInclusion();
+    } else {
+        Swal.fire("Error","Debe llenar todos los campos para poder incluir un equipo.","error");
+    }
+}
+
+function validarCamposModificarEquipo(){
+    if ($("#nombreE").val()!="" && marcaSeleccionada!=null && $("#descripcionE").val()!=""){
+        aceptarModificacion();
+    } else {
+        Swal.fire("Error","Debe llenar todos los campos para poder modificar un equipo.","error");
+    }
+}
+
 function incluirEquipo(){
-    
     $.ajax({
         type: 'POST',
         url: '/sistema_zeus/webservice/equipos/',

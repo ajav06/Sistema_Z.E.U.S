@@ -195,7 +195,7 @@
                                                      pt:name="codigoMarcaE"
                                                      id="codigoMarcaE"
                                                      converter="omnifaces.SelectItemsIndexConverter"
-                                                     onchange="buscarMarca()"
+                                                     onchange="buscarMarca(2)"
                                                      required="true"
                                                      requiredMessage="Selecciona una Marca">
                                                     <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
@@ -227,8 +227,7 @@
                                             Atrás 
                                         </button>
                                         <button class="ui circular button"
-                                                onclick="buscarMarca(2);
-                                                        aceptarModificacion()">
+                                                onclick="validarCamposModificarEquipo()">
                                             <i class='save icon'></i>
                                             Guardar
                                         </button>
@@ -273,7 +272,7 @@
                                                      pt:name="codigoMarcaEI"
                                                      id="codigoMarcaEI"
                                                      converter="omnifaces.SelectItemsIndexConverter"
-                                                     onchange="buscarMarca()"
+                                                     onchange="buscarMarca(1)"
                                                      required="true"
                                                      requiredMessage="Selecciona una Marca">
                                                     <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
@@ -304,8 +303,7 @@
                                             Cancelar 
                                         </button>
                                         <button class="ui circular button"
-                                                onclick="buscarMarca(1);
-                                                         aceptarInclusion()">
+                                                onclick="validarCamposIncluirEquipo()">
                                             <i class="save icon"></i> 
                                             Guardar 
                                         </button>
