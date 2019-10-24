@@ -19,6 +19,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -38,7 +39,11 @@ public class EquipoDepartamento implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+                    generator = "id_equipoDpto")
+    @SequenceGenerator(name="id_equipoDpto", 
+                       sequenceName = "equipo_departamento_codigo_seq",
+                       allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "codigo")
     private Integer codigo;
