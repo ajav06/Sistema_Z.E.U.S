@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core">
+
+    <ui:composition template="./../template/base.xhtml">
+
+        <ui:define name="head">
+           <title>Solicitudes</title>
+        </ui:define>
+
+        <ui:define name="content">
+            <div class="twelve wide stretched column">
+                <div class="ui segment">
+
+                    <div class="ui category search">
+
+                        <h:dataTable class="ui compact celled definition table"
+                                     id="listas"
+                                     var="departamento"
+                                     value="#{departamentoBean.departamentos}"
+                                     headerClass="encabezado-tabla-2">
+
+                            <h:column>
+                                <f:facet name="header">Tipo de solicitud</f:facet>
+                                Reparación
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Fecha de emisión</f:facet>
+                                04/07/2019
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Decanato</f:facet>
+                                #{departamento.codigoDecanato.nombre}
+                            </h:column>
+                            
+                            <h:column>
+                                <f:facet name="header">Departamento</f:facet>
+                                #{departamento.nombre}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Opciones</f:facet>
+                                <div class="item">
+                                        <div class="ui centered grid">
+
+                                            <div class="ui circular button"
+                                                 onclick="consultar()">
+                                                Consultar
+                                            </div>
+
+                                        </div>
+                                    </div>
+                            </h:column>
+
+                        </h:dataTable>
+                    </div>
+
+                </div>
+            </div>
+            
+            <!-- Modal de Consultar''<> -->
+            <div class="ui basic modal" id="formconsultar">
+                <div class="content">
+                    <div class="ui two column very relaxed grid">
+                        <div class="column column-decanato"></div>
+
+                            <div class="column column-fondo">
+                                <div class="ui segment">
+                                    <div class="ui aligned center dividing header">
+                                        Detalles de la Solicitud
+                                    </div>
+                                </div>
+
+                                <div class="ui form-1">
+                                    <form>
+                                        <div class="ui form">
+                                            <div class="two fields">
+                                                <div class="field">
+                                                    <label>Equipo</label>
+                                                    <input type="text"
+                                                           name="nombreD"
+                                                           placeholder="Equipo"
+                                                           disabled="true"/>
+                                                </div>
+
+                                                <div class="field">
+                                                    <label>Fecha de Emisión</label>
+                                                    <input type="text" 
+                                                           name="siglasD"
+                                                           placeholder="Fecha de Emisión"
+                                                           disabled="true"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="two fields">
+                                                <div class="field">
+                                                    <label>Estatus del equipo</label>
+                                                    <input type="text"
+                                                           name="telefonoD" 
+                                                           placeholder="Estatus del equipo"
+                                                           disabled="true"/>
+                                                </div>
+
+                                                <div class="field">
+                                                    <label>Decanato</label>
+                                                    <input type="text"
+                                                           name="emailD" 
+                                                           placeholder="Decanato"
+                                                           disabled="true"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="two fields">
+                                                <div class="field">
+                                                    <label>Departamento</label>
+                                                    <input type="text"
+                                                           name="telefonoD" 
+                                                           placeholder="Departamento"
+                                                           disabled="true"/>
+                                                </div>
+
+                                                <div class="field">
+                                                    <label>Emisor</label>
+                                                    <input type="text"
+                                                           name="emailD" 
+                                                           placeholder="Emisor"
+                                                           disabled="true"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Motivo</label>
+                                                <textArea type="text"
+                                                          name="direccionD"
+                                                          placeholder="Motivo"
+                                                          disabled="true"/>
+                                            </div>
+                                        
+                                        </div>
+                                    </form>
+                                    
+                                    <div class="actions">
+                                        <div class="ui center aligned fluid container" >
+                                            <div class="ui cancel circular button">
+                                                <i class="left chevron icon"></i>
+                                                Atrás
+                                            </div>
+
+                                            <div class="ui circular button"
+                                                 onclick="aceptarInclusion()"> 
+                                                Aceptar
+                                            </div>
+
+                                            <div class="ui circular button"
+                                                 onclick="eliminar()"> 
+                                                Rechazar
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+            
+            <!-- Mensajes ''<> -->
+            <!-- Mensaje para confirmar incluir decanatos -->
+            <div class="ui mini modal" id="inclusion">
+                <div class="content" id="green-color">
+                    <p>¿Está seguro que desea Aceptar la Solicitud?</p>
+                </div>
+                <div class="actions">
+                    <div class="ui red inverted button cancel">
+                        <i class="remove icon"></i>
+                        Cancelar
+                    </div>
+                    <div class="ui green ok inverted button">
+                        <i class="checkmark icon"></i>
+                        Aceptar
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mensaje de Eliminar ''<> -->
+            <div class="ui mini modal" id="txteliminar">
+                <div class="content" id="red-color">
+                    <p>¿Está seguro que desea Rechazar la Solicitud?</p>
+                </div>
+                <div class="actions">
+                    <div class="ui red inverted button cancel">
+                        <i class="remove icon"></i>
+                        Cancelar
+                    </div>
+                    <div class="ui green ok inverted button">
+                        <i class="checkmark icon"></i>
+                        Aceptar
+                    </div>
+                </div>
+            </div>
+            
+        </ui:define>
+
+    </ui:composition>
+</html>

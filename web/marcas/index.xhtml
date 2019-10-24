@@ -6,245 +6,242 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
-    <h:body>
+    <ui:composition template="./../template/base.xhtml">
 
-        <ui:composition template="./../template/base.xhtml">
+        <ui:define name="head">
+            <title>Marcas</title>
+        </ui:define>
 
-            <ui:define name="head">
-                <title>Marcas</title>
-            </ui:define>
+        <ui:define name="content">
+            <div class="twelve wide stretched column">
+                <div class="ui segment">
 
-            <ui:define name="content">
-                <div class="twelve wide stretched column">
-                    <div class="ui segment">
-                        
-                        <div class="ui category search">
-                            
-                            <div class="ui centered grid">
-                                <div class="ui animated circular button" 
-                                     tabindex="0" 
-                                     aria-label="Equipos"
-                                     onclick="incluir()">
-                                    
-                                    <div class="visible content">
-                                        <i class="ui plus icon"></i> 
-                                        Marca
-                                    </div>
-                                    
-                                    <div class="hidden content">
-                                        <i class="ui plus icon"></i>
-                                        Registrar
-                                    </div>
-                                </div>
-                            </div>                          
-                            
-                            <h:dataTable class="ui compact celled definition table"
-                                         id="listas"
-                                         var="marca"
-                                         value="#{marcaBean.marcas}"
-                                         headerClass="encabezado-tabla">
-                                
-                                <h:column>
-                                    <f:facet name="header">Nombre de la Marca</f:facet>
-                                    #{marca.nombre}
-                                </h:column>
-                                
-                                <h:column>
-                                    <f:facet name="header">Opciones</f:facet>
-                                    <div class="item">
-                                        <div class="ui centered grid">
-                                            
-                                            <div class="ui circular button"
-                                                 onclick="consultarMarca(#{marca.codigo},1)">
-                                                Modificar
-                                            </div>
-                                            
-                                            <div class="ui circular button"
-                                                 onclick="consultarMarca(#{marca.codigo},2)">
-                                                Eliminar
-                                            </div>
+                    <div class="ui category search">
 
-                                        </div>
-                                    </div>
-                                </h:column>
-                                
-                            </h:dataTable>
-                        </div>
-            
-                    </div>
-                </div>
-                
-                <!-- Modificar Marca -->
-                <div class="ui basic modal" id="formodificar">
-                    <div class="content">
-                        <div class="ui two column very relaxed grid">
-                            <div class="column column-marca"></div>
+                        <div class="ui centered grid">
+                            <div class="ui animated circular button" 
+                                 tabindex="0" 
+                                 aria-label="Equipos"
+                                 onclick="incluir()">
 
-                            <div class="column column-fondo">
-                                <div class="ui segment segment-peq">
-                                    <div class="ui aligned center dividing header">
-                                        Modificar Marca
-                                    </div>
+                                <div class="visible content">
+                                    <i class="ui plus icon"></i> 
+                                    Marca
                                 </div>
 
-                                <div class="ui form-1">
-                                    <h:form>
-                                        <input type="number" 
-                                                placeholder="Código de la Marca"
-                                                id="codigoM"
-                                                name="codigoM"
-                                                style="display: none"/>
-
-                                        <div class="ui form">
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Nombre</label>
-
-                                                    <input type="text" 
-                                                           placeholder="Nombre de la marca"
-                                                           id="nombreM"
-                                                           name="nombreM"/>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        
-
-                                    </h:form>
-
-                                    <div class="actions">
-                                        <div class="ui center aligned fluid container" >
-                                            <button class="ui cancel circular icon button">
-                                                <i class="left chevron icon"></i> 
-                                                Cancelar
-                                            </button>
-
-                                            <button class="ui circular button" 
-                                                    onclick="aceptarModificacion()">
-                                                <i class="save icon"></i>
-                                                Modificar
-                                            </button>
-                                        </div>
-                                    </div>
-
+                                <div class="hidden content">
+                                    <i class="ui plus icon"></i>
+                                    Registrar
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>                        
+                        </div>                          
 
-                <!-- Incluir registrar -->
-                <div class="ui basic modal" id="formincluir">
-                    <div class="content">
-                        <div class="ui two column very relaxed grid">
-                            <div class="column column-marca"></div>
+                        <h:dataTable class="ui compact celled definition table"
+                                     id="listas"
+                                     var="marca"
+                                     value="#{marcaBean.marcas}"
+                                     headerClass="encabezado-tabla">
 
-                            <div class="column column-fondo">
-                                <div class="ui segment segment-peq">
-                                    <div class="ui aligned center dividing header">
-                                        Registrar Marca
+                            <h:column>
+                                <f:facet name="header">Nombre de la Marca</f:facet>
+                                #{marca.nombre}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Opciones</f:facet>
+                                <div class="item">
+                                    <div class="ui centered grid">
+
+                                        <div class="ui circular button"
+                                             onclick="consultarMarca(#{marca.codigo},1)">
+                                            Modificar
+                                        </div>
+
+                                        <div class="ui circular button"
+                                             onclick="consultarMarca(#{marca.codigo},2)">
+                                            Eliminar
+                                        </div>
+
                                     </div>
                                 </div>
+                            </h:column>
 
-                                <div class="ui form-1">
-                                    <h:form>
-                                        <div class="ui form">
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Nombre</label>
-                                                    <input type="text" 
-                                                           placeholder="Nombre de la marca"
-                                                           name="nombreMI"
-                                                           id="nombreMI"/>
-                                                </div>
+                        </h:dataTable>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Modificar Marca -->
+            <div class="ui basic modal" id="formodificar">
+                <div class="content">
+                    <div class="ui two column very relaxed grid">
+                        <div class="column column-marca"></div>
+
+                        <div class="column column-fondo">
+                            <div class="ui segment segment-peq">
+                                <div class="ui aligned center dividing header">
+                                    Modificar Marca
+                                </div>
+                            </div>
+
+                            <div class="ui form-1">
+                                <h:form>
+                                    <input type="number" 
+                                            placeholder="Código de la Marca"
+                                            id="codigoM"
+                                            name="codigoM"
+                                            style="display: none"/>
+
+                                    <div class="ui form">
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Nombre</label>
+
+                                                <input type="text" 
+                                                       placeholder="Nombre de la marca"
+                                                       id="nombreM"
+                                                       name="nombreM"/>
                                             </div>
                                         </div>
 
-                                    </h:form>
-
-                                    <div class="actions">
-                                        <div class="ui center aligned fluid container" >
-
-                                            <button class="ui cancel circular icon button">
-                                                <i class="left chevron icon"></i>
-                                                Cancelar 
-                                            </button>
-
-                                            <button class="ui circular button save"
-                                                    onclick="aceptarInclusion()">
-                                                <i class="save icon"></i>
-                                                Registrar
-                                            </button>
-                                        </div>
                                     </div>
 
+
+
+                                </h:form>
+
+                                <div class="actions">
+                                    <div class="ui center aligned fluid container" >
+                                        <button class="ui cancel circular icon button">
+                                            <i class="left chevron icon"></i> 
+                                            Cancelar
+                                        </button>
+
+                                        <button class="ui circular button" 
+                                                onclick="aceptarModificacion()">
+                                            <i class="save icon"></i>
+                                            Modificar
+                                        </button>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>                        
 
-                <!-- Mensajes ''<> -->
-                <!-- Mensaje de confirmacion de inclusion ''<> -->
-                <div class="ui mini modal" id="inclusion">
-                    <div class="content fondo-modal">
-                        <p>¿Está seguro que desea incluir la marca?</p>
-                    </div>
-                    <div class="actions">
-                        <div class="ui red inverted button cancel">
-                            <i class="remove icon"></i>
-                            Cancelar
-                        </div>
+            <!-- Incluir registrar -->
+            <div class="ui basic modal" id="formincluir">
+                <div class="content">
+                    <div class="ui two column very relaxed grid">
+                        <div class="column column-marca"></div>
 
-                        <div class="ui green ok inverted button"
-                             onclick="incluirMarca()">
-                            <i class="checkmark icon"></i>
-                            Aceptar
-                        </div>
-                    </div>
-                </div> 
-                
-                <!-- Mensaje para confirmar modificar marca ''<> -->
-                <div class="ui mini modal" id="modificacion">
-                    <div class="content fondo-modal">
-                        <p>¿Está seguro que desea guardar los cambios?</p>
-                    </div>
-                    <div class="actions">
-                        <div class="ui red inverted button cancel">
-                            <i class="remove icon"></i>
-                            Cancelar
-                        </div>
+                        <div class="column column-fondo">
+                            <div class="ui segment segment-peq">
+                                <div class="ui aligned center dividing header">
+                                    Registrar Marca
+                                </div>
+                            </div>
 
-                        <div class="ui green ok inverted button"
-                             onclick="actualizarMarca()">
-                            <i class="checkmark icon"></i>
-                            Aceptar
+                            <div class="ui form-1">
+                                <h:form>
+                                    <div class="ui form">
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Nombre</label>
+                                                <input type="text" 
+                                                       placeholder="Nombre de la marca"
+                                                       name="nombreMI"
+                                                       id="nombreMI"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </h:form>
+
+                                <div class="actions">
+                                    <div class="ui center aligned fluid container" >
+
+                                        <button class="ui cancel circular icon button">
+                                            <i class="left chevron icon"></i>
+                                            Cancelar 
+                                        </button>
+
+                                        <button class="ui circular button save"
+                                                onclick="aceptarInclusion()">
+                                            <i class="save icon"></i>
+                                            Registrar
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Mensaje de eliminar marca ''<> -->
-                <div class="ui mini modal" id="txteliminar">
-                    <div class="content fondo-modal">
-                        <p>¿Está seguro que desea eliminar la marca?</p>
+            </div>
+
+            <!-- Mensajes ''<> -->
+            <!-- Mensaje de confirmacion de inclusion ''<> -->
+            <div class="ui mini modal" id="inclusion">
+                <div class="content fondo-modal">
+                    <p>¿Está seguro que desea incluir la marca?</p>
+                </div>
+                <div class="actions">
+                    <div class="ui red inverted button cancel">
+                        <i class="remove icon"></i>
+                        Cancelar
                     </div>
-                    <div class="actions">
-                        <div class="ui red inverted button cancel">
-                            <i class="remove icon"></i>
-                            Cancelar
-                        </div>
-                        <div class="ui green ok inverted button"
-                             onclick="eliminarMarca()">
-                            <i class="checkmark icon"></i>
-                            Aceptar
-                        </div>
+
+                    <div class="ui green ok inverted button"
+                         onclick="incluirMarca()">
+                        <i class="checkmark icon"></i>
+                        Aceptar
                     </div>
                 </div>
-                        
-            </ui:define>
+            </div> 
 
-        </ui:composition>
+            <!-- Mensaje para confirmar modificar marca ''<> -->
+            <div class="ui mini modal" id="modificacion">
+                <div class="content fondo-modal">
+                    <p>¿Está seguro que desea guardar los cambios?</p>
+                </div>
+                <div class="actions">
+                    <div class="ui red inverted button cancel">
+                        <i class="remove icon"></i>
+                        Cancelar
+                    </div>
 
-    </h:body>
+                    <div class="ui green ok inverted button"
+                         onclick="actualizarMarca()">
+                        <i class="checkmark icon"></i>
+                        Aceptar
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mensaje de eliminar marca ''<> -->
+            <div class="ui mini modal" id="txteliminar">
+                <div class="content fondo-modal">
+                    <p>¿Está seguro que desea eliminar la marca?</p>
+                </div>
+                <div class="actions">
+                    <div class="ui red inverted button cancel">
+                        <i class="remove icon"></i>
+                        Cancelar
+                    </div>
+                    <div class="ui green ok inverted button"
+                         onclick="eliminarMarca()">
+                        <i class="checkmark icon"></i>
+                        Aceptar
+                    </div>
+                </div>
+            </div>
+
+        </ui:define>
+
+    </ui:composition>
+    
 </html>

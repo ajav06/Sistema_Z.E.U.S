@@ -6,215 +6,306 @@
       xmlns:f = "http://java.sun.com/jsf/core"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
-    <h:body>
+    <ui:composition template="./../template/base.xhtml">
 
-        <ui:composition template="./../template/base.xhtml">
+        <ui:define name="head">
+            <title>Equipos en Departamento</title>
+        </ui:define>
 
-            <ui:define name="head">
-                <title>Equipos en Departamento</title>
-            </ui:define>
+        <ui:define name="content">
+            <div class="twelve wide stretched column">
+                <div class="ui segment">
 
-            <ui:define name="content">
-                <div class="twelve wide stretched column">
-                    <div class="ui segment">
+                    <div class="ui category search">
 
-                        <div class="ui category search">
+                        <div class="ui centered grid">
+                            <div class="ui animated circular button" 
+                                 tabindex="0" 
+                                 pt:aria-label="Equipos"
+                                 onclick="incluir()">
 
-                            <div class="ui centered grid">
-                                <div class="ui animated circular button" 
-                                     tabindex="0" 
-                                     pt:aria-label="Equipos"
-                                     onclick="incluir()">
+                                <div class="visible content">
+                                    <i class="ui plus icon"></i> 
+                                    Equipos
+                                </div>
 
-                                    <div class="visible content">
-                                        <i class="ui plus icon"></i> 
-                                        Equipos
+                                <div class="hidden content">
+                                    <i class="ui plus icon"></i> 
+                                    Registrar
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <h:dataTable class="ui compact celled definition table"
+                                     id="listas"
+                                     var="equipo"
+                                     value="#{equipoBean.equipos}"
+                                     headerClass="encabezado-tabla">
+
+                            <h:column>
+                                <f:facet name="header">Código</f:facet>
+                                #{equipo.codigo}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Nombre</f:facet>
+                                #{equipo.nombre}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Opciones</f:facet>
+                                <div class="item">
+                                    <div class="ui centered grid">
+                                        <div class="ui animated circular button" tabindex="0"
+                                             onclick="consultar()"
+                                             id="reparar">
+                                            <div class="visible content">Consultar</div>
+                                            <div class="hidden content">Ver detalles</div>
+                                        </div>
+                                        
+                                        <div class="ui animated circular button" tabindex="0"
+                                             onclick="reparar()"
+                                             id="reparar">
+                                            <div class="visible content">Reparar</div>
+                                            <div class="hidden content">Solicitar</div>
+                                        </div>
+                                        
+                                        <div class="ui animated circular button" tabindex="0"
+                                             onclick="desincorporar()"
+                                             id="desincorporar">
+                                            <div class="visible content">Desincorporar</div>
+                                            <div class="hidden content">Solicitar </div>
+                                        </div>
                                     </div>
+                                </div>
+                            </h:column>
+                        </h:dataTable>
+                    </div>
 
-                                    <div class="hidden content">
-                                        <i class="ui plus icon"></i> 
-                                        Registrar
-                                    </div>
+                </div>
+            </div>
+
+            <!-- Modal de Ver Detalles''<> -->
+            <div class="ui basic modal" id="formconsultar">
+                <div class="content">
+                    <div class="ui two column very relaxed grid">
+                        <div class="column column-equipo"></div>
+
+                        <div class="column column-fondo">
+                            <div class="ui segment">
+                                <div class="ui aligned center dividing header">
+                                    Consultar Equipo
                                 </div>
                             </div>
 
+                            <div class="ui form-1">
+                                <h:form>                                       
+                                    <div class="ui form">
+                                        <div class="two fields">
 
-                            <h:dataTable class="ui compact celled definition table"
-                                         id="listas"
-                                         var="equipo"
-                                         value="#{equipoBean.equipos}"
-                                         headerClass="encabezado-tabla">
-                                
-                                <h:column>
-                                    <f:facet name="header">Código</f:facet>
-                                    #{equipo.codigo}
-                                </h:column>
-                                
-                                <h:column>
-                                    <f:facet name="header">Nombre</f:facet>
-                                    #{equipo.nombre}
-                                </h:column>
+                                            <div class="field">
+                                                <div class="two fields">
+                                                    <div class="field" style="width: 90%">
+                                                        <label>Código</label>
+                                                        <input type="text" 
+                                                               placeholder="Código"
+                                                               disabled="true"/>
+                                                    </div>
 
-                                <h:column>
-                                    <f:facet name="header">Opciones</f:facet>
-                                    <div class="item">
-                                        <div class="right floated content">
-                                            <div class="ui animated circular button" tabindex="0"
-                                                 onclick="consultar()"
-                                                 id="reparar">
-                                                <div class="visible content">Consultar</div>
-                                                <div class="hidden content">Ver detalles</div>
-                                            </div>
-                                            <div class="ui animated circular button" tabindex="0"
-                                                 onclick="reparar()"
-                                                 id="reparar">
-                                                <div class="visible content">Reparar</div>
-                                                <div class="hidden content">Solicitar</div>
-                                            </div>
-                                            <div class="ui animated circular button" tabindex="0"
-                                                 onclick="desincorporar()"
-                                                 id="desincorporar">
-                                                <div class="visible content">Desincorporar</div>
-                                                <div class="hidden content">Solicitar </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </h:column>
-                            </h:dataTable>
-                        </div>
-
-                    </div>
-                </div>
-                
-                <!-- Modal de Ver Detalles''<> -->
-                <div class="ui basic modal" id="formconsultar">
-                    <div class="content">
-                        <div class="ui two column very relaxed grid">
-                            <div class="column column-equipo"></div>
-
-                            <div class="column column-fondo">
-                                <div class="ui segment">
-                                    <div class="ui aligned center dividing header">
-                                        Consultar Equipo
-                                    </div>
-                                </div>
-
-                                <div class="ui form-1">
-                                    <h:form>                                       
-                                        <div class="ui form">
-                                            <div class="two fields">
-
-                                                <div class="field">
-                                                    <div class="two fields">
-                                                        <div class="field" style="width: 90%">
-                                                            <label>Código</label>
-                                                            <input type="text" 
-                                                                   placeholder="código"
-                                                                   disabled="true"/>
-                                                        </div>
-
-                                                        <div class="field" style="width: 10%">
-                                                            <i class="ui print icon" id="print" style="margin-top: 30px;"></i>
-                                                        </div>
+                                                    <div class="field" style="width: 10%">
+                                                        <i class="ui print icon" id="print" style="margin-top: 30px;"></i>
                                                     </div>
                                                 </div>
-
-                                                <div class="field">
-                                                    <label>Estatus</label>
-                                                    <input type="text" 
-                                                           placeholder="estatus"
-                                                           disabled="true"/>
-                                                </div>
                                             </div>
 
                                             <div class="field">
-                                                <label>Equipo</label>
+                                                <label>Estatus</label>
                                                 <input type="text" 
-                                                       placeholder="equipo"
-                                                       disabled="true"/>
-                                            </div>
-
-                                            <div class="field">
-                                                <label>Decanato</label>
-                                                <input type="text" 
-                                                       placeholder="Decanato"
-                                                       disabled="true"/>
-                                            </div>
-
-                                            <div class="field">
-                                                <label>Departamento</label>
-                                                <input type="text" 
-                                                       placeholder="Departamento"
+                                                       placeholder="Estatus"
                                                        disabled="true"/>
                                             </div>
                                         </div>
-                                    </h:form>
 
-                                    <div class="actions">
-                                        <div class="ui center aligned fluid container">
-                                            <div class="ui cancel  circular button">
-                                                <i class="left chevron icon"></i>
-                                                Atrás
-                                            </div>
-
-                                            <div class="ui circular button"
-                                                 onclick="modificar()"> 
-                                                Modificar
-                                            </div>
-
-                                            <div class="ui circular button"
-                                                 onclick="eliminar()"> 
-                                                Eliminar
-                                            </div>
+                                        <div class="field">
+                                            <label>Equipo</label>
+                                            <input type="text" 
+                                                   placeholder="Equipo"
+                                                   disabled="true"/>
                                         </div>
 
-                                        <div class="ui center aligned fluid container">
-                                            <div class="ui animated circular button" tabindex="0"
-                                                 onclick="reparar()"
-                                                 id="reparar">
-                                                <div class="visible content">Reparar</div>
-                                                <div class="hidden content">Solicitar</div>
-                                            </div>
+                                        <div class="field">
+                                            <label>Decanato</label>
+                                            <input type="text" 
+                                                   placeholder="Decanato"
+                                                   disabled="true"/>
+                                        </div>
 
-                                            <div class="ui animated circular button" tabindex="0"
-                                                 onclick="desincorporar()"
-                                                 id="desincorporar">
-                                                <div class="visible content">Desincorporar</div>
-                                                <div class="hidden content">Solicitar </div>
-                                            </div>
+                                        <div class="field">
+                                            <label>Departamento</label>
+                                            <input type="text" 
+                                                   placeholder="Departamento"
+                                                   disabled="true"/>
+                                        </div>
+                                    </div>
+                                </h:form>
+
+                                <div class="actions">
+                                    <div class="ui center aligned fluid container">
+                                        <div class="ui cancel  circular button">
+                                            <i class="left chevron icon"></i>
+                                            Atrás
+                                        </div>
+
+                                        <div class="ui circular button"
+                                             onclick="modificar()"> 
+                                            Modificar
+                                        </div>
+
+                                        <div class="ui circular button"
+                                             onclick="eliminar()"> 
+                                            Eliminar
                                         </div>
                                     </div>
 
+                                    <div class="ui center aligned fluid container">
+                                        <div class="ui animated circular button" tabindex="0"
+                                             onclick="reparar()"
+                                             id="reparar">
+                                            <div class="visible content">Reparar</div>
+                                            <div class="hidden content">Solicitar</div>
+                                        </div>
+
+                                        <div class="ui animated circular button" tabindex="0"
+                                             onclick="desincorporar()"
+                                             id="desincorporar">
+                                            <div class="visible content">Desincorporar</div>
+                                            <div class="hidden content">Solicitar </div>
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Modificar Equipo''<> -->
-                <div class="ui basic modal" id="formodificar">
-                    <div class="content">
-                        <div class="ui two column very relaxed grid">
-                            <div class="column column-equipo"></div>
+            <!-- Modificar Equipo''<> -->
+            <div class="ui basic modal" id="formodificar">
+                <div class="content">
+                    <div class="ui two column very relaxed grid">
+                        <div class="column column-equipo"></div>
 
-                            <div class="column column-fondo">
-                                <div class="ui segment segment-peq">
-                                    <div class="ui aligned center dividing header">
-                                        Modificar Equipo
+                        <div class="column column-fondo">
+                            <div class="ui segment segment-peq">
+                                <div class="ui aligned center dividing header">
+                                    Modificar Equipo
+                                </div>
+                            </div>
+
+                            <div class="ui form-1">
+                                <h:form>
+                                    <input type="number" 
+                                        placeholder="Código del equipo por Dpto"
+                                        id="codigo"
+                                        name="codigo"
+                                        style="display: none"/>
+
+                                    <div class="ui form">
+                                        <div class="field">
+                                            <label >Estado del Equipo</label>
+                                            <h:selectOneMenu
+                                                 class="ui fluid dropdown"
+                                                 pt:name="codigoMarcaEI"
+                                                 id="codigoMarcaEI"
+                                                 converter="omnifaces.SelectItemsIndexConverter"
+                                                 required="true"
+                                                 requiredMessage="Selecciona un Estado">
+                                                <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
+                                                <f:selectItems value="#{estadoEquipoBean.estadosEquipos}" var="estadoEquipo" 
+                                                               itemValue="#{estadoEquipo.codigo}"
+                                                               itemLabel="#{estadoEquipo.nombre}" />
+                                            </h:selectOneMenu>
+                                        </div>
+                                    </div>
+
+                                    <!-- Mensaje de confirmacion de modificacion ''<> -->
+                                    <div class="ui mini modal" id="modificacion">
+                                        <div class="content fondo-modal">
+                                            <p>¿Está seguro que desea guardar los cambios?</p>
+                                        </div>
+                                        <div class="actions">
+                                            <div class="ui red inverted button cancel">
+                                                <i class="remove icon"></i>
+                                                Cancelar
+                                            </div>
+
+                                            <div class="ui green ok inverted button" 
+                                                 onclick="actualizarEquipo()">
+                                                <i class="checkmark icon"></i>
+                                                Aceptar
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </h:form>
+
+                                <div class="actions">
+                                    <div class="ui center aligned fluid container">
+                                        <button class="ui cancel circular icon button"
+                                                onclick="atras()">
+                                            <i class="left chevron icon"></i>
+                                            Atrás 
+                                        </button>
+                                        <button class="ui circular button"
+                                                onclick="buscarMarca(2);
+                                                        aceptarModificacion()">
+                                            <i class='save icon'></i>
+                                            Guardar
+                                        </button>
                                     </div>
                                 </div>
 
-                                <div class="ui form-1">
-                                    <h:form>
-                                        <input type="number" 
-                                            placeholder="Código del equipo por Dpto"
-                                            id="codigo"
-                                            name="codigo"
-                                            style="display: none"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                                        <div class="ui form">
+            <!-- incluir Equipo ''<> -->
+            <div class="ui basic modal" id="formincluir">
+                <div class="content">
+                    <div class="ui two column very relaxed grid">
+                        <div class="column column-equipo"></div>
+
+                        <div class="column column-fondo">
+                            <div class="ui segment segment-peq">
+                                <div class="ui aligned center dividing header">
+                                    Incluir Equipo
+                                </div>
+                            </div>
+
+                            <div class="ui form-1">
+                                <h:form>
+                                    <div class="ui form">
+                                        <div class="two fields">
                                             <div class="field">
-                                                <label >Estado del Equipo</label>
+                                                <label>Equipo</label>
+                                                <h:selectOneMenu
+                                                     class="ui fluid dropdown"
+                                                     converter="omnifaces.SelectItemsIndexConverter"
+                                                     required="true"
+                                                     requiredMessage="Selecciona una Marca">
+                                                    <f:selectItem  itemLabel="Selecciona un Equipo" itemValue="#{null}" noSelectionOption="true" />
+                                                    <f:selectItems value="#{equipoBean.equipos}" var="equipo" 
+                                                                   itemValue="#{equipo.codigo}"
+                                                                   itemLabel="#{equipo.nombre}" />
+                                                </h:selectOneMenu>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Estado</label>
                                                 <h:selectOneMenu
                                                      class="ui fluid dropdown"
                                                      pt:name="codigoMarcaEI"
@@ -228,299 +319,207 @@
                                                                    itemLabel="#{estadoEquipo.nombre}" />
                                                 </h:selectOneMenu>
                                             </div>
+
                                         </div>
 
-                                        <!-- Mensaje de confirmacion de modificacion ''<> -->
-                                        <div class="ui mini modal" id="modificacion">
-                                            <div class="content fondo-modal">
-                                                <p>¿Está seguro que desea guardar los cambios?</p>
-                                            </div>
-                                            <div class="actions">
-                                                <div class="ui red inverted button cancel">
-                                                    <i class="remove icon"></i>
-                                                    Cancelar
-                                                </div>
-
-                                                <div class="ui green ok inverted button" 
-                                                     onclick="actualizarEquipo()">
-                                                    <i class="checkmark icon"></i>
-                                                    Aceptar
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </h:form>
-
-                                    <div class="actions">
-                                        <div class="ui center aligned fluid container">
-                                            <button class="ui cancel circular icon button"
-                                                    onclick="atras()">
-                                                <i class="left chevron icon"></i>
-                                                Atrás 
-                                            </button>
-                                            <button class="ui circular button"
-                                                    onclick="buscarMarca(2);
-                                                            aceptarModificacion()">
-                                                <i class='save icon'></i>
-                                                Guardar
-                                            </button>
-                                        </div>
                                     </div>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- incluir Equipo ''<> -->
-                <div class="ui basic modal" id="formincluir">
-                    <div class="content">
-                        <div class="ui two column very relaxed grid">
-                            <div class="column column-equipo"></div>
-
-                            <div class="column column-fondo">
-                                <div class="ui segment segment-peq">
-                                    <div class="ui aligned center dividing header">
-                                        Incluir Equipo
-                                    </div>
-                                </div>
-
-                                <div class="ui form-1">
-                                    <h:form>
-                                        <div class="ui form">
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Equipo</label>
-                                                    <h:selectOneMenu
-                                                         class="ui fluid dropdown"
-                                                         converter="omnifaces.SelectItemsIndexConverter"
-                                                         required="true"
-                                                         requiredMessage="Selecciona una Marca">
-                                                        <f:selectItem  itemLabel="Selecciona un Equipo" itemValue="#{null}" noSelectionOption="true" />
-                                                        <f:selectItems value="#{equipoBean.equipos}" var="equipo" 
-                                                                       itemValue="#{equipo.codigo}"
-                                                                       itemLabel="#{equipo.nombre}" />
-                                                    </h:selectOneMenu>
-                                                </div>
-
-                                                <div class="field">
-                                                    <label>Estado</label>
-                                                    <h:selectOneMenu
-                                                         class="ui fluid dropdown"
-                                                         pt:name="codigoMarcaEI"
-                                                         id="codigoMarcaEI"
-                                                         converter="omnifaces.SelectItemsIndexConverter"
-                                                         required="true"
-                                                         requiredMessage="Selecciona un Estado">
-                                                        <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
-                                                        <f:selectItems value="#{estadoEquipoBean.estadosEquipos}" var="estadoEquipo" 
-                                                                       itemValue="#{estadoEquipo.codigo}"
-                                                                       itemLabel="#{estadoEquipo.nombre}" />
-                                                    </h:selectOneMenu>
-                                                </div>
-
-                                            </div>
-
+                                    <!-- Mensaje de confirmacion de inclusion ''<> -->
+                                    <div class="ui mini modal" id="inclusion">
+                                        <div class="content fondo-modal">
+                                            <p>¿Está seguro que desea incluir el equipo?</p>
                                         </div>
-
-                                        <!-- Mensaje de confirmacion de inclusion ''<> -->
-                                        <div class="ui mini modal" id="inclusion">
-                                            <div class="content fondo-modal">
-                                                <p>¿Está seguro que desea incluir el equipo?</p>
-                                            </div>
-                                            <div class="actions">
-                                                <div class="ui red inverted button cancel">
-                                                    <i class="remove icon"></i>
-                                                    Cancelar
-                                                </div>
-
-                                                <div class="ui green ok inverted button"
-                                                     onclick="incluirEquipo()">
-                                                    <i class="checkmark icon"></i>
-                                                    Aceptar
-                                                </div>
-                                            </div>
-                                        </div> 
-
-                                    </h:form>
-
-                                    <div class="actions">
-                                        <div class="ui center aligned fluid container" >
-                                            <button class="ui cancel circular icon button">
-                                                <i class="left chevron icon"></i>
-                                                Cancelar 
-                                            </button>
-                                            <button class="ui circular button"
-                                                    onclick="buscarMarca(1);
-                                                             aceptarInclusion()">
-                                                <i class="save icon"></i> 
-                                                Guardar 
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Modal para solicitar reparacion''<> -->
-                <div class="ui basic modal" id="formreparar">
-                    <div class="content">
-                        <div class="ui two column very relaxed grid">
-                            <div class="column column-equipo"></div>
-
-                            <div class="column column-fondo">
-                                <div class="ui segment">
-                                    <div class="ui aligned center dividing header">
-                                        Reparar Equipo
-                                    </div>
-                                </div>
-
-                                <div class="ui form-1">
-                                    <h:form>
-                                        <div class="ui form">
-                                            <div class="two fields">
+                                        <div class="actions">
+                                            <div class="ui red inverted button cancel">
+                                                <i class="remove icon"></i>
+                                                Cancelar
                                             </div>
 
-                                            <div class="field">
-                                                <label>Motivo</label>
-                                                <h:inputTextarea pt:type="text" pt:placeholder="Motivo de la reparación"/>
-                                            </div>
-                                        </div>
-
-                                        <!-- Mensaje de reparar equipo ''<> -->
-                                        <div class="ui mini modal" id="txtreparar">
-                                            <div class="content fondo-modal">
-                                                <p>¿Está seguro que desea reparar el equipo?</p>
-                                            </div>
-
-                                            <div class="actions">
-
-                                                <div class="ui red inverted button cancel">
-                                                    <i class="remove icon"></i>
-                                                    Cancelar
-                                                </div>
-
-                                                <div class="ui green ok inverted button">
-                                                    <i class="checkmark icon"></i>
-                                                    Aceptar
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                    </h:form>
-
-                                    <div class="actions">
-                                        <div class="ui center aligned fluid container" >
-                                            <button class="ui cancel circular icon button" id="cancelar">
-                                                <i class="left chevron icon cancel"></i>
-                                                Cancelar 
-                                            </button>
-                                            <button class="ui circular button" 
-                                                    onclick="aceptarReparacion()">
-                                                <i class="save icon"></i> 
+                                            <div class="ui green ok inverted button"
+                                                 onclick="incluirEquipo()">
+                                                <i class="checkmark icon"></i>
                                                 Aceptar
-                                            </button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </div> 
 
+                                </h:form>
+
+                                <div class="actions">
+                                    <div class="ui center aligned fluid container" >
+                                        <button class="ui cancel circular icon button">
+                                            <i class="left chevron icon"></i>
+                                            Cancelar 
+                                        </button>
+                                        <button class="ui circular button"
+                                                onclick="buscarMarca(1);
+                                                         aceptarInclusion()">
+                                            <i class="save icon"></i> 
+                                            Guardar 
+                                        </button>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Modal para solicitar desincorporacion''<> -->
-                <div class="ui basic modal" id="formdesincorporar">
-                    <div class="content">
-                        <div class="ui two column very relaxed grid">
-                            <div class="column column-equipo"></div>
+            <!-- Modal para solicitar reparacion''<> -->
+            <div class="ui basic modal" id="formreparar">
+                <div class="content">
+                    <div class="ui two column very relaxed grid">
+                        <div class="column column-equipo"></div>
 
-                            <div class="column column-fondo">
-                                <div class="ui segment">
-                                    <div class="ui aligned center dividing header">
-                                        Desincorporar Equipo
-                                    </div>
+                        <div class="column column-fondo">
+                            <div class="ui segment">
+                                <div class="ui aligned center dividing header">
+                                    Reparar Equipo
                                 </div>
+                            </div>
 
-                                <div class="ui form-1">
-                                    <h:form>
-                                        <div class="ui form">
-                                            <div class="two fields">
-                                            </div>
-
-                                            <div class="field">
-                                                <label>Motivo</label>
-                                                <textArea type="text" 
-                                                       placeholder="Motivo de la desincorporación" />
-                                            </div>
+                            <div class="ui form-1">
+                                <h:form>
+                                    <div class="ui form">
+                                        <div class="two fields">
                                         </div>
 
-                                        <!-- Mensaje de desincorporar equipo ''<> -->
-                                        <div class="ui mini modal" id="txtdesincorporar">
-                                            <div class="content fondo-modal">
-                                                <p>¿Está seguro que desea desincorporar el equipo?</p>
-                                            </div>
-                                            <div class="actions">
-                                                <div class="ui red inverted button cancel">
-                                                    <i class="remove icon"></i>
-                                                    Cancelar
-                                                </div>
-                                                <div class="ui green ok inverted button">
-                                                    <i class="checkmark icon"></i>
-                                                    Aceptar
-                                                </div>
-                                            </div>
+                                        <div class="field">
+                                            <label>Motivo</label>
+                                            <h:inputTextarea pt:type="text" pt:placeholder="Motivo de la reparación"/>
+                                        </div>
+                                    </div>
+
+                                    <!-- Mensaje de reparar equipo ''<> -->
+                                    <div class="ui mini modal" id="txtreparar">
+                                        <div class="content fondo-modal">
+                                            <p>¿Está seguro que desea reparar el equipo?</p>
                                         </div>
 
-                                    </h:form>
+                                        <div class="actions">
 
-                                    <div class="actions">
-                                        <div class="ui center aligned fluid container" >
-                                            <button class="ui cancel circular icon button">
-                                                <i class="left chevron icon"></i>
-                                                Cancelar 
-                                            </button>
+                                            <div class="ui red inverted button cancel">
+                                                <i class="remove icon"></i>
+                                                Cancelar
+                                            </div>
 
-                                            <button class="ui circular button" id="acepto"
-                                                    onclick="aceptarDesincorporacion()">
-                                                <i class="save icon"></i> 
+                                            <div class="ui green ok inverted button">
+                                                <i class="checkmark icon"></i>
                                                 Aceptar
-                                            </button>
+                                            </div>
+
                                         </div>
                                     </div>
 
+                                </h:form>
+
+                                <div class="actions">
+                                    <div class="ui center aligned fluid container" >
+                                        <button class="ui cancel circular icon button" id="cancelar">
+                                            <i class="left chevron icon cancel"></i>
+                                            Cancelar 
+                                        </button>
+                                        <button class="ui circular button" 
+                                                onclick="aceptarReparacion()">
+                                            <i class="save icon"></i> 
+                                            Aceptar
+                                        </button>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Mensajes ''<> -->
-                <!-- Mensaje de eliminar equipo ''<> -->
-                <div class="ui mini modal" id="txteliminar">
-                    <div class="content fondo-modal" >
-                        <p>¿Está seguro que desea eliminar el equipo?</p>
-                    </div>
-                    <div class="actions">
-                        <div class="ui red cancel inverted button" id="no">
-                            <i class="remove icon"></i>
-                            Cancelar
-                        </div>
-                        <div class="ui green ok inverted button">
-                            <i class="checkmark icon"></i>
-                            Aceptar
+            <!-- Modal para solicitar desincorporacion''<> -->
+            <div class="ui basic modal" id="formdesincorporar">
+                <div class="content">
+                    <div class="ui two column very relaxed grid">
+                        <div class="column column-equipo"></div>
+
+                        <div class="column column-fondo">
+                            <div class="ui segment">
+                                <div class="ui aligned center dividing header">
+                                    Desincorporar Equipo
+                                </div>
+                            </div>
+
+                            <div class="ui form-1">
+                                <h:form>
+                                    <div class="ui form">
+                                        <div class="two fields">
+                                        </div>
+
+                                        <div class="field">
+                                            <label>Motivo</label>
+                                            <textArea type="text" 
+                                                   placeholder="Motivo de la desincorporación" />
+                                        </div>
+                                    </div>
+
+                                    <!-- Mensaje de desincorporar equipo ''<> -->
+                                    <div class="ui mini modal" id="txtdesincorporar">
+                                        <div class="content fondo-modal">
+                                            <p>¿Está seguro que desea desincorporar el equipo?</p>
+                                        </div>
+                                        <div class="actions">
+                                            <div class="ui red inverted button cancel">
+                                                <i class="remove icon"></i>
+                                                Cancelar
+                                            </div>
+                                            <div class="ui green ok inverted button">
+                                                <i class="checkmark icon"></i>
+                                                Aceptar
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </h:form>
+
+                                <div class="actions">
+                                    <div class="ui center aligned fluid container" >
+                                        <button class="ui cancel circular icon button">
+                                            <i class="left chevron icon"></i>
+                                            Cancelar 
+                                        </button>
+
+                                        <button class="ui circular button" id="acepto"
+                                                onclick="aceptarDesincorporacion()">
+                                            <i class="save icon"></i> 
+                                            Aceptar
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-                        
-            </ui:define>
+            </div>
 
-        </ui:composition>
+            <!-- Mensajes ''<> -->
+            <!-- Mensaje de eliminar equipo ''<> -->
+            <div class="ui mini modal" id="txteliminar">
+                <div class="content fondo-modal" >
+                    <p>¿Está seguro que desea eliminar el equipo?</p>
+                </div>
+                <div class="actions">
+                    <div class="ui red cancel inverted button" id="no">
+                        <i class="remove icon"></i>
+                        Cancelar
+                    </div>
+                    <div class="ui green ok inverted button">
+                        <i class="checkmark icon"></i>
+                        Aceptar
+                    </div>
+                </div>
+            </div>
 
-    </h:body>
+        </ui:define>
+
+    </ui:composition>
+    
 </html>

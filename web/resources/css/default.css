@@ -118,6 +118,10 @@
 /*
 *   TABLA
 */
+.button-big{
+    width: 160px !important
+}
+
 .table {
     border: 0px solid #1a237e;
 }
@@ -148,13 +152,37 @@
     width: 33.33% !important;
 }
 
+.encabezado-tabla-2 {
+    background-color: #1a237e !important;
+    color: #ffff !important;
+}
+
 .ui.centered.grid{
     margin: .5%;
+}
+
+.title-list{
+    margin: .5% !important;
+    color: #1a237e !important;
+}
+
+#two-dropdown{
+    margin-top: .5%;
 }
 
 /*
 *   MODAL
 */
+
+#red-color{
+    background: red;
+    color: white;
+}
+
+#green-color{
+    background: green;
+    color: white;
+}
 
 .modal > .content{
     height: 100%; 

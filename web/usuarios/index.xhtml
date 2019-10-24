@@ -6,576 +6,575 @@
       xmlns:f = "http://java.sun.com/jsf/core"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
-    <h:body>
+    <ui:composition template="./../template/base.xhtml">
 
-        <ui:composition template="./../template/base.xhtml">
+        <ui:define name="head">
+            <title>Usuarios</title>
+        </ui:define>
 
-            <ui:define name="head">
-                <title>Usuarios</title>
-            </ui:define>
+        <ui:define name="content">
+            <div class="twelve wide stretched column">
+                <div class="ui segment">
 
-            <ui:define name="content">
-                <div class="twelve wide stretched column">
-                    <div class="ui segment">
+                    <div class="ui category search">
 
-                        <div class="ui category search">
+                        <div class="ui centered grid">
+                            <div class="ui animated circular button" 
+                                 tabindex="0" 
+                                 aria-label="Usuarios"
+                                 onclick="incluir()">
 
-                            <div class="ui centered grid">
-                                <div class="ui animated circular button" 
-                                     tabindex="0" 
-                                     aria-label="Usuarios"
-                                     onclick="incluir()">
+                                <div class="visible content">
+                                    <i class="ui plus icon"></i> 
+                                    Usuario
+                                </div>
 
-                                    <div class="visible content">
-                                        <i class="ui plus icon"></i> 
-                                        Usuario
-                                    </div>
-
-                                    <div class="hidden content">
-                                        <i class="ui plus icon"></i> 
-                                        Registrar
-                                    </div>
+                                <div class="hidden content">
+                                    <i class="ui plus icon"></i> 
+                                    Registrar
                                 </div>
                             </div>
-
-
-                            <h:dataTable class="ui compact celled definition table"
-                                         id="listas"
-                                         var="usuario"
-                                         value="#{usuarioBean.usuarios}"
-                                         headerClass="encabezado-tabla">
-                                
-                                <h:column>
-                                    <f:facet name="header">Nombre de usuario</f:facet>
-                                    #{usuario.nombreUsuario}
-                                </h:column>
-                                
-                                <h:column>
-                                    <f:facet name="header">Nombre y Apellido</f:facet>
-                                    #{usuario}
-                                </h:column>
-                                
-                                <h:column>
-                                    <f:facet name="header">Decanato</f:facet>
-                                    #{usuario.codigoDepartamento.codigoDecanato.nombre}
-                                </h:column>
-                                
-                                <h:column>
-                                    <f:facet name="header">Departamento</f:facet>
-                                    #{usuario.codigoDepartamento.nombre}
-                                </h:column>
-
-                                <h:column>
-                                    <f:facet name="header">Opciones</f:facet>
-                                    <div class="item">
-                                    <div class="ui centered grid">
-                                        
-                                        <div class="ui circular button"
-                                             onclick="consultar()">
-                                            Consultar
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                </h:column>
-                            </h:dataTable>
                         </div>
 
-                    </div>
-                </div>
-                
-                <!-- Modal de Consultar''<> -->
-                <div class="ui basic modal" id="formconsultar">
-                    <div class="content">
-                        <div class="ui two column very relaxed grid">
-                            <div class="column column-edoEqui"></div>
 
-                                <div class="column column-fondo">
-                                    <div class="ui segment">
-                                        <div class="ui aligned center dividing header">
-                                            Consultar Usuario
-                                        </div>
-                                    </div>
+                        <h:dataTable class="ui compact celled definition table"
+                                     id="listas"
+                                     var="usuario"
+                                     value="#{usuarioBean.usuarios}"
+                                     headerClass="encabezado-tabla-2">
 
-                                    <div class="ui form-1">
-                                        <div class="ui form">
-                                            
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Nombre de Usuario</label>
-                                                    <input type="text" 
-                                                           name="usernameU"
-                                                           placeholder="Nombre de Usuario"
-                                                           disabled="true"/>
-                                                </div>
-                                                
-                                                <div class="field">
-                                                    <label>Tipo de Usuario</label>
-                                                    <input type="text" 
-                                                           name="tipoU"
-                                                           placeholder="Tipo de Usuario"
-                                                           disabled="true"/>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Cedula</label>
-                                                    <input type="text" 
-                                                           name="cedulaU"
-                                                           placeholder="Cedula"
-                                                           disabled="true"/>
-                                                </div>
-                                                
-                                                <div class="field">
-                                                    <label>Nombre</label>
-                                                    <input type="text" 
-                                                           name="nombreU"
-                                                           placeholder="Nombre"
-                                                           disabled="true"/>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Apellido</label>
-                                                    <input type="text" 
-                                                           name="apellidoU"
-                                                           placeholder="Apellido"
-                                                           disabled="true"/>
-                                                </div>
-                                                
-                                                <div class="field">
-                                                    <label>Dirección</label>
-                                                    <input type="text"
-                                                              name="direccionU"
-                                                              placeholder="Dirección"
-                                                              disabled="true"/>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Teléfono</label>
-                                                    <input type="text" 
-                                                           name="telefonoU"
-                                                           placeholder="Teléfono"
-                                                           disabled="true"/>
-                                                </div>
-                                                
-                                                <div class="field">
-                                                    <label>Correo</label>
-                                                    <input type="text"
-                                                              name="emailU"
-                                                              placeholder="Correo"
-                                                              disabled="true"/>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Decanato</label>
-                                                    <input type="text" 
-                                                           name="decanatoU"
-                                                           placeholder="Decanato"
-                                                           disabled="true"/>
-                                                </div>
-                                                
-                                                <div class="field">
-                                                    <label>Departamento</label>
-                                                    <input type="text"
-                                                           name="departamentoU"
-                                                           placeholder="Departamento"
-                                                           disabled="true"/>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
+                            <h:column>
+                                <f:facet name="header">Nombre de usuario</f:facet>
+                                #{usuario.nombreUsuario}
+                            </h:column>
 
-                                        <div class="actions">
-                                            <div class="ui center aligned fluid container" >
-                                                <div class="ui cancel circular button">
-                                                    <i class="left chevron icon"></i>
-                                                    Atrás
-                                                </div>
+                            <h:column>
+                                <f:facet name="header">Nombre y Apellido</f:facet>
+                                #{usuario}
+                            </h:column>
 
-                                                <div class="ui circular button"
-                                                     onclick="modificar()"> 
-                                                    Modificar
-                                                </div>
+                            <h:column>
+                                <f:facet name="header">Decanato</f:facet>
+                                #{usuario.codigoDepartamento.codigoDecanato.nombre}
+                            </h:column>
 
-                                                <div class="ui circular button"
-                                                     onclick="eliminar()"> 
-                                                    Eliminar
-                                                </div>
-                                            </div>
-                                        </div>
+                            <h:column>
+                                <f:facet name="header">Departamento</f:facet>
+                                #{usuario.codigoDepartamento.nombre}
+                            </h:column>
 
+                            <h:column>
+                                <f:facet name="header">Opciones</f:facet>
+                                <div class="item">
+                                <div class="ui centered grid">
+
+                                    <div class="ui circular button"
+                                         onclick="consultar()">
+                                        Consultar
                                     </div>
 
                                 </div>
                             </div>
+                            </h:column>
+                        </h:dataTable>
                     </div>
-                </div>
 
-                <!-- Modal de Modificar''<> -->
-                <div class="ui basic modal" id="formodificar">
-                    <div class="content">
-                        <div class="ui two column very relaxed grid">
-                            <div class="column column-edoEqui"></div>
+                </div>
+            </div>
+
+            <!-- Modal de Consultar''<> -->
+            <div class="ui basic modal" id="formconsultar">
+                <div class="content">
+                    <div class="ui two column very relaxed grid">
+                        <div class="column column-edoEqui"></div>
 
                             <div class="column column-fondo">
                                 <div class="ui segment">
                                     <div class="ui aligned center dividing header">
-                                        Modificar Usuario
+                                        Consultar Usuario
                                     </div>
                                 </div>
 
                                 <div class="ui form-1">
-                                    <h:form>
-                                        <input type="text"
-                                                id="codigoEdo"
-                                                placeholder="Código Estado de Equipo"
-                                                style="display: none"/>
-
+                                    <form>
                                         <div class="ui form">
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Nombre de Usuario</label>
-                                                    <input type="text" 
-                                                           name="usernameU"
-                                                           id="usernameU"
-                                                           placeholder="Nombre de Usuario"/>
-                                                </div>
-                                                
-                                                <div class="field">
-                                                    <label>Tipo de Usuario</label>
-                                                    <select class="ui fluid dropdown"
-                                                            name="tipoU"
-                                                            id="tipoU">
-                                                        <option >Selecciona el tipo de usuario</option>
-                                                        <option >Bienes Nacionales</option>
-                                                        <option >Administrador</option>
-                                                        <option >Empleado</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Cedula</label>
-                                                    <input type="text" 
-                                                           name="cedulaU"
-                                                           id="cedulaU"
-                                                           placeholder="Cedula"/>
-                                                </div>
-                                                
-                                                <div class="field">
-                                                    <label>Nombre</label>
-                                                    <input type="text" 
-                                                           name="nombreU"
-                                                           id="nombreU"
-                                                           placeholder="Nombre"/>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Apellido</label>
-                                                    <input type="text" 
-                                                           name="apellidoU"
-                                                           id="apellidoU"
-                                                           placeholder="Apellido"/>
-                                                </div>
-                                                
-                                                <div class="field">
-                                                    <label>Dirección</label>
-                                                    <input type="text"
-                                                              name="direccionU"
-                                                              id="direccionU"
-                                                              placeholder="Dirección"/>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Teléfono</label>
-                                                    <input type="text" 
-                                                           name="telefonoU"
-                                                           id="telefonoU"
-                                                           placeholder="Teléfono"/>
-                                                </div>
-                                                
-                                                <div class="field">
-                                                    <label>Correo</label>
-                                                    <input type="text"
-                                                           name="emailU"
-                                                           id="emailU"
-                                                           placeholder="Correo"/>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Decanato</label>
-                                                    <h:selectOneMenu class="ui fluid dropdown"
-                                                                    pt:name="decanatoU"
-                                                                    id="decanatoU"
-                                                                    converter="omnifaces.SelectItemsIndexConverter"
-                                                                    required="true"
-                                                                    requiredMessage="Selecciona un Decanato">
-                                                        <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
-                                                        <f:selectItems value="#{decanatoBean.decanatos}" var="decanato" 
-                                                                       itemValue="#{decanato.codigo}"
-                                                                       itemLabel="#{decanato.nombre}" />
-                                                    </h:selectOneMenu>
-                                                </div>
-                                                
-                                                <div class="field">
-                                                    <label>Departamento</label>
-                                                    <h:selectOneMenu class="ui fluid dropdown"
-                                                                    pt:name="departamentoU"
-                                                                    id="departamentoU"
-                                                                    converter="omnifaces.SelectItemsIndexConverter"
-                                                                    required="true"
-                                                                    requiredMessage="Selecciona un Decanato">
-                                                        <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
-                                                        <f:selectItems value="#{departamentoBean.departamentos}" var="departameto" 
-                                                                       itemValue="#{departameto.codigo}"
-                                                                       itemLabel="#{departameto.nombre}" />
-                                                    </h:selectOneMenu>
-                                                </div>
+
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Nombre de Usuario</label>
+                                                <input type="text" 
+                                                       name="usernameU"
+                                                       placeholder="Nombre de Usuario"
+                                                       disabled="true"/>
                                             </div>
 
+                                            <div class="field">
+                                                <label>Tipo de Usuario</label>
+                                                <input type="text" 
+                                                       name="tipoU"
+                                                       placeholder="Tipo de Usuario"
+                                                       disabled="true"/>
+                                            </div>
                                         </div>
 
-                                    </h:form>
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Cedula</label>
+                                                <input type="text" 
+                                                       name="cedulaU"
+                                                       placeholder="Cedula"
+                                                       disabled="true"/>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Nombre</label>
+                                                <input type="text" 
+                                                       name="nombreU"
+                                                       placeholder="Nombre"
+                                                       disabled="true"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Apellido</label>
+                                                <input type="text" 
+                                                       name="apellidoU"
+                                                       placeholder="Apellido"
+                                                       disabled="true"/>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Dirección</label>
+                                                <input type="text"
+                                                          name="direccionU"
+                                                          placeholder="Dirección"
+                                                          disabled="true"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Teléfono</label>
+                                                <input type="text" 
+                                                       name="telefonoU"
+                                                       placeholder="Teléfono"
+                                                       disabled="true"/>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Correo</label>
+                                                <input type="text"
+                                                          name="emailU"
+                                                          placeholder="Correo"
+                                                          disabled="true"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Decanato</label>
+                                                <input type="text" 
+                                                       name="decanatoU"
+                                                       placeholder="Decanato"
+                                                       disabled="true"/>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Departamento</label>
+                                                <input type="text"
+                                                       name="departamentoU"
+                                                       placeholder="Departamento"
+                                                       disabled="true"/>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    </form>
 
                                     <div class="actions">
                                         <div class="ui center aligned fluid container" >
-                                            <button class="ui cancel circular icon button"
-                                                    onclick="atras()">
-                                                <i class="left chevron icon"></i> 
+                                            <div class="ui cancel circular button">
+                                                <i class="left chevron icon"></i>
                                                 Atrás
-                                            </button>
+                                            </div>
 
-                                            <button class="ui circular button"
-                                                    onclick="aceptarModificacion()">
-                                                <i class="save icon"></i> 
+                                            <div class="ui circular button"
+                                                 onclick="modificar()"> 
                                                 Modificar
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Modal de Registrar''<> -->
-                <div class="ui basic modal" id="formincluir">
-                    <div class="content">
-                        <div class="ui two column very relaxed grid">
-                            <div class="column column-edoEqui"></div>
-
-                            <div class="column column-fondo">
-                                <div class="ui segment">
-                                    <div class="ui aligned center dividing header">
-                                        Registrar Usuario
-                                    </div>
-                                </div>
-
-                                <div class="ui form-1">
-                                    <h:form>
-                                        <input type="text"
-                                                id="codigoEdo"
-                                                placeholder="Código Estado de Equipo"
-                                                style="display: none"/>
-
-                                        <div class="ui form">
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Nombre de Usuario</label>
-                                                    <input type="text"
-                                                           id="usernameUI"
-                                                           placeholder="Nombre de Usuario"/>
-                                                </div>
-                                                
-                                                <div class="field">
-                                                    <label>Tipo de Usuario</label>
-                                                    <select class="ui fluid dropdown"
-                                                            id="tipoUI">
-                                                        <option >Selecciona el tipo de usuario</option>
-                                                        <option >Bienes Nacionales</option>
-                                                        <option >Administrador</option>
-                                                        <option >Empleado</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Cedula</label>
-                                                    <input type="text"
-                                                           id="cedulaUI"
-                                                           placeholder="Cedula"/>
-                                                </div>
-                                                
-                                                <div class="field">
-                                                    <label>Nombre</label>
-                                                    <input type="text"
-                                                           id="nombreUI"
-                                                           placeholder="Nombre"/>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Apellido</label>
-                                                    <input type="text"
-                                                           id="apellidoUI"
-                                                           placeholder="Apellido"/>
-                                                </div>
-                                                
-                                                <div class="field">
-                                                    <label>Dirección</label>
-                                                    <input type="text"
-                                                              id="direccionUI"
-                                                              placeholder="Dirección"/>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Teléfono</label>
-                                                    <input type="text"
-                                                           id="telefonoUI"
-                                                           placeholder="Teléfono"/>
-                                                </div>
-                                                
-                                                <div class="field">
-                                                    <label>Correo</label>
-                                                    <input type="text"
-                                                           id="emailUI"
-                                                           placeholder="Correo"/>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="two fields">
-                                                <div class="field">
-                                                    <label>Decanato</label>
-                                                    <h:selectOneMenu class="ui fluid dropdown"
-                                                                    id="decanatoUI"
-                                                                    converter="omnifaces.SelectItemsIndexConverter"
-                                                                    required="true"
-                                                                    requiredMessage="Selecciona un Decanato">
-                                                        <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
-                                                        <f:selectItems value="#{decanatoBean.decanatos}" var="decanato" 
-                                                                       itemValue="#{decanato.codigo}"
-                                                                       itemLabel="#{decanato.nombre}" />
-                                                    </h:selectOneMenu>
-                                                </div>
-                                                
-                                                <div class="field">
-                                                    <label>Departamento</label>
-                                                    <h:selectOneMenu class="ui fluid dropdown"
-                                                                    id="departamentoUI"
-                                                                    converter="omnifaces.SelectItemsIndexConverter"
-                                                                    required="true"
-                                                                    requiredMessage="Selecciona un Decanato">
-                                                        <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
-                                                        <f:selectItems value="#{departamentoBean.departamentos}" var="departameto" 
-                                                                       itemValue="#{departameto.codigo}"
-                                                                       itemLabel="#{departameto.nombre}" />
-                                                    </h:selectOneMenu>
-                                                </div>
                                             </div>
 
-                                        </div>
-
-                                    </h:form>
-
-                                    <div class="actions">
-                                        <div class="ui center aligned fluid container" >
-                                            <button class="ui cancel circular icon button">
-                                                <i class="left chevron icon"></i> 
-                                                Atrás 
-                                            </button>
-
-                                            <button class="ui circular button"
-                                                    onclick="aceptarInclusion()">
-                                                <i class="save icon"></i> 
-                                                Registrar
-                                            </button>
+                                            <div class="ui circular button"
+                                                 onclick="eliminar()"> 
+                                                Eliminar
+                                            </div>
                                         </div>
                                     </div>
 
                                 </div>
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            <!-- Modal de Modificar''<> -->
+            <div class="ui basic modal" id="formodificar">
+                <div class="content">
+                    <div class="ui two column very relaxed grid">
+                        <div class="column column-edoEqui"></div>
+
+                        <div class="column column-fondo">
+                            <div class="ui segment">
+                                <div class="ui aligned center dividing header">
+                                    Modificar Usuario
+                                </div>
+                            </div>
+
+                            <div class="ui form-1">
+                                <h:form>
+                                    <input type="text"
+                                            id="codigoEdo"
+                                            placeholder="Código Estado de Equipo"
+                                            style="display: none"/>
+
+                                    <div class="ui form">
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Nombre de Usuario</label>
+                                                <input type="text" 
+                                                       name="usernameU"
+                                                       id="usernameU"
+                                                       placeholder="Nombre de Usuario"/>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Tipo de Usuario</label>
+                                                <select class="ui fluid dropdown"
+                                                        name="tipoU"
+                                                        id="tipoU">
+                                                    <option >Selecciona el tipo de usuario</option>
+                                                    <option >Bienes Nacionales</option>
+                                                    <option >Administrador</option>
+                                                    <option >Empleado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Cedula</label>
+                                                <input type="text" 
+                                                       name="cedulaU"
+                                                       id="cedulaU"
+                                                       placeholder="Cedula"/>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Nombre</label>
+                                                <input type="text" 
+                                                       name="nombreU"
+                                                       id="nombreU"
+                                                       placeholder="Nombre"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Apellido</label>
+                                                <input type="text" 
+                                                       name="apellidoU"
+                                                       id="apellidoU"
+                                                       placeholder="Apellido"/>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Dirección</label>
+                                                <input type="text"
+                                                          name="direccionU"
+                                                          id="direccionU"
+                                                          placeholder="Dirección"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Teléfono</label>
+                                                <input type="text" 
+                                                       name="telefonoU"
+                                                       id="telefonoU"
+                                                       placeholder="Teléfono"/>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Correo</label>
+                                                <input type="text"
+                                                       name="emailU"
+                                                       id="emailU"
+                                                       placeholder="Correo"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Decanato</label>
+                                                <h:selectOneMenu class="ui fluid dropdown"
+                                                                pt:name="decanatoU"
+                                                                id="decanatoU"
+                                                                converter="omnifaces.SelectItemsIndexConverter"
+                                                                required="true"
+                                                                requiredMessage="Selecciona un Decanato">
+                                                    <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
+                                                    <f:selectItems value="#{decanatoBean.decanatos}" var="decanato" 
+                                                                   itemValue="#{decanato.codigo}"
+                                                                   itemLabel="#{decanato.nombre}" />
+                                                </h:selectOneMenu>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Departamento</label>
+                                                <h:selectOneMenu class="ui fluid dropdown"
+                                                                pt:name="departamentoU"
+                                                                id="departamentoU"
+                                                                converter="omnifaces.SelectItemsIndexConverter"
+                                                                required="true"
+                                                                requiredMessage="Selecciona un Decanato">
+                                                    <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
+                                                    <f:selectItems value="#{departamentoBean.departamentos}" var="departameto" 
+                                                                   itemValue="#{departameto.codigo}"
+                                                                   itemLabel="#{departameto.nombre}" />
+                                                </h:selectOneMenu>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </h:form>
+
+                                <div class="actions">
+                                    <div class="ui center aligned fluid container" >
+                                        <button class="ui cancel circular icon button"
+                                                onclick="atras()">
+                                            <i class="left chevron icon"></i> 
+                                            Atrás
+                                        </button>
+
+                                        <button class="ui circular button"
+                                                onclick="aceptarModificacion()">
+                                            <i class="save icon"></i> 
+                                            Modificar
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal de Registrar''<> -->
+            <div class="ui basic modal" id="formincluir">
+                <div class="content">
+                    <div class="ui two column very relaxed grid">
+                        <div class="column column-edoEqui"></div>
+
+                        <div class="column column-fondo">
+                            <div class="ui segment">
+                                <div class="ui aligned center dividing header">
+                                    Registrar Usuario
+                                </div>
+                            </div>
+
+                            <div class="ui form-1">
+                                <h:form>
+                                    <input type="text"
+                                            id="codigoEdo"
+                                            placeholder="Código Estado de Equipo"
+                                            style="display: none"/>
+
+                                    <div class="ui form">
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Nombre de Usuario</label>
+                                                <input type="text"
+                                                       id="usernameUI"
+                                                       placeholder="Nombre de Usuario"/>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Tipo de Usuario</label>
+                                                <select class="ui fluid dropdown"
+                                                        id="tipoUI">
+                                                    <option >Selecciona el tipo de usuario</option>
+                                                    <option >Bienes Nacionales</option>
+                                                    <option >Administrador</option>
+                                                    <option >Empleado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Cedula</label>
+                                                <input type="text"
+                                                       id="cedulaUI"
+                                                       placeholder="Cedula"/>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Nombre</label>
+                                                <input type="text"
+                                                       id="nombreUI"
+                                                       placeholder="Nombre"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Apellido</label>
+                                                <input type="text"
+                                                       id="apellidoUI"
+                                                       placeholder="Apellido"/>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Dirección</label>
+                                                <input type="text"
+                                                          id="direccionUI"
+                                                          placeholder="Dirección"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Teléfono</label>
+                                                <input type="text"
+                                                       id="telefonoUI"
+                                                       placeholder="Teléfono"/>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Correo</label>
+                                                <input type="text"
+                                                       id="emailUI"
+                                                       placeholder="Correo"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <label>Decanato</label>
+                                                <h:selectOneMenu class="ui fluid dropdown"
+                                                                id="decanatoUI"
+                                                                converter="omnifaces.SelectItemsIndexConverter"
+                                                                required="true"
+                                                                requiredMessage="Selecciona un Decanato">
+                                                    <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
+                                                    <f:selectItems value="#{decanatoBean.decanatos}" var="decanato" 
+                                                                   itemValue="#{decanato.codigo}"
+                                                                   itemLabel="#{decanato.nombre}" />
+                                                </h:selectOneMenu>
+                                            </div>
+
+                                            <div class="field">
+                                                <label>Departamento</label>
+                                                <h:selectOneMenu class="ui fluid dropdown"
+                                                                id="departamentoUI"
+                                                                converter="omnifaces.SelectItemsIndexConverter"
+                                                                required="true"
+                                                                requiredMessage="Selecciona un Decanato">
+                                                    <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
+                                                    <f:selectItems value="#{departamentoBean.departamentos}" var="departameto" 
+                                                                   itemValue="#{departameto.codigo}"
+                                                                   itemLabel="#{departameto.nombre}" />
+                                                </h:selectOneMenu>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </h:form>
+
+                                <div class="actions">
+                                    <div class="ui center aligned fluid container" >
+                                        <button class="ui cancel circular icon button">
+                                            <i class="left chevron icon"></i> 
+                                            Atrás 
+                                        </button>
+
+                                        <button class="ui circular button"
+                                                onclick="aceptarInclusion()">
+                                            <i class="save icon"></i> 
+                                            Registrar
+                                        </button>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
 
-                <!-- Mensajes ''<> -->
-                <!-- Mensaje para confirmar incluir decanatos -->
-                <div class="ui mini modal" id="inclusion">
-                    <div class="content fondo-modal">
-                        <p>¿Está seguro que desea registrar el Usuario?</p>
+            <!-- Mensajes ''<> -->
+            <!-- Mensaje para confirmar incluir decanatos -->
+            <div class="ui mini modal" id="inclusion">
+                <div class="content fondo-modal">
+                    <p>¿Está seguro que desea registrar el Usuario?</p>
+                </div>
+                <div class="actions">
+                    <div class="ui red inverted button cancel">
+                        <i class="remove icon"></i>
+                        Cancelar
                     </div>
-                    <div class="actions">
-                        <div class="ui red inverted button cancel">
-                            <i class="remove icon"></i>
-                            Cancelar
-                        </div>
-                        <div class="ui green ok inverted button"
-                             onclick="incluirEdoEqui()">
-                            <i class="checkmark icon"></i>
-                            Aceptar
-                        </div>
+                    <div class="ui green ok inverted button"
+                         onclick="incluirEdoEqui()">
+                        <i class="checkmark icon"></i>
+                        Aceptar
                     </div>
                 </div>
-                
-                <!-- Mensaje de Confirmacion modificacion ''<> -->
-                <div class="ui mini modal" id="modificacion">
-                    <div class="content fondo-modal">
-                        <p>¿Está seguro que desea guardar los cambios?</p>
-                    </div>
-                    <div class="actions">
-                        <div class="ui red inverted button cancel" >
-                            <i class="remove icon"></i>
-                            Cancelar
-                        </div>
+            </div>
 
-                        <div class="ui green ok inverted button"
-                             onclick="actualizarEdoEqui()">
-                            <i class="checkmark icon"></i>
-                            Aceptar
-                        </div>
+            <!-- Mensaje de Confirmacion modificacion ''<> -->
+            <div class="ui mini modal" id="modificacion">
+                <div class="content fondo-modal">
+                    <p>¿Está seguro que desea guardar los cambios?</p>
+                </div>
+                <div class="actions">
+                    <div class="ui red inverted button cancel" >
+                        <i class="remove icon"></i>
+                        Cancelar
+                    </div>
+
+                    <div class="ui green ok inverted button"
+                         onclick="actualizarEdoEqui()">
+                        <i class="checkmark icon"></i>
+                        Aceptar
                     </div>
                 </div>
-                
-                <!-- Mensaje de Eliminar ''<> -->
-                <div class="ui mini modal" id="txteliminar">
-                    <div class="content fondo-modal">
-                        <p>¿Está seguro que desea eliminar el Usuario?</p>
+            </div>
+
+            <!-- Mensaje de Eliminar ''<> -->
+            <div class="ui mini modal" id="txteliminar">
+                <div class="content fondo-modal">
+                    <p>¿Está seguro que desea eliminar el Usuario?</p>
+                </div>
+                <div class="actions">
+                    <div class="ui red inverted button cancel">
+                        <i class="remove icon"></i>
+                        Cancelar
                     </div>
-                    <div class="actions">
-                        <div class="ui red inverted button cancel">
-                            <i class="remove icon"></i>
-                            Cancelar
-                        </div>
-                        <div class="ui green ok inverted button"
-                             onclick="eliminarEdoEqui()">
-                            <i class="checkmark icon"></i>
-                            Aceptar
-                        </div>
+                    <div class="ui green ok inverted button"
+                         onclick="eliminarEdoEqui()">
+                        <i class="checkmark icon"></i>
+                        Aceptar
                     </div>
                 </div>
-            </ui:define>
+            </div>
+        </ui:define>
 
-        </ui:composition>
-
-    </h:body>
+    </ui:composition>
+        
 </html>

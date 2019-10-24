@@ -48,7 +48,9 @@
                             <div class="ui simple dropdown item" id="top-bar-dropdown" >
                                 <i class="dropdown icon" style="padding-right: 4px"></i> #{usuarioBean.usuarioActivo}
                                 <div class="menu">
+                                    
                                     <div class="item">Mi información</div>
+                                    <!--
                                     <div class="item">Notificaciones</div>
                                     <div class="item">
                                         <i class="left dropdown icon"></i>
@@ -58,6 +60,7 @@
                                             <div class="item">otras cosas que se me ocurriran despues</div>
                                         </div>
                                     </div>
+                                    -->
                                     <h:commandLink value="Cerrar Sesion" actionListener="#{usuarioBean.logout()}" class="item"/>
                                 </div>
                             </div>
@@ -76,38 +79,46 @@
                 <div class="four wide column">
                     <div class="ui inverted vertical menu" id="left-menu">
                         
-                        <div style="#{request.isUserInRole('ADMIN') ? 'display: none' : ''}">
-                            <a class="item" id="item" href="/sistema_zeus/">Reportes</a>
+                        <div style="#{request.isUserInRole('BIENES') ? '' : 'display: none'}">
+                            <a class="#{request.requestURI eq '/sistema_zeus/reportes/' 
+                                        or request.requestURI eq '/sistema_zeus/reportes/solicitudes.xhtml' ? 'item active' : 'item' }" 
+                               id="item" href="/sistema_zeus/reportes/">Reportes</a>
                         </div>
                         
                         <div style="#{request.isUserInRole('ADMIN') ? '' : 'display: none'}">
                             <a class="#{request.requestURI eq '/sistema_zeus/usuarios/' ? 'item active' : 'item' }" 
-                               id="item" href="/sistema_zeus/usuarios">Gestionar usuarios</a>
+                               id="item" href="/sistema_zeus/usuarios">Gestionar Usuarios</a>
 
                             <a class="#{request.requestURI eq '/sistema_zeus/decanatos/' ? 'item active' : 'item' }" 
-                               id="item" href="/sistema_zeus/decanatos">Gestionar decanatos</a>
+                               id="item" href="/sistema_zeus/decanatos">Gestionar Decanatos</a>
 
                             <a class="#{request.requestURI eq '/sistema_zeus/departamentos/' 
-                                        or request.requestURI eq '/sistema_zeus/dptoDca/' ? 'item active' : 'item' }" 
-                               id="item" href="/sistema_zeus/departamentos">Gestionar departamentos</a>
+                                        or request.requestURI eq '/sistema_zeus/dptosDca/' ? 'item active' : 'item' }" 
+                               id="item" href="/sistema_zeus/departamentos">Gestionar Departamentos</a>
 
                             <a class="#{request.requestURI eq '/sistema_zeus/equipos/' ? 'item active' : 'item' }" 
-                               id="item" href="/sistema_zeus/equipos">Gestionar equipos</a>
+                               id="item" href="/sistema_zeus/equipos">Gestionar Equipos</a>
                         </div>
                         
-                        <div style="#{request.isUserInRole('ADMIN') ? 'display: none' : ''}">
-                            <a class="item" id="item" href="/sistema_zeus/equiposDpto">Equipos en Departamento</a>
+                        <div style="#{request.isUserInRole('EMPLEADO') ? '' : 'display: none'}">
+                            <a class="#{request.requestURI eq '/sistema_zeus/equiposDpto/' ? 'item active' : 'item' }" 
+                               id="item" href="/sistema_zeus/equiposDpto">Equipos en Departamento</a>
                         </div>
                             
                         <div style="#{request.isUserInRole('ADMIN') ? '' : 'display: none'}">
                             <a class="#{request.requestURI eq '/sistema_zeus/estadosEquipo/' ? 'item active' : 'item' }" 
-                               id="item" href="/sistema_zeus/estadosEquipo">Gestionar estados de equipos</a>
+                               id="item" href="/sistema_zeus/estadosEquipo">Gestionar Estados de Equipos</a>
                         </div>
                         
-                        <div style="#{request.isUserInRole('ADMIN') ? 'display: none' : ''}">
-                            <a class="item" id="item" href="../Solicitudes/Solicitudes.html">Solicitudes</a>
-                            <a class="item" id="item" href="../Solicitudes/SolicitudesReparacion.html">Solicitudes de Reparacion</a>
-                            <a class="item" id="item" href="../Solicitudes/SolicitudesDesincorporacion.html">Solicitudes de Desincorporacion</a>
+                        <div style="#{request.isUserInRole('BIENES') ? '' : 'display: none'}">
+                            <a class="#{request.requestURI eq '/sistema_zeus/solicitudes/' ? 'item active' : 'item' }" 
+                               id="item" href="/sistema_zeus/solicitudes/">Solicitudes</a>
+                               
+                            <a class="#{request.requestURI eq '/sistema_zeus/solicitudes/reparacion.xhtml' ? 'item active' : 'item' }" 
+                               id="item" href="/sistema_zeus/solicitudes/reparacion.xhtml">Solicitudes de Reparación</a>
+                               
+                            <a class="#{request.requestURI eq '/sistema_zeus/solicitudes/desincorporacion.xhtml' ? 'item active' : 'item' }" 
+                               id="item" href="/sistema_zeus/solicitudes/desincorporacion.xhtml">Solicitudes de Desincorporación</a>
                         </div>
                         
                     </div>

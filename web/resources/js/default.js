@@ -106,6 +106,14 @@ function imprimir(dato){
     console.log(dato);
 }
 
+function ocultarTodo() {
+    $('#totaldecanato').hide('slow');
+    $('#totaldep').hide('slow');
+    $('#totaluni').hide('slow');
+    $('#mayuniversidad').hide('slow');
+    $('#maydecanato').hide('slow');
+}
+
 /*
 function mostrarEquipo(id){
     //esta será nuestra petición

@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core">
+
+    <ui:composition template="./../template/base.xhtml">
+
+        <ui:define name="head">
+            <title>Reportes Solicitudes</title>
+        </ui:define>
+
+        <ui:define name="content">
+            <div class="twelve wide stretched column">
+                <div class="ui segment">
+                    <div class="ui category search">
+                        
+                        <h2 class="ui aligned center dividing header title-list">
+                            Reporte de Solicitudes
+                        </h2>
+                        
+                        <div class="ui two column very relaxed grid" id="two-dropdown">
+                            <div class="column">
+                                <select class="ui fluid dropdown">
+                                    <option value="">Mes a consultar ...</option>
+                                    <option value="ene">Enero</option>
+                                    <option value="feb">Febrero</option>
+                                    <option value="mar">Marzo</option>
+                                    <option value="abr">Abril</option>
+                                    <option value="may">Mayo</option>
+                                    <option value="jun">Junio</option>
+                                    <option value="jul">Julio</option>
+                                    <option value="ago">Agosto</option>
+                                    <option value="sep">Septiembre</option>
+                                    <option value="oct">Octubre</option>
+                                    <option value="nov">Noviembre</option>
+                                    <option value="dic">Diciembre</option>
+                                </select>
+                            </div>
+                            <div class="column">
+                                <select class="ui fluid dropdown">
+                                    <option value="">Año a consultar ...</option>
+                                    <option value="ene">2019</option>
+                                    <option value="feb">2018</option>
+                                    <option value="mar">2017</option>
+                                    <option value="abr">2016</option>
+                                    <option value="may">2015</option>
+                                    <option value="jun">2014</option>
+                                    <option value="jul">2013</option>
+                                    <option value="ago">2012</option>
+                                    <option value="sep">2011</option>
+                                    <option value="oct">2010</option>
+                                    <option value="nov">2009</option>
+                                    <option value="dic">2008</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <h:dataTable class="ui compact celled definition table"
+                                     id="listas"
+                                     var="departamento"
+                                     value="#{departamentoBean.departamentos}"
+                                     headerClass="encabezado-tabla-2">
+                            
+                            <h:column>
+                                <f:facet name="header">Fecha de Emisión</f:facet>
+                                04/07/2019
+                            </h:column>
+                            
+                            <h:column>
+                                <f:facet name="header">Fecha de Atención</f:facet>
+                                10/09/2019
+                            </h:column>
+                            
+                            <h:column>
+                                <f:facet name="header">Tipo de Solicitud</f:facet>
+                                Reparación
+                            </h:column>
+                            
+                            <h:column>
+                                <f:facet name="header">Decanato</f:facet>
+                                #{departamento.codigoDecanato.siglas}
+                            </h:column>
+                            
+                            <h:column>
+                                <f:facet name="header">Departamento</f:facet>
+                                #{departamento.nombre}
+                            </h:column>
+                            
+                            <h:column>
+                                <f:facet name="header">Empleado</f:facet>
+                                #{departamento.codigo}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Equipo</f:facet>
+                                #{departamento.codigo}
+                            </h:column>
+                            
+                        </h:dataTable>
+                    </div>
+                    
+                    <div class="ui center aligned fluid container">
+                        <a class="ui circular button icon" 
+                           href="/sistema_zeus/reportes/">
+                            <i class="left chevron icon"></i>
+                            Atrás
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </ui:define>
+
+    </ui:composition>
+</html>

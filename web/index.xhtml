@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     
     <ui:composition template="./template/base.xhtml">
@@ -11,44 +12,14 @@
 
         <ui:define name="content">
             <div class="twelve wide stretched column">
-                <div class="ui segment"
-                    style="height: 100%; width: 90%; border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 1px solid #1a237e">
-                    <div class="ui ui horizontal segments" style="border: 0px;">
-                        <div class="ui segment"
-                            style="height: 100%; background-color: #c6c4c4; width: 30%;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 0px solid #c6c4c4;height: 400px;margin-right: 10px; ">
-                            <p class="header"
-                                style="font-family: Georgia, 'Times New Roman', Times, serif;font-size: 7 px; text-align: center;color: #1a237e;">
-                                Ultimos Reportes</p>
-                            <div class="ui relaxed divided list">
-                                <div class="item" id="itemlistre">
-                                    <div class="content">
-                                        <a class="header" id="encabezado" href="./equipos/lista.xhtml">Reporte 1
-                                            <div class="description">Realizado 2 dias</div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="item" id="itemlistre">
-                                    <div class="content">
-                                        <a class="header" id="encabezado">Reporte 2
-                                            <div class="description" style="font-size: 15px;">Realizado hace 22 mins</div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="item" id="itemlistre">
-                                    <div class="content">
-                                        <a class="header" id="encabezado">Reporte 3
-                                            <div class="description">Realizado hace 5 minutos</div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ui segment"
-                            style="height: 100%;background-color: #c6c4c4; width: 30%;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 0px solid #c6c4c4;height: 400px;margin-right: 10px; ">
-                        </div>
-                        <div class="ui segment"
-                            style="height: 100%;background-color: #c6c4c4; width: 30%;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 0px solid #c6c4c4;height: 400px;">
-                        </div>
+                <div class="ui segment" style="background: #d5dfe4">
+                    
+                    <h1 class="ui aligned center dividing header title-list">
+                        Bienvenido #{usuarioBean.usuarioActivo.nombreUsuario}
+                    </h1>
+                    
+                    <div class="ui centered grid">
+                        <h:graphicImage name="este.png" library="images" style="width: 60%; margin: 2%" />
                     </div>
                 </div>
             </div>

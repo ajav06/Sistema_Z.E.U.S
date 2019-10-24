@@ -21,22 +21,28 @@
         color: #ffff;
     }
 
-    #encabezado{
+    #encabezado {
         background-color: #1a237e;
         color: #ffff;
     }
 </style>
 <h1>
-        <div class="ui large segment" style=" background-image: url(../image/adwebsys-fondo.jpg) ;height: 66px; padding-top: 0px;border-block-end:4px solid #1a237e;">    
-            <div class="ui right aligned fluid container">
-                </div>
-                <img src="../image/este.png" style="width: 18%; margin-top: 0.66%;">
-                <div class="ui simple dropdown item" style=" color: #ffff;margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  transparent;border: 0px #c6c4c4; margin-left: 66%;"><i class="dropdown icon"></i>Armando Paredes
-                    <div class="menu">
-                    <div class="item">Mi información</div>
-                    <div class="item">Notificaciones</div>
-                    <div class="item">Cerrar Sesión</div>
-                </div> </div> </div> </div>
+    <div class="ui large segment"
+        style=" background-image: url(../image/adwebsys-fondo.jpg) ;height: 66px; padding-top: 0px;border-block-end:4px solid #1a237e;">
+        <div class="ui right aligned fluid container">
+        </div>
+        <img src="../image/este.png" style="width: 18%; margin-top: 0.66%;">
+        <div class="ui simple dropdown item"
+            style=" color: #ffff;margin-top: 3px; padding-block-start: 2px;padding-block-end: 2px;background-color:  transparent;border: 0px #c6c4c4; margin-left: 66%;">
+            <i class="dropdown icon"></i>Armando Paredes
+            <div class="menu">
+                <div class="item">Mi información</div>
+                <div class="item">Notificaciones</div>
+                <div class="item">Cerrar Sesión</div>
+            </div>
+        </div>
+    </div>
+    </div>
 </h1>
 
 <body>
@@ -52,14 +58,15 @@
                 <a class="item" id="item" href="../Equipos/listadoEquipodep.html">Equipos en Departamento</a>
                 <a class="item" id="item" href="../EstadoEquipos/EstadoEquipos.html">Estados de Equipos</a>
                 <a class="item" id="item" href="../Solicitudes/Solicitudes.html">Solicitudes</a>
-                <a class="item" id="item" href="../Solicitudes/SolicitudesReparacion.html" >Solicitudes de Reparacion</a>
-                <a class="item" id="item" href="../Solicitudes/SolicitudesDesincorporacion.html">Solicitudes de Desincorporacion</a>
+                <a class="item" id="item" href="../Solicitudes/SolicitudesReparacion.html">Solicitudes de Reparacion</a>
+                <a class="item" id="item" href="../Solicitudes/SolicitudesDesincorporacion.html">Solicitudes de
+                    Desincorporacion</a>
             </div>
         </div>
         <div class="twelve wide stretched column" style="border-block-color:  #9e9d9d ;height: 600px;">
             <div class="ui segment"
                 style="height: 50%; width: 98% ;border-radius: 24px 24px 24px 24px;-moz-border-radius: 24px 24px 24px 24px;-webkit-border-radius: 24px 24px 24px 24px;border: 1px solid  #1a237e">
-                <h2 class="ui aligned center dividing header" style="color: #1a237e;" >Reportes</h2>
+                <h2 class="ui aligned center dividing header" style="color: #1a237e;">Reportes</h2>
 
                 <!-- Total de Equipos por universidad-->
                 <div class="ui container" id="totaluni" style="display: none !important">
@@ -118,7 +125,8 @@
                                         <option value="">...</option>
                                         <option value="cyt">DCYT Decanato de Ciencias y Tecnología</option>
                                         <option value="cs">DCS Decanato de Ciencias de la Salud</option>
-                                        <option value="cee">DCEE Decanato de Ciencias Económicas y Empresariales </option>
+                                        <option value="cee">DCEE Decanato de Ciencias Económicas y Empresariales
+                                        </option>
                                         <option value="eha">DEHA Decanato de Humanidades y Artes</option>
                                         <option value="ic">DIC Decanato de Ingeniería Civil</option>
                                         <option value="cv">DCV Decanato de Ciencias Veterinarias</option>
@@ -131,7 +139,8 @@
                         </tbody>
                     </table>
                     <div class="ui center aligned fluid container">
-                        <button class="ui circular button icon" aria-label="label" id="atras1" onclick="javascript:$('#totaldecanato').toggle('slow')">
+                        <button class="ui circular button icon" aria-label="label" id="atras1"
+                            onclick="javascript:$('#totaldecanato').toggle('slow')">
                             <i class="left chevron icon"></i>
                             Atrás
                         </button>
@@ -161,7 +170,8 @@
                                         <option value="">...</option>
                                         <option value="cyt">DCYT Decanato de Ciencias y Tecnología</option>
                                         <option value="cs">DCS Decanato de Ciencias de la Salud</option>
-                                        <option value="cee">DCEE Decanato de Ciencias Económicas y Empresariales</option>
+                                        <option value="cee">DCEE Decanato de Ciencias Económicas y Empresariales
+                                        </option>
                                         <option value="eha">DEHA Decanato de Humanidades y Artes</option>
                                         <option value="ic">DIC Decanato de Ingeniería Civil</option>
                                         <option value="cv">DCV Decanato de Ciencias Veterinarias</option>
@@ -180,81 +190,85 @@
                         </tbody>
                     </table>
                     <div class="ui center aligned fluid container">
-                        <button class="ui circular button icon" aria-label="label" id="atras1" onclick="javascript:$('#totaldep').toggle('slow')">
+                        <button class="ui circular button icon" aria-label="label" id="atras1"
+                            onclick="javascript:$('#totaldep').toggle('slow')">
                             <i class="left chevron icon"></i>
                             Atrás
                         </button>
                     </div>
                 </div>
 
-                 <!-- Mayor y Menor por Universidad-->
+                <!-- Mayor y Menor por Universidad-->
                 <div class="ui container" id="mayuniversidad" style="display: none;">
-                        <div class="ui aligned center dividing header" style="color: #000000;">Mayor y menor cantidad de equipos en la Universidad</div>
-                        <table class="ui very basic collapsing celled table" style="margin-left: 15%;">
-                            <thead>
-                                <tr>
+                    <div class="ui aligned center dividing header" style="color: #000000;">Mayor y menor cantidad de
+                        equipos en la Universidad</div>
+                    <table class="ui very basic collapsing celled table" style="margin-left: 15%;">
+                        <thead>
+                            <tr>
                                 <th>Nombre del dpto</th>
                                 <th>cantidad</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>Mayor Cantidad</tr>
-                                <tr>Menor Cantidad</tr>
-                                <tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>Mayor Cantidad</tr>
+                            <tr>Menor Cantidad</tr>
+                            <tr>
                                 <td>DCYT Decanato de Ciencias y Tecnología</td>
                                 <td>23</td>
                                 <td>3</td>
-                                </tr>
-                            </tbody>
-                            </table>
-                            <div class="ui center aligned fluid container">
-                                <button class="ui circular button icon" aria-label="label" id="atras" onclick="javascript:$('#mayuniversidad').toggle('slow')">
-                                    <i class="left chevron icon"></i>
-                                    Atrás
-                                </button>
-                            </div>
-                 </div>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="ui center aligned fluid container">
+                        <button class="ui circular button icon" aria-label="label" id="atras"
+                            onclick="javascript:$('#mayuniversidad').toggle('slow')">
+                            <i class="left chevron icon"></i>
+                            Atrás
+                        </button>
+                    </div>
+                </div>
 
                 <!-- mayor y menor de decanato-->
                 <div class="ui aligned center container" id="maydecanato" style="display: none; width: 60%;">
-                <div class="ui aligned center dividing header" >Mayor y menor cantidad de equipos por Decanato</div>
-                        <div class="two fields">
+                    <div class="ui aligned center dividing header">Mayor y menor cantidad de equipos por Decanato</div>
+                    <div class="two fields">
                         <div class="field">
                             <select class="ui fluid dropdown">
-                            <option value="">Decanato a solicitar ...</option>
-                            <option value="cyt">DCYT Decanato de Ciencias y Tecnología</option>
-                            <option value="cs">DCS Decanato de Ciencias de la Salud</option>
-                            <option value="cee">DCEE Decanato de Ciencias Económicas y Empresariales</option>
-                            <option value="eha">DEHA Decanato de Humanidades y Artes</option>
-                            <option value="ic">DIC Decanato de Ingeniería Civil</option>
-                            <option value="cv">DCV Decanato de Ciencias Veterinarias</option>
+                                <option value="">Decanato a solicitar ...</option>
+                                <option value="cyt">DCYT Decanato de Ciencias y Tecnología</option>
+                                <option value="cs">DCS Decanato de Ciencias de la Salud</option>
+                                <option value="cee">DCEE Decanato de Ciencias Económicas y Empresariales</option>
+                                <option value="eha">DEHA Decanato de Humanidades y Artes</option>
+                                <option value="ic">DIC Decanato de Ingeniería Civil</option>
+                                <option value="cv">DCV Decanato de Ciencias Veterinarias</option>
                             </select>
                         </div>
-                        </div>
-                        <table class="ui very basic collapsing celled table" style="margin-left: 15%;">
+                    </div>
+                    <table class="ui very basic collapsing celled table" style="margin-left: 15%;">
                         <thead>
                             <tr>
                                 <th>Nombre del Departamento</th>
                                 <th>Mayor Cantidad</th>
                                 <th>Menor Cantidad</th>
                             </tr>
-                            </thead>
-                            <tbody>
+                        </thead>
+                        <tbody>
                             <tr>
-                            <td>Departamento de Sistemas</td>
-                            <td>23</td>
-                            <td>3</td>
+                                <td>Departamento de Sistemas</td>
+                                <td>23</td>
+                                <td>3</td>
                             </tr>
-                            
-                            </tbody>
-                            </table>
-                            <div class="ui center aligned fluid container">
-                                <button class="ui circular button icon" aria-label="label" id="atras" onclick="javascript:$('#maydecanato').toggle('slow')">
-                                <i class="left chevron icon"></i>
-                                Atrás
-                                </button>
-                                </div>
-                        </div>
+
+                        </tbody>
+                    </table>
+                    <div class="ui center aligned fluid container">
+                        <button class="ui circular button icon" aria-label="label" id="atras"
+                            onclick="javascript:$('#maydecanato').toggle('slow')">
+                            <i class="left chevron icon"></i>
+                            Atrás
+                        </button>
+                    </div>
+                </div>
 
                 <!--Tabla-->
                 <table class="ui compact celled definition table" style="border: 1px solid #1a237e;margin-top: 1% ">
@@ -305,16 +319,22 @@
                                         </div>
                                     </div>
                                 </div>
+                            </td>
+                        </tr>
                         <tr>
                             <td>Generar reporte de solicitudes</td>
                             <td>
                                 <div class="item">
-                                    <a class="ui animated circular button" tabindex="0" aria-label="Equipos" href="reporteSolicitudes.html"
-                                        style="width: 160px" id="registrar">
+                                    <a class="ui animated circular button" tabindex="0" aria-label="Equipos"
+                                        href="reporteSolicitudes.html" style="width: 160px" id="registrar">
                                         <div class="visible content" style="color: #1a237e">Ver Listado</div>
                                         <div class="hidden content" style="color: #1a237e">Reporte</div>
-                                    <a>
+                                        <a>
                                 </div>
+                            </td>
+                        </tr>
+                    </tbody>    
+                </table>
             </div>
             </td>
             </tr>
@@ -332,4 +352,5 @@
     </div>
     </div>
 </body>
+
 </html>

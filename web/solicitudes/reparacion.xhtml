@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core">
+
+    <ui:composition template="./../template/base.xhtml">
+
+        <ui:define name="head">
+            <title>Solicitudes de Reparación</title>
+        </ui:define>
+
+        <ui:define name="content">
+            <div class="twelve wide stretched column">
+                <div class="ui segment">
+
+                    <div class="ui category search">
+                        
+                        <h2 class="ui aligned center dividing header title-list">
+                            Solicitudes de Reparación
+                        </h2>
+                        
+                        <h:dataTable class="ui compact celled definition table"
+                                     id="listas"
+                                     var="departamento"
+                                     value="#{departamentoBean.departamentos}"
+                                     headerClass="encabezado-tabla-2">
+
+                            <h:column>
+                                <f:facet name="header">Equipo</f:facet>
+                                Impresora
+                            </h:column>
+                            
+                            <h:column>
+                                <f:facet name="header">Decanato</f:facet>
+                                #{departamento.codigoDecanato.nombre}
+                            </h:column>
+                            
+                            <h:column>
+                                <f:facet name="header">Departamento</f:facet>
+                                #{departamento.nombre}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Fecha de Emisión</f:facet>
+                                04/07/2019
+                            </h:column>
+
+                        </h:dataTable>
+                    </div>
+
+                </div>
+            </div>
+        </ui:define>
+
+    </ui:composition>
+    
+</html>
