@@ -87,11 +87,11 @@ function incluirDpto(){
             $('#txtexito').modal('show');
         },
         error: function(xhr, ajaxOptions, thrownError) {
-            /*alert(xhr.status);
-            alert(xhr.responseText);
-            alert(thrownError);
-            console.log("No se ha podido obtener la información");*/
-            alert('No se ha podido obtener la información');
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+            console.log(thrownError);
+            console.log("No se ha podido obtener la información");
+            Swal.fire("Error","Hubo un error realizando la inclusión","error");
         }
     });
 }
@@ -125,9 +125,12 @@ function actualizarDpto(){
             console.log("Actualizado: "+data);
             $('#txtexito').modal('show');
         },
-        error: function() {
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+            console.log(thrownError);
             console.log("No se ha podido obtener la información");
-            alert('No se ha podido obtener la información');
+            Swal.fire("Error","Hubo un error realizando la modificación","error");
         }
     });
 }
@@ -161,9 +164,12 @@ function eliminarDpto(){
             console.log("Actualizado: "+data);
             $('#txtexito').modal('show');
         },
-        error: function() {
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+            console.log(thrownError);
             console.log("No se ha podido obtener la información");
-            alert('No se ha podido obtener la información');
+            Swal.fire("Error","Hubo un error realizando la eliminación","error");
         }
     });
 }
@@ -177,12 +183,13 @@ function consultarDpto(id){
             console.log(data);
             llenarCamposDpto(data);
         },
-        error: function (xhr, ajaxOptions, thrownError) {
-           /*alert(xhr.status);
-           alert(xhr.responseText);
-           alert(thrownError);*/
-           alert('No se ha podido obtener la información');
-       }
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+            console.log(thrownError);
+            console.log("No se ha podido obtener la información");
+            Swal.fire("Error","Hubo un error realizando la consulta","error");
+        }
     });
 }
 

@@ -81,12 +81,13 @@ function consultarEquipo(id){
             console.log(data);
             llenarCamposEquipo(data);
         },
-        error: function (xhr, ajaxOptions, thrownError) {
-           /*alert(xhr.status);
-           alert(xhr.responseText);
-           alert(thrownError);*/
-           alert('No se ha podido obtener la información');
-       }
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+            console.log(thrownError);
+            console.log("No se ha podido obtener la información");
+            Swal.fire("Error","Hubo un error realizando la inclusión","error");
+        }
     });
 }
 

@@ -14,12 +14,13 @@ function consultarDecanato(id){
             console.log(data);
             llenarCamposDecanato(data);
         },
-        error: function (xhr, ajaxOptions, thrownError) {
-           /*alert(xhr.status);
-           alert(xhr.responseText);
-           alert(thrownError);*/
-           alert('No se ha podido obtener la información');
-       }
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+            console.log(thrownError);
+            console.log("No se ha podido obtener la información");
+            Swal.fire("Error","Hubo un error realizando la inclusión","error");
+        }
     });
 }
 
@@ -78,9 +79,12 @@ function actualizarDecanato(){
             console.log("Actualizado: "+data);
             $('#txtexito').modal('show');
         },
-        error: function() {
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+            console.log(thrownError);
             console.log("No se ha podido obtener la información");
-            alert('No se ha podido obtener la información');
+            Swal.fire("Error","Hubo un error realizando la modificación","error");
         }
     });
 }
@@ -108,9 +112,12 @@ function eliminarDecanto(){
             console.log("Actualizado: "+data);
             $('#txtexito').modal('show');
         },
-        error: function() {
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+            console.log(thrownError);
             console.log("No se ha podido obtener la información");
-            alert('No se ha podido obtener la información');
+            Swal.fire("Error","Hubo un error realizando la eliminación","error");
         }
     });
 }
