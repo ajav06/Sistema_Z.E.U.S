@@ -188,12 +188,6 @@
                                             placeholder="Código Departamento"
                                             style="display: none"/>
 
-                                    <input type="text"
-                                            id="codigoDca"
-                                            placeholder="Código Decanato"
-                                            value="#{decanatoBean.decanatoSeleccionado.codigo}"
-                                            style="display: none"/>
-
                                     <div class="ui form">
                                         <div class="two fields">
                                             <div class="field">
@@ -244,7 +238,7 @@
 
                                         <button class="ui circular button"
                                                 onclick="aceptarModificacion();
-                                                         buscarDca(2)">
+                                                         buscarDca(1)">
                                             <i class="save icon"></i> 
                                             Modificar
                                         </button>
@@ -272,11 +266,6 @@
 
                             <div class="ui form-1">
                                 <h:form>
-                                    <input type="text"
-                                            id="codigoDcaI"
-                                            placeholder="Código Decanato"
-                                            value="#{decanatoBean.decanatoSeleccionado.codigo}"
-                                            style="display: none"/>
 
                                     <div class="ui form">
                                         <div class="two fields">
@@ -325,7 +314,7 @@
 
                                         <button class="ui circular button"
                                                 onclick="aceptarInclusion();
-                                                         buscarDca(3)">
+                                                         buscarDca(4)">
                                             <i class="save icon"></i> 
                                             Registrar
                                         </button>
