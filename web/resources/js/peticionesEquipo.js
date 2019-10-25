@@ -99,6 +99,7 @@ function validarCamposIncluirEquipo(){
 }
 
 function validarCamposModificarEquipo(){
+    buscarMarca(2);
     if ($("#nombreE").val()!="" && marcaSeleccionada!=null && $("#descripcionE").val()!=""){
         aceptarModificacion();
     } else {
