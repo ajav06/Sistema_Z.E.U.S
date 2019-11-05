@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "estado_equipo")
 @NamedQueries({
     @NamedQuery(name = "EstadoEquipo.findAll", query = "SELECT e FROM EstadoEquipo e"),
-    @NamedQuery(name = "EstadoEquipo.findAllActive", query = "SELECT e FROM EstadoEquipo e WHERE e.estatus = 'a'"),
+    @NamedQuery(name = "EstadoEquipo.findAllActive", query = "SELECT e FROM EstadoEquipo e WHERE e.estatus = 'a' ORDER BY e.codigo ASC"),
     @NamedQuery(name = "EstadoEquipo.findByCodigo", query = "SELECT e FROM EstadoEquipo e WHERE e.codigo = :codigo AND e.estatus = 'a'"),
     @NamedQuery(name = "EstadoEquipo.findByNombre", query = "SELECT e FROM EstadoEquipo e WHERE e.nombre = :nombre AND e.estatus = 'a'"),
     @NamedQuery(name = "EstadoEquipo.findByDescripcion", query = "SELECT e FROM EstadoEquipo e WHERE e.descripcion = :descripcion AND e.estatus = 'a'"),
