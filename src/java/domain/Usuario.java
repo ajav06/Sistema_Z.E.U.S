@@ -78,7 +78,7 @@ public class Usuario implements Serializable {
     private String direccion;
     
     @Column(name = "telefono")
-    private Integer telefono;
+    private String telefono;
     
     @Size(max = 50)
     @Column(name = "correo")
@@ -161,11 +161,11 @@ public class Usuario implements Serializable {
         this.direccion = direccion;
     }
 
-    public Integer getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(Integer telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

@@ -76,7 +76,7 @@ public class Decanato implements Serializable {
     private String correo;
     
     @Column(name = "telefono")
-    private Integer telefono;
+    private String telefono;
     
     @Basic(optional = false)
     @NotNull
@@ -144,11 +144,11 @@ public class Decanato implements Serializable {
         this.correo = correo;
     }
 
-    public Integer getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(Integer telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
