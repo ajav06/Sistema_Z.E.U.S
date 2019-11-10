@@ -32,7 +32,13 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "equipo_departamento")
 @NamedQueries({
     @NamedQuery(name = "EquipoDepartamento.findAll", query = "SELECT e FROM EquipoDepartamento e"),
-    @NamedQuery(name = "EquipoDepartamento.findByCodigo", query = "SELECT e FROM EquipoDepartamento e WHERE e.codigo = :codigo")})
+    @NamedQuery(name = "EquipoDepartamento.findByCodigo", query = "SELECT e FROM EquipoDepartamento e WHERE e.codigo = :codigo"),
+    @NamedQuery(name = "EquipoDepartamento.totalActiveItems", query="SELECT COUNT(e) FROM EquipoDepartamento e WHERE NOT EXISTS" +
+                "(SELECT s FROM Solicitudes s WHERE e.codigo = s.codigoEquipoDepartamento.codigo AND s.estatus != 'F')"),
+    @NamedQuery(name = "EquipoDepartamento.totalRepairingItems", query="SELECT COUNT(e) FROM EquipoDepartamento e WHERE e.codigo IN" +
+                "(SELECT DISTINCT s.codigoEquipoDepartamento.codigo FROM Solicitudes s WHERE e.codigo = s.codigoEquipoDepartamento.codigo AND s.estatus != 'F' AND s.tipoSolicitud = 'R')"),
+    @NamedQuery(name = "EquipoDepartamento.totalDesincorporatedItems", query="SELECT COUNT(e) FROM EquipoDepartamento e WHERE e.codigo IN" +
+                "(SELECT DISTINCT s.codigoEquipoDepartamento.codigo FROM Solicitudes s WHERE e.codigo = s.codigoEquipoDepartamento.codigo AND s.estatus = 'F' AND s.tipoSolicitud = 'D')")})
 @XmlRootElement
 public class EquipoDepartamento implements Serializable {
 
