@@ -33,12 +33,93 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "EquipoDepartamento.findAll", query = "SELECT e FROM EquipoDepartamento e"),
     @NamedQuery(name = "EquipoDepartamento.findByCodigo", query = "SELECT e FROM EquipoDepartamento e WHERE e.codigo = :codigo"),
-    @NamedQuery(name = "EquipoDepartamento.totalActiveItems", query="SELECT COUNT(e) FROM EquipoDepartamento e WHERE NOT EXISTS" +
-                "(SELECT s FROM Solicitudes s WHERE e.codigo = s.codigoEquipoDepartamento.codigo AND s.estatus != 'F')"),
-    @NamedQuery(name = "EquipoDepartamento.totalRepairingItems", query="SELECT COUNT(e) FROM EquipoDepartamento e WHERE e.codigo IN" +
-                "(SELECT DISTINCT s.codigoEquipoDepartamento.codigo FROM Solicitudes s WHERE e.codigo = s.codigoEquipoDepartamento.codigo AND s.estatus != 'F' AND s.tipoSolicitud = 'R')"),
-    @NamedQuery(name = "EquipoDepartamento.totalDesincorporatedItems", query="SELECT COUNT(e) FROM EquipoDepartamento e WHERE e.codigo IN" +
-                "(SELECT DISTINCT s.codigoEquipoDepartamento.codigo FROM Solicitudes s WHERE e.codigo = s.codigoEquipoDepartamento.codigo AND s.estatus = 'F' AND s.tipoSolicitud = 'D')")})
+    //PARA EL REPORTE POR UNIVERSIDAD
+    @NamedQuery(name = "EquipoDepartamento.totalActiveItems", 
+            query="SELECT COUNT(e) "
+                    + "FROM EquipoDepartamento e "
+                    + "WHERE NOT EXISTS"
+                    + "(SELECT s FROM Solicitudes s "
+                    + "WHERE e.codigo = s.codigoEquipoDepartamento.codigo "
+                    + "AND s.estatus != 'F')"),
+    @NamedQuery(name = "EquipoDepartamento.totalRepairingItems", 
+            query="SELECT COUNT(e) "
+                    + "FROM EquipoDepartamento e "
+                    + "WHERE e.codigo IN" 
+                    + "(SELECT DISTINCT s.codigoEquipoDepartamento.codigo "
+                    + "FROM Solicitudes s "
+                    + "WHERE e.codigo = s.codigoEquipoDepartamento.codigo "
+                    + "AND s.estatus != 'F' "
+                    + "AND s.tipoSolicitud = 'R')"),
+    @NamedQuery(name = "EquipoDepartamento.totalDesincorporatedItems", 
+            query="SELECT COUNT(e) "
+                    + "FROM EquipoDepartamento e "
+                    + "WHERE e.codigo IN" 
+                    + "(SELECT DISTINCT s.codigoEquipoDepartamento.codigo "
+                    + "FROM Solicitudes s "
+                    + "WHERE e.codigo = s.codigoEquipoDepartamento.codigo "
+                    + "AND s.estatus = 'F' "
+                    + "AND s.tipoSolicitud = 'D')"),
+    
+    //PARA EL REPORTE POR DECANATO
+    @NamedQuery(name = "EquipoDepartamento.totalActiveItemsDean", 
+            query="SELECT COUNT(e) "
+                    + "FROM EquipoDepartamento e "
+                    + "WHERE NOT EXISTS"
+                    + "(SELECT s FROM Solicitudes s "
+                    + "WHERE e.codigo = s.codigoEquipoDepartamento.codigo "
+                    + "AND s.estatus != 'F')"
+                    + "AND e.codigoDepartamento.codigoDecanato.codigo = :decanato"),
+    @NamedQuery(name = "EquipoDepartamento.totalRepairingItemsDean",
+            query="SELECT COUNT(e) "
+                    + "FROM EquipoDepartamento e "
+                    + "WHERE e.codigo IN" 
+                    + "(SELECT DISTINCT s.codigoEquipoDepartamento.codigo "
+                    + "FROM Solicitudes s "
+                    + "WHERE e.codigo = s.codigoEquipoDepartamento.codigo "
+                    + "AND s.estatus != 'F' "
+                    + "AND s.tipoSolicitud = 'R')"
+                    + "AND e.codigoDepartamento.codigoDecanato.codigo = :decanato"),
+    @NamedQuery(name = "EquipoDepartamento.totalDesincorporatedItemsDean",
+            query="SELECT COUNT(e) "
+                    + "FROM EquipoDepartamento e "
+                    + "WHERE e.codigo IN" 
+                    + "(SELECT DISTINCT s.codigoEquipoDepartamento.codigo "
+                    + "FROM Solicitudes s "
+                    + "WHERE e.codigo = s.codigoEquipoDepartamento.codigo "
+                    + "AND s.estatus = 'F' "
+                    + "AND s.tipoSolicitud = 'D')"
+                    + "AND e.codigoDepartamento.codigoDecanato.codigo = :decanato"),
+    
+    //PARA EL REPORTE POR DEPARTAMENTO
+    @NamedQuery(name = "EquipoDepartamento.totalActiveItemsDepartment", 
+            query="SELECT COUNT(e) "
+                    + "FROM EquipoDepartamento e "
+                    + "WHERE NOT EXISTS"
+                    + "(SELECT s FROM Solicitudes s "
+                    + "WHERE e.codigo = s.codigoEquipoDepartamento.codigo "
+                    + "AND s.estatus != 'F')"
+                    + "AND e.codigoDepartamento.codigo = :departamento"),
+    @NamedQuery(name = "EquipoDepartamento.totalRepairingItemsDepartment",
+            query="SELECT COUNT(e) "
+                    + "FROM EquipoDepartamento e "
+                    + "WHERE e.codigo IN" 
+                    + "(SELECT DISTINCT s.codigoEquipoDepartamento.codigo "
+                    + "FROM Solicitudes s "
+                    + "WHERE e.codigo = s.codigoEquipoDepartamento.codigo "
+                    + "AND s.estatus != 'F' "
+                    + "AND s.tipoSolicitud = 'R')"
+                    + "AND e.codigoDepartamento.codigo = :departamento"),
+    @NamedQuery(name = "EquipoDepartamento.totalDesincorporatedItemsDepartment",
+            query="SELECT COUNT(e) "
+                    + "FROM EquipoDepartamento e "
+                    + "WHERE e.codigo IN" 
+                    + "(SELECT DISTINCT s.codigoEquipoDepartamento.codigo "
+                    + "FROM Solicitudes s "
+                    + "WHERE e.codigo = s.codigoEquipoDepartamento.codigo "
+                    + "AND s.estatus = 'F' "
+                    + "AND s.tipoSolicitud = 'D')"
+                    + "AND e.codigoDepartamento.codigo = :departamento")})
+
 @XmlRootElement
 public class EquipoDepartamento implements Serializable {
 

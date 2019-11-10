@@ -21,6 +21,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import services.ReportesService;
+import domain.Decanato;
+import domain.Departamento;
 
 /**
  *
@@ -43,6 +45,40 @@ public class ReportesServiceRS {
         Long a = reportesService.totalEquiposUniversidad();
         Long r = reportesService.totalEquiposReparacionUniversidad();
         Long d = reportesService.totalEquiposDesincorporadosUniversidad();
+        Long t = a+r+d;
+        String json = 
+                "{"+
+                "\"activos\":\""+a.toString()+"\"," +
+                "\"reparados\":\""+r.toString()+"\","+
+                "\"desincorporados\":\""+d.toString()+"\","+
+                "\"totales\":\""+t.toString()+"\""+
+                "}";
+        return Response.ok(json,MediaType.APPLICATION_JSON).build();
+    }
+    
+    @GET
+    @Path("/totales/decanato/{dec}")
+    public Response reporteTotalesDecanato(@PathParam("dec") int dec){
+        Long a = reportesService.totalEquiposDecanato(new Decanato(dec));
+        Long r = reportesService.totalEquiposReparacionDecanato(new Decanato(dec));
+        Long d = reportesService.totalEquiposDesincorporadosDecanato(new Decanato(dec));
+        Long t = a+r+d;
+        String json = 
+                "{"+
+                "\"activos\":\""+a.toString()+"\"," +
+                "\"reparados\":\""+r.toString()+"\","+
+                "\"desincorporados\":\""+d.toString()+"\","+
+                "\"totales\":\""+t.toString()+"\""+
+                "}";
+        return Response.ok(json,MediaType.APPLICATION_JSON).build();
+    }
+    
+    @GET
+    @Path("/totales/departamento/{dep}")
+    public Response reporteTotalesDepartamento(@PathParam("dep") int dep){
+        Long a = reportesService.totalEquiposDepartamento(new Departamento(dep));
+        Long r = reportesService.totalEquiposReparacionDepartamento(new Departamento(dep));
+        Long d = reportesService.totalEquiposDesincorporadosDepartamento(new Departamento(dep));
         Long t = a+r+d;
         String json = 
                 "{"+

@@ -5,14 +5,27 @@
  */
 package eis;
 
+import domain.Decanato;
+import domain.Departamento;
+
 /**
  *
  * @author gabriel
  */
 public interface ReportesDao {
     
+    //TOTALES DE UNIVERSIDAD
     public Long totalActiveItems();
     public Long totalRepairingItems();
     public Long totalDesincorporatedItems();
     
+    //TOTALES POR DECANATO
+    public Long totalActiveItemsDean(Decanato dec);
+    public Long totalRepairingItemsDean(Decanato dec);
+    public Long totalDesincorporatedItemsDean(Decanato dec);
+    
+    //TOTALES POR DEPARTAMENTO
+    public Long totalActiveItemsDepartment(Departamento dep);
+    public Long totalReparingItemsDepartment(Departamento dep);
+    public Long totalDesincorporatedItemsDepartment(Departamento dep);
 }
