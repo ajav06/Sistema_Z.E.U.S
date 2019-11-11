@@ -6,6 +6,7 @@
 package services.rest;
 
 import domain.Departamento;
+import domain.Decanato;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -37,6 +38,12 @@ public class DepartamentoServiceRS {
     @GET
     public List<Departamento> listarDepartamentos(){
         return departamentoService.listarDepartamentosActivos();
+    }
+    
+    @GET
+    @Path("/decanato/{dec}")
+    public List<Departamento> listarDepartamentosPorDecanato(@PathParam("dec") int dec){
+        return departamentoService.listarDepartamentosPorDecanatos(dec);
     }
     
     @GET
