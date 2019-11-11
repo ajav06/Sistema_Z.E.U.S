@@ -58,6 +58,32 @@ function mostrarConsultaDepartamento(){
     });        
 }
 
+function mostrarConsultaMayorMenorDecanato(){
+    ocultarTodo();
+    $('#maydecanato').toggle('slow');
+    $("#dropdownMayorMenorPorDecanato").empty();
+    $("#dropdownMayorMenorPorDecanato").append(new Option("...","-"));
+    $.ajax({
+        url: '/sistema_zeus/webservice/decanatos',
+        type: 'GET',
+        dataType: 'JSON',
+        success: function (data) {            
+            console.log(data);
+            data.forEach( function(decanato, indice, array){
+                $("#dropdownMayorMenorPorDecanato").append(new Option(decanato.nombre,decanato.codigo))
+                }
+            );
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+            console.log(thrownError);
+            console.log("No se ha podido obtener la información");
+            Swal.fire("Error","Hubo un error consultando los datos","error");
+        }
+    });
+}
+
 function cargarDepartamentos(){
     $("#dropdownDepartamentoReporteDpto").empty();
     $("#dropdownDepartamentoReporteDpto").append(new Option("...","-"));
@@ -168,5 +194,66 @@ function llenarTotalesDepartamento(){
         document.getElementById('eqRepDpt').innerHTML = "";
         document.getElementById('eqDesDpt').innerHTML = "";
         document.getElementById('eqTotDpt').innerHTML = "";
+    }
+}
+
+function llenarMayorMenorUniversidad(){
+    ocultarTodo();
+    $('#mayuniversidad').toggle('slow'); 
+    $.ajax({
+        url: '/sistema_zeus/webservice/reportes/mayor_menor/universidad',
+        type: 'GET',
+        dataType: 'JSON',
+        success: function (data) {            
+            document.getElementById('decanatoMayorCantidadUniv').innerHTML = data.decmayuni;
+            document.getElementById('departamentoMayorCantidadUniv').innerHTML = data.depmayuni;
+            document.getElementById('mayorCantidadUniv').innerHTML = data.mayuni;
+            document.getElementById('decanatoMenorCantidadUniv').innerHTML = data.decmenuni;
+            document.getElementById('departamentoMenorCantidadUniv').innerHTML = data.depmenuni;
+            document.getElementById('menorCantidadUniv').innerHTML = data.menuni;
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+            console.log(thrownError);
+            console.log("No se ha podido obtener la información");
+            Swal.fire("Error","Hubo un error consultando los datos","error");
+        }
+    });
+}
+
+function llenarMayorMenorDecanato(){
+    if ($("#dropdownMayorMenorPorDecanato").val()!='-'){
+        $.ajax({
+            url: '/sistema_zeus/webservice/reportes/mayor_menor/decanato/' + $("#dropdownMayorMenorPorDecanato").val() + '/',
+            type: 'GET',
+            dataType: 'JSON',
+            success: function (data) {            
+                if (!data.error){
+                    document.getElementById('departamentoMayorCantidadDec').innerHTML = data.depmaydec;
+                    document.getElementById('mayorCantidadDec').innerHTML = data.maydec;
+                    document.getElementById('departamentoMenorCantidadDec').innerHTML = data.depmendec;
+                    document.getElementById('menorCantidadDec').innerHTML = data.mendec;
+                } else {
+                    document.getElementById('departamentoMayorCantidadDec').innerHTML = "";
+                    document.getElementById('mayorCantidadDec').innerHTML = "";
+                    document.getElementById('departamentoMenorCantidadDec').innerHTML = "";
+                    document.getElementById('menorCantidadDec').innerHTML = "";                    
+                    Swal.fire("Error",data.error,"warning");
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(xhr.responseText);
+                console.log(thrownError);
+                console.log("No se ha podido obtener la información");
+                Swal.fire("Error","Hubo un error consultando los datos","error");
+            }
+        });
+    } else {
+        document.getElementById('departamentoMayorCantidadDec').innerHTML = "";
+        document.getElementById('mayorCantidadDec').innerHTML = "";
+        document.getElementById('departamentoMenorCantidadDec').innerHTML = "";
+        document.getElementById('menorCantidadDec').innerHTML = "";
     }
 }

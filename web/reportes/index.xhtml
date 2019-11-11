@@ -163,16 +163,24 @@
                         <table class="ui celled structured table">
                             <thead>
                                 <tr>
-                                    <th>Nombre del dpto</th>
-                                    <th>Mayor Cantidad</th>
-                                    <th>Menor Cantidad</th>
+                                    <th></th>
+                                    <th>Nombre del decanato</th>
+                                    <th>Nombre del departamento</th>
+                                    <th>Cantidad</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>DCYT Decanato de Ciencias y Tecnología</td>
-                                    <td>23</td>
-                                    <td>3</td>
+                                    <td>Mayor cantidad</td>
+                                    <td id="decanatoMayorCantidadUniv"></td>
+                                    <td id="departamentoMayorCantidadUniv"></td>
+                                    <td id="mayorCantidadUniv"></td>
+                                </tr>
+                                <tr>
+                                    <td>Menor cantidad</td>
+                                    <td id="decanatoMenorCantidadUniv"></td>
+                                    <td id="departamentoMenorCantidadUniv"></td>
+                                    <td id="menorCantidadUniv"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -180,7 +188,7 @@
                         <div class="ui center aligned fluid container">
                             <button class="ui circular button icon" 
                                     aria-label="label" id="atras"
-                                    onclick="$('#mayuniversidad').toggle('slow')">
+                                    onclick="$('#mayuniversidad').toggle('slow');">
                                 <i class="left chevron icon"></i>
                                 Atrás
                             </button>
@@ -195,14 +203,8 @@
                         
                         <div class="two fields">
                             <div class="field">
-                                <select class="ui fluid dropdown">
-                                    <option value="">Decanato a solicitar ...</option>
-                                    <option value="cyt">DCYT Decanato de Ciencias y Tecnología</option>
-                                    <option value="cs">DCS Decanato de Ciencias de la Salud</option>
-                                    <option value="cee">DCEE Decanato de Ciencias Económicas y Empresariales</option>
-                                    <option value="eha">DEHA Decanato de Humanidades y Artes</option>
-                                    <option value="ic">DIC Decanato de Ingeniería Civil</option>
-                                    <option value="cv">DCV Decanato de Ciencias Veterinarias</option>
+                                <select class="ui fluid dropdown" id="dropdownMayorMenorPorDecanato" onchange="llenarMayorMenorDecanato()">
+                                    <option value="-">...</option>
                                 </select>
                             </div>
                         </div>
@@ -210,18 +212,22 @@
                         <table class="ui celled structured table">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Nombre del Departamento</th>
-                                    <th>Mayor Cantidad</th>
-                                    <th>Menor Cantidad</th>
+                                    <th>Cantidad</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Departamento de Sistemas</td>
-                                    <td>23</td>
-                                    <td>3</td>
+                                    <td>Mayor cantidad</td>
+                                    <td id="departamentoMayorCantidadDec"></td>
+                                    <td id="mayorCantidadDec"></td>
                                 </tr>
-
+                                <tr>
+                                    <td>Menor cantidad</td>
+                                    <td id="departamentoMenorCantidadDec"></td>
+                                    <td id="menorCantidadDec"></td>
+                                </tr>
                             </tbody>
                         </table>
                         
@@ -281,7 +287,7 @@
                                         <div class="right floated content">
                                             <div class="ui animated circular button button-big" 
                                                  tabindex="0" aria-label="Equipos"
-                                                 onclick="ocultarTodo();$('#mayuniversidad').toggle('slow')">
+                                                 onclick="llenarMayorMenorUniversidad()">
                                                 
                                                 <div class="visible content">Por Universidad</div>
                                                 <div class="hidden content">Reporte</div>
@@ -289,7 +295,7 @@
                                             
                                             <div class="ui animated circular button button-big" 
                                                  tabindex="0" aria-label="Equipos"
-                                                 onclick="ocultarTodo();$('#maydecanato').toggle('slow')">
+                                                 onclick="mostrarConsultaMayorMenorDecanato()">
                                                 
                                                 <div class="visible content">Por Decanato</div>
                                                 <div class="hidden content">Reporte</div>

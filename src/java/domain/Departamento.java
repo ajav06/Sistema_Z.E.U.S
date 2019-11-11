@@ -39,7 +39,32 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Departamento.findByCodigoDca", query = "SELECT d FROM Departamento d WHERE d.codigoDecanato.codigo = :codigo AND d.estatus = 'a'"),
     @NamedQuery(name = "Departamento.findByNombre", query = "SELECT d FROM Departamento d WHERE d.nombre = :nombre AND d.estatus = 'a'"),
     @NamedQuery(name = "Departamento.findByDescripcion", query = "SELECT d FROM Departamento d WHERE d.descripcion = :descripcion AND d.estatus = 'a'"),
-    @NamedQuery(name = "Departamento.findByEstatus", query = "SELECT d FROM Departamento d WHERE d.estatus = :estatus")})
+    @NamedQuery(name = "Departamento.findByEstatus", query = "SELECT d FROM Departamento d WHERE d.estatus = :estatus"),
+    
+    //PARA EL REPORTE DE MAYOR Y MENOR POR UNIVERSIDAD
+    @NamedQuery(name = "Departamento.mostItems",
+            query = "SELECT d.codigoDecanato, "
+                    + "d.nombre, "
+                    + "(SELECT COUNT(e.codigo) "
+                        + "FROM EquipoDepartamento e "
+                        + "WHERE d.codigo = e.codigoDepartamento.codigo "
+                        + "AND e.codigoEstadoEquipo.codigo != 2) as cantidad "
+                    + "FROM Departamento d "
+                    + "WHERE d.estatus = 'a' "
+                    + "ORDER BY cantidad DESC"),
+    //PARA EL REPORTE DE MAYOR Y MENOR POR DECANATO
+    @NamedQuery(name = "Departamento.mostItemsDean",
+            query = "SELECT "
+                    + "d.nombre, "
+                    + "(SELECT COUNT(e.codigo) "
+                        + "FROM EquipoDepartamento e "
+                        + "WHERE d.codigo = e.codigoDepartamento.codigo "
+                        + "AND e.codigoEstadoEquipo.codigo != 2 "
+                        + ") as cantidad "
+                    + "FROM Departamento d "
+                    + "WHERE d.codigoDecanato.codigo = :decanato "
+                    + "AND d.estatus = 'a' "
+                    + "ORDER BY cantidad DESC")})
 @XmlRootElement
 public class Departamento implements Serializable {
 

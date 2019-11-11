@@ -6,6 +6,7 @@
 package services;
 
 import javax.ejb.Local;
+import java.util.List;
 import domain.Decanato;
 import domain.Departamento;
 
@@ -30,5 +31,8 @@ public interface ReportesService {
     public Long totalEquiposDepartamento(Departamento dep);
     public Long totalEquiposReparacionDepartamento(Departamento dep);
     public Long totalEquiposDesincorporadosDepartamento(Departamento dep);
-    
+ 
+    //DEPARTAMENTOS MAYOR Y MENOR GLOBAL (UNIVERSIDAD)
+    public List<?> mayorEquiposUniversidad();
+    public List<?> mayorEquiposDecanato(Decanato dec);
 }

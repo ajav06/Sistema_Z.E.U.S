@@ -6,6 +6,7 @@
 package eis;
 
 import domain.Departamento;
+import domain.Decanato;
 import java.util.List;
 
 /**
@@ -28,4 +29,7 @@ public interface DepartamentoDao {
     
     public void deleteDepartamento(Departamento departamento);    
     
+    public List<?> mostItems();
+    
+    public List<?> mostItemsDean(Decanato decanato);
 }

@@ -6,7 +6,7 @@
 package eis;
 
 import domain.Departamento;
-
+import domain.Decanato;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -63,4 +63,15 @@ public class DepartamentoDaoImpl implements DepartamentoDao{
         return query.getResultList();
     }
     
+    @Override
+    public List<?> mostItems(){
+        return em.createNamedQuery("Departamento.mostItems").getResultList();
+    }
+    
+    @Override
+    public List<?> mostItemsDean(Decanato decanato){
+        Query query = em.createNamedQuery("Departamento.mostItemsDean");
+        query.setParameter("decanato", decanato.getCodigo());
+        return query.getResultList();
+    }
 }

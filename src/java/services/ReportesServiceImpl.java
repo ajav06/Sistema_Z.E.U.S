@@ -6,12 +6,14 @@
 package services;
 
 import eis.ReportesDao;
+import eis.DepartamentoDao;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import domain.Decanato;
 import domain.Departamento;
+import java.util.List;
 
 /**
  *
@@ -25,6 +27,9 @@ public class ReportesServiceImpl implements ReportesService{
     
     @EJB
     private ReportesDao reportesDao;
+    
+    @EJB
+    private DepartamentoDao departamentoDao;
     
     @Override
     public Long totalEquiposUniversidad(){
@@ -71,5 +76,15 @@ public class ReportesServiceImpl implements ReportesService{
     @Override
     public Long totalEquiposDesincorporadosDepartamento(Departamento dep){
         return reportesDao.totalDesincorporatedItemsDepartment(dep);
+    }
+    
+    @Override
+    public List<?> mayorEquiposUniversidad(){
+        return departamentoDao.mostItems();
+    }
+    
+    @Override
+    public List<?> mayorEquiposDecanato(Decanato dec){
+        return departamentoDao.mostItemsDean(dec);
     }
 }

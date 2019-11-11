@@ -89,4 +89,58 @@ public class ReportesServiceRS {
                 "}";
         return Response.ok(json,MediaType.APPLICATION_JSON).build();
     }
+    
+    @GET
+    @Path("/mayor_menor/universidad")
+    public Response mayorMenorUniversidad(){
+        List<?> lista;
+        lista = reportesService.mayorEquiposUniversidad();
+        Object[] mayor = (Object[]) lista.get(0);
+        Decanato decmayor = (Decanato) mayor[0];
+        String depmayor = (String) mayor[1];
+        Long cantmayor = (Long) mayor[2];
+        Object[] menor = (Object[]) lista.get(lista.size()-1);
+        Decanato decmenor = (Decanato) menor[0];
+        String depmenor = (String) menor[1];
+        Long cantmenor = (Long) menor[2];
+        String json = 
+        "{"+
+            "\"decmayuni\":\""+decmayor.getNombre()+"\"," +
+            "\"depmayuni\":\""+depmayor+"\","+
+            "\"mayuni\":\""+cantmayor.toString()+"\","+
+            "\"decmenuni\":\""+decmenor.getNombre()+"\"," +
+            "\"depmenuni\":\""+depmenor+"\","+
+            "\"menuni\":\""+cantmenor.toString()+"\""+
+        "}";
+        return Response.ok(json,MediaType.APPLICATION_JSON).build();
+    }
+    
+    @GET
+    @Path("/mayor_menor/decanato/{id}")
+    public Response mayorMenorDecanato(@PathParam("id") int dec){
+        List<?> lista;
+        lista = reportesService.mayorEquiposDecanato(new Decanato(dec));
+        String json;
+        if (lista.size()>1){
+            Object[] mayor = (Object[]) lista.get(0);
+            String depmayor = (String) mayor[0];
+            Long cantmayor = (Long) mayor[1];
+            Object[] menor = (Object[]) lista.get(lista.size()-1);
+            String depmenor = (String) menor[0];
+            Long cantmenor = (Long) menor[1];
+            json = 
+            "{"+
+                "\"depmaydec\":\""+depmayor+"\","+
+                "\"maydec\":\""+cantmayor.toString()+"\","+
+                "\"depmendec\":\""+depmenor+"\","+
+                "\"mendec\":\""+cantmenor.toString()+"\""+
+            "}";
+        } else {
+            json = 
+            "{"+
+                "\"error\":\"¡El decanato tiene sólo un departamento!\"" +
+            "}";            
+        }
+        return Response.ok(json,MediaType.APPLICATION_JSON).build();
+    }
 }
