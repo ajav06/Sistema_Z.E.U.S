@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package services.rest;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -23,6 +26,7 @@ import javax.ws.rs.core.Response;
 import services.ReportesService;
 import domain.Decanato;
 import domain.Departamento;
+import domain.Usuario;
 import domain.Solicitudes;
 import java.util.ArrayList;
 import javax.enterprise.context.RequestScoped;
@@ -153,11 +157,24 @@ public class ReportesServiceRS{
     }
     
     @GET
+    @Produces(value = {MediaType.APPLICATION_JSON})
     @Path("/solicitudes/{anno}/{mes}/")
-    @Produces({MediaType.APPLICATION_JSON})
     public List<Solicitudes> reporteSolicitudesFiltrado(@PathParam("anno") int anno, @PathParam("mes") int mes){
-        System.out.print(reportesService.listadoSolicitudesFiltradas(mes, anno));
-        return reportesService.listadoSolicitudesFiltradas(mes, anno);
+        List<Solicitudes> lista = reportesService.listadoSolicitudesFiltradas(mes, anno);
+        List<Solicitudes> lista2 = new ArrayList<Solicitudes>();
+        for(Solicitudes s:lista){
+            Solicitudes o = new Solicitudes();
+            Usuario nvo_u = new Usuario(s.getNombreUsuario().getNombre(),s.getNombreUsuario().getApellido());
+            o.setCodigo(s.getCodigo());
+            o.setCodigoEquipoDepartamento(s.getCodigoEquipoDepartamento());
+            o.setEstatus(s.getEstatus());
+            o.setFechaAtencion(s.getFechaAtencion());
+            o.setFechaInicio(s.getFechaInicio());
+            o.setNombreUsuario(nvo_u);
+            o.setTipoSolicitud(s.getTipoSolicitud());
+            lista2.add(o);
+        }
+        return lista2;
     }
 
 }

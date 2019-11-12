@@ -265,7 +265,33 @@ function consultarReporte(){
             type: 'GET',
             dataType: 'JSON',
             success: function (data) {            
-                Swal.fire("Lo logramos","data.error","warning");
+                var tabla = $('#listas').DataTable();
+                tabla.clear().draw();
+                data.forEach(function(solicitud,indice,datos){
+                    var fechai = new Date(solicitud['fechaInicio']);
+                    var fechaf = new Date(solicitud['fechaAtencion']);
+                    var fistring = fechai.getDate()  + "-" + (fechai.getMonth()+1) + "-" + fechai.getFullYear() + " ";
+                    var ffstring = fechaf.getDate()  + "-" + (fechaf.getMonth()+1) + "-" + fechaf.getFullYear() + " ";
+                    var tipoSolicitud;
+                    switch(solicitud['tipoSolicitud']){
+                        case 'R':
+                            tipoSolicitud = 'Reparación';
+                            break;
+                        case 'D':
+                            tipoSolicitud = 'Desincorporación';
+                            break;
+                    }
+                    tabla.row.add([
+                        fistring,
+                        ffstring,
+                        tipoSolicitud,
+                        solicitud['codigoEquipoDepartamento']['codigoDepartamento']['codigoDecanato']['nombre'],
+                        solicitud['codigoEquipoDepartamento']['codigoDepartamento']['nombre'],
+                        solicitud['nombreUsuario']['nombre'] + " " + solicitud['nombreUsuario']['apellido'],
+                        solicitud['codigoEquipoDepartamento']['codigoEquipo']['nombre'] + " de código " + solicitud['codigoEquipoDepartamento']['codigo']
+                    ])
+                    .draw();
+                });
             },
             error: function(xhr, ajaxOptions, thrownError) {
                 console.log(xhr.status);

@@ -213,8 +213,8 @@ public class Solicitudes implements Serializable {
         return format.format(this.fechaInicio);
     }
     
-    //public String fechaAtencionString(){
-      //  String fecha;
-        //if (this.fechaAtencion)
-    //}    
+    public String fechaAtencion(){
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        return format.format(this.fechaAtencion);
+    }    
 }
