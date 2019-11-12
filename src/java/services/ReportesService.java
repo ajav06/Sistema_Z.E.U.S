@@ -9,6 +9,7 @@ import javax.ejb.Local;
 import java.util.List;
 import domain.Decanato;
 import domain.Departamento;
+import domain.Solicitudes;
 
 /**
  *
@@ -35,4 +36,8 @@ public interface ReportesService {
     //DEPARTAMENTOS MAYOR Y MENOR GLOBAL (UNIVERSIDAD)
     public List<?> mayorEquiposUniversidad();
     public List<?> mayorEquiposDecanato(Decanato dec);
+    
+    //REPORTE DE SOLICITUDES
+    public List<Solicitudes> listadoSolicitudes();
+    public List<Solicitudes> listadoSolicitudesFiltradas(int mes, int anno);
 }

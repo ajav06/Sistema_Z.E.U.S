@@ -7,12 +7,14 @@ package services;
 
 import eis.ReportesDao;
 import eis.DepartamentoDao;
+import eis.SolicitudesDao;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import domain.Decanato;
 import domain.Departamento;
+import domain.Solicitudes;
 import java.util.List;
 
 /**
@@ -30,6 +32,9 @@ public class ReportesServiceImpl implements ReportesService{
     
     @EJB
     private DepartamentoDao departamentoDao;
+    
+    @EJB
+    private SolicitudesDao solicitudesDao;
     
     @Override
     public Long totalEquiposUniversidad(){
@@ -86,5 +91,15 @@ public class ReportesServiceImpl implements ReportesService{
     @Override
     public List<?> mayorEquiposDecanato(Decanato dec){
         return departamentoDao.mostItemsDean(dec);
+    }
+    
+    @Override
+    public List<Solicitudes> listadoSolicitudes(){
+        return solicitudesDao.listadoSolicitudes();
+    }
+    
+    @Override
+    public List<Solicitudes> listadoSolicitudesFiltradas(int mes, int anno){
+        return solicitudesDao.listadoSolicitudesFiltradas(mes, anno);
     }
 }
