@@ -30,8 +30,12 @@
     color: #ffff;
     background-color:  transparent;
     border: 0px #c6c4c4;
+    vertical-align: super;
 }
 
+div.fb-like.fb_iframe_widget > span {
+    vertical-align: inherit !important;
+}
 
 /*
 *   MENU IZQUIERDO
