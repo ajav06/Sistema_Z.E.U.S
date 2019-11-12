@@ -68,6 +68,7 @@ public class Solicitudes implements Serializable {
     private Date fechaInicio;
     
     @Column(name = "fecha_atencion")
+    @Temporal(TemporalType.DATE)
     private Date fechaAtencion;
     
     @Basic(optional = false)
