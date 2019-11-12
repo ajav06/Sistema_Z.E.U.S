@@ -30,25 +30,12 @@ public class SolicitudesDaoImpl implements SolicitudesDao{
         int mes = c.get(Calendar.MONTH);
         int anno = c.get(Calendar.YEAR);
         Calendar primero_mes = new GregorianCalendar(anno, mes, 1);
-        Calendar ultimo_mes;
-        try{
-            ultimo_mes = new GregorianCalendar(anno, mes, 31);
-        } catch (Exception e){
-            try{
-                ultimo_mes = new GregorianCalendar(anno, mes, 30);
-            } catch (Exception x){
-                try{
-                    ultimo_mes = new GregorianCalendar(anno, mes, 29);
-                } catch (Exception f){
-                    ultimo_mes = new GregorianCalendar(anno, mes, 28);
-                }
-            }
-        }
+        Calendar ultimo_mes = new GregorianCalendar(anno, mes+1, 1);
         Date primero = primero_mes.getTime();
         Date ultimo = ultimo_mes.getTime();
         query.setParameter("primeroMes", primero);
         query.setParameter("finMes", ultimo);
-        return (List<Solicitudes>) query.getResultList();
+        return query.getResultList();
     }
     
     @Override
@@ -56,25 +43,11 @@ public class SolicitudesDaoImpl implements SolicitudesDao{
         Query query = em.createNamedQuery("Solicitudes.findByFechaInicioInterval");
         mes--;
         Calendar primero_mes = new GregorianCalendar(anno, mes, 1);
-        Calendar ultimo_mes;
-        try{
-            ultimo_mes = new GregorianCalendar(anno, mes, 31);
-        } catch (Exception e){
-            try{
-                ultimo_mes = new GregorianCalendar(anno, mes, 30);
-            } catch (Exception x){
-                try{
-                    ultimo_mes = new GregorianCalendar(anno, mes, 29);
-                } catch (Exception c){
-                    ultimo_mes = new GregorianCalendar(anno, mes, 28);
-                }
-            }
-        }
+        Calendar ultimo_mes = new GregorianCalendar(anno, mes+1, 1);
         Date primero = primero_mes.getTime();
         Date ultimo = ultimo_mes.getTime();
-        
         query.setParameter("primeroMes", primero);
         query.setParameter("finMes", ultimo);
-        return (List<Solicitudes>) query.getResultList();
+        return query.getResultList();
     }
 }

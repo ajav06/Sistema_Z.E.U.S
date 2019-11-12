@@ -23,6 +23,7 @@ import javax.ws.rs.core.Response;
 import services.ReportesService;
 import domain.Decanato;
 import domain.Departamento;
+import domain.Solicitudes;
 
 /**
  *
@@ -33,8 +34,6 @@ import domain.Departamento;
 @Consumes(value = {MediaType.APPLICATION_JSON})
 @Stateless
 public class ReportesServiceRS {
-    
-    private Set<Integer> totalesUniversidad;
     
     @Inject
     private ReportesService reportesService;
@@ -142,5 +141,11 @@ public class ReportesServiceRS {
             "}";            
         }
         return Response.ok(json,MediaType.APPLICATION_JSON).build();
+    }
+    
+    @GET
+    @Path("/solicitudes/{anno}/{mes}")
+    public List<Solicitudes> reporteSolicitudesFiltrado(@PathParam("anno") int anno, @PathParam("mes") int mes){
+        return reportesService.listadoSolicitudesFiltradas(mes, anno);
     }
 }

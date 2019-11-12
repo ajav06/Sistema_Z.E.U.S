@@ -28,17 +28,17 @@ public class ReportesBean {
     @Inject
     private ReportesService reportesService;
     
-    List<Solicitudes> solicitudes;
+    List<Solicitudes> lSolicitudes;
 
     public ReportesBean() {
     }
     
     @PostConstruct
     public void inicializar() {
-        solicitudes = reportesService.listadoSolicitudes();
+        lSolicitudes = reportesService.listadoSolicitudes();
     }
 
-    public List <Solicitudes> listadoSolicitudesFiltradas(int mes, int anno){
-        return reportesService.listadoSolicitudesFiltradas(mes, anno);
+    public List <Solicitudes> getSolicitudes(){
+        return lSolicitudes;
     }
 }

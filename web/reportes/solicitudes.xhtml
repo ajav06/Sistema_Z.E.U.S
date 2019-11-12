@@ -59,43 +59,43 @@
                         
                         <h:dataTable class="ui compact celled definition table"
                                      id="listas"
-                                     var="solicitudes"
-                                     value="#{ReportesBean.solicitudes}"
+                                     var="solicitud"
+                                     value="#{reportesBean.solicitudes}"
                                      headerClass="encabezado-tabla-2">
                             
                             <h:column>
                                 <f:facet name="header">Fecha de Emisión</f:facet>
-                                #{solicitudes.fechaInicio}
+                                #{solicitud.fechaEmision()}
                             </h:column>
                             
                             <h:column>
                                 <f:facet name="header">Fecha de Atención</f:facet>
-                                #{solicitudes.fechaFinal}
+                                #{solicitud.fechaAtencion}
                             </h:column>
                             
                             <h:column>
                                 <f:facet name="header">Tipo de Solicitud</f:facet>
-                                sd
+                                #{solicitud.tipoSolicitudString()}
                             </h:column>
                             
                             <h:column>
                                 <f:facet name="header">Decanato</f:facet>
-                                #{departamento.codigoDecanato.siglas}
+                                #{solicitud.codigoEquipoDepartamento.codigoDepartamento.codigoDecanato.nombre}
                             </h:column>
                             
                             <h:column>
                                 <f:facet name="header">Departamento</f:facet>
-                                #{departamento.nombre}
+                                #{solicitud.codigoEquipoDepartamento.codigoDepartamento.nombre}
                             </h:column>
                             
                             <h:column>
                                 <f:facet name="header">Empleado</f:facet>
-                                #{departamento.codigo}
+                                #{solicitud.nombreUsuario.nombre} #{solicitud.nombreUsuario.apellido} 
                             </h:column>
 
                             <h:column>
                                 <f:facet name="header">Equipo</f:facet>
-                                #{departamento.codigo}
+                                #{solicitud.codigoEquipoDepartamento.codigoEquipo.nombre} de código #{solicitud.codigoEquipoDepartamento.codigo}
                             </h:column>
                             
                         </h:dataTable>

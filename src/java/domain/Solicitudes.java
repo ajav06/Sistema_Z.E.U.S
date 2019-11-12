@@ -6,6 +6,7 @@
 package domain;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -177,4 +178,23 @@ public class Solicitudes implements Serializable {
         return "domain.Solicitudes[ codigo=" + codigo + " ]";
     }
     
+    public String tipoSolicitudString(){
+        String tipo;
+        if (!"R".equals(this.tipoSolicitud)){
+            tipo = "Desincorporación";
+        } else {
+            tipo = "Reparación";
+        }
+        return tipo;
+    }
+    
+    public String fechaEmision(){
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        return format.format(this.fechaInicio);
+    }
+    
+    //public String fechaAtencionString(){
+      //  String fecha;
+        //if (this.fechaAtencion)
+    //}    
 }
