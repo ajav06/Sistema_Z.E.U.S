@@ -44,6 +44,7 @@
                     <h:graphicImage library="images" name="este.png" id="top-logo" />
                     
                     <div class="ui right aligned fluid container" id="container-top">
+                        
                         <h:form>
                             <div class="ui simple dropdown item" id="top-bar-dropdown" >
                                 <i class="dropdown icon" style="padding-right: 4px"></i> #{usuarioBean.usuarioActivo}
@@ -121,15 +122,16 @@
                                id="item" href="/sistema_zeus/solicitudes/desincorporacion.xhtml">Solicitudes de Desincorporación</a>
                         </div>
                         
-                        <a class="twitter-timeline" 
-                           data-height="500" 
-                           data-theme="dark"
-                           data-lang="es"
-                           data-link-color="#2B7BB9" 
-                           href="https://twitter.com/UCLAve?ref_src=twsrc%5Etfw">
-                            Tweets by UCLA</a>
+                        <div id="twitter-api">
+                            <a class="twitter-timeline" 
+                                data-height="100"
+                                data-theme="dark"
+                                data-lang="es"
+                                data-link-color="#2B7BB9"
+                                href="https://twitter.com/UCLAve?ref_src=twsrc%5Etfw">
+                                 Tweets by UCLA</a>
+                        </div>
                         
-                        <!--<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
                     </div>
                 </div>
             </ui:insert>
