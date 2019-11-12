@@ -24,58 +24,58 @@
                             <div class="column">
                                 <select class="ui fluid dropdown">
                                     <option value="">Mes a consultar ...</option>
-                                    <option value="ene">Enero</option>
-                                    <option value="feb">Febrero</option>
-                                    <option value="mar">Marzo</option>
-                                    <option value="abr">Abril</option>
-                                    <option value="may">Mayo</option>
-                                    <option value="jun">Junio</option>
-                                    <option value="jul">Julio</option>
-                                    <option value="ago">Agosto</option>
-                                    <option value="sep">Septiembre</option>
-                                    <option value="oct">Octubre</option>
-                                    <option value="nov">Noviembre</option>
-                                    <option value="dic">Diciembre</option>
+                                    <option value="1">Enero</option>
+                                    <option value="2">Febrero</option>
+                                    <option value="3">Marzo</option>
+                                    <option value="4">Abril</option>
+                                    <option value="5">Mayo</option>
+                                    <option value="6">Junio</option>
+                                    <option value="7">Julio</option>
+                                    <option value="8">Agosto</option>
+                                    <option value="9">Septiembre</option>
+                                    <option value="10">Octubre</option>
+                                    <option value="11">Noviembre</option>
+                                    <option value="12">Diciembre</option>
                                 </select>
                             </div>
                             <div class="column">
                                 <select class="ui fluid dropdown">
                                     <option value="">Año a consultar ...</option>
-                                    <option value="ene">2019</option>
-                                    <option value="feb">2018</option>
-                                    <option value="mar">2017</option>
-                                    <option value="abr">2016</option>
-                                    <option value="may">2015</option>
-                                    <option value="jun">2014</option>
-                                    <option value="jul">2013</option>
-                                    <option value="ago">2012</option>
-                                    <option value="sep">2011</option>
-                                    <option value="oct">2010</option>
-                                    <option value="nov">2009</option>
-                                    <option value="dic">2008</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
                                 </select>
                             </div>
                         </div>
                         
                         <h:dataTable class="ui compact celled definition table"
                                      id="listas"
-                                     var="departamento"
-                                     value="#{departamentoBean.departamentos}"
+                                     var="solicitudes"
+                                     value="#{ReportesBean.solicitudes}"
                                      headerClass="encabezado-tabla-2">
                             
                             <h:column>
                                 <f:facet name="header">Fecha de Emisión</f:facet>
-                                04/07/2019
+                                #{solicitudes.fechaInicio}
                             </h:column>
                             
                             <h:column>
                                 <f:facet name="header">Fecha de Atención</f:facet>
-                                10/09/2019
+                                #{solicitudes.fechaFinal}
                             </h:column>
                             
                             <h:column>
                                 <f:facet name="header">Tipo de Solicitud</f:facet>
-                                Reparación
+                                sd
                             </h:column>
                             
                             <h:column>
