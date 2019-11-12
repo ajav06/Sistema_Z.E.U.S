@@ -68,7 +68,7 @@ public class Solicitudes implements Serializable {
     private Date fechaInicio;
     
     @Column(name = "fecha_atencion")
-    private Integer fechaAtencion;
+    private Date fechaAtencion;
     
     @Basic(optional = false)
     @NotNull
@@ -140,11 +140,11 @@ public class Solicitudes implements Serializable {
         this.fechaInicio = fechaInicio;
     }
 
-    public Integer getFechaAtencion() {
+    public Date getFechaAtencion() {
         return fechaAtencion;
     }
 
-    public void setFechaAtencion(Integer fechaAtencion) {
+    public void setFechaAtencion(Date fechaAtencion) {
         this.fechaAtencion = fechaAtencion;
     }
 

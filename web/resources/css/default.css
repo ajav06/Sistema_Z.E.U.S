@@ -63,6 +63,13 @@
     padding-top: 0px !important
 }
 
+#twitter-api {
+    position: absolute; 
+    bottom: 5%; 
+    width: 92%; 
+    padding: 2%;
+}
+
 /*
 *   CONTENIDO
 */
