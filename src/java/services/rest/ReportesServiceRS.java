@@ -24,6 +24,12 @@ import services.ReportesService;
 import domain.Decanato;
 import domain.Departamento;
 import domain.Solicitudes;
+import java.util.ArrayList;
+import javax.enterprise.context.RequestScoped;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
 /**
  *
@@ -33,7 +39,10 @@ import domain.Solicitudes;
 @Produces(value = {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 @Consumes(value = {MediaType.APPLICATION_JSON})
 @Stateless
-public class ReportesServiceRS {
+public class ReportesServiceRS{
+    
+    @PersistenceContext(name = "ZeusBD")
+    EntityManager em;
     
     @Inject
     private ReportesService reportesService;
@@ -144,8 +153,11 @@ public class ReportesServiceRS {
     }
     
     @GET
-    @Path("/solicitudes/{anno}/{mes}")
+    @Path("/solicitudes/{anno}/{mes}/")
+    @Produces({MediaType.APPLICATION_JSON})
     public List<Solicitudes> reporteSolicitudesFiltrado(@PathParam("anno") int anno, @PathParam("mes") int mes){
+        System.out.print(reportesService.listadoSolicitudesFiltradas(mes, anno));
         return reportesService.listadoSolicitudesFiltradas(mes, anno);
     }
+
 }

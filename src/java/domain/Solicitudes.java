@@ -97,6 +97,25 @@ public class Solicitudes implements Serializable {
         this.estatus = estatus;
     }
 
+    public Solicitudes(Integer codigo, String tipoSolicitud, Date fechaInicio, Integer fechaAtencion, String estatus, EquipoDepartamento codigoEquipoDepartamento, Usuario nombreUsuario) {
+        this.codigo = codigo;
+        this.tipoSolicitud = tipoSolicitud;
+        this.fechaInicio = fechaInicio;
+        this.fechaAtencion = fechaAtencion;
+        this.estatus = estatus;
+        this.codigoEquipoDepartamento = codigoEquipoDepartamento;
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public Solicitudes(Integer codigo, String tipoSolicitud, Date fechaInicio, String estatus, EquipoDepartamento codigoEquipoDepartamento, Usuario nombreUsuario) {
+        this.codigo = codigo;
+        this.tipoSolicitud = tipoSolicitud;
+        this.fechaInicio = fechaInicio;
+        this.estatus = estatus;
+        this.codigoEquipoDepartamento = codigoEquipoDepartamento;
+        this.nombreUsuario = nombreUsuario;
+    }
+
     public Integer getCodigo() {
         return codigo;
     }

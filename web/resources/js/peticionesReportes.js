@@ -257,3 +257,23 @@ function llenarMayorMenorDecanato(){
         document.getElementById('menorCantidadDec').innerHTML = "";
     }
 }
+
+function consultarReporte(){
+    if ($("#dropdownAnno").val()!="-" && $("#dropdownMes").val()!="-"){
+        $.ajax({
+            url: '/sistema_zeus/webservice/reportes/solicitudes/' + $("#dropdownAnno").val() + '/' + $("#dropdownMes").val() + '/',
+            type: 'GET',
+            dataType: 'JSON',
+            success: function (data) {            
+                Swal.fire("Lo logramos","data.error","warning");
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(xhr.responseText);
+                console.log(thrownError);
+                console.log("No se ha podido obtener la información");
+                Swal.fire("Error","Hubo un error consultando los datos","error");
+            }
+        });
+    }
+}

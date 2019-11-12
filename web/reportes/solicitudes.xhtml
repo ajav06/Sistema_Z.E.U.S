@@ -20,10 +20,10 @@
                             Reporte de Solicitudes
                         </h2>
                         
-                        <div class="ui two column very relaxed grid" id="two-dropdown">
+                        <div class="ui two column very relaxed grid">
                             <div class="column">
-                                <select class="ui fluid dropdown">
-                                    <option value="">Mes a consultar ...</option>
+                                <select class="ui fluid dropdown" id="dropdownMes" onchange="consultarReporte()">
+                                    <option value="-">Mes a consultar ...</option>
                                     <option value="1">Enero</option>
                                     <option value="2">Febrero</option>
                                     <option value="3">Marzo</option>
@@ -34,14 +34,14 @@
                                     <option value="8">Agosto</option>
                                     <option value="9">Septiembre</option>
                                     <option value="10">Octubre</option>
-                                    <option value="11">Noviembre</option>
+                                    <option value="11" selected = "11">Noviembre</option>
                                     <option value="12">Diciembre</option>
                                 </select>
                             </div>
                             <div class="column">
-                                <select class="ui fluid dropdown">
-                                    <option value="">Año a consultar ...</option>
-                                    <option value="2019">2019</option>
+                                <select class="ui fluid dropdown" id="dropdownAnno" onchange="consultarReporte()">
+                                    <option value="-">Año a consultar ...</option>
+                                    <option value="2019" selected = "2019">2019</option>
                                     <option value="2018">2018</option>
                                     <option value="2017">2017</option>
                                     <option value="2016">2016</option>
