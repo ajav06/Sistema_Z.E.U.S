@@ -25,8 +25,6 @@ public class EquipoDptoBean {
     @Inject
     private EquipoDepartamentoService equipoDepartamentoService;
     
-    private EquipoDepartamento equipoDepartamentoSeleccionado;
-    
     List<EquipoDepartamento> equiposDpto;
     
     public EquipoDptoBean(){
@@ -35,7 +33,6 @@ public class EquipoDptoBean {
     @PostConstruct
     public void inicializar(){
         equiposDpto = equipoDepartamentoService.listarEquipoDptoActivo();
-        equipoDepartamentoSeleccionado = new EquipoDepartamento();
     }
 
     public List<EquipoDepartamento> getEquiposDepartamento() {
@@ -44,32 +41,5 @@ public class EquipoDptoBean {
 
     public void setEquiposDepartamento(List<EquipoDepartamento> equipos) {
         this.equiposDpto = equipos;
-    }
-    
-    public void reiniciarEquipoDepartamentoSeleccionado() {
-        this.equipoDepartamentoSeleccionado = new EquipoDepartamento();
-    }
-    
-    public void actualizarListado(){
-        this.equiposDpto = equipoDepartamentoService.listarEquipoDpto();
-    }
-    
-    public void agregarEquipoDepartamento(){
-        this.equipoDepartamentoSeleccionado.setCodigoEstadoEquipo(1);
-        equipoDepartamentoService.regritrarEquipoDpto(equipoDepartamentoSeleccionado);
-        this.equipoDepartamentoSeleccionado = null;
-        this.actualizarListado();
-    }
-    
-    public void modificarEquipoDepartamento() {
-        equipoDepartamentoService.actualizarEquipoDpto(equipoDepartamentoSeleccionado);
-        this.equipoDepartamentoSeleccionado = null;
-        this.actualizarListado();
-    }
-    
-    public void eliminarEquipo() {
-        equipoDepartamentoService.eliminarEquipoDpto(equipoDepartamentoSeleccionado);
-        this.equipoDepartamentoSeleccionado = null;
-        this.actualizarListado();
     }
 }
