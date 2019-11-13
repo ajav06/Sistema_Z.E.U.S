@@ -324,7 +324,7 @@ function eliminarEquipoDpto(){
 
 function consultarEquipoDpto(id){
     $.ajax({
-        url: '/sistema_zeus/webservice/esquiposDpto/' + id,
+        url: '/sistema_zeus/webservice/equiposDpto/' + id,
         type: 'GET',
         dataType: 'JSON',
         success: function (data) {            

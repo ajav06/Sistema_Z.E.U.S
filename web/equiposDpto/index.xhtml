@@ -63,7 +63,8 @@
                                 <div class="item">
                                     <div class="ui centered grid">
                                         <div class="ui animated circular button" tabindex="0"
-                                             onclick="consultarEquipoDpto(#{equipoDepartamento.codigo})"
+                                             onclick="consultarEquipoDpto(#{equipoDepartamento.codigo});
+                                             imprimir(#{equipoDepartamento.codigo})"
                                              id="consultar">
                                             <div class="visible content">Consultar</div>
                                             <div class="hidden content">Ver detalles</div>
@@ -378,8 +379,7 @@
                                             Cancelar 
                                         </button>
                                         <button class="ui circular button"
-                                                onclick="buscarMarca(1);
-                                                         aceptarInclusion()">
+                                                onclick="aceptarInclusion()">
                                             <i class="save icon"></i> 
                                             Guardar 
                                         </button>
