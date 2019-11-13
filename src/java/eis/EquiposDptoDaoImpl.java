@@ -38,17 +38,17 @@ public class EquiposDptoDaoImpl implements EquiposDptoDao{
 
     @Override
     public EquipoDepartamento findEquipoById(EquipoDepartamento equipoDpto) {
-        Query query = em.createNamedQuery("EquipoDepartamento.findByCodigo");
+        Query query = em.createNamedQuery("EquipoDepartamento.findById");
         query.setParameter("codigo", equipoDpto.getCodigo());
         return (EquipoDepartamento) query.getSingleResult();
     }
     
-    @Override
-    public EquipoDepartamento findEquipoByName(Equipo equipo) {
-        Query query = em.createNamedQuery("EquipoDepartamento.findByName");
-        query.setParameter("nombre", equipo.getNombre());
-        return (EquipoDepartamento) query.getSingleResult();
-    }
+    //@Override
+    //public EquipoDepartamento findEquipoByName(Equipo equipo) {
+       // Query query = em.createNamedQuery("EquipoDepartamento.findByName");
+       // query.setParameter("nombre", equipo.getNombre());
+      //  return (EquipoDepartamento) query.getSingleResult();
+   // }
 
     @Override
     public void insertEquipoDpto(EquipoDepartamento equipoDpto) {
