@@ -63,8 +63,8 @@
                                 <div class="item">
                                     <div class="ui centered grid">
                                         <div class="ui animated circular button" tabindex="0"
-                                             onclick="consultar()"
-                                             id="reparar">
+                                             onclick="consultarEquipoDpto(#{equipoDepartamento.codigo})"
+                                             id="consultar">
                                             <div class="visible content">Consultar</div>
                                             <div class="hidden content">Ver detalles</div>
                                         </div>
@@ -113,8 +113,9 @@
                                                 <div class="two fields">
                                                     <div class="field" style="width: 90%">
                                                         <label>Código</label>
-                                                        <input type="text" 
-                                                               placeholder="Código"
+                                                        <input type="text"
+                                                               name="codigo"
+                                                               placeholder="Codigo"
                                                                disabled="true"/>
                                                     </div>
 
@@ -127,6 +128,7 @@
                                             <div class="field">
                                                 <label>Estatus</label>
                                                 <input type="text" 
+                                                       name="estadoE"
                                                        placeholder="Estatus"
                                                        disabled="true"/>
                                             </div>
@@ -134,21 +136,24 @@
 
                                         <div class="field">
                                             <label>Equipo</label>
-                                            <input type="text" 
+                                            <input type="text"
+                                                   name="nombreE"
                                                    placeholder="Equipo"
                                                    disabled="true"/>
                                         </div>
 
                                         <div class="field">
                                             <label>Decanato</label>
-                                            <input type="text" 
+                                            <input type="text"
+                                                   name="nombreDco"
                                                    placeholder="Decanato"
                                                    disabled="true"/>
                                         </div>
 
                                         <div class="field">
                                             <label>Departamento</label>
-                                            <input type="text" 
+                                            <input type="text"
+                                                   name="nombreDpto"
                                                    placeholder="Departamento"
                                                    disabled="true"/>
                                         </div>
@@ -247,7 +252,7 @@
                                             </div>
 
                                             <div class="ui green ok inverted button" 
-                                                 onclick="actualizarEquipo()">
+                                                 onclick="actualizarEquipoDpto()">
                                                 <i class="checkmark icon"></i>
                                                 Aceptar
                                             </div>
@@ -357,7 +362,7 @@
                                             </div>
 
                                             <div class="ui green ok inverted button"
-                                                 onclick="incluirEquipo()">
+                                                 onclick="incluirEquipoDpto()">
                                                 <i class="checkmark icon"></i>
                                                 Aceptar
                                             </div>
@@ -532,7 +537,8 @@
                         <i class="remove icon"></i>
                         Cancelar
                     </div>
-                    <div class="ui green ok inverted button">
+                    <div class="ui green ok inverted button"
+                         onclick="eliminarEquipoDpto()">
                         <i class="checkmark icon"></i>
                         Aceptar
                     </div>
