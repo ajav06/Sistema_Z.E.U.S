@@ -32,6 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "grupo_usuario")
 @NamedQueries({
     @NamedQuery(name = "GrupoUsuario.findAll", query = "SELECT g FROM GrupoUsuario g"),
+    @NamedQuery(name = "GrupoUsuario.findAllActive", query = "SELECT g FROM GrupoUsuario g WHERE g.usuario.estatus = 'a'"),
     @NamedQuery(name = "GrupoUsuario.findByNombreUsuario", query = "SELECT g FROM GrupoUsuario g WHERE g.nombreUsuario = :nombreUsuario"),
     @NamedQuery(name = "GrupoUsuario.findByFechaModificacion", query = "SELECT g FROM GrupoUsuario g WHERE g.fechaModificacion = :fechaModificacion")})
 @XmlRootElement

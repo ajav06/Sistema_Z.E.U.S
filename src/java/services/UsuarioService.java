@@ -20,8 +20,6 @@ public interface UsuarioService {
     
     public List<Usuario> listarUsuariosActivos();
     
-    public Usuario buscarUsuarioPorNombreUsuario(Usuario usuario);
-    
     public Usuario buscarUsuarioPorNombreUsuario(String nombreUsuario);
     
     public Usuario buscarUsuarioPorCedula(Usuario usuario);

@@ -24,20 +24,14 @@ public class UsuarioDaoImpl implements UsuarioDao{
     private EntityManager em;
 
     @Override
-    public List<Usuario> findAllUsuarios() {
+    public List<Usuario> findAllUsuarios()
+    {
         return em.createNamedQuery("Usuario.findAll").getResultList();
     }
     
     @Override
     public List<Usuario> findAllActiveUsuarios() {
         return em.createNamedQuery("Usuario.findAllActive").getResultList();
-    }
-
-    @Override
-    public Usuario findUsuarioByUsername(Usuario usuario) {
-        Query query = em.createNamedQuery("Usuario.findByNombreUsuario");
-        query.setParameter("nombreUsuario", usuario.getNombreUsuario());
-        return (Usuario) query.getSingleResult();
     }
 
     @Override
