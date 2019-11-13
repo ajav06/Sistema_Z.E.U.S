@@ -8,6 +8,7 @@ package domain;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -26,6 +27,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -35,6 +37,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "solicitudes")
 @NamedQueries({
     @NamedQuery(name = "Solicitudes.findAll", query = "SELECT s FROM Solicitudes s"),
+    @NamedQuery(name = "Solicitudes.findAllActive", query = "SELECT d FROM Solicitudes d WHERE d.estatus = 'P' ORDER BY d.codigo ASC"),
     @NamedQuery(name = "Solicitudes.findByCodigo", query = "SELECT s FROM Solicitudes s WHERE s.codigo = :codigo"),
     @NamedQuery(name = "Solicitudes.findByTipoSolicitud", query = "SELECT s FROM Solicitudes s WHERE s.tipoSolicitud = :tipoSolicitud"),
     @NamedQuery(name = "Solicitudes.findByFechaInicio", query = "SELECT s FROM Solicitudes s WHERE s.fechaInicio = :fechaInicio"),
@@ -71,6 +74,9 @@ public class Solicitudes implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fechaAtencion;
     
+    @Column(name = "motivo")
+    private String motivo;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "estatus")
@@ -98,20 +104,22 @@ public class Solicitudes implements Serializable {
         this.estatus = estatus;
     }
 
-    public Solicitudes(Integer codigo, String tipoSolicitud, Date fechaInicio, Date fechaAtencion, String estatus, EquipoDepartamento codigoEquipoDepartamento, Usuario nombreUsuario) {
+    public Solicitudes(Integer codigo, String tipoSolicitud, Date fechaInicio, Date fechaAtencion, String motivo, String estatus, EquipoDepartamento codigoEquipoDepartamento, Usuario nombreUsuario) {
         this.codigo = codigo;
         this.tipoSolicitud = tipoSolicitud;
         this.fechaInicio = fechaInicio;
         this.fechaAtencion = fechaAtencion;
+        this.motivo=motivo;
         this.estatus = estatus;
         this.codigoEquipoDepartamento = codigoEquipoDepartamento;
         this.nombreUsuario = nombreUsuario;
     }
 
-    public Solicitudes(Integer codigo, String tipoSolicitud, Date fechaInicio, String estatus, EquipoDepartamento codigoEquipoDepartamento, Usuario nombreUsuario) {
+    public Solicitudes(Integer codigo, String tipoSolicitud, Date fechaInicio,String motivo, String estatus, EquipoDepartamento codigoEquipoDepartamento, Usuario nombreUsuario) {
         this.codigo = codigo;
         this.tipoSolicitud = tipoSolicitud;
         this.fechaInicio = fechaInicio;
+        this.motivo = motivo;
         this.estatus = estatus;
         this.codigoEquipoDepartamento = codigoEquipoDepartamento;
         this.nombreUsuario = nombreUsuario;
@@ -147,6 +155,14 @@ public class Solicitudes implements Serializable {
 
     public void setFechaAtencion(Date fechaAtencion) {
         this.fechaAtencion = fechaAtencion;
+    }
+    
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(String motivo) {
+        this.motivo = motivo;
     }
 
     public String getEstatus() {
@@ -216,5 +232,7 @@ public class Solicitudes implements Serializable {
     public String fechaAtencion(){
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         return format.format(this.fechaAtencion);
-    }    
+    }
+    
+    
 }

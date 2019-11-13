@@ -24,6 +24,11 @@ public class SolicitudesDaoImpl implements SolicitudesDao{
     EntityManager em;
     
     @Override
+    public List<Solicitudes> findAllSolicitudes(){
+        return em.createNamedQuery("Solicitudes.findAll").getResultList();
+    }
+    
+    @Override
     public List<Solicitudes> listadoSolicitudes(){
         Query query = em.createNamedQuery("Solicitudes.findByFechaInicioInterval");
         Calendar c = Calendar.getInstance();
@@ -49,5 +54,33 @@ public class SolicitudesDaoImpl implements SolicitudesDao{
         query.setParameter("primeroMes", primero);
         query.setParameter("finMes", ultimo);
         return query.getResultList();
+    }
+        @Override
+    public List<Solicitudes> findAllActiveSolicitudes() {
+        return em.createNamedQuery("Solicitudes.findAllActive").getResultList();
+    }
+
+    @Override
+    public Solicitudes findSolicitudById(Solicitudes solicitud) {
+        Query query = em.createNamedQuery("Solicitudes.findByCodigo");
+        query.setParameter("codigo", solicitud.getCodigo());
+        return (Solicitudes) query.getSingleResult();
+    }
+
+    @Override
+    public Solicitudes findSolicitudByTipo(Solicitudes solicitudes) {
+        Query query = em.createNamedQuery("Solicitudes.findByTipoSolicitud");
+        query.setParameter("tipoSolicitud", solicitudes.getTipoSolicitud());
+        return (Solicitudes) query.getSingleResult();
+    }
+
+    @Override
+    public void aceptSolicitud(Solicitudes solicitudes) {
+        em.merge(solicitudes);
+    }
+
+    @Override
+    public void refuseSolicitud(Solicitudes solicitudes) {
+        em.merge(solicitudes);
     }
 }

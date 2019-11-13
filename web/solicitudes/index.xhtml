@@ -20,27 +20,27 @@
                         <h:dataTable class="ui compact celled definition table"
                                      id="listas"
                                      var="departamento"
-                                     value="#{departamentoBean.departamentos}"
+                                     value="#{solicitudesBean.solicitudes}"
                                      headerClass="encabezado-tabla-2">
 
                             <h:column>
-                                <f:facet name="header">Tipo de solicitud</f:facet>
-                                Reparación
+                                <f:facet name="header">Tipo de Solicitud</f:facet>
+                                #{solicitudes.tipo}
                             </h:column>
 
                             <h:column>
                                 <f:facet name="header">Fecha de emisión</f:facet>
-                                04/07/2019
+                                #{solicitudes.fechaE}
                             </h:column>
 
                             <h:column>
                                 <f:facet name="header">Decanato</f:facet>
-                                #{departamento.codigoDecanato.nombre}
+                                #{solicitudes.codigoDecanato.nombre}
                             </h:column>
                             
                             <h:column>
                                 <f:facet name="header">Departamento</f:facet>
-                                #{departamento.nombre}
+                                #{solicitudes.codigoDepartamento.nombre}
                             </h:column>
 
                             <h:column>
@@ -78,12 +78,16 @@
 
                                 <div class="ui form-1">
                                     <form>
+                                        <input type="text"
+                                            id="codigoSol"
+                                            placeholder="Código Decanato"
+                                            style="display: none"/>
                                         <div class="ui form">
                                             <div class="two fields">
                                                 <div class="field">
                                                     <label>Equipo</label>
                                                     <input type="text"
-                                                           name="nombreD"
+                                                           name="nombreEq"
                                                            placeholder="Equipo"
                                                            disabled="true"/>
                                                 </div>
@@ -91,7 +95,7 @@
                                                 <div class="field">
                                                     <label>Fecha de Emisión</label>
                                                     <input type="text" 
-                                                           name="siglasD"
+                                                           name="fechaE"
                                                            placeholder="Fecha de Emisión"
                                                            disabled="true"/>
                                                 </div>
@@ -101,7 +105,7 @@
                                                 <div class="field">
                                                     <label>Estatus del equipo</label>
                                                     <input type="text"
-                                                           name="telefonoD" 
+                                                           name="estadoEq" 
                                                            placeholder="Estatus del equipo"
                                                            disabled="true"/>
                                                 </div>
@@ -109,7 +113,7 @@
                                                 <div class="field">
                                                     <label>Decanato</label>
                                                     <input type="text"
-                                                           name="emailD" 
+                                                           name="decanato" 
                                                            placeholder="Decanato"
                                                            disabled="true"/>
                                                 </div>
@@ -119,7 +123,7 @@
                                                 <div class="field">
                                                     <label>Departamento</label>
                                                     <input type="text"
-                                                           name="telefonoD" 
+                                                           name="departamento" 
                                                            placeholder="Departamento"
                                                            disabled="true"/>
                                                 </div>
@@ -127,7 +131,7 @@
                                                 <div class="field">
                                                     <label>Emisor</label>
                                                     <input type="text"
-                                                           name="emailD" 
+                                                           name="emisor" 
                                                            placeholder="Emisor"
                                                            disabled="true"/>
                                                 </div>
@@ -136,7 +140,7 @@
                                             <div class="field">
                                                 <label>Motivo</label>
                                                 <textArea type="text"
-                                                          name="direccionD"
+                                                          name="motivo"
                                                           placeholder="Motivo"
                                                           disabled="true"/>
                                             </div>
@@ -152,12 +156,12 @@
                                             </div>
 
                                             <div class="ui circular button"
-                                                 onclick="aceptarInclusion()"> 
+                                                 onclick="aceptarSol()"> 
                                                 Aceptar
                                             </div>
 
                                             <div class="ui circular button"
-                                                 onclick="eliminar()"> 
+                                                 onclick="rechazarSol()"> 
                                                 Rechazar
                                             </div>
                                         </div>

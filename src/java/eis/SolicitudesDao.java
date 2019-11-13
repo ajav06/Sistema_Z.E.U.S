@@ -12,8 +12,21 @@ import java.util.List;
  * @author gabriel
  */
 public interface SolicitudesDao {
-
+    
+    public List<Solicitudes> findAllSolicitudes();
+    
     public List<Solicitudes> listadoSolicitudes();
+    
     public List<Solicitudes> listadoSolicitudesFiltradas(int mes, int anno);
+    
+    public List<Solicitudes> findAllActiveSolicitudes();
+    
+    public Solicitudes findSolicitudById(Solicitudes solicitudes);
+    
+    public Solicitudes findSolicitudByTipo(Solicitudes solicitudes);
+    
+    public void aceptSolicitud(Solicitudes solicitudes);
+    
+    public void refuseSolicitud(Solicitudes solicitudes);
     
 }
