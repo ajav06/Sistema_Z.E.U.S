@@ -39,18 +39,23 @@
 
                         <h:dataTable class="ui compact celled definition table"
                                      id="listas"
-                                     var="equipo"
-                                     value="#{equipoBean.equipos}"
+                                     var="equipoDepartamento"
+                                     value="#{EquipoDptoBean.equiposDpto}"
                                      headerClass="encabezado-tabla">
 
                             <h:column>
                                 <f:facet name="header">Código</f:facet>
-                                #{equipo.codigo}
+                                #{equipoDepartamento.codigo}
                             </h:column>
 
                             <h:column>
                                 <f:facet name="header">Nombre</f:facet>
-                                #{equipo.nombre}
+                                #{equipoDepartamento.codigoEquipo.nombre}
+                            </h:column>
+                            
+                            <h:column>
+                                <f:facet name="header">Departamento</f:facet>
+                                #{equipoDepartamento.codigoDepartamento.Nombre}
                             </h:column>
 
                             <h:column>
@@ -317,6 +322,22 @@
                                                     <f:selectItems value="#{estadoEquipoBean.estadosEquipos}" var="estadoEquipo" 
                                                                    itemValue="#{estadoEquipo.codigo}"
                                                                    itemLabel="#{estadoEquipo.nombre}" />
+                                                </h:selectOneMenu>
+                                            </div>
+                                            
+                                            <div class="field">
+                                                <label>Departamento</label>
+                                                <h:selectOneMenu
+                                                     class="ui fluid dropdown"
+                                                     pt:name="nombreDcoI"
+                                                     id="nombreDcoI"
+                                                     converter="omnifaces.SelectItemsIndexConverter"
+                                                     required="true"
+                                                     requiredMessage="Selecciona un Departamento">
+                                                    <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
+                                                    <f:selectItems value="#{departamentoBean.departamentos}" var="departamento" 
+                                                                   itemValue="#{departamento.codigo}"
+                                                                   itemLabel="#{departamento.nombre}"/>
                                                 </h:selectOneMenu>
                                             </div>
 
