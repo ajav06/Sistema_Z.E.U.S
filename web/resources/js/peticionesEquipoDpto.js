@@ -301,7 +301,7 @@ function eliminarEquipoDpto(){
                 "codigo" : eliminarEquipoDepartamento.codigoDepartamento.codigo,
                 "nombre" : eliminarEquipoDepartamento.codigoDepartamento.nombre,
                 "descirpcion" : eliminarEquipoDepartamento.codigoDepartamento.descripcion,
-                "estatus" : eliminarEquipoDepartamento.codigoDepartamento.estatus,
+                "estatus" : eliminarEquipoDepartamento.codigoDepartamento.estatus
             }
         }),
         headers: { 
@@ -344,23 +344,23 @@ function consultarEquipoDpto(id){
 function llenarCamposEquipoDepartamento(data){
     eliminarEquipoDepartamento = data;
     
-    document.getElementById('codigo').value = data.codigo;
+    document.getElementById('codigoEquipoD').value = data.codigo;
     
-    document.getElementsByName('estadoE')[0].value = data.codigoEstadoEquipo.nombre;
-    document.getElementsByName('estadoE')[1].value = data.codigoEstadoEquipo.nombre;
+    document.getElementsByName('estadoEquipoD')[0].value = data.codigoEstadoEquipo.nombre;
+    document.getElementsByName('estadoEquipoD')[1].value = data.codigoEstadoEquipo.nombre;
     
-    document.getElementsByName('nombreE')[0].value = data.codigoEquipo.nombre;
-    document.getElementsByName('nombreE')[1].value = data.codigoEquipo.nombre;
+    document.getElementsByName('nombreEquipoD')[0].value = data.codigoEquipo.nombre;
+    document.getElementsByName('nombreEquipoD')[1].value = data.codigoEquipo.nombre;
     
-    document.getElementByName('nombreDco')[0].value = data.codigoDecanato.nombre;
-    document.getElementByName('nombreDco')[1].value = data.codigoDecanato.nombre;
+    document.getElementByName('nombreDcoEquipoD')[0].value = data.codigoDecanato.nombre;
+    document.getElementByName('nombreDcoEquipoD')[1].value = data.codigoDecanato.nombre;
     
-    document.getElementsByName('nombreDpto')[0].value = data.codigoDepartamento.nombre;
-    document.getElementsByName('nombreDpto')[1].value = data.codigoDepartamento.nombre;
+    document.getElementsByName('nombreDptoEquipoD')[0].value = data.codigoDepartamento.nombre;
+    document.getElementsByName('nombreDptoEquipoD')[1].value = data.codigoDepartamento.nombre;
     
-    buscarSelectEquipo(data.codigoEquipo.nombre);
-    buscarSelectEstadoEquipo(data.codigoEstadoEquipo.codigo);
-    buscarSelectDepartamento(data.codigoDepartamento.nombre);
+    //buscarSelectEquipo(data.codigoEquipo.nombre);
+    //buscarSelectEstadoEquipo(data.codigoEstadoEquipo.codigo);
+    //buscarSelectDepartamento(data.codigoDepartamento.nombre);
     
-    consultar();
+    //consultar();
 }
