@@ -7,7 +7,7 @@
 /* global decanatoSeleccionado, Swal */
 
 var eliminarEquipoDepartamento = null;
-var equipoSeleccionado = null;
+var equipoDepartamentoSeleccionado = null;
 var estadoEsquipoSeleccionado = null;
 var departamentoSeleccionado = null;
 
@@ -25,7 +25,7 @@ function  listaEquiposDepartamento(){
 function buscarEquipo(tipo){
     if(tipo==1)
     {
-        var nom = $('select[id=nombreEI] option:selected').text();
+        var nom = $('select[id=nombreEquipoDI] option:selected').text();
         console.log(nom);
         if (nom != "Seleccione..."){
             $.ajax({
@@ -34,15 +34,15 @@ function buscarEquipo(tipo){
                 dataType: 'JSON',
                 success: function (data, textStatus, jqXHR) {
                     console.log(data);
-                    equipoSeleccionado = data;
+                    equipoDepartamentoSeleccionado = data;
                 }
             });
         } else {
-            equipoSeleccionado = null;
+            equipoDepartamentoSeleccionado = null;
         }
     }
     else{
-        var nom = $('select[id=nombreE] option:selected').text();
+        var nom = $('select[id=nombreEquipoDM] option:selected').text();
         console.log(nom);
         if (nom != "Seleccione..."){
             $.ajax({
@@ -51,7 +51,7 @@ function buscarEquipo(tipo){
                 dataType: 'JSON',
                 success: function (data, textStatus, jqXHR) {
                     console.log(data);
-                    equipoSeleccionado = data;
+                    equipoDepartamentoSeleccionado = data;
                 }
             });
         }
@@ -61,7 +61,7 @@ function buscarEquipo(tipo){
 function buscarSelectEquipo(id)
 {
 	// creamos un variable que hace referencia al select
-	var select=document.getElementsByName('nombreE')[0];
+	var select=document.getElementsByName('nombreEquipoD')[0];
  
 	// obtenemos el valor a buscar
 	var buscar=id;
@@ -81,7 +81,7 @@ function buscarSelectEquipo(id)
 function buscarEstadoEquipo(tipo){
     if(tipo==1)
     {
-        var nom = $('select[id=nombreEdoI] option:selected').text();
+        var nom = $('select[id=estadoEquipoDI] option:selected').text();
         console.log(nom);
         if (nom != "Seleccione..."){
             $.ajax({
@@ -98,7 +98,7 @@ function buscarEstadoEquipo(tipo){
         }
     }
     else{
-        var nom = $('select[name=nombreEdo] option:selected').text();
+        var nom = $('select[name=estadoEquipoDM] option:selected').text();
         console.log(nom);
         if (nom != "Seleccione..."){
             $.ajax({
@@ -117,7 +117,7 @@ function buscarEstadoEquipo(tipo){
 function buscarSelectEstadoEquipo(id)
 {
 	// creamos un variable que hace referencia al select
-	var select=document.getElementsByName('nombreEdo')[0];
+	var select=document.getElementsByName('estadoEquipoD')[0];
  
 	// obtenemos el valor a buscar
 	var buscar=id;
@@ -137,7 +137,7 @@ function buscarSelectEstadoEquipo(id)
 function buscarDepartamento(tipo){
     if(tipo==1)
     {
-        var nom = $('select[id=nombreDptoI] option:selected').text();
+        var nom = $('select[id=nombreDptoDI] option:selected').text();
         console.log(nom);
         if (nom != "Seleccione..."){
             $.ajax({
@@ -154,7 +154,7 @@ function buscarDepartamento(tipo){
         }
     }
     else{
-        var nom = $('select[name=nombreDpto] option:selected').text();
+        var nom = $('select[name=nombreDptoDM] option:selected').text();
         console.log(nom);
         if (nom != "Seleccione..."){
             $.ajax({
@@ -173,7 +173,7 @@ function buscarDepartamento(tipo){
 function buscarSelectDepartamento(id)
 {
 	// creamos un variable que hace referencia al select
-	var select=document.getElementsByName('nombreDpto')[0];
+	var select=document.getElementsByName('nombreDptoEquipoD')[0];
  
 	// obtenemos el valor a buscar
 	var buscar=id;
@@ -198,22 +198,24 @@ function incluirEquipoDpto(){
         url: '/sistema_zeus/webservice/equiposDpto/',
         data: JSON.stringify({
             "codigoEquipo" : {
-                "codigo" : equipoSeleccionado.codigo,
-                "nombre" : equipoSeleccionado.nombre,
-                "descirpcion" : equipoSeleccionado.descripcion,
-                "estatus" : equipoSeleccionado.estatus
+                "codigo" : equipoDepartamentoSeleccionado.codigo,
+                "codigoMarca" : equipoDepartamentoSeleccionado.codigoMarca,
+                "nombre" : equipoDepartamentoSeleccionado.nombre,
+                "descripcion" : equipoDepartamentoSeleccionado.descripcion,
+                "estatus" : equipoDepartamentoSeleccionado.estatus
             },
             "codigoEstadoEquipo" : {
                 "codigo" : estadoEquipoSeleccionado.codigo,
                 "nombre" : estadoEquipoSeleccionado.nombre,
-                "descirpcion" : estadoEquipoSeleccionado.descripcion,
+                "descripcion" : estadoEquipoSeleccionado.descripcion,
                 "estatus" : estadoEquipoSeleccionado.estatus
             },
             "codigoDepartamento" : {
-                "codigo" : decanatoSeleccionado.codigo,
-                "nombre" : decanatoSeleccionado.nombre,
-                "descirpcion" : decanatoSeleccionado.descripcion,
-                "estatus" : decanatoSeleccionado.estatus
+                "codigo" : departamentoSeleccionado.codigo,
+                "codigoDecanato" : departamentoSeleccionado.codigoDecanato,
+                "nombre" : departamentoSeleccionado.nombre,
+                "descripcion" : departamentoSeleccionado.descripcion,
+                "estatus" : departamentoSeleccionado.estatus
             }
         }),
         headers: { 
@@ -242,22 +244,24 @@ function actualizarEquipoDpto(){
         type: 'PUT',
         data: JSON.stringify({
             "codigoEquipo" : {
-                "codigo" : equipoSeleccionado.codigo,
-                "nombre" : equipoSeleccionado.nombre,
-                "descirpcion" : equipoSeleccionado.descripcion,
-                "estatus" : equipoSeleccionado.estatus
+                "codigo" : equipoDepartamentoSeleccionado.codigo,
+                "codigoMarca" : equipoDepartamentoSeleccionado.codigoMarca,
+                "nombre" : equipoDepartamentoSeleccionado.nombre,
+                "descripcion" : equipoDepartamentoSeleccionado.descripcion,
+                "estatus" : equipoDepartamentoSeleccionado.estatus
             },
             "codigoEstadoEquipo" : {
                 "codigo" : estadoEquipoSeleccionado.codigo,
                 "nombre" : estadoEquipoSeleccionado.nombre,
-                "descirpcion" : estadoEquipoSeleccionado.descripcion,
+                "descripcion" : estadoEquipoSeleccionado.descripcion,
                 "estatus" : estadoEquipoSeleccionado.estatus
             },
             "codigoDepartamento" : {
-                "codigo" : decanatoSeleccionado.codigo,
-                "nombre" : decanatoSeleccionado.nombre,
-                "descirpcion" : decanatoSeleccionado.descripcion,
-                "estatus" : decanatoSeleccionado.estatus
+                "codigo" : departamentoSeleccionado.codigo,
+                "codigoDecanato" : departamentoSeleccionado.codigoDecanato,
+                "nombre" : departamentoSeleccionado.nombre,
+                "descripcion" : departamentoSeleccionado.descripcion,
+                "estatus" : departamentoSeleccionado.estatus
             }
         }),
         headers: { 
@@ -287,20 +291,22 @@ function eliminarEquipoDpto(){
         data: JSON.stringify({
             "codigoEquipo" : {
                 "codigo" : eliminarEquipoDepartamento.codigoEquipo.codigo,
+                "codigoMarca" : eliminarEquipoDepartamento.codigoEquipo.codigoMarca,
                 "nombre" : eliminarEquipoDepartamento.codigoEquipo.nombre,
-                "descirpcion" : eliminarEquipoDepartamento.codigoEquipo.descripcion,
+                "descripcion" : eliminarEquipoDepartamento.codigoEquipo.descripcion,
                 "estatus" : eliminarEquipoDepartamento.codigoEquipo.estatus
             },
             "codigoEstadoEquipo" : {
                 "codigo" : eliminarEquipoDepartamento.codigoEstadoEquipo.codigo,
                 "nombre" : eliminarEquipoDepartamento.codigoEstadoEquipo.nombre,
-                "descirpcion" : eliminarEquipoDepartamento.codigoEstadoEquipo.descripcion,
+                "descripcion" : eliminarEquipoDepartamento.codigoEstadoEquipo.descripcion,
                 "estatus" : eliminarEquipoDepartamento.codigoEstadoEquipo.estatus
             },
             "codigoDepartamento" : {
                 "codigo" : eliminarEquipoDepartamento.codigoDepartamento.codigo,
+                "codigoDecanato" : eliminarEquipoDepartamento.codigoDepartamento.codigoDecanato,
                 "nombre" : eliminarEquipoDepartamento.codigoDepartamento.nombre,
-                "descirpcion" : eliminarEquipoDepartamento.codigoDepartamento.descripcion,
+                "descripcion" : eliminarEquipoDepartamento.codigoDepartamento.descripcion,
                 "estatus" : eliminarEquipoDepartamento.codigoDepartamento.estatus
             }
         }),
@@ -346,21 +352,17 @@ function llenarCamposEquipoDepartamento(data){
     
     document.getElementsByName('codigoEquipoD')[0].value = data.codigo;
     
-    document.getElementsByName('estadoEquipoD')[0].value = data.codigoEstadoEquipo.nombre;
-    document.getElementsByName('estadoEquipoD')[1].value = data.codigoEstadoEquipo.nombre;
+   //document.getElementsByName('estadoEquipoD')[0].value = data.codigoEstadoEquipo.nombre;
     
-    document.getElementsByName('nombreEquipoD')[0].value = data.codigoEquipo.nombre;
-    document.getElementsByName('nombreEquipoD')[1].value = data.codigoEquipo.nombre;
+    //document.getElementsByName('nombreEquipoD')[0].value = data.codigoEquipo.nombre;
     
-    document.getElementByName('nombreDcoEquipoD')[0].value = data.codigoDecanato.nombre;
-    document.getElementByName('nombreDcoEquipoD')[1].value = data.codigoDecanato.nombre;
+    document.getElementsByName('nombreDcoEquipoD')[0].value = data.codigoDepartamento.codigoDecanato.nombre;
     
     document.getElementsByName('nombreDptoEquipoD')[0].value = data.codigoDepartamento.nombre;
-    document.getElementsByName('nombreDptoEquipoD')[1].value = data.codigoDepartamento.nombre;
     
     //buscarSelectEquipo(data.codigoEquipo.nombre);
-    //buscarSelectEstadoEquipo(data.codigoEstadoEquipo.codigo);
-    //buscarSelectDepartamento(data.codigoDepartamento.nombre);
+   // buscarSelectEstadoEquipo(data.codigoEstadoEquipo.codigo);
+    buscarSelectDepartamento(data.codigoDepartamento.nombre);
     
     consultar();
 }
