@@ -216,6 +216,7 @@ function llenarCamposEquipo(data){
     document.getElementsByName('marcaE')[0].value = data.codigoMarca.nombre;
 
     buscarSelectMarca(data.codigoMarca.nombre);
-
+   
+    
     consultar();
 }
