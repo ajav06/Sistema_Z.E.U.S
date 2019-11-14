@@ -147,12 +147,12 @@ function eliminarUsuario(){
     });
 }
 
-function llenarCamposDecanato(data){
+function llenarCamposUsuario(data){
     decanatoEliminar = data;
     
     document.getElementsByName("usernameU")[0].value = data.nombreUsuario;
     
-    document.getElementsName('tipoU')[0].value = data;
+    document.getElementsByName('tipoU')[0].value = data;
     document.getElementsByName('nombreD')[1].value = data.nombre;
     
     document.getElementsByName('siglasD')[0].value = data.siglas;
