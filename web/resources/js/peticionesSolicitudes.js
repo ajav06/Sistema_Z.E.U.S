@@ -117,32 +117,21 @@ function rechazarSolicitud(){
 function llenarCamposSolicitud(data){
     solEliminar = data;
     
-    document.getElementById('codigoSol').value = data.codigo;
+    document.getElementsByName('nombreEq')[0].value = data.codigoEquipoDepartamento.codigoEquipo.nombre;
     
-    document.getElementsByName('tipoSol')[0].value = data.tipo;
-    document.getElementsByName('tipoSol')[1].value = data.tipo;
+    document.getElementsByName('fechaE')[0].value = data.fechaInicio;
     
-    document.getElementsByName('nombreEq')[0].value = data.nombreEq;
-    document.getElementsByName('nombreEq')[1].value = data.nombreEq;
+    document.getElementsByName('estadoEq')[0].value = data.codigoEquipoDepartamento.codigoEstadoEquipo.nombre;
     
-    document.getElementsByName('fechaE')[0].value = data.fechaE;
-    document.getElementsByName('fechaE')[1].value = data.fechaE;
+    document.getElementsByName('decanato')[0].value = data.codigoEquipoDepartamento.codigoDepartamento.codigoDecanato.nombre;
     
-    document.getElementsByName('estadoEq')[0].value = data.estadoEq;
-    document.getElementsByName('estadoEq')[1].value = data.estadoEq;
+    document.getElementsByName('departamento')[0].value = data.codigoEquipoDepartamento.codigoDepartamento.nombre;
     
-    
-    document.getElementsByName('decanato')[0].value = data.decanato;
-    document.getElementsByName('decanato')[1].value = data.decanato;
-    
-    document.getElementsByName('departamento')[0].value = data.departamento;
-    document.getElementsByName('departamento')[1].value = data.departamento;
-    
-    document.getElementsByName('emisor')[0].value = data.emisor;
-    document.getElementsByName('emisor')[1].value = data.emisor;
+    document.getElementsByName('emisor')[0].value = data.nombreUsuario.nombre;
     
     document.getElementsByName('motivo')[0].value = data.motivo;
-    document.getElementsByName('motivo')[1].value = data.motivo;
+    
+    consultar();
 }
 
 
