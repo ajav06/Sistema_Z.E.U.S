@@ -58,7 +58,7 @@ public class GrupoUsuario implements Serializable {
     private TipoUsuario codigoTipoUsuario;
     
     @JoinColumn(name = "nombre_usuario", referencedColumnName = "nombre_usuario", insertable = false, updatable = false)
-    @OneToOne(optional = false)
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
     private Usuario usuario;
 
     public GrupoUsuario() {
