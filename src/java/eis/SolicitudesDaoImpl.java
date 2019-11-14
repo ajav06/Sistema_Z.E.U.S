@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package eis;
+import domain.Decanato;
 import domain.Solicitudes;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -73,7 +74,12 @@ public class SolicitudesDaoImpl implements SolicitudesDao{
         query.setParameter("tipoSolicitud", solicitudes.getTipoSolicitud());
         return (Solicitudes) query.getSingleResult();
     }
-
+  
+    @Override
+    public void insertSolicitud(Solicitudes solicitudes){
+        em.persist(solicitudes);
+    }
+    
     @Override
     public void aceptSolicitud(Solicitudes solicitudes) {
         em.merge(solicitudes);

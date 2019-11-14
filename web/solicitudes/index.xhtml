@@ -19,28 +19,28 @@
 
                         <h:dataTable class="ui compact celled definition table"
                                      id="listas"
-                                     var="departamento"
+                                     var="solicitud"
                                      value="#{solicitudesBean.solicitudes}"
                                      headerClass="encabezado-tabla-2">
 
                             <h:column>
                                 <f:facet name="header">Tipo de Solicitud</f:facet>
-                                #{solicitudes.tipo}
+                                #{solicitud.tipoSolicitudString()}
                             </h:column>
 
                             <h:column>
                                 <f:facet name="header">Fecha de emisión</f:facet>
-                                #{solicitudes.fechaE}
+                                #{solicitud.fechaInicio}
                             </h:column>
 
                             <h:column>
                                 <f:facet name="header">Decanato</f:facet>
-                                #{solicitudes.codigoDecanato.nombre}
+                                #{solicitud.codigoEquipoDepartamento.codigoDepartamento.codigoDecanato.nombre}
                             </h:column>
                             
                             <h:column>
                                 <f:facet name="header">Departamento</f:facet>
-                                #{solicitudes.codigoDepartamento.nombre}
+                                #{solicitud.codigoEquipoDepartamento.codigoDepartamento.nombre}
                             </h:column>
 
                             <h:column>
@@ -49,7 +49,7 @@
                                         <div class="ui centered grid">
 
                                             <div class="ui circular button"
-                                                 onclick="consultar()">
+                                                 onclick="consultarSolicitud(#{solicitud.codigo});consultar()">
                                                 Consultar
                                             </div>
 
@@ -78,10 +78,6 @@
 
                                 <div class="ui form-1">
                                     <form>
-                                        <input type="text"
-                                            id="codigoSol"
-                                            placeholder="Código Decanato"
-                                            style="display: none"/>
                                         <div class="ui form">
                                             <div class="two fields">
                                                 <div class="field">

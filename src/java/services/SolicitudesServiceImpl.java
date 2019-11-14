@@ -5,6 +5,7 @@
  */
 package services;
 
+
 import java.util.List;
 import javax.annotation.Resource;
 import javax.ejb.SessionContext;
@@ -46,6 +47,11 @@ public class SolicitudesServiceImpl implements SolicitudesService{
     @Override
     public Solicitudes buscarSolicitudPorTipo(Solicitudes solicitudes){
         return solicitudesDao.findSolicitudByTipo(solicitudes);
+    }
+    
+    @Override
+    public void registrarSolicitud(Solicitudes solicitudes) {
+        solicitudesDao.insertSolicitud(solicitudes);
     }
     
     @Override

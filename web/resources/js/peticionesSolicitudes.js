@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-var solSeleccionado = null;
 var solEliminar = null;
 
-function consultarSol(id){
+function consultarSolicitud(id){
     $.ajax({
         url: '/sistema_zeus/webservice/solicitudes/' + id,
         type: 'GET',
         dataType: 'JSON',
         success: function (data) {            
             console.log(data);
-            llenarCamposDpto(data);
+            llenarCamposSolicitud(data);
         },
         error: function(xhr, ajaxOptions, thrownError) {
             console.log(xhr.status);
@@ -25,6 +24,37 @@ function consultarSol(id){
     });
 }
 
+function incluirSolicitudReparacion(codigoD){
+    var fecha = new Date();
+    $.ajax({
+        type: 'POST',
+        url: '/sistema_zeus/webservice/solicitudes/',
+        data: JSON.stringify({
+            "codigo" : null,
+            "nombreU": nombreU,
+            "codigoD" : codigoD,
+            "tipoSol":  "R",
+            "fechaI" : fecha.getDate()+""+fecha.getMonth()+"-"+fecha.getFullYear(),
+            "motivo": $('textArea[id=motivoR]').val(),
+            "estatus": "P"
+        }),
+        headers: { 
+            'Accept': 'application/json',
+            'Content-Type': 'application/json' 
+        },
+        success: function (data) {
+            console.log("Actualizado: "+data);
+            $('#txtexito').modal('show');
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+            console.log(thrownError);
+            console.log("No se ha podido obtener la información");
+            Swal.fire("Error","Hubo un error realizando la inclusión","error");
+        }
+    });
+}
 
 function aceptarSol(){
     var id = $('input[id=codigoSol]').val();

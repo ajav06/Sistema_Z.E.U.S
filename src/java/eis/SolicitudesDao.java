@@ -25,6 +25,8 @@ public interface SolicitudesDao {
     
     public Solicitudes findSolicitudByTipo(Solicitudes solicitudes);
     
+    public void insertSolicitud(Solicitudes solicitudes);
+    
     public void aceptSolicitud(Solicitudes solicitudes);
     
     public void refuseSolicitud(Solicitudes solicitudes);

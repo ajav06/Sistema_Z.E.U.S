@@ -60,6 +60,10 @@ public class SolicitudesBean {
         this.solicitudesSeleccionadas = new Solicitudes();
     }
     
+    public void agregarSolicitud() {
+        solicitudesService.registrarSolicitud(this.solicitudesSeleccionadas);
+        this.solicitudesSeleccionadas = null;
+    }
     
      public void aceptarSolicitud() {
         solicitudesService.aceptarSolicitud(this.solicitudesSeleccionadas);

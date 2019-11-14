@@ -25,6 +25,8 @@ public interface SolicitudesService {
     
     public Solicitudes buscarSolicitudPorTipo(Solicitudes solicitudes);
     
+    public void registrarSolicitud(Solicitudes solicitudes);
+    
     public void aceptarSolicitud(Solicitudes solicitudes);
     
     public void rechazarSolicitud(Solicitudes solicitudes);
