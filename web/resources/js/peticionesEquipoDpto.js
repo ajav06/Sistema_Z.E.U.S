@@ -344,7 +344,7 @@ function consultarEquipoDpto(id){
 function llenarCamposEquipoDepartamento(data){
     eliminarEquipoDepartamento = data;
     
-    document.getElementById('codigoEquipoD').value = data.codigo;
+    document.getElementsByName('codigoEquipoD')[0].value = data.codigo;
     
     document.getElementsByName('estadoEquipoD')[0].value = data.codigoEstadoEquipo.nombre;
     document.getElementsByName('estadoEquipoD')[1].value = data.codigoEstadoEquipo.nombre;
@@ -362,5 +362,5 @@ function llenarCamposEquipoDepartamento(data){
     //buscarSelectEstadoEquipo(data.codigoEstadoEquipo.codigo);
     //buscarSelectDepartamento(data.codigoDepartamento.nombre);
     
-    //consultar();
+    consultar();
 }
