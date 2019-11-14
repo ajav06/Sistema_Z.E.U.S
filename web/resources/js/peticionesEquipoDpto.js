@@ -351,7 +351,7 @@ function llenarCamposEquipoDepartamento(data){
     eliminarEquipoDepartamento = data;
     
     document.getElementsByName('codigoEquipoD')[0].value = data.codigo;
-    
+    document.getElementsByName('codEq')[0].value = data.codigo;
    //document.getElementsByName('estadoEquipoD')[0].value = data.codigoEstadoEquipo.nombre;
     
     //document.getElementsByName('nombreEquipoD')[0].value = data.codigoEquipo.nombre;

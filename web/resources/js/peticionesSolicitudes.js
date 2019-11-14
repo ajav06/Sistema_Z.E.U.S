@@ -4,8 +4,28 @@
  * and open the template in the editor.
  */
 var solEliminar = null;
+var usuario =null;
+
 
 function consultarSolicitud(id){
+    $.ajax({
+        url: '/sistema_zeus/webservice/solicitudes/' + id,
+        type: 'GET',
+        dataType: 'JSON',
+        success: function (data) {            
+            console.log(data);
+            llenarCamposSolicitudes(data);
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+            console.log(thrownError);
+            console.log("No se ha podido obtener la información");
+            Swal.fire("Error","Hubo un error realizando la inclusión","error");
+        }
+    });
+}
+/*function consultarSolicitud(id){
     $.ajax({
         url: '/sistema_zeus/webservice/solicitudes/' + id,
         type: 'GET',
@@ -22,29 +42,15 @@ function consultarSolicitud(id){
             Swal.fire("Error","Hubo un error realizando la consulta","error");
         }
     });
-}
-
-function incluirSolicitudReparacion(nombreU,codigoD){
-    var fecha = new Date();
+}*/
+function buscarUsuario(id){
     $.ajax({
-        type: 'POST',
-        url: '/sistema_zeus/webservice/solicitudes/',
-        data: JSON.stringify({
-            "codigo" : null,
-            "nombreU": nombreU,
-            "codigoD" : codigoD,
-            "tipoSol":  "R",
-            "fechaI" : fecha.getDate()+""+fecha.getMonth()+"-"+fecha.getFullYear(),
-            "motivo": $('textArea[id=motivoR]').val(),
-            "estatus": "P"
-        }),
-        headers: { 
-            'Accept': 'application/json',
-            'Content-Type': 'application/json' 
-        },
-        success: function (data) {
-            console.log("Actualizado: "+data);
-            $('#txtexito').modal('show');
+        url: '/sistema_zeus/webservice/usuarios/' + id,
+        type: 'GET',
+        dataType: 'JSON',
+        success: function (data) {            
+            console.log(data);
+            usurio=data;
         },
         error: function(xhr, ajaxOptions, thrownError) {
             console.log(xhr.status);
@@ -56,15 +62,60 @@ function incluirSolicitudReparacion(nombreU,codigoD){
     });
 }
 
-function aceptarSolicitud(){
-    var id = $('input[id=codigoSol]').val();
+function incluirSolicitudReparacion(nombreU){
+    var equi= $('input[id=codEq]').val();
+    buscarUsuario(nombreU);
+    var fecha = new Date();
+    $.ajax({
+        type: 'POST',
+        url: '/sistema_zeus/webservice/solicitudes/',
+        data: JSON.stringify({
+            "codigo" : null,
+            "nombreUsuario": {
+                "nombreUsuario":usuario.nombreUsuario,
+                "codigoDepartamento": usuario.codigoDepartamento,
+                "contrasenna": usuario.contrasenna,
+                "cedula": usuario.cedula,
+                "nombre": usuario.nombre,
+                "apellido": usuario.apellido,
+                "direccion": usuario.direccion,
+                "telefono": usuario.telefono,
+                "correo": usuario.correo,
+                "estatus": usuario.estatus,
+                
+            },
+            "codigoEquipoDepartamento" : equi,
+            "tipoSolicitud":  "R",
+            "fechaInicio" : "'"+fecha.getDate()+"-"+fecha.getMonth()+"-"+fecha.getFullYear()+"'",
+            "motivo": $('textArea[id=motivoR]').val(),
+            "estatus": "P"
+        }),
+        headers: { 
+            'Accept': 'application/json',
+            'Content-Type': 'application/json' 
+        },
+        success: function (data) {
+            console.log("Registrado: "+data);
+            $('#txtexito').modal('show');
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+            console.log(thrownError);
+            console.log("No se ha podido obtener la información");
+            Swal.fire("Error","Hubo un error realizando la inclusión","error");
+        }
+    });
+    
+}
+
+function aceptarSolicitud(id){
     var fecha = new Date();
     $.ajax({
         url: '/sistema_zeus/webservice/solicitudes/' + id,
         type: 'PUT',
         data: JSON.stringify({
-            "codigo": id,
-            "FechaA": fecha.getDay()+"-"+fecha.getMonth()+"-"+fecha.getFullYear(),
+            "FechaA": "'"+fecha.getDay()+"-"+fecha.getMonth()+"-"+fecha.getFullYear()+"'",
             "estatus": "E"
         }),
         headers: { 
@@ -84,15 +135,13 @@ function aceptarSolicitud(){
         }
     });
 }
-function rechazarSolicitud(){
-    var id = $('input[id=codigoSol]').val();
+function rechazarSolicitud(id){
     var fecha = new Date();
     $.ajax({
         url: '/sistema_zeus/webservice/solicitudes/' + id,
         type: 'PUT',
         data: JSON.stringify({
-            "codigo": id,
-            "FechaA": fecha.getDay()+"-"+fecha.getMonth()+"-"+fecha.getFullYear(),
+            "FechaA": "'"+fecha.getDay()+"-"+fecha.getMonth()+"-"+fecha.getFullYear()+"'",
             "estatus": "F"
         }),
         headers: { 
@@ -114,7 +163,7 @@ function rechazarSolicitud(){
 }
 
 
-function llenarCamposSolicitud(data){
+function llenarCamposSolicitudes(data){
     solEliminar = data;
     
     document.getElementsByName('nombreEq')[0].value = data.codigoEquipoDepartamento.codigoEquipo.nombre;
