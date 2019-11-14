@@ -24,7 +24,7 @@ function consultarSolicitud(id){
     });
 }
 
-function incluirSolicitudReparacion(codigoD){
+function incluirSolicitudReparacion(nombreU,codigoD){
     var fecha = new Date();
     $.ajax({
         type: 'POST',
@@ -56,7 +56,7 @@ function incluirSolicitudReparacion(codigoD){
     });
 }
 
-function aceptarSol(){
+function aceptarSolicitud(){
     var id = $('input[id=codigoSol]').val();
     var fecha = new Date();
     $.ajax({
@@ -84,7 +84,7 @@ function aceptarSol(){
         }
     });
 }
-function rechazarSol(){
+function rechazarSolicitud(){
     var id = $('input[id=codigoSol]').val();
     var fecha = new Date();
     $.ajax({
