@@ -23,8 +23,6 @@ public interface EquipoDepartamentoService {
     
     public EquipoDepartamento buscarEquipoPorCodigo(EquipoDepartamento equipoDpto);
     
-    public EquipoDepartamento buscarEquipoPorNombre(Equipo equipo);
-    
     public void regritrarEquipoDpto(EquipoDepartamento equipoDpto);
     
     public void actualizarEquipoDpto(EquipoDepartamento equipoDpto);

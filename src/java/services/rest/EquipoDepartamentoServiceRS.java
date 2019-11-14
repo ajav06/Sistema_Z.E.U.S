@@ -52,13 +52,7 @@ public class EquipoDepartamentoServiceRS {
         return equipoDepartamentoService.buscarEquipoPorCodigo(new EquipoDepartamento(codigo));
     }
     
-    @GET
-    @Path("nombre/{nom}") //hace referencia a /equiposDpto/{nom}
-    public EquipoDepartamento buscarEquipoPorNombre(@PathParam("nom") int nom){
-        return equipoDepartamentoService.buscarEquipoPorNombre(new Equipo(nom));
-    }
-    
-     @POST
+    @POST
     public Response registrarEquipoDpto(EquipoDepartamento equipoDepartamento){
         try{
             equipoDepartamentoService.regritrarEquipoDpto(equipoDepartamento);

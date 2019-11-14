@@ -6,12 +6,7 @@
 package services.rest;
 
 import java.util.List;
-import javax.annotation.Resource;
-import javax.ejb.SessionContext;
-
 import domain.Solicitudes;
-import eis.SolicitudesDao;
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -33,6 +28,7 @@ import services.SolicitudesService;
 @Consumes(value = {MediaType.APPLICATION_JSON})
 @Stateless
 public class SolicitudesServiceRS {
+    
     @Inject
     private SolicitudesService solicitudesService;
     
@@ -54,7 +50,7 @@ public class SolicitudesServiceRS {
     }
    
     @PUT
-    @Path("{id}")
+    @Path("aceptar/{id}")
     public Response aceptarSolicitud(@PathParam("id") int id, Solicitudes solicitudAceptada){
         try{
             Solicitudes solicitudes = solicitudesService.buscarSolicitudPorCodigo(new Solicitudes(id));
@@ -70,7 +66,7 @@ public class SolicitudesServiceRS {
     }
     
     @PUT
-    @Path("{id}")
+    @Path("rechazar/{id}")
     public Response rechazarSolicitud(@PathParam("id") int id, Solicitudes solicitudRechazada){
         try{
             Solicitudes solicitudes = solicitudesService.buscarSolicitudPorCodigo(new Solicitudes(id));

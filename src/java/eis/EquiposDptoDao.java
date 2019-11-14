@@ -21,8 +21,6 @@ public interface EquiposDptoDao {
     
     public EquipoDepartamento findEquipoById(EquipoDepartamento equipoDpto);
     
-    //public EquipoDepartamento findEquipoByName(Equipo equipo);
-    
     public void insertEquipoDpto(EquipoDepartamento equipoDpto);
     
     public void updateEquipoDpto(EquipoDepartamento equipoDpto);

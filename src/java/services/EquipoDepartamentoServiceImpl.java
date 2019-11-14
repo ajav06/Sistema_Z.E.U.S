@@ -44,11 +44,6 @@ public class EquipoDepartamentoServiceImpl implements EquipoDepartamentoService{
     }
 
     @Override
-    public EquipoDepartamento buscarEquipoPorNombre(Equipo equipo) {
-        return equiposDptoDao.findEquipoByName(equipo);
-    }
-
-    @Override
     public void regritrarEquipoDpto(EquipoDepartamento equipoDpto) {
         equiposDptoDao.insertEquipoDpto(equipoDpto);
     }

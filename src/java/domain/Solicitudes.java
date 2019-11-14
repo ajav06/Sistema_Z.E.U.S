@@ -8,9 +8,7 @@ package domain;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +25,6 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -74,6 +71,9 @@ public class Solicitudes implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fechaAtencion;
     
+    @Basic(optional = false)
+    @NotNull
+    @Size(max = 2147483647)
     @Column(name = "motivo")
     private String motivo;
     

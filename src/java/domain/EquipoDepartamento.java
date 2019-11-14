@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "EquipoDepartamento.findAll", query = "SELECT e FROM EquipoDepartamento e"),
     @NamedQuery(name = "EquipoDepartamento.findAllActive", query = "SELECT e FROM EquipoDepartamento e WHERE e.codigoEquipo.estatus = 'a'"),
-    @NamedQuery(name = "EquipoDepartamento.findById", query = "SELECT e FROM EquipoDepartamento e WHERE e.codigo = :codigo"),
+    @NamedQuery(name = "EquipoDepartamento.findByCodigo", query = "SELECT e FROM EquipoDepartamento e WHERE e.codigo = :codigo"),
     
     //PARA EL REPORTE POR UNIVERSIDAD
     @NamedQuery(name = "EquipoDepartamento.totalActiveItems", 
