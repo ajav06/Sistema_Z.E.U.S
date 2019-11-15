@@ -18,7 +18,7 @@
 
                     <div class="ui category search">
 
-                        <div class="ui centered grid">
+                        <div class="ui centered grid" style="#{request.isUserInRole('ADMIN') ? '' : 'display: none'}">
                             <div class="ui animated circular button" 
                                  tabindex="0" 
                                  pt:aria-label="Equipos"
@@ -70,18 +70,20 @@
                                             <div class="hidden content">Ver detalles</div>
                                         </div>
                                         
-                                        <div class="ui animated circular button" tabindex="0"
-                                             onclick="reparar()"
-                                             id="reparar">
-                                            <div class="visible content">Reparar</div>
-                                            <div class="hidden content">Solicitar</div>
-                                        </div>
-                                        
-                                        <div class="ui animated circular button" tabindex="0"
-                                             onclick="desincorporar()"
-                                             id="desincorporar">
-                                            <div class="visible content">Desincorporar</div>
-                                            <div class="hidden content">Solicitar </div>
+                                        <div style="#{request.isUserInRole('ADMIN') ? '' : 'display: none'}">
+                                            <div class="ui animated circular button" tabindex="0"
+                                                 onclick="reparar()"
+                                                 id="reparar">
+                                                <div class="visible content">Reparar</div>
+                                                <div class="hidden content">Solicitar</div>
+                                            </div>
+
+                                            <div class="ui animated circular button" tabindex="0"
+                                                 onclick="desincorporar()"
+                                                 id="desincorporar">
+                                                <div class="visible content">Desincorporar</div>
+                                                <div class="hidden content">Solicitar </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -174,12 +176,14 @@
                                         </div>
 
                                         <div class="ui circular button"
-                                             onclick="modificar()"> 
+                                             onclick="modificar()"
+                                             style="#{request.isUserInRole('ADMIN') ? '' : 'display: none'}"> 
                                             Modificar
                                         </div>
 
                                         <div class="ui circular button"
-                                             onclick="eliminar()"> 
+                                             onclick="eliminar()"
+                                             style="#{request.isUserInRole('ADMIN') ? '' : 'display: none'}"> 
                                             Eliminar
                                         </div>
                                     </div>

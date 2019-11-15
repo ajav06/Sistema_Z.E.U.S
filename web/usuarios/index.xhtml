@@ -233,6 +233,7 @@
 
                             <div class="ui form-1">
                                 <h:form>
+
                                     <div class="ui form">
                                         <div class="two fields">
                                             <div class="field">
@@ -245,14 +246,18 @@
 
                                             <div class="field">
                                                 <label>Tipo de Usuario</label>
-                                                <select class="ui fluid dropdown"
-                                                        name="tipoU"
-                                                        id="tipoU">
-                                                    <option >Selecciona el tipo de usuario</option>
-                                                    <option >Bienes Nacionales</option>
-                                                    <option >Administrador</option>
-                                                    <option >Empleado</option>
-                                                </select>
+                                                <h:selectOneMenu class="ui fluid dropdown"
+                                                                pt:name="tipoU"
+                                                                id="tipoU"
+                                                                converter="omnifaces.SelectItemsIndexConverter"
+                                                                required="true"
+                                                                onchange="buscarTipoU(2)"
+                                                                requiredMessage="Selecciona un tipo de usuario">
+                                                    <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
+                                                    <f:selectItems value="#{tipoUsuarioBean.tiposUsuario}" var="tiposUsuario" 
+                                                                   itemValue="#{tiposUsuario.codigo}"
+                                                                   itemLabel="#{tiposUsuario.nombre}" />
+                                                </h:selectOneMenu>
                                             </div>
                                         </div>
 
@@ -310,36 +315,20 @@
                                             </div>
                                         </div>
 
-                                        <div class="two fields">
-                                            <div class="field">
-                                                <label>Decanato</label>
-                                                <h:selectOneMenu class="ui fluid dropdown"
-                                                                pt:name="decanatoU"
-                                                                id="decanatoU"
-                                                                converter="omnifaces.SelectItemsIndexConverter"
-                                                                required="true"
-                                                                requiredMessage="Selecciona un Decanato">
-                                                    <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
-                                                    <f:selectItems value="#{decanatoBean.decanatos}" var="decanato" 
-                                                                   itemValue="#{decanato.codigo}"
-                                                                   itemLabel="#{decanato.nombre}" />
-                                                </h:selectOneMenu>
-                                            </div>
-
-                                            <div class="field">
-                                                <label>Departamento</label>
-                                                <h:selectOneMenu class="ui fluid dropdown"
-                                                                pt:name="departamentoU"
-                                                                id="departamentoU"
-                                                                converter="omnifaces.SelectItemsIndexConverter"
-                                                                required="true"
-                                                                requiredMessage="Selecciona un Decanato">
-                                                    <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
-                                                    <f:selectItems value="#{departamentoBean.departamentos}" var="departameto" 
-                                                                   itemValue="#{departameto.codigo}"
-                                                                   itemLabel="#{departameto.nombre}" />
-                                                </h:selectOneMenu>
-                                            </div>
+                                        <div class="field">
+                                            <label>Departamento</label>
+                                            <h:selectOneMenu class="ui fluid dropdown"
+                                                            pt:name="departamentoU"
+                                                            id="departamentoU"
+                                                            converter="omnifaces.SelectItemsIndexConverter"
+                                                            required="true"
+                                                            onchange="buscarDptoU(2)"
+                                                            requiredMessage="Selecciona un Decanato">
+                                                <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
+                                                <f:selectItems value="#{departamentoBean.departamentos}" var="departameto" 
+                                                               itemValue="#{departameto.codigo}"
+                                                               itemLabel="#{departameto.nombre} - #{departameto.codigoDecanato.siglas}" />
+                                            </h:selectOneMenu>
                                         </div>
 
                                     </div>
@@ -355,7 +344,9 @@
                                         </button>
 
                                         <button class="ui circular button"
-                                                onclick="aceptarModificacion()">
+                                                onclick="aceptarModificacion();
+                                                         buscarDptoU(2);
+                                                         buscarTipoU(2);">
                                             <i class="save icon"></i> 
                                             Modificar
                                         </button>
@@ -383,6 +374,7 @@
 
                             <div class="ui form-1">
                                 <h:form>
+
                                     <div class="ui form">
                                         <div class="two fields">
                                             <div class="field">
@@ -394,13 +386,18 @@
 
                                             <div class="field">
                                                 <label>Tipo de Usuario</label>
-                                                <select class="ui fluid dropdown"
-                                                        id="tipoUI">
-                                                    <option >Selecciona el tipo de usuario</option>
-                                                    <option >Bienes Nacionales</option>
-                                                    <option >Administrador</option>
-                                                    <option >Empleado</option>
-                                                </select>
+                                                <h:selectOneMenu class="ui fluid dropdown"
+                                                                pt:name="tipoUI"
+                                                                id="tipoUI"
+                                                                converter="omnifaces.SelectItemsIndexConverter"
+                                                                required="true"
+                                                                onchange="buscarTipoU(1)"
+                                                                requiredMessage="Selecciona un tipo de usuario">
+                                                    <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
+                                                    <f:selectItems value="#{tipoUsuarioBean.tiposUsuario}" var="tiposUsuario" 
+                                                                   itemValue="#{tiposUsuario.codigo}"
+                                                                   itemLabel="#{tiposUsuario.nombre}" />
+                                                </h:selectOneMenu>
                                             </div>
                                         </div>
 
@@ -452,34 +449,20 @@
                                             </div>
                                         </div>
 
-                                        <div class="two fields">
-                                            <div class="field">
-                                                <label>Decanato</label>
-                                                <h:selectOneMenu class="ui fluid dropdown"
-                                                                id="decanatoUI"
-                                                                converter="omnifaces.SelectItemsIndexConverter"
-                                                                required="true"
-                                                                requiredMessage="Selecciona un Decanato">
-                                                    <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
-                                                    <f:selectItems value="#{decanatoBean.decanatos}" var="decanato" 
-                                                                   itemValue="#{decanato.codigo}"
-                                                                   itemLabel="#{decanato.nombre}" />
-                                                </h:selectOneMenu>
-                                            </div>
-
-                                            <div class="field">
-                                                <label>Departamento</label>
-                                                <h:selectOneMenu class="ui fluid dropdown"
-                                                                id="departamentoUI"
-                                                                converter="omnifaces.SelectItemsIndexConverter"
-                                                                required="true"
-                                                                requiredMessage="Selecciona un Decanato">
-                                                    <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
-                                                    <f:selectItems value="#{departamentoBean.departamentos}" var="departameto" 
-                                                                   itemValue="#{departameto.codigo}"
-                                                                   itemLabel="#{departameto.nombre}" />
-                                                </h:selectOneMenu>
-                                            </div>
+                                         <div class="field">
+                                            <label>Departamento</label>
+                                            <h:selectOneMenu class="ui fluid dropdown"
+                                                            pt:name="departamentoUI"
+                                                            id="departamentoUI"
+                                                            converter="omnifaces.SelectItemsIndexConverter"
+                                                            required="true"
+                                                            onchange="buscarDptoU(1)"
+                                                            requiredMessage="Selecciona un Decanato">
+                                                <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
+                                                <f:selectItems value="#{departamentoBean.departamentos}" var="departameto" 
+                                                               itemValue="#{departameto.codigo}"
+                                                               itemLabel="#{departameto.nombre} - #{departameto.codigoDecanato.siglas}" />
+                                            </h:selectOneMenu>
                                         </div>
 
                                     </div>
@@ -494,7 +477,9 @@
                                         </button>
 
                                         <button class="ui circular button"
-                                                onclick="aceptarInclusion()">
+                                                onclick="aceptarInclusion();
+                                                        buscarDptoU(1);
+                                                        buscarTipoU(1);">
                                             <i class="save icon"></i> 
                                             Registrar
                                         </button>
@@ -520,7 +505,7 @@
                         Cancelar
                     </div>
                     <div class="ui green ok inverted button"
-                         onclick="incluirEdoEqui()">
+                         onclick="incluirUsuario()">
                         <i class="checkmark icon"></i>
                         Aceptar
                     </div>
@@ -539,7 +524,7 @@
                     </div>
 
                     <div class="ui green ok inverted button"
-                         onclick="actualizarEdoEqui()">
+                         onclick="actualizarUsuario()">
                         <i class="checkmark icon"></i>
                         Aceptar
                     </div>

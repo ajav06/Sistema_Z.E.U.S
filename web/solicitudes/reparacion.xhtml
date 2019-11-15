@@ -23,28 +23,28 @@
                         
                         <h:dataTable class="ui compact celled definition table"
                                      id="listas"
-                                     var="departamento"
-                                     value="#{departamentoBean.departamentos}"
+                                     var="solicitud"
+                                     value="#{solicitudesBean.solicitudesReparados}"
                                      headerClass="encabezado-tabla-2">
 
                             <h:column>
                                 <f:facet name="header">Equipo</f:facet>
-                                Impresora
+                                #{solicitud.codigoEquipoDepartamento.codigoEquipo.nombre}
                             </h:column>
                             
                             <h:column>
                                 <f:facet name="header">Decanato</f:facet>
-                                #{departamento.codigoDecanato.nombre}
+                                #{solicitud.codigoEquipoDepartamento.codigoDepartamento.codigoDecanato.nombre}
                             </h:column>
                             
                             <h:column>
                                 <f:facet name="header">Departamento</f:facet>
-                                #{departamento.nombre}
+                                #{solicitud.codigoEquipoDepartamento.codigoDepartamento.nombre}
                             </h:column>
 
                             <h:column>
                                 <f:facet name="header">Fecha de Emisión</f:facet>
-                                04/07/2019
+                                #{solicitud.fechaEmision()}
                             </h:column>
 
                         </h:dataTable>

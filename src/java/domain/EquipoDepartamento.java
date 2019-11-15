@@ -6,7 +6,6 @@
 package domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -35,6 +34,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "EquipoDepartamento.findAll", query = "SELECT e FROM EquipoDepartamento e"),
     @NamedQuery(name = "EquipoDepartamento.findAllActive", query = "SELECT e FROM EquipoDepartamento e WHERE e.codigoEquipo.estatus = 'a'"),
     @NamedQuery(name = "EquipoDepartamento.findByCodigo", query = "SELECT e FROM EquipoDepartamento e WHERE e.codigo = :codigo"),
+    @NamedQuery(name = "EquipoDepartamento.findEquiposReparado", query = "SELECT e FROM EquipoDepartamento e WHERE e.codigoEstadoEquipo.codigo = 2"),
+    @NamedQuery(name = "EquipoDepartamento.findAllDesincorporado", query = "SELECT e FROM EquipoDepartamento e WHERE e.codigoEquipo.estatus = 'd'"),
     
     //PARA EL REPORTE POR UNIVERSIDAD
     @NamedQuery(name = "EquipoDepartamento.totalActiveItems", 
@@ -160,6 +161,13 @@ public class EquipoDepartamento implements Serializable {
         this.codigo = codigo;
     }
 
+    public EquipoDepartamento(Departamento codigoDepartamento, Equipo codigoEquipo, EstadoEquipo codigoEstadoEquipo, List<Solicitudes> solicitudesList) {
+        this.codigoDepartamento = codigoDepartamento;
+        this.codigoEquipo = codigoEquipo;
+        this.codigoEstadoEquipo = codigoEstadoEquipo;
+        this.solicitudesList = solicitudesList;
+    }
+    
     public Integer getCodigo() {
         return codigo;
     }

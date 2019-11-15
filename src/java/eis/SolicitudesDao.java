@@ -21,6 +21,10 @@ public interface SolicitudesDao {
     
     public List<Solicitudes> findAllActiveSolicitudes();
     
+    public List<Solicitudes> findSolicitudesReparacion();
+    
+    public List<Solicitudes> findSolicitudesDesincorporado();
+    
     public Solicitudes findSolicitudById(Solicitudes solicitudes);
     
     public Solicitudes findSolicitudByTipo(Solicitudes solicitudes);

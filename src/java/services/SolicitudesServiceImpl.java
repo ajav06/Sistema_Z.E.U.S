@@ -73,5 +73,15 @@ public class SolicitudesServiceImpl implements SolicitudesService{
             t.printStackTrace(System.out);
         }
     }
+
+    @Override
+    public List<Solicitudes> listarSolicitudesReparacion() {
+        return solicitudesDao.findSolicitudesReparacion();
+    }
+
+    @Override
+    public List<Solicitudes> listarSolicitudesDesincorporado() {
+        return solicitudesDao.findSolicitudesDesincorporado();
+    }
     
 }

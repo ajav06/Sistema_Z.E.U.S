@@ -34,6 +34,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "solicitudes")
 @NamedQueries({
     @NamedQuery(name = "Solicitudes.findAll", query = "SELECT s FROM Solicitudes s"),
+    @NamedQuery(name = "Solicitudes.findDesincorporado", query = "SELECT s FROM Solicitudes s WHERE s.tipoSolicitud='D'"),
+    @NamedQuery(name = "Solicitudes.findReparado", query = "SELECT s FROM Solicitudes s WHERE s.tipoSolicitud='R'"),
     @NamedQuery(name = "Solicitudes.findAllActive", query = "SELECT d FROM Solicitudes d WHERE d.estatus = 'P' ORDER BY d.codigo ASC"),
     @NamedQuery(name = "Solicitudes.findByCodigo", query = "SELECT s FROM Solicitudes s WHERE s.codigo = :codigo"),
     @NamedQuery(name = "Solicitudes.findByTipoSolicitud", query = "SELECT s FROM Solicitudes s WHERE s.tipoSolicitud = :tipoSolicitud"),

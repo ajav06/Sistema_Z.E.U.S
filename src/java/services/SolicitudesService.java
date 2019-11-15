@@ -21,6 +21,10 @@ public interface SolicitudesService {
     
     public List<Solicitudes> listarSolicitudesActivos();
     
+    public List<Solicitudes> listarSolicitudesReparacion();
+    
+    public List<Solicitudes> listarSolicitudesDesincorporado();
+    
     public Solicitudes buscarSolicitudPorCodigo(Solicitudes solicitudes);
     
     public Solicitudes buscarSolicitudPorTipo(Solicitudes solicitudes);

@@ -25,6 +25,10 @@ public class SolicitudesBean {
     private Solicitudes solicitudesSeleccionadas;
     
     List<Solicitudes> solicitudes;
+        
+    List<Solicitudes> solicitudesReparados;
+    
+    List<Solicitudes> solicitudesDesincorporado;
     
     public SolicitudesBean() {
     }
@@ -32,6 +36,8 @@ public class SolicitudesBean {
     @PostConstruct
     public void inicializar() {
         solicitudes = solicitudesService.listarSolicitudesActivos();
+        solicitudesDesincorporado = solicitudesService.listarSolicitudesDesincorporado();
+        solicitudesReparados = solicitudesService.listarSolicitudesReparacion();
         solicitudesSeleccionadas = new Solicitudes();
     }
 
@@ -45,6 +51,22 @@ public class SolicitudesBean {
 
     public Solicitudes getSolicitudSeleccionada() {
         return solicitudesSeleccionadas;
+    }
+
+    public List<Solicitudes> getSolicitudesReparados() {
+        return solicitudesReparados;
+    }
+
+    public void setSolicitudesReparados(List<Solicitudes> solicitudesReparados) {
+        this.solicitudesReparados = solicitudesReparados;
+    }
+
+    public List<Solicitudes> getSolicitudesDesincorporado() {
+        return solicitudesDesincorporado;
+    }
+
+    public void setSolicitudesDesincorporado(List<Solicitudes> solicitudesDesincorporado) {
+        this.solicitudesDesincorporado = solicitudesDesincorporado;
     }
 
     public void setSolicitudSeleccionada(Solicitudes solicitudesSeleccionadas) {

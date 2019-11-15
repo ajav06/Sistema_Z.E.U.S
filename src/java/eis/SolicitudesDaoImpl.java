@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package eis;
-import domain.Decanato;
 import domain.Solicitudes;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -21,6 +20,7 @@ import java.util.GregorianCalendar;
  */
 @Stateless
 public class SolicitudesDaoImpl implements SolicitudesDao{
+    
     @PersistenceContext(name = "ZeusBD")
     EntityManager em;
     
@@ -88,5 +88,15 @@ public class SolicitudesDaoImpl implements SolicitudesDao{
     @Override
     public void refuseSolicitud(Solicitudes solicitudes) {
         em.merge(solicitudes);
+    }
+
+    @Override
+    public List<Solicitudes> findSolicitudesReparacion() {
+        return em.createNamedQuery("Solicitudes.findReparado").getResultList();
+    }
+
+    @Override
+    public List<Solicitudes> findSolicitudesDesincorporado() {
+        return em.createNamedQuery("Solicitudes.findDesincorporado").getResultList();
     }
 }

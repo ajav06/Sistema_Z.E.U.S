@@ -136,6 +136,13 @@
                                
                             <a class="#{request.requestURI eq '/sistema_zeus/solicitudes/desincorporacion.xhtml' ? 'item active' : 'item' }" 
                                id="item" href="/sistema_zeus/solicitudes/desincorporacion.xhtml">Solicitudes de Desincorporación</a>
+                               
+                            <a class="#{request.requestURI eq '/sistema_zeus/decanatos/' ? 'item active' : 'item' }" 
+                               id="item" href="/sistema_zeus/decanatos">Decanatos</a>
+
+                            <a class="#{request.requestURI eq '/sistema_zeus/departamentos/' 
+                                        or request.requestURI eq '/sistema_zeus/dptosDca/' ? 'item active' : 'item' }" 
+                               id="item" href="/sistema_zeus/departamentos">Departamentos</a>
                         </div>
                         
                         <div id="twitter-api" align="center">

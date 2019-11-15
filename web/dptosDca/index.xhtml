@@ -17,7 +17,7 @@
 
                     <div class="ui category search">
 
-                        <div class="ui centered grid">
+                        <div class="ui centered grid" style="#{request.isUserInRole('ADMIN') ? '' : 'display: none'}">
                             <div class="ui animated circular button" 
                                  tabindex="0" 
                                  aria-label="Departamentos"
@@ -56,16 +56,17 @@
                                 <f:facet name="header">Opciones</f:facet>
                                 <div class="item">
                                     <div class="ui centered grid">
-                                        
+                                        <!--
                                         <div class="ui circular button"
                                              onclick="consultarDpto(#{departamento.codigo})">
                                             Consultar
                                         </div>
+                                        -->
                                         
-                                        <!--
                                         <div class="ui circular animated button"
                                              aria-label="label"
-                                             onclick="">
+                                             onclick="consultarDpto(#{departamento.codigo})"
+                                             style="#{request.isUserInRole('ADMIN') ? '' : 'display: none'}">
                                             <div class="visible content">
                                                 Consultar
                                             </div>
@@ -74,12 +75,11 @@
                                                 Ver
                                             </div>
                                         </div>
-                                        -->
+                                        
 
                                         <a class="ui circular animated button"
                                            href="/sistema_zeus/equiposDpto?id=#{departamento.codigo}"
-                                           aria-label="label"
-                                           style="#{request.isUserInRole('EMPLEADO') ? '' : 'display: none'}">
+                                           aria-label="label">
                                             <div class="visible content">
                                                 Equipos
                                             </div>

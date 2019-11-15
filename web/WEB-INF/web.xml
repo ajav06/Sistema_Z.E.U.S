@@ -56,6 +56,8 @@
             <url-pattern>/decanatos/*</url-pattern>
             <url-pattern>/dptosDca/*</url-pattern>
             <url-pattern>/estadosEquipo/*</url-pattern>
+            <url-pattern>/equiposDpto/*</url-pattern>
+            <url-pattern>/departamentos/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description/>
@@ -70,6 +72,10 @@
             <url-pattern>/index.xhtml</url-pattern>
             <url-pattern>/solicitudes/*</url-pattern>
             <url-pattern>/reportes/*</url-pattern>
+            <url-pattern>/decanatos/*</url-pattern>
+            <url-pattern>/dptosDca/*</url-pattern>
+            <url-pattern>/departamentos/*</url-pattern>
+            <url-pattern>/equiposDpto/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description/>
