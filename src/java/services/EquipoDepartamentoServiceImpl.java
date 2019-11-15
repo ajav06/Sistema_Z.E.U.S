@@ -62,5 +62,15 @@ public class EquipoDepartamentoServiceImpl implements EquipoDepartamentoService{
     public void eliminarEquipoDpto(EquipoDepartamento equipoDpto) {
         equiposDptoDao.deleteEquipoDpto(equipoDpto);
     }
+
+    @Override
+    public List<EquipoDepartamento> listarEquiposReparados() {
+        return equiposDptoDao.findEquiposReparados();
+    }
+
+    @Override
+    public List<EquipoDepartamento> listarEquiposDesincorporados() {
+        return equiposDptoDao.findEquiposDesincorporado();
+    }
     
 }

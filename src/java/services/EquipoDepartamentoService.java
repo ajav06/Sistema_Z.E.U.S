@@ -21,6 +21,10 @@ public interface EquipoDepartamentoService {
     
     public List<EquipoDepartamento> listarEquipoDptoActivo();
     
+    public List<EquipoDepartamento> listarEquiposReparados();
+    
+    public List<EquipoDepartamento> listarEquiposDesincorporados();
+    
     public EquipoDepartamento buscarEquipoPorCodigo(EquipoDepartamento equipoDpto);
     
     public void regritrarEquipoDpto(EquipoDepartamento equipoDpto);

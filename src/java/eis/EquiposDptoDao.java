@@ -19,6 +19,10 @@ public interface EquiposDptoDao {
     
     public List<EquipoDepartamento> findAllActiveEquipoDpto();
     
+    public List<EquipoDepartamento> findEquiposReparados();
+    
+    public List<EquipoDepartamento> findEquiposDesincorporado();
+    
     public EquipoDepartamento findEquipoById(EquipoDepartamento equipoDpto);
     
     public void insertEquipoDpto(EquipoDepartamento equipoDpto);

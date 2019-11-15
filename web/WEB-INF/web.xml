@@ -76,6 +76,8 @@
             <url-pattern>/dptosDca/*</url-pattern>
             <url-pattern>/departamentos/*</url-pattern>
             <url-pattern>/equiposDpto/*</url-pattern>
+            <url-pattern>/equipos/desincorporacion.xhtml</url-pattern>
+            <url-pattern>/equipos/reparacion.xhtml</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description/>

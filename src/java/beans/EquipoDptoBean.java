@@ -26,6 +26,10 @@ public class EquipoDptoBean {
     private EquipoDepartamentoService equipoDepartamentoService;
     
     List<EquipoDepartamento> equiposDpto;
+        
+    List<EquipoDepartamento> equiposDptoReparados;
+    
+    List<EquipoDepartamento> equiposDptoDesincorporado;
     
     public EquipoDptoBean(){
     }
@@ -33,6 +37,8 @@ public class EquipoDptoBean {
     @PostConstruct
     public void inicializar(){
         equiposDpto = equipoDepartamentoService.listarEquipoDptoActivo();
+        equiposDptoDesincorporado = equipoDepartamentoService.listarEquiposDesincorporados();
+        equiposDptoReparados = equipoDepartamentoService.listarEquiposReparados();
     }
 
     public List<EquipoDepartamento> getEquiposDepartamento() {
@@ -42,4 +48,21 @@ public class EquipoDptoBean {
     public void setEquiposDepartamento(List<EquipoDepartamento> equipos) {
         this.equiposDpto = equipos;
     }
+
+    public List<EquipoDepartamento> getEquiposDptoReparados() {
+        return equiposDptoReparados;
+    }
+
+    public void setEquiposDptoReparados(List<EquipoDepartamento> equiposDptoReparados) {
+        this.equiposDptoReparados = equiposDptoReparados;
+    }
+
+    public List<EquipoDepartamento> getEquiposDptoDesincorporado() {
+        return equiposDptoDesincorporado;
+    }
+
+    public void setEquiposDptoDesincorporado(List<EquipoDepartamento> equiposDptoDesincorporado) {
+        this.equiposDptoDesincorporado = equiposDptoDesincorporado;
+    }
+    
 }

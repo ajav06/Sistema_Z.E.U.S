@@ -58,4 +58,14 @@ public class EquiposDptoDaoImpl implements EquiposDptoDao{
         em.merge(equipoDpto);
         em.remove(equipoDpto);
     }
+
+    @Override
+    public List<EquipoDepartamento> findEquiposReparados() {
+        return em.createNamedQuery("EquipoDepartamento.findEquiposReparado").getResultList();
+    }
+
+    @Override
+    public List<EquipoDepartamento> findEquiposDesincorporado() {
+        return em.createNamedQuery("EquipoDepartamento.findAllDesincorporado").getResultList();
+    }
 }

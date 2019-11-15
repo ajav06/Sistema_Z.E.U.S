@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core">
+
+    <ui:composition template="./../template/base.xhtml">
+
+        <ui:define name="head">
+            <title>Equipos Desincorporados</title>
+        </ui:define>
+
+        <ui:define name="content">
+            <div class="twelve wide stretched column">
+                <div class="ui segment">
+
+                    <div class="ui category search">
+                        
+                        <h2 class="ui aligned center dividing header title-list">
+                            Equipos Desincorporados
+                        </h2>
+                        
+                        <h:dataTable class="ui compact celled definition table"
+                                     id="listas"
+                                     var="equipo"
+                                     value="#{equipoDptoBean.equiposDptoDesincorporado}"
+                                     headerClass="encabezado-tabla-2">
+
+                            <h:column>
+                                <f:facet name="header">Equipo</f:facet>
+                                #{equipo.codigoEquipo.nombre}
+                            </h:column>
+                            
+                            <h:column>
+                                <f:facet name="header">Decanato</f:facet>
+                                #{equipo.codigoDepartamento.codigoDecanato.nombre}
+                            </h:column>
+                            
+                            <h:column>
+                                <f:facet name="header">Departamento</f:facet>
+                                #{equipo.codigoDepartamento.nombre}
+                            </h:column>
+
+                        </h:dataTable>
+                    </div>
+
+                </div>
+            </div>
+        </ui:define>
+
+    </ui:composition>
+    
+</html>

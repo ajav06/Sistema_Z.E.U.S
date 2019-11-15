@@ -2,7 +2,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <h:head>
@@ -143,6 +142,14 @@
                             <a class="#{request.requestURI eq '/sistema_zeus/departamentos/' 
                                         or request.requestURI eq '/sistema_zeus/dptosDca/' ? 'item active' : 'item' }" 
                                id="item" href="/sistema_zeus/departamentos">Departamentos</a>
+                            
+                            <!--   
+                            <a class="#{request.requestURI eq '/sistema_zeus/solicitudes/reparacion.xhtml' ? 'item active' : 'item' }" 
+                               id="item" href="/sistema_zeus/equipos/reparacion.xhtml">Equipos Reparados</a>
+                               
+                            <a class="#{request.requestURI eq '/sistema_zeus/solicitudes/desincorporacion.xhtml' ? 'item active' : 'item' }" 
+                               id="item" href="/sistema_zeus/equipos/desincorporacion.xhtml">Equipos Desincorporados</a>
+                            -->
                         </div>
                         
                         <div id="twitter-api" align="center">
