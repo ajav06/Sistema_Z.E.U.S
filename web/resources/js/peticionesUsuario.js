@@ -8,14 +8,14 @@ var dcnSeleccionado = null;
 var dptoSeleccionado = null;
 var tipoUSeleccionado = null;
 
-function consultarUsuario(nombre){
+function consultarUsuario(nombre, dpto){
     $.ajax({
         url: '/sistema_zeus/webservice/usuarios/' + nombre,
         type: 'GET',
         dataType: 'JSON',
         success: function (data) {            
             console.log(data);
-            llenarCamposUsuario(data);
+            llenarCamposUsuario(data, dpto);
         },
         error: function(xhr, ajaxOptions, thrownError) {
             console.log(xhr.status);
@@ -167,7 +167,7 @@ function eliminarUsuario(){
     });
 }
 
-function llenarCamposUsuario(data){          
+function llenarCamposUsuario(data, dpto){          
     usuarioEliminar = data;
 
     document.getElementsByName('usernameU')[0].value = data.nombreUsuario;
@@ -193,6 +193,9 @@ function llenarCamposUsuario(data){
     
     document.getElementsByName('emailU')[0].value = data.correo;
     document.getElementsByName('emailU')[1].value = data.correo;
+    
+    document.getElementsByName('departamentoU')[0].value = dpto;
+    buscarSelectDptoU(dpto);
     
     consultar();
 }

@@ -49,7 +49,11 @@
                                         <div class="ui centered grid">
 
                                             <div class="ui circular button"
-                                                 onclick="consultarSolicitud(#{solicitud.codigo})">
+                                                 onclick="consultarSolicitud(#{solicitud.codigo},
+                                                             '#{solicitud.codigoEquipoDepartamento.codigoEquipo.nombre}',
+                                                             '#{solicitud.codigoEquipoDepartamento.codigoEstadoEquipo.nombre}',
+                                                             '#{solicitud.fechaEmision()}',
+                                                             '#{solicitud.nombreUsuario}')">
                                                 Consultar
                                             </div>
 

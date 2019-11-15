@@ -7,14 +7,14 @@ var solEliminar = null;
 var usuario =null;
 
 
-function consultarSolicitud(id){
+function consultarSolicitud(id, equ, est, fech, emi){
     $.ajax({
         url: '/sistema_zeus/webservice/solicitudes/' + id,
         type: 'GET',
         dataType: 'JSON',
         success: function (data) {            
             console.log(data);
-            llenarCamposSolicitudes(data);
+            llenarCamposSolicitudes(data, equ, est, fech, emi);
         },
         error: function(xhr, ajaxOptions, thrownError) {
             console.log(xhr.status);
@@ -73,16 +73,6 @@ function incluirSolicitudReparacion(nombreU){
             "codigo" : null,
             "nombreUsuario": {
                 "nombreUsuario":usuario.nombreUsuario,
-                "codigoDepartamento": usuario.codigoDepartamento,
-                "contrasenna": usuario.contrasenna,
-                "cedula": usuario.cedula,
-                "nombre": usuario.nombre,
-                "apellido": usuario.apellido,
-                "direccion": usuario.direccion,
-                "telefono": usuario.telefono,
-                "correo": usuario.correo,
-                "estatus": usuario.estatus,
-                
             },
             "codigoEquipoDepartamento" : equi,
             "tipoSolicitud":  "R",
@@ -163,20 +153,20 @@ function rechazarSolicitud(id){
 }
 
 
-function llenarCamposSolicitudes(data){
+function llenarCamposSolicitudes(data, equ, est, fech, emi){
     solEliminar = data;
     
-    document.getElementsByName('nombreEq')[0].value = data.codigoEquipoDepartamento.codigoEquipo.nombre;
+    document.getElementsByName('nombreEq')[0].value = equ;
     
-    document.getElementsByName('fechaE')[0].value = data.fechaInicio;
+    document.getElementsByName('fechaE')[0].value = fech;
     
-    document.getElementsByName('estadoEq')[0].value = data.codigoEquipoDepartamento.codigoEstadoEquipo.nombre;
+    document.getElementsByName('estadoEq')[0].value = est;
     
     document.getElementsByName('decanato')[0].value = data.codigoEquipoDepartamento.codigoDepartamento.codigoDecanato.nombre;
     
     document.getElementsByName('departamento')[0].value = data.codigoEquipoDepartamento.codigoDepartamento.nombre;
     
-    document.getElementsByName('emisor')[0].value = data.nombreUsuario.nombre;
+    document.getElementsByName('emisor')[0].value = emi;
     
     document.getElementsByName('motivo')[0].value = data.motivo;
     

@@ -69,7 +69,9 @@
                                 <div class="ui centered grid">
 
                                     <div class="ui circular button"
-                                         onclick="consultarUsuario('#{usuario.nombreUsuario}')">
+                                         onclick="consultarUsuario('#{usuario.nombreUsuario}',
+                                                                    '#{usuario.codigoDepartamento.nombre}'+ ' - ' +
+                                                                    '#{usuario.codigoDepartamento.codigoDecanato.siglas}')">
                                         Consultar
                                     </div>
 
@@ -171,22 +173,12 @@
                                             </div>
                                         </div>
 
-                                        <div class="two fields">
-                                            <div class="field">
-                                                <label>Decanato</label>
-                                                <input type="text" 
-                                                       name="decanatoU"
-                                                       placeholder="Decanato"
-                                                       disabled="true"/>
-                                            </div>
-
-                                            <div class="field">
-                                                <label>Departamento</label>
-                                                <input type="text"
-                                                       name="departamentoU"
-                                                       placeholder="Departamento"
-                                                       disabled="true"/>
-                                            </div>
+                                        <div class="field">
+                                            <label>Departamento</label>
+                                            <input type="text"
+                                                   name="departamentoU"
+                                                   placeholder="Departamento"
+                                                   disabled="true"/>
                                         </div>
 
                                     </div>
