@@ -75,14 +75,14 @@
                                         
                                         <div style="#{request.isUserInRole('EMPLEADO') ? '' : 'display: none'}">
                                             <div class="ui animated circular button" tabindex="0"
-                                                 onclick="reparar()"
+                                                 onclick="repararE(#{equipoDepartamento.codigo})"
                                                  id="reparar">
                                                 <div class="visible content">Reparar</div>
                                                 <div class="hidden content">Solicitar</div>
                                             </div>
 
                                             <div class="ui animated circular button" tabindex="0"
-                                                 onclick="desincorporar()"
+                                                 onclick="desincorporar(#{equipoDepartamento.codigo})"
                                                  id="desincorporar">
                                                 <div class="visible content">Desincorporar</div>
                                                 <div class="hidden content">Solicitar </div>
@@ -193,7 +193,7 @@
 
                                     <div class="ui center aligned fluid container" style="#{request.isUserInRole('EMPLEADO') ? '' : 'display: none'}">
                                         <div class="ui animated circular button" tabindex="0"
-                                             onclick="reparar()"
+                                             onclick="repararE()"
                                              id="reparar">
                                             <div class="visible content">Reparar</div>
                                             <div class="hidden content">Solicitar</div>
@@ -427,14 +427,19 @@
                             </div>
 
                             <div class="ui form-1">
-                                <h:form>
+                                <form>
                                     <div class="ui form">
-                                        <div class="two fields">
-                                        </div>
+                                        <input type="number" 
+                                            placeholder="Código del equipo por Dpto"
+                                            id="codigoEqR"
+                                            name="codigoEM"
+                                            style="display: none"/>
 
                                         <div class="field">
                                             <label>Motivo</label>
-                                            <h:inputTextarea pt:type="text" pt:placeholder="Motivo de la reparación"/>
+                                            <textarea type="text" 
+                                                      placeholder="Motivo de la reparación"
+                                                      id="motivoR"/>
                                         </div>
                                     </div>
 
@@ -451,7 +456,8 @@
                                                 Cancelar
                                             </div>
 
-                                            <div class="ui green ok inverted button">
+                                            <div class="ui green ok inverted button"
+                                                 onclick="incluirSolicitudReparacion('#{usuarioBean.usuarioActivo.nombreUsuario}')">
                                                 <i class="checkmark icon"></i>
                                                 Aceptar
                                             </div>
@@ -459,7 +465,7 @@
                                         </div>
                                     </div>
 
-                                </h:form>
+                                </form>
 
                                 <div class="actions">
                                     <div class="ui center aligned fluid container" >
@@ -497,13 +503,17 @@
                             <div class="ui form-1">
                                 <h:form>
                                     <div class="ui form">
-                                        <div class="two fields">
-                                        </div>
+                                        <input type="number" 
+                                            placeholder="Código del equipo por Dpto"
+                                            id="codigoEqD"
+                                            name="codigoEM"
+                                            style="display: none"/>
 
                                         <div class="field">
                                             <label>Motivo</label>
                                             <textArea type="text" 
-                                                   placeholder="Motivo de la desincorporación" />
+                                                   placeholder="Motivo de la desincorporación"
+                                                   id="motivoD"/>
                                         </div>
                                     </div>
 
@@ -517,7 +527,8 @@
                                                 <i class="remove icon"></i>
                                                 Cancelar
                                             </div>
-                                            <div class="ui green ok inverted button">
+                                            <div class="ui green ok inverted button"
+                                                 onclick="incluirSolicitudDesincorporacion('#{usuarioBean.usuarioActivo.nombreUsuario}')">
                                                 <i class="checkmark icon"></i>
                                                 Aceptar
                                             </div>

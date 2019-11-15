@@ -63,8 +63,8 @@ function buscarUsuario(id){
 }
 
 function incluirSolicitudReparacion(nombreU){
-    var equi= $('input[id=codEq]').val();
-    buscarUsuario(nombreU);
+    var equi = equi = $('input[id=codigoEqR]').val();
+    console.log(equi);
     var fecha = new Date();
     $.ajax({
         type: 'POST',
@@ -72,11 +72,13 @@ function incluirSolicitudReparacion(nombreU){
         data: JSON.stringify({
             "codigo" : null,
             "nombreUsuario": {
-                "nombreUsuario":usuario.nombreUsuario,
+                "nombreUsuario":nombreU,
             },
-            "codigoEquipoDepartamento" : equi,
+            "codigoEquipoDepartamento" : {
+                "codigo":equi,
+            },
             "tipoSolicitud":  "R",
-            "fechaInicio" : "'"+fecha.getDate()+"-"+fecha.getMonth()+"-"+fecha.getFullYear()+"'",
+            "fechaInicio" : fecha,
             "motivo": $('textArea[id=motivoR]').val(),
             "estatus": "P"
         }),
@@ -96,7 +98,44 @@ function incluirSolicitudReparacion(nombreU){
             Swal.fire("Error","Hubo un error realizando la inclusión","error");
         }
     });
-    
+}
+
+function incluirSolicitudDesincorporacion(nombreU){
+    var equi = equi = $('input[id=codigoEqD]').val();
+    console.log(equi);
+    var fecha = new Date();
+    $.ajax({
+        type: 'POST',
+        url: '/sistema_zeus/webservice/solicitudes/',
+        data: JSON.stringify({
+            "codigo" : null,
+            "nombreUsuario": {
+                "nombreUsuario":nombreU,
+            },
+            "codigoEquipoDepartamento" : {
+                "codigo":equi,
+            },
+            "tipoSolicitud":  "D",
+            "fechaInicio" : fecha,
+            "motivo": $('textArea[id=motivoD]').val(),
+            "estatus": "P"
+        }),
+        headers: { 
+            'Accept': 'application/json',
+            'Content-Type': 'application/json' 
+        },
+        success: function (data) {
+            console.log("Registrado: "+data);
+            $('#txtexito').modal('show');
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+            console.log(thrownError);
+            console.log("No se ha podido obtener la información");
+            Swal.fire("Error","Hubo un error realizando la inclusión","error");
+        }
+    });
 }
 
 function aceptarSolicitud(id){

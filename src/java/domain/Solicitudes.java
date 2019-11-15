@@ -91,7 +91,6 @@ public class Solicitudes implements Serializable {
     
     @JoinColumn(name = "nombre_usuario", referencedColumnName = "nombre_usuario")
     @ManyToOne(optional = false)
-    
     private Usuario nombreUsuario;
 
     public Solicitudes() {

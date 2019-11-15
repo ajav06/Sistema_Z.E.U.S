@@ -274,6 +274,8 @@ function llenarCamposEquipoDepartamento(data, estado, equipo, codEs, codEq){
     
     document.getElementsByName('codigoEquipoD')[0].value = data.codigo;
     document.getElementsByName('codigoEM')[0].value = data.codigo;
+    document.getElementsByName('codigoEM')[1].value = data.codigo;
+    document.getElementsByName('codigoEM')[2].value = data.codigo;
     
     document.getElementsByName('estadoEquipoD')[0].value = estado;
     

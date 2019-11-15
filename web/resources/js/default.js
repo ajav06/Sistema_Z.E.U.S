@@ -77,8 +77,11 @@ function eliminar(){
 }
 
 //Modal para solicitar desincorporar
-function desincorporar() {
+function desincorporar(cod) {
     $('#formdesincorporar').modal('show');
+    if(cod!=null){
+        document.getElementsByName('codigoEM')[2].value = cod;
+    }
 }
 
 //aceptar desincorporacion
@@ -88,8 +91,11 @@ function aceptarDesincorporacion(){
 }
 
 //Modal para solicitar reparar
-function reparar(){
+function repararE(cod){
     $('#formreparar').modal('show');
+    if(cod!=null){
+        document.getElementById('codigoEqR').value = cod;
+    }
 }
 
 //aceptar reparacion
