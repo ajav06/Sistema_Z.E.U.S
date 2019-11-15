@@ -22,39 +22,23 @@ function  listaEquiposDepartamento(){
     });
 }
 
-function buscarEquipo(tipo){
-    if(tipo==1)
-    {
-        var nom = $('select[id=nombreEquipoDI] option:selected').text();
-        console.log(nom);
-        if (nom != "Seleccione..."){
-            $.ajax({
-                url: '/sistema_zeus/webservice/equipos/' + nom,
-                type: 'GET',
-                dataType: 'JSON',
-                success: function (data, textStatus, jqXHR) {
-                    console.log(data);
-                    equipoDepartamentoSeleccionado = data;
-                }
-            });
-        } else {
-            equipoDepartamentoSeleccionado = null;
-        }
+function buscarEquipo(){
+    var id = $('select[name=nombreEquipoDI] option:selected').val();
+    if (id != null){
+        id=parseInt(id)+1;
     }
-    else{
-        var nom = $('select[id=nombreEquipoDM] option:selected').text();
-        console.log(nom);
-        if (nom != "Seleccione..."){
-            $.ajax({
-                url: '/sistema_zeus/webservice/equipos/' + nom,
-                type: 'GET',
-                dataType: 'JSON',
-                success: function (data, textStatus, jqXHR) {
-                    console.log(data);
-                    equipoDepartamentoSeleccionado = data;
-                }
-            });
-        }
+    
+    console.log(id);
+    if(id != null){
+        $.ajax({
+            url: '/sistema_zeus/webservice/equipos/' + id,
+            type: 'GET',
+            dataType: 'JSON',
+            success: function (data, textStatus, jqXHR) {
+                console.log(data);
+                equipoDepartamentoSeleccionado = data;
+            }
+        });
     }
 }
 
@@ -79,38 +63,29 @@ function buscarSelectEquipo(id)
 
 
 function buscarEstadoEquipo(tipo){
-    if(tipo==1)
-    {
-        var nom = $('select[id=estadoEquipoDI] option:selected').text();
-        console.log(nom);
-        if (nom != "Seleccione..."){
-            $.ajax({
-                url: '/sistema_zeus/webservice/estadosEquipo/' + nom,
-                type: 'GET',
-                dataType: 'JSON',
-                success: function (data, textStatus, jqXHR) {
-                    console.log(data);
-                    estadoEquipoSeleccionado = data;
-                }
-            });
-        } else {
-            estadoEquipoSeleccionado = null;
+    if(tipo==1){
+        var id = $('select[name=estadoEquipoDI] option:selected').val();
+        if (id != null){
+            id=parseInt(id)+1;
+        }
+    }else{
+        var id = $('select[name=estadoEquipoDM] option:selected').val();
+        if (id != null){
+            id=parseInt(id)+1;
         }
     }
-    else{
-        var nom = $('select[name=estadoEquipoDM] option:selected').text();
-        console.log(nom);
-        if (nom != "Seleccione..."){
-            $.ajax({
-                url: '/sistema_zeus/webservice/estadosEquipo/' + nom,
-                type: 'GET',
-                dataType: 'JSON',
-                success: function (data, textStatus, jqXHR) {
-                    console.log(data);
-                    estadoEquipoSeleccionado = data;
-                }
-            });
-        }
+    
+    console.log(id);
+    if(id != null){
+        $.ajax({
+            url: '/sistema_zeus/webservice/estadosEquipo/' + id,
+            type: 'GET',
+            dataType: 'JSON',
+            success: function (data, textStatus, jqXHR) {
+                console.log(data);
+                estadoEquipoSeleccionado = data;
+            }
+        });
     }
 }
 
@@ -134,39 +109,23 @@ function buscarSelectEstadoEquipo(id)
 }
 
 
-function buscarDepartamento(tipo){
-    if(tipo==1)
-    {
-        var nom = $('select[id=nombreDptoDI] option:selected').text();
-        console.log(nom);
-        if (nom != "Seleccione..."){
-            $.ajax({
-                url: '/sistema_zeus/webservice/departamentos/' + nom,
-                type: 'GET',
-                dataType: 'JSON',
-                success: function (data, textStatus, jqXHR) {
-                    console.log(data);
-                    departamentoSeleccionado = data;
-                }
-            });
-        } else {
-            departamentoSeleccionado = null;
-        }
+function buscarDepartamento(){
+    var id = $('select[name=nombreDptoDI] option:selected').val();
+    if (id != null){
+        id=parseInt(id)+1;
     }
-    else{
-        var nom = $('select[name=nombreDptoDM] option:selected').text();
-        console.log(nom);
-        if (nom != "Seleccione..."){
-            $.ajax({
-                url: '/sistema_zeus/webservice/departamentos/' + nom,
-                type: 'GET',
-                dataType: 'JSON',
-                success: function (data, textStatus, jqXHR) {
-                    console.log(data);
-                    departamentoSeleccionado = data;
-                }
-            });
-        }
+    
+    console.log(id);
+    if(id != null){
+        $.ajax({
+            url: '/sistema_zeus/webservice/departamentos/' + id,
+            type: 'GET',
+            dataType: 'JSON',
+            success: function (data, textStatus, jqXHR) {
+                console.log(data);
+                departamentoSeleccionado = data;
+            }
+        });
     }
 }
 
@@ -197,25 +156,15 @@ function incluirEquipoDpto(){
         type: 'POST',
         url: '/sistema_zeus/webservice/equiposDpto/',
         data: JSON.stringify({
+            "codigo":null,
             "codigoEquipo" : {
                 "codigo" : equipoDepartamentoSeleccionado.codigo,
-                "codigoMarca" : equipoDepartamentoSeleccionado.codigoMarca,
-                "nombre" : equipoDepartamentoSeleccionado.nombre,
-                "descripcion" : equipoDepartamentoSeleccionado.descripcion,
-                "estatus" : equipoDepartamentoSeleccionado.estatus
             },
             "codigoEstadoEquipo" : {
                 "codigo" : estadoEquipoSeleccionado.codigo,
-                "nombre" : estadoEquipoSeleccionado.nombre,
-                "descripcion" : estadoEquipoSeleccionado.descripcion,
-                "estatus" : estadoEquipoSeleccionado.estatus
             },
             "codigoDepartamento" : {
                 "codigo" : departamentoSeleccionado.codigo,
-                "codigoDecanato" : departamentoSeleccionado.codigoDecanato,
-                "nombre" : departamentoSeleccionado.nombre,
-                "descripcion" : departamentoSeleccionado.descripcion,
-                "estatus" : departamentoSeleccionado.estatus
             }
         }),
         headers: { 
@@ -243,25 +192,15 @@ function actualizarEquipoDpto(){
         url: '/sistema_zeus/webservice/equiposDpto/' + id,
         type: 'PUT',
         data: JSON.stringify({
+            "codigo": id,
             "codigoEquipo" : {
                 "codigo" : equipoDepartamentoSeleccionado.codigo,
-                "codigoMarca" : equipoDepartamentoSeleccionado.codigoMarca,
-                "nombre" : equipoDepartamentoSeleccionado.nombre,
-                "descripcion" : equipoDepartamentoSeleccionado.descripcion,
-                "estatus" : equipoDepartamentoSeleccionado.estatus
             },
             "codigoEstadoEquipo" : {
                 "codigo" : estadoEquipoSeleccionado.codigo,
-                "nombre" : estadoEquipoSeleccionado.nombre,
-                "descripcion" : estadoEquipoSeleccionado.descripcion,
-                "estatus" : estadoEquipoSeleccionado.estatus
             },
             "codigoDepartamento" : {
                 "codigo" : departamentoSeleccionado.codigo,
-                "codigoDecanato" : departamentoSeleccionado.codigoDecanato,
-                "nombre" : departamentoSeleccionado.nombre,
-                "descripcion" : departamentoSeleccionado.descripcion,
-                "estatus" : departamentoSeleccionado.estatus
             }
         }),
         headers: { 
@@ -287,29 +226,7 @@ function eliminarEquipoDpto(){
         
     $.ajax({
         url: '/sistema_zeus/webservice/equiposDpto/' + id,
-        type: 'PUT',
-        data: JSON.stringify({
-            "codigoEquipo" : {
-                "codigo" : eliminarEquipoDepartamento.codigoEquipo.codigo,
-                "codigoMarca" : eliminarEquipoDepartamento.codigoEquipo.codigoMarca,
-                "nombre" : eliminarEquipoDepartamento.codigoEquipo.nombre,
-                "descripcion" : eliminarEquipoDepartamento.codigoEquipo.descripcion,
-                "estatus" : eliminarEquipoDepartamento.codigoEquipo.estatus
-            },
-            "codigoEstadoEquipo" : {
-                "codigo" : eliminarEquipoDepartamento.codigoEstadoEquipo.codigo,
-                "nombre" : eliminarEquipoDepartamento.codigoEstadoEquipo.nombre,
-                "descripcion" : eliminarEquipoDepartamento.codigoEstadoEquipo.descripcion,
-                "estatus" : eliminarEquipoDepartamento.codigoEstadoEquipo.estatus
-            },
-            "codigoDepartamento" : {
-                "codigo" : eliminarEquipoDepartamento.codigoDepartamento.codigo,
-                "codigoDecanato" : eliminarEquipoDepartamento.codigoDepartamento.codigoDecanato,
-                "nombre" : eliminarEquipoDepartamento.codigoDepartamento.nombre,
-                "descripcion" : eliminarEquipoDepartamento.codigoDepartamento.descripcion,
-                "estatus" : eliminarEquipoDepartamento.codigoDepartamento.estatus
-            }
-        }),
+        type: 'DELETE',
         headers: { 
             'Accept': 'application/json',
             'Content-Type': 'application/json' 
@@ -351,7 +268,7 @@ function llenarCamposEquipoDepartamento(data){
     eliminarEquipoDepartamento = data;
     
     document.getElementsByName('codigoEquipoD')[0].value = data.codigo;
-    document.getElementsByName('codEq')[0].value = data.codigo;
+    //document.getElementsByName('codEq')[0].value = data.codigo;
    //document.getElementsByName('estadoEquipoD')[0].value = data.codigoEstadoEquipo.nombre;
     
     //document.getElementsByName('nombreEquipoD')[0].value = data.codigoEquipo.nombre;
@@ -362,7 +279,7 @@ function llenarCamposEquipoDepartamento(data){
     
     //buscarSelectEquipo(data.codigoEquipo.nombre);
    // buscarSelectEstadoEquipo(data.codigoEstadoEquipo.codigo);
-    buscarSelectDepartamento(data.codigoDepartamento.nombre);
+    //buscarSelectDepartamento(data.codigoDepartamento.nombre);
     
     consultar();
 }

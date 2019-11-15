@@ -174,6 +174,7 @@ function llenarCamposUsuario(data){
     document.getElementsByName('usernameU')[1].value = data.nombreUsuario;
     
     document.getElementsByName('tipoU')[0].value = data.grupoUsuario.codigoTipoUsuario.nombre;
+    buscarSelectTipoU(data.grupoUsuario.codigoTipoUsuario.nombre);
 
     document.getElementsByName('cedulaU')[0].value = data.cedula;
     document.getElementsByName('cedulaU')[1].value = data.cedula;
@@ -192,8 +193,6 @@ function llenarCamposUsuario(data){
     
     document.getElementsByName('emailU')[0].value = data.correo;
     document.getElementsByName('emailU')[1].value = data.correo;
-    
-    
     
     consultar();
 }
@@ -250,4 +249,42 @@ function buscarTipoU(tipo){
             }
         });
     }
+}
+
+function buscarSelectDptoU(id)
+{
+	// creamos un variable que hace referencia al select
+	var select=document.getElementsByName('departamentoU')[1];
+ 
+	// obtenemos el valor a buscar
+	var buscar=id;
+ 
+	// recorremos todos los valores del select
+	for(var i=1;i<select.length;i++)
+	{
+            if(select.options[i].text==buscar)
+            {
+                // seleccionamos el valor que coincide
+                select.selectedIndex=i;
+            }
+	}
+}
+
+function buscarSelectTipoU(id)
+{
+	// creamos un variable que hace referencia al select
+	var select=document.getElementsByName('tipoU')[1];
+ 
+	// obtenemos el valor a buscar
+	var buscar=id;
+ 
+	// recorremos todos los valores del select
+	for(var i=1;i<select.length;i++)
+	{
+            if(select.options[i].text==buscar)
+            {
+                // seleccionamos el valor que coincide
+                select.selectedIndex=i;
+            }
+	}
 }

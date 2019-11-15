@@ -18,7 +18,7 @@
 
                     <div class="ui category search">
 
-                        <div class="ui centered grid" style="#{request.isUserInRole('ADMIN') ? '' : 'display: none'}">
+                        <div class="ui centered grid" style="#{request.isUserInRole('EMPLEADO') ? '' : 'display: none'}">
                             <div class="ui animated circular button" 
                                  tabindex="0" 
                                  pt:aria-label="Equipos"
@@ -63,14 +63,13 @@
                                 <div class="item">
                                     <div class="ui centered grid">
                                         <div class="ui animated circular button" tabindex="0"
-                                             onclick="consultarEquipoDpto(#{equipoDepartamento.codigo});
-                                             imprimir(#{equipoDepartamento.codigo})"
+                                             onclick="consultarEquipoDpto(#{equipoDepartamento.codigo})"
                                              id="consultar">
                                             <div class="visible content">Consultar</div>
                                             <div class="hidden content">Ver detalles</div>
                                         </div>
                                         
-                                        <div style="#{request.isUserInRole('ADMIN') ? '' : 'display: none'}">
+                                        <div style="#{request.isUserInRole('EMPLEADO') ? '' : 'display: none'}">
                                             <div class="ui animated circular button" tabindex="0"
                                                  onclick="reparar()"
                                                  id="reparar">
@@ -177,18 +176,18 @@
 
                                         <div class="ui circular button"
                                              onclick="modificar()"
-                                             style="#{request.isUserInRole('ADMIN') ? '' : 'display: none'}"> 
+                                             style="#{request.isUserInRole('EMPLEADO') ? '' : 'display: none'}"> 
                                             Modificar
                                         </div>
 
                                         <div class="ui circular button"
                                              onclick="eliminar()"
-                                             style="#{request.isUserInRole('ADMIN') ? '' : 'display: none'}"> 
+                                             style="#{request.isUserInRole('EMPLEADO') ? '' : 'display: none'}"> 
                                             Eliminar
                                         </div>
                                     </div>
 
-                                    <div class="ui center aligned fluid container">
+                                    <div class="ui center aligned fluid container" style="#{request.isUserInRole('EMPLEADO') ? '' : 'display: none'}">
                                         <div class="ui animated circular button" tabindex="0"
                                              onclick="reparar()"
                                              id="reparar">
@@ -233,59 +232,23 @@
                                         style="display: none"/>
 
                                     <div class="ui form">
-                                        <div class="two fields">
-                                            <div class="field">
-                                                <label>Equipo</label>
-                                                <h:selectOneMenu
-                                                     class="ui fluid dropdown"
-                                                     pt:name="nombreEquipoDM"
-                                                     id="nombreEquipoDM"
-                                                     converter="omnifaces.SelectItemsIndexConverter"
-                                                     required="true"
-                                                     requiredMessage="Selecciona un Equipo">
-                                                    <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
-                                                    <f:selectItems value="#{equipoBean.equipos}" var="equipo" 
-                                                                   itemValue="#{equipo.codigo}"
-                                                                   itemLabel="#{equipo.nombre}" />
-                                                </h:selectOneMenu>
-                                            </div>
-
-                                            <div class="field">
-                                                <label>Estado</label>
-                                                <h:selectOneMenu
-                                                     class="ui fluid dropdown"
-                                                     pt:name="estadoEquipoDM"
-                                                     id="estadoEquipoDM"
-                                                     converter="omnifaces.SelectItemsIndexConverter"
-                                                     required="true"
-                                                     requiredMessage="Selecciona un Estado">
-                                                    <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
-                                                    <f:selectItems value="#{estadoEquipoBean.estadosEquipos}" var="estadoEquipo" 
-                                                                   itemValue="#{estadoEquipo.codigo}"
-                                                                   itemLabel="#{estadoEquipo.nombre}" />
-                                                </h:selectOneMenu>
-                                            </div>
-                                            
-                                            <div class="field">
-                                                <label>Departamento</label>
-                                                <h:selectOneMenu
-                                                     class="ui fluid dropdown"
-                                                     pt:name="nombreDptoDM"
-                                                     id="nombreDptoDM"
-                                                     converter="omnifaces.SelectItemsIndexConverter"
-                                                     required="true"
-                                                     requiredMessage="Selecciona un Departamento">
-                                                    <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
-                                                    <f:selectItems value="#{departamentoBean.departamentos}" var="departamento" 
-                                                                   itemValue="#{departamento.codigo}"
-                                                                   itemLabel="#{departamento.nombre}"/>
-                                                </h:selectOneMenu>
-                                            </div>
-
+                                        <div class="field">
+                                            <label>Estado</label>
+                                            <h:selectOneMenu
+                                                 class="ui fluid dropdown"
+                                                 pt:name="estadoEquipoDM"
+                                                 id="estadoEquipoDM"
+                                                 converter="omnifaces.SelectItemsIndexConverter"
+                                                 required="true"
+                                                 onchange="buscarEstadoEquipo(2)"
+                                                 requiredMessage="Selecciona un Estado">
+                                                <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
+                                                <f:selectItems value="#{estadoEquipoBean.estadosEquipos}" var="estadoEquipo" 
+                                                               itemValue="#{estadoEquipo.codigo}"
+                                                               itemLabel="#{estadoEquipo.nombre}" />
+                                            </h:selectOneMenu>
                                         </div>
-
                                     </div>
-
 
                                     <!-- Mensaje de confirmacion de modificacion ''<> -->
                                     <div class="ui mini modal" id="modificacion">
@@ -299,10 +262,7 @@
                                             </div>
 
                                             <div class="ui green ok inverted button" 
-                                                 onclick="aceptarModificacion();
-                                                          buscarEquipo(2);
-                                                          buscarEstadoEquipo(2);
-                                                          buscarDepartamento(2)">
+                                                 onclick="actualizarEquipoDpto()">
                                                 <i class="checkmark icon"></i>
                                                 Aceptar
                                             </div>
@@ -319,7 +279,8 @@
                                             Atrás 
                                         </button>
                                         <button class="ui circular button"
-                                                onclick="actualizarEquipoDpto()">
+                                                onclick="aceptarModificacion();
+                                                          buscarEstadoEquipo(2)">
                                             <i class='save icon'></i>
                                             Guardar
                                         </button>
@@ -357,6 +318,7 @@
                                                      id="nombreEquipoDI"
                                                      converter="omnifaces.SelectItemsIndexConverter"
                                                      required="true"
+                                                     onchange="buscarEquipo()"
                                                      requiredMessage="Selecciona un Equipo">
                                                     <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
                                                     <f:selectItems value="#{equipoBean.equipos}" var="equipo" 
@@ -371,6 +333,7 @@
                                                      class="ui fluid dropdown"
                                                      pt:name="estadoEquipoDI"
                                                      id="estadoEquipoDI"
+                                                     onchange="buscarEstadoEquipo(1)"
                                                      converter="omnifaces.SelectItemsIndexConverter"
                                                      required="true"
                                                      requiredMessage="Selecciona un Estado">
@@ -389,11 +352,12 @@
                                                      id="nombreDptoDI"
                                                      converter="omnifaces.SelectItemsIndexConverter"
                                                      required="true"
+                                                     onchange="buscarDepartamento()"
                                                      requiredMessage="Selecciona un Departamento">
                                                     <f:selectItem  itemLabel="Seleccione..." itemValue="#{null}" noSelectionOption="true" />
                                                     <f:selectItems value="#{departamentoBean.departamentos}" var="departamento" 
                                                                    itemValue="#{departamento.codigo}"
-                                                                   itemLabel="#{departamento.nombre}"/>
+                                                                   itemLabel="#{departamento.nombre} - #{departamento.codigoDecanato.siglas}"/>
                                                 </h:selectOneMenu>
                                             </div>
 
@@ -413,10 +377,7 @@
                                             </div>
 
                                             <div class="ui green ok inverted button"
-                                                 onclick="aceptarInclusion();
-                                                          buscarEquipo(1);
-                                                          buscarEstadoEquipo(1);
-                                                          buscarDepartamento(1)">
+                                                 onclick="incluirEquipoDpto()">
                                                 <i class="checkmark icon"></i>
                                                 Aceptar
                                             </div>
@@ -432,7 +393,10 @@
                                             Cancelar 
                                         </button>
                                         <button class="ui circular button"
-                                                onclick="incluirEquipoDpto()">
+                                                onclick="aceptarInclusion();
+                                                          buscarEquipo();
+                                                          buscarEstadoEquipo(1);
+                                                          buscarDepartamento()">
                                             <i class="save icon"></i> 
                                             Guardar 
                                         </button>
