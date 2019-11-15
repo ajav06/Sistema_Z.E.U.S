@@ -10,6 +10,9 @@ var eliminarEquipoDepartamento = null;
 var equipoDepartamentoSeleccionado = null;
 var estadoEsquipoSeleccionado = null;
 var departamentoSeleccionado = null;
+var codigoEstado = null;
+var codigoEquipo = null;
+var codigoDpto = null;
 
 function  listaEquiposDepartamento(){
     $.ajax({
@@ -92,7 +95,7 @@ function buscarEstadoEquipo(tipo){
 function buscarSelectEstadoEquipo(id)
 {
 	// creamos un variable que hace referencia al select
-	var select=document.getElementsByName('estadoEquipoD')[0];
+	var select=document.getElementsByName('estadoEquipoDM')[0];
  
 	// obtenemos el valor a buscar
 	var buscar=id;
@@ -186,7 +189,7 @@ function incluirEquipoDpto(){
 }
 
 function actualizarEquipoDpto(){
-    var id = $('input[id=codigo]').val();
+    var id = $('input[id=codigoEM]').val();
     
     $.ajax({
         url: '/sistema_zeus/webservice/equiposDpto/' + id,
@@ -194,13 +197,13 @@ function actualizarEquipoDpto(){
         data: JSON.stringify({
             "codigo": id,
             "codigoEquipo" : {
-                "codigo" : equipoDepartamentoSeleccionado.codigo,
+                "codigo" : codigoEquipo,
             },
             "codigoEstadoEquipo" : {
                 "codigo" : estadoEquipoSeleccionado.codigo,
             },
             "codigoDepartamento" : {
-                "codigo" : departamentoSeleccionado.codigo,
+                "codigo" : codigoDpto,
             }
         }),
         headers: { 
@@ -227,10 +230,6 @@ function eliminarEquipoDpto(){
     $.ajax({
         url: '/sistema_zeus/webservice/equiposDpto/' + id,
         type: 'DELETE',
-        headers: { 
-            'Accept': 'application/json',
-            'Content-Type': 'application/json' 
-        },
         success: function (data) {
             console.log("Actualizado: "+data);
             $('#txtexito').modal('show');
@@ -245,14 +244,14 @@ function eliminarEquipoDpto(){
     });
 }
 
-function consultarEquipoDpto(id){
+function consultarEquipoDpto(id, estado, equipo, codEs, codEq){
     $.ajax({
         url: '/sistema_zeus/webservice/equiposDpto/' + id,
         type: 'GET',
         dataType: 'JSON',
         success: function (data) {            
             console.log(data);
-            llenarCamposEquipoDepartamento(data);
+            llenarCamposEquipoDepartamento(data, estado, equipo, codEs, codEq);
         },
         error: function(xhr, ajaxOptions, thrownError) {
             console.log(xhr.status);
@@ -264,21 +263,28 @@ function consultarEquipoDpto(id){
     });
 }
 
-function llenarCamposEquipoDepartamento(data){
+function llenarCamposEquipoDepartamento(data, estado, equipo, codEs, codEq){
     eliminarEquipoDepartamento = data;
     
-    document.getElementsByName('codigoEquipoD')[0].value = data.codigo;
-    //document.getElementsByName('codEq')[0].value = data.codigo;
-   //document.getElementsByName('estadoEquipoD')[0].value = data.codigoEstadoEquipo.nombre;
+    codigoDpto = data.codigoDepartamento.codigo;
     
-    //document.getElementsByName('nombreEquipoD')[0].value = data.codigoEquipo.nombre;
+    codigoEquipo = codEq;
+    
+    codigoEstado = codEs;
+    
+    document.getElementsByName('codigoEquipoD')[0].value = data.codigo;
+    document.getElementsByName('codigoEM')[0].value = data.codigo;
+    
+    document.getElementsByName('estadoEquipoD')[0].value = estado;
+    
+    document.getElementsByName('nombreEquipoD')[0].value = equipo;
     
     document.getElementsByName('nombreDcoEquipoD')[0].value = data.codigoDepartamento.codigoDecanato.nombre;
     
     document.getElementsByName('nombreDptoEquipoD')[0].value = data.codigoDepartamento.nombre;
     
     //buscarSelectEquipo(data.codigoEquipo.nombre);
-   // buscarSelectEstadoEquipo(data.codigoEstadoEquipo.codigo);
+    buscarSelectEstadoEquipo(estado);
     //buscarSelectDepartamento(data.codigoDepartamento.nombre);
     
     consultar();
