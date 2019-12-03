@@ -18,7 +18,7 @@ Asignatura: Laboratorio II.
 ## Front-End:
 * XHTML (JSF)
 * CSS3
-* Semantic-UI: Semantic es un framework de desarrollo que permite crear diseños hermosos y flexibles utilizando HTML amigable.
+* Semantic-UI: es un framework de desarrollo que permite crear diseños hermosos y flexibles utilizando HTML amigable.
 
 ## Desarrolladores:
 ### Back-End:
