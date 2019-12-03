@@ -5,19 +5,19 @@ Asignatura: Laboratorio II.
 
 ## Back-End: 
 ### JavaEE con el uso de las API's:
-* Java Server Faces (JSF)
-* Java Transaction API (JTA)
-* REST - WebService (JWS)
+* Java Server Faces (JSF).
+* Java Transaction API (JTA).
+* REST - WebService (JWS).
 ### Rest:
-* JQuery
-* JavaScript
+* JQuery.
+* JavaScript.
 
 ## Servidor:
 * GlassFish 4.1.2
 
 ## Front-End:
-* XHTML (JSF)
-* CSS3
+* XHTML (JSF).
+* CSS3.
 * Semantic-UI: es un framework de desarrollo que permite crear diseños hermosos y flexibles utilizando HTML amigable.
 
 ## Desarrolladores:
