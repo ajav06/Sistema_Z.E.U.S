@@ -19,6 +19,7 @@ Asignatura: Laboratorio II.
 * XHTML (JSF).
 * CSS3.
 * Semantic-UI: es un framework de desarrollo que permite crear diseños hermosos y flexibles utilizando HTML amigable.
+* DataTables
 
 ## Desarrolladores:
 ### Back-End:
