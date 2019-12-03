@@ -27,4 +27,4 @@ Asignatura: Laboratorio II.
 ### Front-End:
 * Daniela Cadenas (https://github.com/danielacadenasm)
 * Marielba Maldonado (https://github.com/Marielbamar21)
-* Maria Vela 
+* •	María Vela 
